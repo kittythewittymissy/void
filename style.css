@@ -49,12 +49,12 @@ body {
   }
 
   100% {
-    text-shadow:
-      0 0 4px #FFD662,
-      0 0 12px #FFD662,
-      0 0 30px #ffffff;
-    opacity: 0.95;
-  }
+  text-shadow:
+    0 0 6px #FFD662,
+    0 0 18px #FFD662,
+    0 0 45px #ffffff,
+    0 0 90px #ffffff;
+  opacity: 1;
 }
 
 /* ===== TITLE BOX ===== */
