@@ -15,63 +15,59 @@ body {
 }
 
 /* ===== NEON ANIMATION ===== */
-@keyframes neonFlicker {
+@keyframes neonBlaze {
   0% {
     text-shadow:
       0 0 4px #FFD662,
       0 0 10px #FFD662,
-      0 0 20px #ffffff;
+      0 0 25px #ffffff,
+      0 0 50px #ffffff;
     opacity: 0.85;
   }
 
-  20% {
+  15% {
     text-shadow:
       0 0 6px #FFD662,
       0 0 15px #FFD662,
-      0 0 35px #ffffff,
-      0 0 70px #ffffff;
+      0 0 40px #ffffff,
+      0 0 90px #ffffff,
+      0 0 160px #ffffff;
     opacity: 1;
   }
 
-  22% {
+  18% {
     text-shadow:
-      0 0 2px #FFD662,
-      0 0 5px #ffffff;
-    opacity: 0.6;
+      0 0 2px #FFD662;
+    opacity: 0.4; /* brief power dip */
   }
 
-  30% {
+  35% {
     text-shadow:
-      0 0 8px #FFD662,
-      0 0 20px #FFD662,
-      0 0 45px #ffffff,
-      0 0 90px #ffffff;
-    opacity: 1;
-  }
-
-  55% {
-    text-shadow:
-      0 0 5px #FFD662,
-      0 0 12px #FFD662,
-      0 0 25px #ffffff;
-    opacity: 0.9;
-  }
-
-  70% {
-    text-shadow:
-      0 0 12px #FFD662,
+      0 0 10px #FFD662,
       0 0 30px #FFD662,
       0 0 80px #ffffff,
-      0 0 140px #ffffff;
+      0 0 180px #ffffff,
+      0 0 260px #ffffff;
     opacity: 1;
+  }
+
+  60% {
+    text-shadow:
+      0 0 6px #FFD662,
+      0 0 20px #FFD662,
+      0 0 60px #ffffff,
+      0 0 120px #ffffff;
+    opacity: 0.95;
   }
 
   100% {
     text-shadow:
-      0 0 6px #FFD662,
-      0 0 15px #FFD662,
-      0 0 35px #ffffff;
-    opacity: 0.85;
+      0 0 8px #FFD662,
+      0 0 25px #FFD662,
+      0 0 70px #ffffff,
+      0 0 140px #ffffff,
+      0 0 220px #ffffff;
+    opacity: 1;
   }
 }
 
@@ -82,14 +78,11 @@ h1 {
   font-weight: 400;
   color: #FFD662;
 
-  white-space: nowrap;       /* FORCE single line */
-  overflow: visible;
-  line-height: 1.1;
-
-  letter-spacing: 0.06em;    /* slightly tighter so it fits */
+  white-space: nowrap;
+  letter-spacing: 0.05em;
   text-align: center;
 
-  animation: neonFlicker 4.2s infinite;
+  animation: neonBlaze 3.8s infinite;
 }
 
 /* ===== SUBHEADS ===== */
