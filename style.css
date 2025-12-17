@@ -82,6 +82,9 @@ h1 {
   letter-spacing: 0.05em;
   text-align: center;
 
+  /* fake bold */
+  -webkit-text-stroke: 0.6px #FFD662;
+
   animation: neonBlaze 3.8s infinite;
 }
 
