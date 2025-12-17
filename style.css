@@ -16,34 +16,6 @@ body {
 
 /* ===== NEON ANIMATION (CONTROLLED) ===== */
 @keyframes neonBlaze {
-/* ===== TITLE BOX ===== */
-.title-box {
-  display: inline-block;
-  padding: 32px 52px;
-
-  border: 2px dashed #ffffff;
-  border-radius: 4px;
-
-  box-shadow:
-    0 0 6px rgba(255, 255, 255, 0.4),
-    0 0 18px rgba(255, 214, 98, 0.25);
-
-  animation: boxGlow 2.8s ease-out forwards;
-}
-
-/* subtle power-on glow */
-@keyframes boxGlow {
-  from {
-    box-shadow:
-      0 0 0 rgba(255, 255, 255, 0),
-      0 0 0 rgba(255, 214, 98, 0);
-  }
-  to {
-    box-shadow:
-      0 0 6px rgba(255, 255, 255, 0.4),
-      0 0 18px rgba(255, 214, 98, 0.25);
-  }
-}
   0% {
     text-shadow:
       0 0 3px #FFD662,
@@ -90,7 +62,7 @@ body {
 h1 {
   font-family: 'Codystar', sans-serif;
   font-size: 4em;
-  font-weight: 400; /* Codystar looks better lighter */
+  font-weight: 400;
   color: #FFD662;
 
   white-space: nowrap;
@@ -99,8 +71,8 @@ h1 {
 
   -webkit-text-stroke: 0.4px #FFD662;
 
-  animation: neonBlaze 3.5s ease-out forwards;
-  margin: 0;
+  animation: neonBlaze 4.2s infinite;
+  margin-bottom: 2em;
 }
 
 /* ===== HEADINGS ===== */
