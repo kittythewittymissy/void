@@ -1,60 +1,31 @@
-/* Body */
-body {
-  margin: 0;
-  font-family: 'Cormorant Garamond', serif;
-  background-color: #000;
-  color: #eaeaea;
-  line-height: 1.6;
+/* Neon glow animation keyframes */
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 2px #fff,
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 30px #fff;
+  }
+  50% {
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 40px #fff,
+      0 0 60px #fff;
+  }
 }
 
-/* Container */
-.container {
-  max-width: 700px;
-  margin: 50px auto;
-  padding: 0 20px;
-}
-
-/* Site title with glow */
+/* Apply to site title */
 h1 {
   font-family: 'Raleway Dots', sans-serif;
   font-weight: 400;
   font-size: 4em;
-  color: #fff;
+  color: #FFD700; /* golden letters */
   text-align: center;
   margin-bottom: 1em;
 
-  /* Glowing effect */
-  text-shadow:
-     0 0 5px #fff,
-     0 0 10px #fff,
-     0 0 20px #ff7eb9,
-     0 0 30px #ff7eb9,
-     0 0 40px #ff7eb9;
-}
-
-/* Subtitles */
-h2 {
-  font-family: 'Raleway Dots', sans-serif; /* or clean sans-serif if you prefer */
-  font-weight: 400;
-  font-size: 2em;
-  color: #fff;
-  margin-top: 2em;
-}
-
-/* Paragraphs */
-p {
-  font-size: 1.2em;
-  margin-bottom: 1em;
-}
-
-/* Media spacing */
-.media {
-  margin: 20px 0;
-}
-
-/* Images */
-img {
-  max-width: 100%;
-  display: block;
-  margin: 20px 0;
+  animation: neonPulse 2.5s infinite alternate;
 }
