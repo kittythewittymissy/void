@@ -15,10 +15,10 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  position: relative;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  position: relative;
 }
 
 /* ===== NEON TITLE ===== */
@@ -38,6 +38,8 @@ body {
   box-shadow: 0 0 8px rgba(255,255,255,0.35), 0 0 18px rgba(255,214,98,0.25);
   animation: neonBlaze 5.2s cubic-bezier(0.4,0,0.2,1) forwards;
   z-index: 2;
+  max-width: 95%;
+  box-sizing: border-box;
 }
 
 /* SITE TITLE */
@@ -46,12 +48,13 @@ h1 {
   font-size: 4.5em;
   font-weight: 500;
   color: #FFD662;
-  white-space: nowrap;
   letter-spacing: 0.15em;
   margin: 0;
+  white-space: normal; /* allow wrapping on mobile */
+  word-break: break-word;
 }
 
-/* ===== SIMPLE GLOWING V ARROW ===== */
+/* ===== SIMPLE THIN GLOWING V ARROW ===== */
 .scroll-arrow {
   font-family: 'Codystar', sans-serif;
   font-size: 4em;
@@ -113,9 +116,25 @@ h1 {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  h1 { font-size: 2.5em; }
-  .title-box { padding: 20px 25px; }
-  .scroll-arrow { font-size: 3em; margin-top: 20px; }
-  .section-columns { flex-direction: column; gap: 30px; margin: 40px 15px 80px; }
-  .column { max-width: 100%; text-align: center; }
+  h1 { 
+    font-size: 2.5em; 
+    letter-spacing: 0.05em; 
+  }
+  .title-box { 
+    padding: 20px; 
+    max-width: 90%; 
+  }
+  .scroll-arrow { 
+    font-size: 3em; 
+    margin-top: 20px; 
+  }
+  .section-columns { 
+    flex-direction: column; 
+    gap: 30px; 
+    margin: 40px 15px 80px; 
+  }
+  .column { 
+    max-width: 100%; 
+    text-align: center; 
+  }
 }
