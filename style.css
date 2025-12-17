@@ -129,3 +129,43 @@ img {
   display: block;
   margin: 40px auto;
 }
+/* ===== SCROLL ARROW ===== */
+.scroll-arrow {
+  position: absolute;
+  bottom: 40px;
+  font-family: 'Codystar', sans-serif;
+  font-size: 2.5em;
+  color: #FFD662;
+  opacity: 0;
+
+  text-shadow:
+    0 0 6px #FFD662,
+    0 0 16px rgba(255, 214, 98, 0.8);
+
+  animation:
+    arrowFadeIn 2.5s ease forwards,
+    arrowPulse 2.2s ease-in-out infinite;
+  animation-delay: 3.8s, 6s;
+}
+
+/* Fade in after title settles */
+@keyframes arrowFadeIn {
+  to { opacity: 0.85; }
+}
+
+/* Gentle neon pulse */
+@keyframes arrowPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 6px #FFD662,
+      0 0 16px rgba(255, 214, 98, 0.7);
+    transform: translateY(0);
+  }
+
+  50% {
+    text-shadow:
+      0 0 10px #FFD662,
+      0 0 26px rgba(255, 214, 98, 0.9);
+    transform: translateY(6px);
+  }
+}
