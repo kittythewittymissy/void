@@ -51,13 +51,21 @@ h1 {
 /* ===== SCROLL ARROW ===== */
 .scroll-arrow {
   font-family: 'Codystar', sans-serif;
-  font-size: 4em;             /* make it big */
-  color: #fff;                /* white */
+  font-size: 4em;             
+  color: #fff;                
   text-align: center;
   margin-top: 30px;
-  text-shadow: 0 0 8px #fff, 0 0 16px rgba(255,255,255,0.6); /* glow */
+  text-shadow: 0 0 8px #fff, 0 0 16px rgba(255,255,255,0.6);
   cursor: pointer;
-  animation: arrowPulse 2s ease-in-out infinite;
+
+  /* start invisible */
+  opacity: 0;
+  animation: arrowFadeIn 1.5s forwards 5.3s, arrowPulse 2s ease-in-out infinite 6.8s;
+}
+
+/* fade in */
+@keyframes arrowFadeIn {
+  to { opacity: 1; }
 }
 
 /* gentle pulse */
