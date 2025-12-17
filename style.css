@@ -60,12 +60,13 @@ body {
 /* ===== TITLE BOX ===== */
 .title-box {
   padding: 28px 42px;
-  border: 1px solid rgba(255, 255, 255, 0.85);
+  border: 1.5px solid rgba(255, 255, 255, 0.75);
   display: inline-block;
 
   box-shadow:
-    0 0 8px rgba(255, 255, 255, 0.35),
-    0 0 18px rgba(255, 214, 98, 0.25);
+    0 0 6px rgba(255, 255, 255, 0.35),
+    0 0 14px rgba(255, 214, 98, 0.22),
+    0 0 28px rgba(255, 214, 98, 0.15);
 
   animation: neonBlaze 3.5s ease-out forwards;
 }
