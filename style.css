@@ -15,7 +15,7 @@ body {
   align-items: center;
 }
 
-/* ===== NEON ANIMATION ===== */
+/* ===== NEON ANIMATION (FIXED) ===== */
 @keyframes neonBlaze {
   0% {
     text-shadow:
@@ -30,29 +30,22 @@ body {
     opacity: 0.6;
   }
 
-  /* === BLINDING FLARE === */
+  /* === BRIGHT FLARE (NO WHITE, NO BOX) === */
   45% {
-    text-shadow:
-      0 0 10px #FFD662,
-      0 0 30px #FFD662,
-      0 0 70px #FFD662,
-      0 0 120px #ffffff,
-      0 0 180px #ffffff;
-    box-shadow:
-      0 0 40px rgba(255, 214, 98, 0.9),
-      0 0 120px rgba(255, 255, 255, 0.8);
-    opacity: 1;
-  }
-
-  /* === DECAY === */
-  70% {
     text-shadow:
       0 0 6px #FFD662,
       0 0 18px #FFD662,
-      0 0 30px #ffffff;
-    box-shadow:
-      0 0 12px rgba(255, 214, 98, 0.45),
-      0 0 28px rgba(255, 255, 255, 0.35);
+      0 0 40px #FFD662,
+      0 0 70px rgba(255, 214, 98, 0.85);
+    opacity: 1;
+  }
+
+  /* === SETTLING === */
+  70% {
+    text-shadow:
+      0 0 5px #FFD662,
+      0 0 16px #FFD662,
+      0 0 30px rgba(255, 214, 98, 0.75);
     opacity: 0.95;
   }
 
@@ -61,15 +54,12 @@ body {
     text-shadow:
       0 0 4px #FFD662,
       0 0 12px #FFD662,
-      0 0 30px #ffffff;
-    box-shadow:
-      0 0 8px rgba(255, 214, 98, 0.35),
-      0 0 18px rgba(255, 255, 255, 0.25);
+      0 0 26px rgba(255, 214, 98, 0.7);
     opacity: 0.9;
   }
 }
 
-/* ===== TITLE BOX ===== */
+/* ===== TITLE BOX (STATIC GLOW ONLY) ===== */
 .title-box {
   padding: 28px 42px;
   border: 2px solid rgba(255, 255, 255, 0.85);
