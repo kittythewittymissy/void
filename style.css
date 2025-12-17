@@ -78,12 +78,18 @@ body {
 /* ===== TITLE ===== */
 h1 {
   font-family: 'Raleway Dots', sans-serif;
-  font-size: 4.2em;
+  font-size: 4em;
   font-weight: 400;
   color: #FFD662;
 
+  white-space: nowrap;       /* FORCE single line */
+  overflow: visible;
+  line-height: 1.1;
+
+  letter-spacing: 0.06em;    /* slightly tighter so it fits */
+  text-align: center;
+
   animation: neonFlicker 4.2s infinite;
-  letter-spacing: 0.08em;
 }
 
 /* ===== SUBHEADS ===== */
