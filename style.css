@@ -60,7 +60,7 @@ h1 {
 
   /* start invisible */
   opacity: 0;
-  animation: arrowFadeIn 1.5s forwards 5.3s, arrowPulse 2s ease-in-out infinite 6.8s;
+  animation: arrowFadeIn 1.5s forwards 4s, arrowPulse 2s ease-in-out infinite 6.8s;
 }
 
 /* fade in */
