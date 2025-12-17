@@ -1,27 +1,26 @@
-/* Neon glow animation keyframes */
+/* Neon glow animation */
 @keyframes neonPulse {
   0%, 100% {
     text-shadow:
       0 0 2px #fff,
       0 0 5px #fff,
       0 0 10px #fff,
-      0 0 20px #fff,
-      0 0 30px #fff;
+      0 0 20px #ccc,
+      0 0 30px #ccc;
   }
   50% {
     text-shadow:
       0 0 5px #fff,
       0 0 10px #fff,
       0 0 20px #fff,
-      0 0 40px #fff,
-      0 0 60px #fff;
+      0 0 40px #eee,
+      0 0 60px #eee;
   }
 }
 
-/* Apply to site title */
+/* Site title */
 h1 {
   font-family: 'Raleway Dots', sans-serif;
-  font-weight: 400;
   font-size: 4em;
   color: #FFD700; /* golden letters */
   text-align: center;
