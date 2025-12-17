@@ -2,82 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>kitty, the witty missy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    body {
-      margin: 0;
-      background: #000;
-      color: #eaeaea;
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.7;
-    }
-
-    .container {
-      max-width: 680px;
-      margin: 120px auto;
-      padding: 0 20px;
-    }
-
-    h1 {
-      font-size: 2.2rem;
-      font-weight: normal;
-      margin-bottom: 3rem;
-    }
-
-    p {
-      font-size: 1.05rem;
-      margin-bottom: 2rem;
-    }
-
-    .media {
-      margin: 4rem 0;
-    }
-
-    iframe, audio {
-      width: 100%;
-    }
-
-    footer {
-      margin-top: 6rem;
-      font-size: 0.8rem;
-      opacity: 0.6;
-    }
-  </style>
+  <title>Kitty, the witty missy.</title>
+  <!-- Link to Didot via Google Fonts fallback (since Didot is system font) -->
+  <link href="https://fonts.googleapis.com/css2?family=Didot&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
   <div class="container">
+    <h1>Kitty, the witty missy.</h1>
 
-    <h1>kitty, the witty missy</h1>
+    <h2>Writing</h2>
+    <p>Your first blog post or intro text goes here.</p>
 
-    <p>
-      This is where the work lives.
-    </p>
-
+    <h2>Video</h2>
     <div class="media">
-      <!-- VIDEO EMBED -->
-      <!-- Replace the src with your own video -->
-      <iframe 
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-        frameborder="0"
-        allowfullscreen>
-      </iframe>
+      <!-- Replace with your own YouTube/Vimeo embed -->
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+      title="Video" frameborder="0" allowfullscreen></iframe>
     </div>
 
+    <h2>Audio</h2>
     <div class="media">
-      <!-- AUDIO EMBED -->
-      <!-- Replace with SoundCloud / other audio embed -->
-      <iframe 
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/308761238"
-        frameborder="0">
-      </iframe>
+      <audio controls>
+        <source src="YOUR_AUDIO_LINK.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
     </div>
 
-    <footer>
-      © kitty, the witty missy
-    </footer>
+    <h2>Images</h2>
+    <img src="YOUR_IMAGE_LINK.jpg" alt="Example Image">
 
   </div>
 </body>
