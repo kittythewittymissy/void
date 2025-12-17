@@ -69,39 +69,27 @@ h1 {
 @keyframes arrowFadeIn { to { opacity: 1; } }
 @keyframes arrowPulse { 0%,100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
 
-/* Main heading (Languages) */
+/* Main headings (Languages, Images) */
 .column h2 {
   font-family: 'Raleway Dots', sans-serif;
   font-weight: 400;
   font-size: 2em;
   letter-spacing: 0.1em;
-  color: #fff; /* white */
-  text-shadow: 0 0 4px #FFD662, 0 0 12px #FFD662, 0 0 20px rgba(255,214,98,0.7); /* gold glow */
+  color: #fff;
+  text-shadow: 0 0 4px #FFD662, 0 0 12px #FFD662, 0 0 20px rgba(255,214,98,0.7);
   margin-bottom: 25px;
 }
 
-/* Subsections (Creating, Teaching, Images) */
+/* Subheadings (Creating, Teaching, Stills, Movies) */
 .column h3 {
   font-family: 'Raleway Dots', sans-serif;
   font-weight: 400;
   font-size: 1.6em;
   letter-spacing: 0.1em;
-  color: #fff; /* white */
-  text-shadow: 0 0 3px #FFD662, 0 0 8px #FFD662, 0 0 15px rgba(255,214,98,0.6); /* smaller gold glow */
-  margin-top: 20px;
-  margin-bottom: 12px;
-}
-
-/* Sub-subsections (Stills, Movies) */
-.column h4 {
-  font-family: 'Raleway Dots', sans-serif;
-  font-weight: 400;
-  font-size: 1.3em;
-  letter-spacing: 0.08em;
-  color: #fff; /* white */
-  text-shadow: 0 0 2px #FFD662, 0 0 5px #FFD662, 0 0 10px rgba(255,214,98,0.5);
+  color: #fff;
+  text-shadow: 0 0 3px #FFD662, 0 0 8px #FFD662, 0 0 15px rgba(255,214,98,0.6);
   margin-top: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 /* ===== RESPONSIVE ===== */
