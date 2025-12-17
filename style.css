@@ -61,23 +61,28 @@ h1 {
 }
 
 /* Arrowhead */
+.scroll-arrow {
+  width: 2px;                  /* same as title box border */
+  height: 60px;                /* shaft length */
+  background: #fff;            /* white line */
+  margin-top: 30px;
+  position: relative;
+  box-shadow: 0 0 8px #fff, 0 0 16px rgba(255,255,255,0.6);
+  cursor: pointer;
+  animation: arrowPulse 2s ease-in-out infinite;
+}
+
+/* Arrowhead — NO glow, just simple lines */
 .scroll-arrow::after {
   content: '';
   position: absolute;
-  bottom: -10px;               /* slightly below shaft */
+  bottom: -8px;                /* right at shaft bottom */
   left: 50%;
   transform: translateX(-50%) rotate(45deg);
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-bottom: 2px solid #fff;
   border-right: 2px solid #fff;
-  box-shadow: 0 0 6px #fff, 0 0 12px rgba(255,255,255,0.6);
-}
-
-/* Gentle pulse animation */
-@keyframes arrowPulse {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(5px); }
 }
 
 /* ===== COLUMN SECTION ===== */
