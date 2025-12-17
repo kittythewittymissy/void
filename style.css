@@ -1,3 +1,4 @@
+/* Body */
 body {
   margin: 0;
   font-family: 'Cormorant Garamond', serif;
@@ -6,12 +7,14 @@ body {
   line-height: 1.6;
 }
 
+/* Container */
 .container {
   max-width: 700px;
   margin: 50px auto;
   padding: 0 20px;
 }
 
+/* Site title with glow */
 h1 {
   font-family: 'Raleway Dots', sans-serif;
   font-weight: 400;
@@ -20,7 +23,7 @@ h1 {
   text-align: center;
   margin-bottom: 1em;
 
-  /* Glow effect */
+  /* Glowing effect */
   text-shadow:
      0 0 5px #fff,
      0 0 10px #fff,
@@ -29,23 +32,27 @@ h1 {
      0 0 40px #ff7eb9;
 }
 
+/* Subtitles */
 h2 {
-  font-family: 'Raleway Dots', sans-serif; /* optional, or replace with clean sans-serif */
+  font-family: 'Raleway Dots', sans-serif; /* or clean sans-serif if you prefer */
   font-weight: 400;
   font-size: 2em;
   color: #fff;
   margin-top: 2em;
 }
 
+/* Paragraphs */
 p {
   font-size: 1.2em;
   margin-bottom: 1em;
 }
 
+/* Media spacing */
 .media {
   margin: 20px 0;
 }
 
+/* Images */
 img {
   max-width: 100%;
   display: block;
