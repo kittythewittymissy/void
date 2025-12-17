@@ -1,42 +1,112 @@
-/* Body styling */
+/* ===== BASE ===== */
 body {
   margin: 0;
   font-family: 'Cormorant Garamond', serif;
-  background-color: #000; /* pitch black background */
+  background: #000;
   color: #eaeaea;
   line-height: 1.6;
 }
 
-/* Container for content */
 .container {
   max-width: 700px;
-  margin: 50px auto;
+  margin: 80px auto;
   padding: 0 20px;
+  text-align: center;
 }
 
-/* Enhanced animated golden neon glow for site title */
-@keyframes neonPulse {
-  0%, 100% {
+/* ===== NEON ANIMATION ===== */
+@keyframes neonFlicker {
+  0% {
+    text-shadow:
+      0 0 4px #FDDC5C,
+      0 0 10px #FDDC5C,
+      0 0 20px #ffffff;
+    opacity: 0.85;
+  }
+
+  20% {
+    text-shadow:
+      0 0 6px #FDDC5C,
+      0 0 15px #FDDC5C,
+      0 0 35px #ffffff,
+      0 0 70px #ffffff;
+    opacity: 1;
+  }
+
+  22% {
     text-shadow:
       0 0 2px #FDDC5C,
-      0 0 5px #FDDC5C,
-      0 0 10px #FDDC5C,
-      0 0 25px #FDDC5C,
-      0 0 35px #fff; /* subtle white highlight at edges */
+      0 0 5px #ffffff;
+    opacity: 0.6;
   }
-  50% {
+
+  30% {
+    text-shadow:
+      0 0 8px #FDDC5C,
+      0 0 20px #FDDC5C,
+      0 0 45px #ffffff,
+      0 0 90px #ffffff;
+    opacity: 1;
+  }
+
+  55% {
     text-shadow:
       0 0 5px #FDDC5C,
-      0 0 10px #FDDC5C,
-      0 0 20px #FDDC5C,
-      0 0 50px #FDDC5C,
-      0 0 70px #fff; /* more white at peak for dramatic glow */
+      0 0 12px #FDDC5C,
+      0 0 25px #ffffff;
+    opacity: 0.9;
+  }
+
+  70% {
+    text-shadow:
+      0 0 12px #FDDC5C,
+      0 0 30px #FDDC5C,
+      0 0 80px #ffffff,
+      0 0 140px #ffffff;
+    opacity: 1;
+  }
+
+  100% {
+    text-shadow:
+      0 0 6px #FDDC5C,
+      0 0 15px #FDDC5C,
+      0 0 35px #ffffff;
+    opacity: 0.85;
   }
 }
 
-/* Site title */
+/* ===== TITLE ===== */
 h1 {
   font-family: 'Raleway Dots', sans-serif;
+  font-size: 4.2em;
   font-weight: 400;
-  font-size: 4em;
-  color: #FDDC5C; /* golden letters */
+  color: #FDDC5C;
+
+  animation: neonFlicker 4.2s infinite;
+  letter-spacing: 0.08em;
+}
+
+/* ===== SUBHEADS ===== */
+h2 {
+  font-family: 'Raleway Dots', sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+  margin-top: 3em;
+}
+
+/* ===== TEXT ===== */
+p {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+
+/* ===== MEDIA ===== */
+.media {
+  margin: 30px 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  margin: 30px auto;
+}
