@@ -59,15 +59,13 @@ body {
 
 /* ===== TITLE BOX ===== */
 .title-box {
-  padding: 32px 46px;
-  border: 2px solid rgba(255, 255, 255, 0.95);
+  padding: 28px 42px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
   display: inline-block;
 
   box-shadow:
-    0 0 12px rgba(255, 255, 255, 0.9),
-    0 0 30px rgba(255, 255, 255, 0.7),
-    0 0 60px rgba(255, 214, 98, 0.6),
-    0 0 120px rgba(255, 214, 98, 0.45);
+    0 0 8px rgba(255, 255, 255, 0.35),
+    0 0 18px rgba(255, 214, 98, 0.25);
 
   animation: neonBlaze 3.5s ease-out forwards;
 }
