@@ -129,18 +129,22 @@ img {
   display: block;
   margin: 40px auto;
 }
+
 /* ===== SCROLL ARROW ===== */
 .scroll-arrow {
   position: absolute;
-  bottom: 40px;
-  font-family: 'Codystar', sans-serif;
-  font-size: 2.5em;
+  bottom: 30px;          /* distance from bottom of hero */
+  left: 50%;
+  transform: translateX(-50%);
+  
+  font-family: 'Codystar', cursive;  /* makes it more flowing/cursive */
+  font-size: 4em;                     /* bigger arrow */
   color: #FFD662;
   opacity: 0;
 
   text-shadow:
-    0 0 6px #FFD662,
-    0 0 16px rgba(255, 214, 98, 0.8);
+    0 0 8px #FFD662,
+    0 0 20px rgba(255, 214, 98, 0.85);
 
   animation:
     arrowFadeIn 2.5s ease forwards,
@@ -153,19 +157,19 @@ img {
   to { opacity: 0.85; }
 }
 
-/* Gentle neon pulse */
+/* Gentle neon pulse + slight movement */
 @keyframes arrowPulse {
   0%, 100% {
     text-shadow:
-      0 0 6px #FFD662,
-      0 0 16px rgba(255, 214, 98, 0.7);
-    transform: translateY(0);
+      0 0 8px #FFD662,
+      0 0 20px rgba(255, 214, 98, 0.75);
+    transform: translateX(-50%) translateY(0);
   }
 
   50% {
     text-shadow:
-      0 0 10px #FFD662,
-      0 0 26px rgba(255, 214, 98, 0.9);
-    transform: translateY(6px);
+      0 0 12px #FFD662,
+      0 0 28px rgba(255, 214, 98, 0.9);
+    transform: translateX(-50%) translateY(8px);
   }
 }
