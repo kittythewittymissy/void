@@ -4,72 +4,37 @@
   <meta charset="UTF-8">
   <title>Kitty, the witty missy.</title>
 
-  <!-- Viewport (prevents animation jank on load) -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Font preconnects (prevents glow popping) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Codystar:wght@300;400&family=Raleway+Dots&family=Cormorant+Garamond:wght@400;600&display=swap"
-    rel="stylesheet"
-  >
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Codystar:wght@300;400&family=Raleway+Dots&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div class="container">
+    <h1>Kitty, the witty missy.</h1>
 
-  <!-- HERO / TITLE -->
-  <header class="hero" aria-hidden="true">
-    <div class="title-box">
-      <h1>Kitty, the witty missy.</h1>
+    <h2>Writing</h2>
+    <p>Your first blog post or intro text goes here. Keep it short, sharp, and mesmerizing.</p>
+
+    <h2>Video</h2>
+    <div class="media">
+      <!-- Replace with your own YouTube/Vimeo embed -->
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+      title="Video" frameborder="0" allowfullscreen></iframe>
     </div>
-  </header>
 
-  <!-- CONTENT -->
-  <main class="container">
+    <h2>Audio</h2>
+    <div class="media">
+      <audio controls>
+        <source src="YOUR_AUDIO_LINK.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
 
-    <section>
-      <h2>Writing</h2>
-      <p>Your first blog post or intro text goes here. Keep it short, sharp, and mesmerizing.</p>
-    </section>
+    <h2>Images</h2>
+    <img src="YOUR_IMAGE_LINK.jpg" alt="Example Image">
 
-    <section>
-      <h2>Video</h2>
-      <div class="media">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-          title="Video"
-          loading="lazy"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </section>
-
-    <section>
-      <h2>Audio</h2>
-      <div class="media">
-        <audio controls preload="none">
-          <source src="YOUR_AUDIO_LINK.mp3" type="audio/mpeg">
-        </audio>
-      </div>
-    </section>
-
-    <section>
-      <h2>Images</h2>
-      <img
-        src="YOUR_IMAGE_LINK.jpg"
-        alt="Example Image"
-        loading="lazy">
-    </section>
-
-  </main>
-
+  </div>
 </body>
 </html>
