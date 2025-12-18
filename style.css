@@ -179,10 +179,9 @@ h1 {
   justify-content: center;
   text-align: center;
   padding: 20px;
-  position: relative; /* required for ::after */
-
-  /* REMOVE border-right completely */
-  box-shadow: none; /* glow handled by ::after now */
+  position: relative;
+  /* remove border-right */
+  box-shadow: 0 0 8px #fff, 0 0 16px #fff, 0 0 24px rgba(255,255,255,0.6);
 }
 
 /* Writing title glow */
@@ -203,53 +202,13 @@ h1 {
   animation: neonFlicker 2.5s infinite alternate;
 }
 
-/* Right column: writing content */
-.writing-content {
-  flex: 1;
-  padding: 50px;
-  overflow-y: auto;
-}
-
-/* Flicker keyframes for writing title */
-@keyframes neonFlicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    text-shadow:
-      0 0 6px #FFD662,
-      0 0 18px #FFD662,
-      0 0 36px rgba(255,214,98,0.8),
-      0 0 60px rgba(255,214,98,0.6);
-  }
-  20%, 24%, 55% {
-    text-shadow:
-      0 0 3px #FFD662,
-      0 0 9px #FFD662,
-      0 0 18px rgba(255,214,98,0.6),
-      0 0 30px rgba(255,214,98,0.4);
-  }
-}
-
-/* Responsive for writing page */
-@media (max-width: 768px) {
-  .writing-page {
-    flex-direction: column;
-  }
-  .writing-title-column {
-    width: 100%;
-    border-right: none;
-    border-bottom: 2px solid #fff; /* glowing horizontal line */
-    box-shadow: 0 0 8px #fff, 0 0 16px #fff, 0 0 24px rgba(255,255,255,0.6);
-  }
-}
-
-/* Glowing vertical line */
+/* Glowing vertical line — FIXED */
 .writing-title-column::after {
   content: '';
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
+  inset: 0;          /* This fixes the top missing problem */
+  right: 0;          /* line stays on the right */
   width: 3px;
-  height: 100%;
   background: #fff;
   border-radius: 2px;
   pointer-events: none;
@@ -260,7 +219,7 @@ h1 {
     0 0 6px rgba(255,255,255,0.5),
     0 0 14px rgba(255,255,255,0.35);
 
-  /* subtle pulse animation */
+  /* subtle pulse */
   animation: glowPulse 2.8s infinite alternate ease-in-out;
 }
 
