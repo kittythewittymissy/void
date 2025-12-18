@@ -8,8 +8,6 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Codystar:wght@300;400;500&family=Cormorant+Garamond:wght@400;600&family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
-
   <style>
     html, body {
       margin: 0;
@@ -20,7 +18,7 @@
       align-items: center;
       background: #000;
       text-align: center;
-      padding: 20px; /* safe spacing for mobile */
+      padding: 20px;
       box-sizing: border-box;
     }
 
@@ -29,22 +27,23 @@
       flex-direction: column;
       align-items: center;
       gap: 2rem;
-      max-width: 90vw; /* responsive width */
+      max-width: 90vw;
       word-break: break-word;
     }
 
-    /* ⚠ Warning sign: massive and deliberate flashing */
+    /* ⚠ Warning sign: MASSIVE and central */
     .warning-sign {
       font-family: 'Codystar', sans-serif;
-      font-size: 12vw; /* relative to screen width */
-      max-font-size: 160px; /* cap on very wide screens */
+      font-size: 25vw; /* huge, dominates the screen */
+      max-font-size: 400px; /* cap for very large screens */
       color: #FFD662;
       text-shadow:
-        0 0 6px #FFD662,
-        0 0 18px #FFD662,
-        0 0 36px rgba(255,214,98,0.8),
-        0 0 60px rgba(255,214,98,0.6);
-      animation: warningFlash 2s infinite; /* slower, deliberate */
+        0 0 12px #FFD662,
+        0 0 36px #FFD662,
+        0 0 72px rgba(255,214,98,0.8),
+        0 0 120px rgba(255,214,98,0.6);
+      animation: warningFlash 2s infinite;
+      line-height: 1;
     }
 
     @keyframes warningFlash {
@@ -52,19 +51,19 @@
       20%, 60% { opacity: 0; }
     }
 
-    /* “UNDER CREATION” text: slower neon pulse */
-    .under-construction {
+    /* “UNDER CREATION” text */
+    .under-creation {
       font-family: 'Poppins', sans-serif;
       font-weight: 600;
-      font-size: 4vw;
-      max-font-size: 36px;
+      font-size: 5vw;
+      max-font-size: 40px;
       color: #fff;
       text-shadow:
         0 0 4px #fff,
         0 0 10px #fff,
         0 0 20px rgba(255,255,255,0.7);
       letter-spacing: 0.1em;
-      animation: neonPulse 3s infinite alternate; /* slower and deliberate */
+      animation: neonPulse 3s infinite alternate;
     }
 
     @keyframes neonPulse {
@@ -74,8 +73,8 @@
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
-      .warning-sign { font-size: 20vw; max-font-size: 120px; }
-      .under-construction { font-size: 6vw; max-font-size: 28px; }
+      .warning-sign { font-size: 35vw; max-font-size: 300px; }
+      .under-construction { font-size: 8vw; max-font-size: 32px; }
     }
   </style>
 </head>
