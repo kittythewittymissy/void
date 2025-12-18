@@ -181,9 +181,7 @@ h1 {
   padding: 20px;
   position: relative;
 
-  /* REMOVE hard border-right */
-  border-right: none;
-  box-shadow: none; /* remove old box shadow that created line */
+  height: 100%; /* FULL HEIGHT FIX */
 }
 
 /* Writing title glow */
@@ -240,7 +238,7 @@ h1 {
   }
 }
 
-/* Glowing vertical line (pseudo-element only) */
+/* Glowing vertical line */
 .writing-title-column::after {
   content: '';
   position: absolute;
@@ -250,7 +248,6 @@ h1 {
   width: 3px;
   background: #fff;
   border-radius: 2px;
-  pointer-events: none;
 
   /* Glow effect */
   box-shadow:
