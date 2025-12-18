@@ -180,7 +180,7 @@ h1 {
   text-align: center;
   padding: 20px;
   position: relative;
-  /* remove border-right */
+  /* remove border-right, use pseudo-element for glow only */
   box-shadow: 0 0 8px #fff, 0 0 16px #fff, 0 0 24px rgba(255,255,255,0.6);
 }
 
@@ -202,12 +202,51 @@ h1 {
   animation: neonFlicker 2.5s infinite alternate;
 }
 
-/* Glowing vertical line — FIXED */
+/* Right column: writing content */
+.writing-content {
+  flex: 1;
+  padding: 50px;
+  overflow-y: auto;
+}
+
+/* Flicker keyframes for writing title */
+@keyframes neonFlicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow:
+      0 0 6px #FFD662,
+      0 0 18px #FFD662,
+      0 0 36px rgba(255,214,98,0.8),
+      0 0 60px rgba(255,214,98,0.6);
+  }
+  20%, 24%, 55% {
+    text-shadow:
+      0 0 3px #FFD662,
+      0 0 9px #FFD662,
+      0 0 18px rgba(255,214,98,0.6),
+      0 0 30px rgba(255,214,98,0.4);
+  }
+}
+
+/* Responsive for writing page */
+@media (max-width: 768px) {
+  .writing-page {
+    flex-direction: column;
+  }
+  .writing-title-column {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid #fff; /* glowing horizontal line */
+    box-shadow: 0 0 8px #fff, 0 0 16px #fff, 0 0 24px rgba(255,255,255,0.6);
+  }
+}
+
+/* Glowing vertical line — FINAL FIX */
 .writing-title-column::after {
   content: '';
   position: absolute;
-  inset: 0;          /* This fixes the top missing problem */
-  right: 0;          /* line stays on the right */
+  top: 0;          /* start at very top of column */
+  bottom: 0;       /* go to bottom */
+  right: 0;        /* stick to right side */
   width: 3px;
   background: #fff;
   border-radius: 2px;
