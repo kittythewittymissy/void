@@ -64,7 +64,7 @@
 
   <!-- Automatic placeholder redirection -->
   <script>
-    // List all real pages
+    // List of real pages
     const realPages = [
       'thinking/cainguoi.html'
     ];
@@ -74,8 +74,8 @@
       link.addEventListener('click', function(e) {
         const href = link.getAttribute('href');
 
-        // If the link is not a real page, redirect to placeholder
-        if (!realPages.includes(href)) {
+        // If not a real page OR points to images/videos folder, redirect to placeholder
+        if (!realPages.includes(href) || href.startsWith('images/') || href.startsWith('videos/')) {
           e.preventDefault();
           window.location.href = 'under-creation-!.html';
         }
