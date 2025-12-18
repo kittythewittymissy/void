@@ -31,11 +31,11 @@
       word-break: break-word;
     }
 
-    /* ⚠ Warning sign: MASSIVE and central */
+    /* ⚠ Warning sign: Big and Central */
     .warning-sign {
       font-family: 'Codystar', sans-serif;
-      font-size: 18vw; /* center of attention */
-      max-font-size: 400px; /* cap for very large screens */
+      font-size: min(18vw, 40vh); /* ensures triangle is huge but never taller than viewport */
+      max-font-size: 250px; /* optional cap for ultra-wide screens */
       color: #FFD662;
       text-shadow:
         0 0 12px #FFD662,
