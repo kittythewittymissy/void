@@ -171,7 +171,7 @@ h1 {
 
 /* Left column: writing title */
 .writing-title-column {
-  width: 20%;
+  width: 30%;
   min-width: 220px;
   display: flex;
   align-items: center;
@@ -187,7 +187,7 @@ h1 {
 /* Writing title glow */
 .writing-title-column h1 {
   font-family: 'Codystar', sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 4em;
   color: #FFD662;
   text-shadow:
@@ -244,8 +244,8 @@ h1 {
 .writing-title-column::after {
   content: '';
   position: absolute;
-  top: 10%;
-  bottom: 10%;
+  top: 0%;
+  bottom: 0%;
   right: 0;
   width: 3px;
   background: #fff;
