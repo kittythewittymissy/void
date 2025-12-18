@@ -71,8 +71,8 @@
       link.addEventListener('click', function(e) {
         const href = link.getAttribute('href');
 
-        // If not a real page OR points to images/videos folder, redirect to placeholder
-        if (!realPages.includes(href) || href.startsWith('images/') || href.startsWith('videos/')) {
+        // If href does NOT match any allowed page, redirect to placeholder
+        if (!realPages.some(page => href.endsWith(page))) {
           e.preventDefault();
           window.location.href = 'under-creation-!.html';
         }
