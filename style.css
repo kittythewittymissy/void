@@ -179,10 +179,9 @@ h1 {
   text-align: center;
   padding: 20px;
 
-  /* Remove static border-right to avoid double line */
-  /* border-right: 2px solid #fff; */
-  box-shadow: 0 0 4px rgba(255,255,255,0.2);
-  position: relative; /* needed for ::after positioning */
+  /* Glowing neon line */
+  border-right: 2px solid #fff; /* strong white */
+  box-shadow: 0 0 8px #fff, 0 0 16px #fff, 0 0 24px rgba(255,255,255,0.6);
 }
 
 /* Writing title glow */
@@ -241,38 +240,38 @@ h1 {
   }
 }
 
-/* Left column: writing title */
-.writing-title-column {
-  width: 20%;
-  min-width: 220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-
-  /* Keep main solid line */
-  border-right: 2px solid #fff;
-  position: relative; /* for ::after positioning */
-}
-
-/* Glowing vertical line overlay */
+/* Glowing vertical line */
 .writing-title-column::after {
   content: '';
   position: absolute;
-  top: 0;           /* full height */
-  bottom: 0;
+  top: 10%;
+  bottom: 10%;
   right: 0;
   width: 3px;
   background: #fff;
   border-radius: 2px;
 
-  /* Gentle glow */
+  /* Gentler glow that doesn’t overpower the black background */
   box-shadow:
     0 0 1px rgba(255,255,255,0.6),
     0 0 4px rgba(255,255,255,0.4),
     0 0 10px rgba(255,255,255,0.3);
 
-  /* Soft pulse */
+  /* Slow, subtle pulse */
   animation: glowPulse 2.8s infinite alternate ease-in-out;
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow:
+      0 0 1px rgba(255,255,255,0.6),
+      0 0 4px rgba(255,255,255,0.4),
+      0 0 10px rgba(255,255,255,0.3);
+  }
+  100% {
+    box-shadow:
+      0 0 2px rgba(255,255,255,0.7),
+      0 0 6px rgba(255,255,255,0.5),
+      0 0 14px rgba(255,255,255,0.35);
+  }
 }
