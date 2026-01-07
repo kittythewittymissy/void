@@ -272,3 +272,79 @@ h1 {
       0 0 16px rgba(255,255,255,0.4);
   }
 }
+/* ===== WORK PAGE LAYOUT (Hèn / Cai Người) ===== */
+
+.work-page {
+  display: flex;
+  min-height: 100vh;
+  background: #000;
+}
+
+/* LEFT SPINE */
+.work-title {
+  width: 14%;
+  min-width: 180px;
+  padding-top: 80px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.work-title h1 {
+  font-family: 'Codystar', sans-serif;
+  font-size: 3.2em;
+  font-weight: 600;
+  color: #FFD662;
+  text-shadow:
+    0 0 4px #FFD662,
+    0 0 12px rgba(255,214,98,0.6);
+  margin: 0;
+  text-align: center;
+}
+
+/* DIVIDER */
+.work-title::after {
+  content: '';
+  position: absolute;
+  top: 5%;
+  bottom: 5%;
+  right: 0;
+  width: 2px;
+  background: rgba(255,255,255,0.7);
+  box-shadow:
+    0 0 3px rgba(255,255,255,0.5),
+    0 0 8px rgba(255,255,255,0.35);
+}
+
+/* RIGHT CONTENT */
+.work-content {
+  flex: 1;
+  padding: 80px 60px;
+  max-width: 720px;
+  overflow-y: auto;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .work-page {
+    flex-direction: column;
+  }
+
+  .work-title {
+    width: 100%;
+    padding: 40px 0;
+  }
+
+  .work-title::after {
+    top: auto;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    width: auto;
+  }
+
+  .work-content {
+    padding: 40px 24px;
+  }
+}
