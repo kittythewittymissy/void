@@ -10,103 +10,18 @@
   
   <!-- CSS -->
   <link rel="stylesheet" href="../style.css">
-  <style>
-    /* WRITING PAGE STRUCTURE */
-    .writing-page {
-      display: flex;
-      flex-direction: row;
-      min-height: 100vh;
-    }
-
-    /* LEFT TITLE COLUMN */
-    .writing-title-column {
-      width: 20%;
-      min-width: 220px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-    }
-
-/* Glowing vertical line */
-.writing-title-column::after {
-  content: '';
-  position: absolute;
-  top: 10%;
-  bottom: 10%;
-  right: 0;
-  width: 3px;
-  background: #fff;
-  border-radius: 2px;
-  
-  /* Soft glow */
-  box-shadow: 0 0 4px #fff, 0 0 12px #fff, 0 0 20px #fff;
-  
-  /* Optional: animate the glow */
-  animation: glowPulse 2s infinite alternate;
-}
-
-@keyframes glowPulse {
-  0% {
-    box-shadow: 0 0 4px #fff, 0 0 12px #fff, 0 0 20px #fff;
-  }
-  100% {
-    box-shadow: 0 0 6px #fff, 0 0 18px #fff, 0 0 28px #fff;
-  }
-}
-
-    /* WRITING TITLE */
-    .writing-title-column h1 {
-      font-family: 'Codystar', sans-serif;
-      font-weight: 700;
-      font-size: 4em;
-      color: #FFD662;
-      text-shadow:
-        0 0 6px #FFD662,
-        0 0 18px #FFD662,
-        0 0 36px rgba(255,214,98,0.8),
-        0 0 60px rgba(255,214,98,0.6);
-      margin: 0;
-      line-height: 1.2;
-    }
-
-    /* RIGHT COLUMN: WRITING CONTENT */
-    .writing-content {
-      flex: 1;
-      padding: 50px;
-      overflow-y: auto;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .writing-page {
-        flex-direction: column;
-      }
-      .writing-title-column::after {
-        top: auto;
-        bottom: 0;
-        left: 10%;
-        right: 10%;
-        height: 3px;
-        width: auto;
-      }
-    }
-  </style>
 </head>
 <body>
+<div class="work-page">
 
-  <div class="writing-page">
-    <!-- LEFT COLUMN: TITLE -->
-    <div class="writing-title-column">
-      <h1>Cai Nguoi</h1>
-    </div>
+  <aside class="work-title">
+    <h1>Cai Người</h1>
+  </aside>
 
-    <!-- RIGHT COLUMN: CONTENT -->
-    <div class="writing-content">
-      <p>code cái này đéo dễ tí nào, mệt vãi cả lồn, nhưng nó đẹp hehe ủa đụ mẹ giờ phải ngồi format từng dòng từng chữ à uầy vãi cả đái ạ thôi có nhiều thời gian mà nhỉ</p>
-    </div>
-  </div>
+  <main class="work-content">
+    <p>Put your text here.</p>
+  </main>
 
+</div>
 </body>
 </html>
