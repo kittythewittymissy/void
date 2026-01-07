@@ -10,6 +10,17 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Glow hover effect for Thinking links */
+    .column ul li a {
+      transition: all 0.3s ease;
+    }
+
+    .column ul li a:hover {
+      text-shadow: 0 0 8px #fff, 0 0 16px #fff;
+    }
+  </style>
 </head>
 <body>
 
@@ -33,6 +44,7 @@
       <h3>Thinking</h3>
       <ul>
         <li><a href="thinking/cainguoi.html">Cai Người</a></li>
+        <li><a href="hen.html">Hèn</a></li>
         <li><a href="under-creation-!.html">Writing</a></li>
       </ul>
 
@@ -63,7 +75,8 @@
   <script>
     // List of real pages
     const realPages = [
-      'thinking/cainguoi.html'
+      'thinking/cainguoi.html',
+      'hen.html'
     ];
 
     // Intercept all link clicks
