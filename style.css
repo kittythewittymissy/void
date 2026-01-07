@@ -135,14 +135,13 @@ h1 {
   top: 6%;
   bottom: 6%;
   right: 0;
-  width: 3px;
+  width: 5px;
 
   background: #FFD662;
 
   box-shadow:
-    0 0 6px #FFD662,
-    0 0 14px rgba(255,214,98,0.8),
-    0 0 28px rgba(255,214,98,0.6);
+    0 0 4px #FFD662,
+    0 0 10px rgba(255,214,98,0.55);
 }
 
 /* RIGHT CONTENT */
