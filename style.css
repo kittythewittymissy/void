@@ -99,8 +99,34 @@ h1 {
     0 0 36px rgba(255,214,98,0.8);
 }
 
-/* ===== WORK PAGE (Hèn / Cai Người) ===== */
+/* ===== SUBHEADINGS (h3) ===== */
+.section-columns h3 {
+  font-family: 'Codystar', sans-serif;
+  font-size: 1.8em;
+  color: #FFD662;
+  text-shadow:
+    0 0 2px #FFD662,
+    0 0 6px rgba(255,214,98,0.8);
+  margin-bottom: 0.3em;
+  letter-spacing: 0.1em;
+}
 
+/* ===== LINKS GLOW ===== */
+.section-columns ul li a {
+  color: #eaeaea;
+  text-decoration: none;
+  transition: text-shadow 0.3s, color 0.3s;
+}
+
+.section-columns ul li a:hover {
+  color: #FFD662;
+  text-shadow:
+    0 0 4px #FFD662,
+    0 0 10px rgba(255,214,98,0.7),
+    0 0 20px rgba(255,214,98,0.5);
+}
+
+/* ===== WORK PAGE (Hèn / Cai Người) ===== */
 .work-page {
   display: flex;
   min-height: 100vh;
