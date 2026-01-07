@@ -40,28 +40,38 @@
     .heading-neon {
       font-family: 'Neonderthaw', sans-serif;
       font-size: 4rem;
-      text-align: center;
-      margin: 3rem 1rem 2rem;
-      color: #ffffff;
+      color: #ffffffcc; /* dimmed ~85% */
       text-shadow:
-        0 0 5px #fff,
-        0 0 10px #fff,
-        0 0 15px #FFD700,
-        0 0 20px #FFD700;
+        0 0 4px #fff8,
+        0 0 8px #fff4,
+        0 0 12px #FFD70088,
+        0 0 16px #FFD70055;
+      position: sticky;
+      top: 20px;
+      left: 20px;
+      margin: 0;
+      z-index: 500;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: headingFadeIn 2s forwards;
     }
 
-    /* SERIES BOX */
-    .series-box {
+    @keyframes headingFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* SERIES NAME (bottom-left, hero style) */
+    .series-name {
+      font-family: 'Raleway Dots', cursive;
+      font-size: 2rem;
+      color: #FFD700;
+      text-shadow: 0 0 4px #FFD70088, 0 0 8px #FFD70055;
       position: fixed;
       bottom: 20px;
-      left: 20px; /* or right: 20px if you prefer bottom-right */
-      padding: 0.5rem 1rem;
-      background: rgba(255, 215, 0, 0.15);
-      border: 1px solid rgba(255, 215, 0, 0.5);
-      color: white;
-      font-family: 'Codystar', cursive;
-      font-size: 0.9rem;
-      border-radius: 0.5rem;
+      left: 20px;
       z-index: 1000;
     }
 
@@ -85,9 +95,9 @@
     }
 
     /* STAGGER ANIMATION DELAY */
-    .floating-paragraph:nth-child(1) { animation-delay: 0.5s; }
-    .floating-paragraph:nth-child(2) { animation-delay: 1.5s; }
-    .floating-paragraph:nth-child(3) { animation-delay: 2.5s; }
+    .floating-paragraph:nth-child(1) { animation-delay: 1.5s; } /* after heading */
+    .floating-paragraph:nth-child(2) { animation-delay: 2.5s; }
+    .floating-paragraph:nth-child(3) { animation-delay: 3.5s; }
 
     /* FLOATING SPOTIFY PLAYER */
     .audio-player {
@@ -109,26 +119,21 @@
       border-radius: 8px;
     }
 
-    /* NEXT PART BUTTON */
+    /* NEXT PART ARROW */
     .next-part {
       display: block;
       margin: 4rem auto 2rem;
-      padding: 0.8rem 2rem;
-      font-size: 1.1rem;
-      font-family: 'Codystar', cursive;
-      background: #111;
-      color: #fff;
-      border: 1px solid #FFD700;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
+      font-size: 2rem;
       text-align: center;
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+      text-shadow: 0 0 4px #FFD70088, 0 0 8px #FFD70055;
       transition: all 0.3s ease;
     }
 
     .next-part:hover {
-      background: #222;
-      box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD70050;
+      text-shadow: 0 0 8px #FFD700, 0 0 16px #FFD70088;
     }
 
   </style>
@@ -138,8 +143,8 @@
   <!-- HEADING -->
   <h1 class="heading-neon">Hèn: Khai màn</h1>
 
-  <!-- SERIES BOX -->
-  <div class="series-box">Series: Thinking</div>
+  <!-- SERIES NAME -->
+  <div class="series-name">Hèn</div>
 
   <!-- PLACEHOLDER PARAGRAPHS -->
   <div class="text-section">
@@ -155,8 +160,8 @@
     <iframe src="https://open.spotify.com/embed/track/YOUR_TRACK_ID_HERE" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
   </div>
 
-  <!-- NEXT PART BUTTON (placeholder link) -->
-  <a href="hen-part2.html" class="next-part">Next Part →</a>
+  <!-- NEXT PART ARROW -->
+  <a href="#next-part" class="next-part">⌄</a>
 
   <!-- PARTICLES (VOID EFFECT) -->
   <script>
@@ -172,7 +177,22 @@
       particle.style.opacity = Math.random()*0.3 + 0.05;
       document.body.appendChild(particle);
     }
+
+    // NEXT PART SCROLL
+    document.querySelector('.next-part').addEventListener('click', function(e){
+      e.preventDefault();
+      const next = document.querySelector('#next-part');
+      if(next){
+        next.scrollIntoView({behavior:'smooth'});
+      }
+    });
   </script>
+
+  <!-- NEXT PART SECTION PLACEHOLDER -->
+  <div id="next-part" style="margin-top:200vh;">
+    <h1 class="heading-neon">Hèn: Phần tiếp theo</h1>
+    <p class="floating-paragraph">Next part text goes here...</p>
+  </div>
 
 </body>
 </html>
