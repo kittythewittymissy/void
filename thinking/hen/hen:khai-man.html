@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hèn: Khai màn</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Neonderthaw&family=Codystar:wght@300;400;500&family=Raleway+Dots&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* BODY & BACKGROUND */
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0a0a0a;
+      color: #fff;
+      font-family: 'Cormorant Garamond', serif;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* VOID-LIKE BACKGROUND PARTICLES */
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      animation: drift 20s linear infinite;
+    }
+
+    @keyframes drift {
+      0% { transform: translateY(100vh) translateX(0) scale(0.5);}
+      100% { transform: translateY(-10vh) translateX(50px) scale(0.5);}
+    }
+
+    /* HEADING */
+    .heading-neon {
+      font-family: 'Neonderthaw', sans-serif;
+      font-size: 4rem;
+      text-align: center;
+      margin: 3rem 1rem 2rem;
+      color: #ffffff;
+      text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #FFD700,
+        0 0 20px #FFD700;
+    }
+
+    /* PARAGRAPH ANIMATION */
+    .floating-paragraph {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 2s forwards;
+      margin: 2rem auto;
+      max-width: 800px;
+      line-height: 1.6;
+      font-size: 1.2rem;
+      text-align: justify;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* STAGGER ANIMATION DELAY */
+    .floating-paragraph:nth-child(1) { animation-delay: 0.5s; }
+    .floating-paragraph:nth-child(2) { animation-delay: 1.5s; }
+    .floating-paragraph:nth-child(3) { animation-delay: 2.5s; }
+    /* Add more nth-child as needed */
+
+    /* FLOATING SPOTIFY PLAYER */
+    .audio-player {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.8);
+      padding: 1rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 10px #FFD70050;
+      max-width: 300px;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+
+    .audio-player iframe {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    /* NEXT PART BUTTON */
+    .next-part {
+      display: block;
+      margin: 4rem auto 2rem;
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      font-family: 'Codystar', cursive;
+      background: #111;
+      color: #fff;
+      border: 1px solid #FFD700;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .next-part:hover {
+      background: #222;
+      box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD70050;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADING -->
+  <h1 class="heading-neon">Hèn: Khai màn</h1>
+
+  <!-- PLACEHOLDER PARAGRAPHS -->
+  <div class="text-section">
+    <p class="floating-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a luctus nibh. Suspendisse potenti.</p>
+    <p class="floating-paragraph">Praesent vitae enim a justo pretium tincidunt. Fusce vel lacus vitae ligula tempus sodales.</p>
+    <p class="floating-paragraph">Curabitur nec justo vitae lacus finibus posuere. Integer vel nibh sed magna sollicitudin fermentum.</p>
+    <!-- Add more paragraphs as needed -->
+  </div>
+
+  <!-- FLOATING SPOTIFY PLAYER -->
+  <div class="audio-player">
+    <div>Hey, you can listen to me. Not demanding, though.</div>
+    <iframe src="https://open.spotify.com/embed/track/YOUR_TRACK_ID_HERE" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+  </div>
+
+  <!-- NEXT PART BUTTON (placeholder link) -->
+  <a href="hen-part2.html" class="next-part">Next Part →</a>
+
+  <!-- PARTICLES (VOID EFFECT) -->
+  <script>
+    const numParticles = 40;
+    for(let i=0;i<numParticles;i++){
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      const size = Math.random()*4 + 1;
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      particle.style.left = Math.random() * 100 + 'vw';
+      particle.style.animationDuration = 15 + Math.random()*20 + 's';
+      particle.style.opacity = Math.random()*0.3 + 0.05;
+      document.body.appendChild(particle);
+    }
+  </script>
+
+</body>
+</html>
