@@ -19,7 +19,7 @@
       background: #0a0a0a;
       color: #fff;
       font-family: 'Raleway', sans-serif;
-      font-weight: 200; /* thinner body text */
+      font-weight: 100; /* thinner body text */
       overflow-x: hidden;
       position: relative;
     }
@@ -60,17 +60,17 @@
 
     .work-title h1 {
       font-family: 'Neonderthaw', sans-serif;
-      font-size: 3.2em;
+      font-size: 4.16em; /* 3.2em * 1.3 */
       font-weight: 600;
-      color: #fff;
+      color: #FFD662; /* gold */
       text-shadow:
-        0 0 8px #fff, /* white bulbs */
-        0 0 20px #fffaa;
+        0 0 8px #FFD662, /* subtle gold glow */
+        0 0 20px #FFD66288; /* soft ambient glow */
       text-align: center;
-      padding: 0.2em 0.6em; /* neon box padding */
-      border: 8px dotted #fff; /* big bulbs */
-      border-radius: 12px;
-      box-shadow: 0 0 20px #fff55, 0 0 40px #fffaa;
+      padding: 0.15em 0.4em; /* hugs text tighter horizontally & vertically */
+      border: 2px solid #fff; /* thin white line */
+      border-radius: 8px;
+      box-shadow: 0 0 12px #fff33, 0 0 24px #fff88; /* glow visible but not overwhelming */
     }
 
     /* CENTERED CONTENT COLUMN */
@@ -78,10 +78,9 @@
       flex: 1;
       max-width: 700px;
       margin: 0 auto; /* center horizontally */
-      padding: 50px 60px; /* moved up slightly */
+      padding: 30px 60px; /* moved higher */
       position: relative;
       z-index: 1;
-      font-weight: 200; /* thin text */
     }
 
     /* FLOATING PARAGRAPH */
@@ -162,7 +161,7 @@
     /* MOBILE / TABLET */
     @media (max-width: 1024px) {
       .series-background { font-size: 15rem; }
-      .work-title h1 { font-size: 2.5em; }
+      .work-title h1 { font-size: 3.25em; }
       .work-content { padding: 40px 40px; }
       .next-part { font-size: 2.5rem; }
     }
