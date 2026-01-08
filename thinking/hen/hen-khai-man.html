@@ -57,7 +57,7 @@
       width: 21%;
       min-width: 180px;
       padding-top: 80px;
-      padding-left: 15%; /* push spine box away from screen edge */
+      padding-left: calc(4.16em / 2); /* half the box width, dynamically spacing from edge */
       display: flex;
       justify-content: center;
       position: relative;
@@ -75,7 +75,7 @@
         0 0 20px #FFD66288;
       text-align: center;
       padding: 0.15em 0.4em;
-      border: 2px solid #fff;
+      border: 2px solid #fff; /* thin line with neon shadow */
       border-radius: 8px;
       box-shadow: 0 0 12px #fff33, 0 0 24px #fff88;
     }
@@ -84,8 +84,8 @@
     .work-content {
       flex: 1;
       max-width: 700px;
-      margin: 0 auto;
-      padding: 0 60px; /* remove top padding to align with title */
+      margin-left: calc(4.16em / 2); /* aligns with spine box */
+      padding: 0 60px;
       position: relative;
       z-index: 1;
     }
@@ -156,16 +156,16 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      text-align: center;
-      text-decoration: none;
       position: relative;
       box-shadow: 0 0 12px #fff55, 0 0 24px #fffaa;
       transition: all 0.3s ease;
     }
 
-    .audio-button img {
+    .audio-button svg {
       width: 40px;
       height: 40px;
+      fill: #fff;
+      filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 12px #fffaa);
     }
 
     .audio-button:hover {
@@ -187,13 +187,13 @@
       left: 50%;
       top: 50%;
       transform-origin: -50% -50%;
-      font-size: 0.9rem;
+      font-size: 0.7rem;
       color: #fff;
+      opacity: 0.8;
       text-shadow: 0 0 6px #fff, 0 0 12px #fffaa;
-      animation: orbit 5s linear infinite;
+      animation: orbit linear infinite;
     }
 
-    /* will rotate each letter individually by JS */
     @keyframes orbit {
       from { transform: rotate(0deg) translateX(50px) rotate(0deg); }
       to { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
@@ -203,19 +203,19 @@
     @media (max-width: 1024px) {
       .series-background { font-size: 15rem; }
       .work-title h1 { font-size: 3.25em; }
-      .work-content { padding: 0 40px; }
+      .work-content { padding: 0 40px; margin-left: calc(3.25em / 2); }
       .next-part { font-size: 2.5rem; }
       .audio-button-container { bottom: 30px; right: 30px; width: 60px; height: 60px; }
-      .audio-button img { width: 30px; height: 30px; }
+      .audio-button svg { width: 30px; height: 30px; }
     }
 
     @media (max-width: 768px) {
       .series-background { font-size: 10rem; }
       .work-title { width: 100%; padding: 40px 0; }
-      .work-content { padding: 0 24px; }
+      .work-content { padding: 0 24px; margin-left: 0; }
       .next-part { font-size: 2rem; }
       .audio-button-container { bottom: 20px; right: 20px; width: 50px; height: 50px; }
-      .audio-button img { width: 24px; height: 24px; }
+      .audio-button svg { width: 24px; height: 24px; }
     }
 
   </style>
@@ -248,7 +248,10 @@
   <!-- AUDIO BUTTON WITH ORBITING TEXT -->
   <div class="audio-button-container">
     <button class="audio-button" id="audioButton">
-      <img src="https://cdn-icons-png.flaticon.com/512/480/480511.png" alt="speaker icon">
+      <!-- Inline neon speaker SVG -->
+      <svg viewBox="0 0 24 24">
+        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.74 2.5-2.26 2.5-4.02zM14 3.23v2.06c2.89 1.1 5 3.92 5 7.21s-2.11 6.11-5 7.21v2.06c4.01-1.21 7-5.04 7-9.27s-2.99-8.06-7-9.27z"/>
+      </svg>
     </button>
     <div class="orbiting-text" id="orbitText"></div>
   </div>
@@ -295,8 +298,9 @@
     for(let i=0;i<text.length;i++){
       const span = document.createElement('span');
       span.textContent = text[i];
-      span.style.transform = `rotate(${i * (360/text.length)}deg) translateX(50px) rotate(-${i * (360/text.length)}deg)`;
-      span.style.animationDelay = `${i * 0.05}s`;
+      const angle = i * (360 / text.length);
+      span.style.transform = `rotate(${angle}deg) translateX(50px) rotate(${-angle}deg)`;
+      span.style.animationDuration = `${4 + Math.random()*2}s`; // random orbit speed
       orbitText.appendChild(span);
     }
 
@@ -304,7 +308,6 @@
     document.getElementById('nextArrow').addEventListener('click', (e) => {
       e.preventDefault();
 
-      // HEADING
       const heading = document.querySelector('.work-title h1');
       heading.style.opacity = 0;
       setTimeout(() => {
@@ -313,7 +316,6 @@
         applyFontFallback();
       }, 300);
 
-      // PARAGRAPHS: typewriter + void-pop hybrid
       const textSection = document.querySelector('.text-section');
       const nextParagraphs = [
         "Next part first paragraph goes here.",
