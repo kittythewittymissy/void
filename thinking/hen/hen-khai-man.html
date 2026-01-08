@@ -19,7 +19,7 @@
       background: #0a0a0a;
       color: #fff;
       font-family: 'Raleway', sans-serif;
-      font-weight: 100; /* thinner body text */
+      font-weight: 100; /* ultra-thin body text */
       overflow-x: hidden;
       position: relative;
     }
@@ -45,17 +45,24 @@
       font-family: 'Raleway Dots', cursive;
     }
 
+    /* FLEX ROW: SPINE + CONTENT */
+    .main-row {
+      display: flex;
+      align-items: flex-start; /* top-align content with spine title */
+      width: 100%;
+    }
+
     /* LEFT COLUMN / SPINE */
     .work-title {
-      width: 21%; /* increased 1.5x */
+      width: 21%;
       min-width: 180px;
       padding-top: 80px;
+      padding-left: 15%; /* push spine box away from screen edge */
       display: flex;
       justify-content: center;
       position: relative;
     }
 
-    /* removed divider */
     .work-title::after { display: none; }
 
     .work-title h1 {
@@ -64,21 +71,21 @@
       font-weight: 600;
       color: #FFD662; /* gold */
       text-shadow:
-        0 0 8px #FFD662, /* subtle gold glow */
-        0 0 20px #FFD66288; /* soft ambient glow */
+        0 0 8px #FFD662,
+        0 0 20px #FFD66288;
       text-align: center;
-      padding: 0.15em 0.4em; /* hugs text tighter horizontally & vertically */
-      border: 2px solid #fff; /* thin white line */
+      padding: 0.15em 0.4em;
+      border: 2px solid #fff;
       border-radius: 8px;
-      box-shadow: 0 0 12px #fff33, 0 0 24px #fff88; /* glow visible but not overwhelming */
+      box-shadow: 0 0 12px #fff33, 0 0 24px #fff88;
     }
 
     /* CENTERED CONTENT COLUMN */
     .work-content {
       flex: 1;
       max-width: 700px;
-      margin: 0 auto; /* center horizontally */
-      padding: 30px 60px; /* moved higher */
+      margin: 0 auto;
+      padding: 0 60px; /* remove top padding to align with title */
       position: relative;
       z-index: 1;
     }
@@ -101,7 +108,6 @@
       }
     }
 
-    /* STAGGER ANIMATION */
     .floating-paragraph:nth-child(1) { animation-delay: 0.5s; }
     .floating-paragraph:nth-child(2) { animation-delay: 1.5s; }
     .floating-paragraph:nth-child(3) { animation-delay: 2.5s; }
@@ -130,48 +136,88 @@
       100% { text-shadow: 0 0 12px #fff, 0 0 24px #fffaa; }
     }
 
-    /* AUDIO BUTTON (replaces old audio player) */
+    /* AUDIO BUTTON FIXED BOTTOM-RIGHT WITH ORBITING LETTERS */
+    .audio-button-container {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      width: 80px;
+      height: 80px;
+      z-index: 10;
+    }
+
     .audio-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5em;
-      padding: 0.6em 1.2em;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #fff;
-      background: transparent;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
       border: 2px solid #fff;
-      border-radius: 12px;
-      text-shadow: 0 0 8px #fff, 0 0 16px #fffaa;
-      box-shadow: 0 0 12px #fff55, 0 0 24px #fffaa;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
-      position: absolute;
-      bottom: 100px; /* floats above next-part arrow */
-      left: 50%;
-      transform: translateX(-50%);
+      text-align: center;
+      text-decoration: none;
+      position: relative;
+      box-shadow: 0 0 12px #fff55, 0 0 24px #fffaa;
       transition: all 0.3s ease;
-      z-index: 3;
+    }
+
+    .audio-button img {
+      width: 40px;
+      height: 40px;
     }
 
     .audio-button:hover {
-      text-shadow: 0 0 16px #fff, 0 0 32px #fffaa;
       box-shadow: 0 0 20px #fff55, 0 0 40px #fffaa;
+    }
+
+    .orbiting-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px;
+      height: 120px;
+      pointer-events: none;
+    }
+
+    .orbiting-text span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform-origin: -50% -50%;
+      font-size: 0.9rem;
+      color: #fff;
+      text-shadow: 0 0 6px #fff, 0 0 12px #fffaa;
+      animation: orbit 5s linear infinite;
+    }
+
+    /* will rotate each letter individually by JS */
+    @keyframes orbit {
+      from { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+      to { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
     }
 
     /* MOBILE / TABLET */
     @media (max-width: 1024px) {
       .series-background { font-size: 15rem; }
       .work-title h1 { font-size: 3.25em; }
-      .work-content { padding: 40px 40px; }
+      .work-content { padding: 0 40px; }
       .next-part { font-size: 2.5rem; }
+      .audio-button-container { bottom: 30px; right: 30px; width: 60px; height: 60px; }
+      .audio-button img { width: 30px; height: 30px; }
     }
 
     @media (max-width: 768px) {
       .series-background { font-size: 10rem; }
       .work-title { width: 100%; padding: 40px 0; }
-      .work-content { padding: 30px 24px; }
+      .work-content { padding: 0 24px; }
       .next-part { font-size: 2rem; }
+      .audio-button-container { bottom: 20px; right: 20px; width: 50px; height: 50px; }
+      .audio-button img { width: 24px; height: 24px; }
     }
+
   </style>
 </head>
 <body>
@@ -179,24 +225,32 @@
   <!-- HUGE BACKGROUND SERIES NAME -->
   <div class="series-background check-vietnamese">Hèn</div>
 
-  <!-- LEFT COLUMN / SPINE TITLE -->
-  <div class="work-title">
-    <h1 class="check-vietnamese">Hèn: Khai màn</h1>
-  </div>
-
-  <!-- CENTERED CONTENT -->
-  <div class="work-content">
-    <div class="text-section">
-      <p class="floating-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a luctus nibh. Suspendisse potenti.</p>
-      <p class="floating-paragraph">Praesent vitae enim a justo pretium tincidunt. Fusce vel lacus vitae ligula tempus sodales.</p>
-      <p class="floating-paragraph">Curabitur nec justo vitae lacus finibus posuere. Integer vel nibh sed magna sollicitudin fermentum.</p>
+  <!-- FLEX ROW: SPINE + CONTENT -->
+  <div class="main-row">
+    <!-- LEFT COLUMN / SPINE TITLE -->
+    <div class="work-title">
+      <h1 class="check-vietnamese">Hèn: Khai màn</h1>
     </div>
 
-    <!-- AUDIO BUTTON -->
-    <button class="audio-button" id="audioButton">🔊 Let me read to you</button>
+    <!-- CENTERED CONTENT -->
+    <div class="work-content">
+      <div class="text-section">
+        <p class="floating-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a luctus nibh. Suspendisse potenti.</p>
+        <p class="floating-paragraph">Praesent vitae enim a justo pretium tincidunt. Fusce vel lacus vitae ligula tempus sodales.</p>
+        <p class="floating-paragraph">Curabitur nec justo vitae lacus finibus posuere. Integer vel nibh sed magna sollicitudin fermentum.</p>
+      </div>
 
-    <!-- NEXT PART ARROW -->
-    <a href="#next-part" class="next-part" id="nextArrow">⌄</a>
+      <!-- NEXT PART ARROW -->
+      <a href="#next-part" class="next-part" id="nextArrow">⌄</a>
+    </div>
+  </div>
+
+  <!-- AUDIO BUTTON WITH ORBITING TEXT -->
+  <div class="audio-button-container">
+    <button class="audio-button" id="audioButton">
+      <img src="https://cdn-icons-png.flaticon.com/512/480/480511.png" alt="speaker icon">
+    </button>
+    <div class="orbiting-text" id="orbitText"></div>
   </div>
 
   <!-- PARTICLES (VOID EFFECT) -->
@@ -230,12 +284,21 @@
       document.body.appendChild(particle);
     }
 
-    // AUDIO BUTTON CLICK (replace iframe logic)
+    // AUDIO BUTTON CLICK
     document.getElementById('audioButton').addEventListener('click', () => {
-      // replace or play audio logic here
-      // e.g., dynamically create Spotify iframe, toggle playback, etc.
       alert('Audio button clicked! Replace with Spotify embed or audio playback.');
     });
+
+    // ORBITING LETTERS
+    const orbitText = document.getElementById('orbitText');
+    const text = "Let me read to you";
+    for(let i=0;i<text.length;i++){
+      const span = document.createElement('span');
+      span.textContent = text[i];
+      span.style.transform = `rotate(${i * (360/text.length)}deg) translateX(50px) rotate(-${i * (360/text.length)}deg)`;
+      span.style.animationDelay = `${i * 0.05}s`;
+      orbitText.appendChild(span);
+    }
 
     // NEXT PART FUNCTION
     document.getElementById('nextArrow').addEventListener('click', (e) => {
