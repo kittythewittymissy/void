@@ -62,15 +62,15 @@
       font-family: 'Neonderthaw', sans-serif;
       font-size: 3.2em;
       font-weight: 600;
-      color: #FFD662;
+      color: #fff;
       text-shadow:
-        0 0 6px #FFD662,
-        0 0 18px rgba(255,214,98,0.8);
+        0 0 8px #fff, /* white bulbs */
+        0 0 20px #fffaa;
       text-align: center;
-      padding: 0.5em 1em; /* neon box padding */
-      border: 2px dotted #FFD662;
+      padding: 0.2em 0.6em; /* neon box padding */
+      border: 8px dotted #fff; /* big bulbs */
       border-radius: 12px;
-      box-shadow: 0 0 10px #FFD66255, 0 0 20px #FFD66233;
+      box-shadow: 0 0 20px #fff55, 0 0 40px #fffaa;
     }
 
     /* CENTERED CONTENT COLUMN */
@@ -131,31 +131,32 @@
       100% { text-shadow: 0 0 12px #fff, 0 0 24px #fffaa; }
     }
 
-    /* AUDIO PLAYER */
-    .audio-player {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: rgba(0,0,0,0.8);
-      padding: 1rem;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 0 10px #FFD70050;
-      max-width: 300px;
-      font-size: 0.9rem;
+    /* AUDIO BUTTON (replaces old audio player) */
+    .audio-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      padding: 0.6em 1.2em;
+      font-size: 1rem;
+      font-weight: 600;
       color: #fff;
-      opacity: 0;
-      transition: opacity 1s;
-      z-index: 2;
+      background: transparent;
+      border: 2px solid #fff;
+      border-radius: 12px;
+      text-shadow: 0 0 8px #fff, 0 0 16px #fffaa;
+      box-shadow: 0 0 12px #fff55, 0 0 24px #fffaa;
+      cursor: pointer;
+      position: absolute;
+      bottom: 100px; /* floats above next-part arrow */
+      left: 50%;
+      transform: translateX(-50%);
+      transition: all 0.3s ease;
+      z-index: 3;
     }
 
-    .audio-player.show {
-      opacity: 1;
-    }
-
-    .audio-player iframe {
-      width: 100%;
-      border-radius: 8px;
+    .audio-button:hover {
+      text-shadow: 0 0 16px #fff, 0 0 32px #fffaa;
+      box-shadow: 0 0 20px #fff55, 0 0 40px #fffaa;
     }
 
     /* MOBILE / TABLET */
@@ -164,7 +165,6 @@
       .work-title h1 { font-size: 2.5em; }
       .work-content { padding: 40px 40px; }
       .next-part { font-size: 2.5rem; }
-      .audio-player { max-width: 220px; }
     }
 
     @media (max-width: 768px) {
@@ -172,7 +172,6 @@
       .work-title { width: 100%; padding: 40px 0; }
       .work-content { padding: 30px 24px; }
       .next-part { font-size: 2rem; }
-      .audio-player { max-width: 180px; font-size: 0.8rem; }
     }
   </style>
 </head>
@@ -194,14 +193,11 @@
       <p class="floating-paragraph">Curabitur nec justo vitae lacus finibus posuere. Integer vel nibh sed magna sollicitudin fermentum.</p>
     </div>
 
-    <!-- NEXT PART ARROW -->
-    <a href="#next-part" class="next-part" id="nextArrow">↓</a>
-  </div>
+    <!-- AUDIO BUTTON -->
+    <button class="audio-button" id="audioButton">🔊 Let me read to you</button>
 
-  <!-- AUDIO PLAYER -->
-  <div class="audio-player" id="audioPlayer">
-    <div>Let me read it to you.</div>
-    <iframe src="https://open.spotify.com/embed/track/YOUR_TRACK_ID_HERE" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    <!-- NEXT PART ARROW -->
+    <a href="#next-part" class="next-part" id="nextArrow">⌄</a>
   </div>
 
   <!-- PARTICLES (VOID EFFECT) -->
@@ -235,9 +231,11 @@
       document.body.appendChild(particle);
     }
 
-    // AUDIO PLAYER FADE IN
-    window.addEventListener('load', () => {
-      document.getElementById('audioPlayer').classList.add('show');
+    // AUDIO BUTTON CLICK (replace iframe logic)
+    document.getElementById('audioButton').addEventListener('click', () => {
+      // replace or play audio logic here
+      // e.g., dynamically create Spotify iframe, toggle playback, etc.
+      alert('Audio button clicked! Replace with Spotify embed or audio playback.');
     });
 
     // NEXT PART FUNCTION
@@ -267,14 +265,6 @@
         textSection.appendChild(para);
         typewriterFade(para, p, 50 + index*30);
       });
-
-      // AUDIO
-      const audioPlayer = document.getElementById('audioPlayer');
-      audioPlayer.classList.remove('show');
-      setTimeout(() => {
-        audioPlayer.querySelector('iframe').src = "https://open.spotify.com/embed/track/YOUR_NEXT_TRACK_ID_HERE";
-        audioPlayer.classList.add('show');
-      }, 800);
 
       textSection.scrollIntoView({behavior: 'smooth'});
     });
