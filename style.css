@@ -81,8 +81,25 @@ h3 {
     0 0 16px rgba(255,255,255,0.7),
     0 0 28px rgba(255,255,255,0.5),
     0 0 40px rgba(255,255,255,0.3);
-  margin-top: 0.2em;       /* brings subheading closer to main heading */
+  margin-top: 0;       /* remove default top margin */
   margin-bottom: 0.5em;    /* small gap before list */
+}
+
+/* ===== SECTION COLUMNS SPACING ===== */
+.section-columns {
+  display: flex;
+  gap: 200px;                /* your “floating void” spacing */
+}
+
+.section-columns .column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;                /* controls spacing between subheadings and lists */
+}
+
+.section-columns .column ul {
+  margin: 0;                 /* remove default top margin to align spacing */
+  padding-left: 1.2em;       /* keep bullets indented */
 }
 
 /* ===== RESPONSIVE HEADINGS ===== */
@@ -141,11 +158,6 @@ h3 {
 }
 
 /* ===== LINKS ===== */
-.section-columns ul {
-  margin-top: 0;       /* tighten gap under subheading */
-  padding-left: 1.2em; /* keep bullets indented */
-}
-
 .section-columns ul li a {
   color: var(--white-accent);
   text-decoration: none;
