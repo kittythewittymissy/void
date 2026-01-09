@@ -10,9 +10,9 @@
 
   /* Font Sizes */
   --font-body: 16px;
-  --font-hero: 4.5em;          /* <h1> hero */
-  --font-h2-main: calc(var(--font-hero) * 0.65);  /* <h2> proportional to <h1> */
-  --font-subhead: 1.8em;       /* <h2.column-subheading> / <h3> */
+  --font-hero: 4.5em;                         /* <h1> hero */
+  --font-h2-main: calc(var(--font-hero) * 0.65); /* <h2> proportional to <h1> */
+  --font-subhead: 2.2em;                      /* <h2.column-subheading> & <h3> */
   --font-audio: 0.65rem;
 
   /* Glow / Bloom */
@@ -75,20 +75,20 @@ h3 {
   font-size: var(--font-subhead);
   font-weight: normal;
   color: var(--white-accent);
-  text-transform: none; /* preserve original casing */
+  text-transform: none;    /* preserve original casing */
   text-shadow:
-    0 0 6px #fff,
-    0 0 12px rgba(255,255,255,0.7),
-    0 0 20px rgba(255,255,255,0.5),
-    0 0 28px rgba(255,255,255,0.3);
+    0 0 8px #fff,
+    0 0 16px rgba(255,255,255,0.7),
+    0 0 28px rgba(255,255,255,0.5),
+    0 0 40px rgba(255,255,255,0.3);
 }
 
 /* ===== RESPONSIVE HEADINGS ===== */
 @media (max-width: 768px) {
   h1 { font-size: 2.5em; letter-spacing: 0.05em; }
-  h2.main-column-heading { font-size: 1.6em; } /* proportional shrink */
+  h2.main-column-heading { font-size: 1.6em; }
   h2.column-subheading,
-  h3 { font-size: 1.4em; }
+  h3 { font-size: 1.8em; }
 }
 
 /* ===== GOLD TIER ANIMATIONS ===== */
