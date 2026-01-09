@@ -105,7 +105,7 @@ body {
   font-weight: 500;
   color: var(--gold-core);
   text-transform: uppercase;
-  text-align: dead-center;
+  text-align: center;
   margin: 0;
   animation: neonBlaze var(--anim-speed-hero) forwards;
 }
@@ -116,7 +116,7 @@ body {
   font-size: var(--font-work-title);
   font-weight: 600;
   color: var(--gold-core);
-  text-transform: uppercase; /* optional: title-case for nuance */
+  text-transform: uppercase;
   animation: goldPulse var(--anim-speed-work) infinite alternate;
   text-align: center;
   margin: 0;
@@ -283,8 +283,8 @@ body {
   text-shadow: 0 0 4px var(--gold-core),
                0 0 10px var(--gold-bloom),
                0 0 20px rgba(255,214,98,0.5);
-
 }
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .gold-hero {
@@ -319,14 +319,35 @@ body {
   }
 }
 
-/* ===== AUTOMATIC GOLD NEON FOR COLUMN MAIN HEADINGS ===== */
-.column h3:first-of-type {
+/* ===== COLUMN MAIN HEADINGS (Tier 1) ===== */
+.column h2.main-column-heading {
   font-family: 'Codystar', sans-serif;
-  font-size: var(--font-work-title);
+  font-size: 2.5em;
   font-weight: 600;
   color: var(--gold-core);
   text-transform: uppercase;
   text-align: center;
-  margin: 0 0 0.5em 0;
+  margin: 0 0 0.6em 0;
   animation: goldPulse var(--anim-speed-work) infinite alternate;
+}
+
+/* ===== COLUMN SUBHEADINGS (Tier 2) ===== */
+.column-subheading {
+  font-family: 'Raleway Dots', cursive;
+  font-size: 40px;
+  font-weight: normal;
+  color: var(--white-accent);
+  text-align: center;
+  margin: 0 0 0.4em 0;
+  text-shadow: 
+    0 0 4px var(--white-accent),
+    0 0 10px rgba(255,255,255,0.6),
+    0 0 16px rgba(255,255,255,0.4);
+}
+
+/* ===== COLUMN SUBHEADINGS RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .column-subheading {
+    font-size: 32px;
+  }
 }
