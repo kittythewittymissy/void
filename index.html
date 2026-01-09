@@ -23,9 +23,14 @@
       position: relative;
     }
 
+    /* Banner-style hero container */
     .gold-hero-container {
-      display: inline-block;
-      padding: 28px 42px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80%;            /* wider banner feel */
+      max-width: 1200px;     /* cap width on large screens */
+      padding: 40px 0;       /* shorter top/bottom for banner look */
       border: 2px solid rgba(255,255,255,0.85);
       box-shadow:
         0 0 8px rgba(255,255,255,0.35),
@@ -33,13 +38,19 @@
       animation: neonBlaze var(--anim-speed-hero) forwards;
     }
 
+    /* Hero text slightly bigger than global font */
+    .gold-hero {
+      font-size: 5em;
+    }
+
+    /* Scroll arrow */
     .scroll-arrow {
       font-family: 'Codystar', sans-serif;
       font-size: 4em;
       color: var(--white-accent);
-      margin-top: 30px;
+      margin-top: 40px;
       cursor: pointer;
-      opacity: 0;
+      opacity: 1;
       animation: arrowFloat 2.5s infinite ease-in-out;
       animation-delay: var(--arrow-delay);
       transition: filter 0.25s, text-shadow 0.25s;
@@ -54,11 +65,21 @@
     .section-columns {
       display: flex;
       justify-content: center;
-      gap: 100px;
+      gap: 200px;           /* increased gap for floating/void feeling */
       margin: 60px 20px 120px;
+      opacity: 0;           /* start hidden for fade-in */
+      animation: fadeInColumns 2s forwards ease-in-out 1s;
+    }
+
+    @keyframes fadeInColumns {
+      from { opacity: 0; }
+      to   { opacity: 1; }
     }
 
     .column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       max-width: 500px;
       text-align: center;
     }
@@ -67,15 +88,16 @@
       list-style: none;
       padding: 0;
       margin: 0;
+      min-height: 120px;    /* ensures subheadings line up across columns */
     }
 
-    /* ===== COLUMN MAIN HEADINGS (Tier 1) ===== */
+    /* Column main headings: margin preserved for spacing */
     .column h2.main-column-heading {
       text-align: center;
       margin: 0 0 0.6em 0;
     }
 
-    /* ===== COLUMN SUBHEADINGS (Tier 2) ===== */
+    /* Subheadings: level across columns */
     .column-subheading {
       text-align: center;
       margin: 0 0 0.4em 0;
@@ -95,11 +117,17 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
+      .gold-hero-container {
+        width: 90%;
+        padding: 30px 0;
+      }
+      .gold-hero { font-size: 3.5em; }
       .section-columns {
         flex-direction: column;
         align-items: center;
         gap: 60px;
       }
+      .column ul { min-height: auto; }
     }
   </style>
 </head>
