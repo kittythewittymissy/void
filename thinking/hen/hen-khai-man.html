@@ -25,15 +25,28 @@
       z-index: 2;
     }
 
-    /* Work title <h1> overrides */
+    /* Work title <h1> — thicker, neon glow */
     .work-title h1 {
       font-family: 'Raleway Dots', sans-serif;
       font-size: 4rem;
-      letter-spacing: 0.16em;   
+      letter-spacing: 0.16em;
       font-weight: 400;      
-      filter: contrast(1.12) brightness(0.96); 
+      filter: contrast(1.12) brightness(0.96);
       animation: neonSignSnap 1s forwards;
       text-transform: none;
+
+      /* Thickening via layered shadows */
+      text-shadow:
+        0 0 2px #FFD662,
+        0 0 4px #FFD662,
+        0 0 6px #FFD662,
+        0 0 8px rgba(255,214,98,0.8),
+        0 0 12px rgba(255,214,98,0.6),
+        0 0 16px rgba(255,214,98,0.4);
+
+      /* Optional subtle stroke to reinforce thickness */
+      -webkit-text-stroke: 0.3px #FFD662;
+      text-stroke: 0.3px #FFD662;
     }
 
     /* Floating paragraphs */
@@ -79,8 +92,6 @@
       text-shadow: 0 0 18px var(--gold-core), 0 0 36px var(--gold-bloom);
     }
 
-    /* Audio button container / orbiting text handled globally */
-
     /* Media query overrides */
     @media(max-width:768px){
       .series-background{opacity:0;}
@@ -100,42 +111,4 @@
     <div class="work-content">
       <div class="text-section">
         <p class="floating-paragraph" style="--fade-delay:0s;">Lorem ipsum…</p>
-        <p class="floating-paragraph" style="--fade-delay:0.4s;">Praesent vitae…</p>
-        <p class="floating-paragraph" style="--fade-delay:0.8s;">Curabitur nec…</p>
-      </div>
-
-      <a href="#next-part" class="next-part" id="nextArrow">⌄</a>
-    </div>
-  </div>
-
-  <div class="audio-button-container">
-    <button class="audio-button" id="audioButton">
-      <svg viewBox="0 0 24 24" width="22" height="22">
-        <path d="M3 9v6h4l5 5V4L7 9H3z" fill="white"/>
-      </svg>
-    </button>
-    <div class="orbiting-text" id="orbitText"></div>
-  </div>
-
-  <script>
-    /* Orbit Audio Text */
-    const orbitText = document.getElementById('orbitText');
-    const label = "Audio";
-    for (let i = 0; i < label.length; i++) {
-      const s = document.createElement('span');
-      s.textContent = label[i];
-      s.style.transform = `rotate(${i*(360/label.length)}deg)`;
-      orbitText.appendChild(s);
-    }
-
-    /* Vietnamese font fallback */
-    function applyFontFallback(){
-      document.querySelectorAll('.check-vietnamese').forEach(el=>{
-        if(/[ăâđêôơư]/i.test(el.textContent)) el.style.fontFamily="'Raleway',sans-serif";
-      });
-    }
-    window.addEventListener('load', applyFontFallback);
-  </script>
-
-</body>
-</html>
+        <p class="floating-paragraph" style="--fade-dela
