@@ -20,42 +20,6 @@
     .column ul li a:hover {
       text-shadow: 0 0 8px #fff, 0 0 16px #fff;
     }
-
-    /* ===== COLUMN MAIN HEADINGS (Tier 1) ===== */
-    .column h2.main-column-heading {
-      font-family: 'Codystar', sans-serif;
-      font-size: 2.5em;           /* slightly smaller than hero, bigger than subheadings */
-      font-weight: 600;
-      color: var(--gold-core);
-      text-transform: uppercase;
-      text-align: center;
-      margin: 0 0 0.6em 0;
-      animation: goldPulse var(--anim-speed-work) infinite alternate;
-    }
-
-    /* ===== COLUMN SUBHEADINGS (Tier 2) ===== */
-    .column-subheading {
-      font-family: 'Raleway Dots', cursive;
-      font-size: 40px;            /* consistent size for all subheadings */
-      font-weight: normal;
-      color: var(--white-accent);
-      text-align: center;
-      margin: 0 0 0.4em 0;
-      text-shadow: 
-        0 0 4px var(--white-accent),
-        0 0 10px rgba(255,255,255,0.6),
-        0 0 16px rgba(255,255,255,0.4);  /* subtle but visible glow */
-    }
-
-    /* ===== RESPONSIVE SIZING ===== */
-    @media (max-width: 768px) {
-      .column h2.main-column-heading {
-        font-size: 2em;
-      }
-      .column-subheading {
-        font-size: 32px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -109,18 +73,14 @@
 
   <!-- Automatic placeholder redirection -->
   <script>
-    // List of real pages
     const realPages = [
       'thinking/cainguoi.html',
       'thinking/hen/hen-khai-man.html'
     ];
 
-    // Intercept all link clicks
     document.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', function(e) {
         const href = link.getAttribute('href');
-
-        // If href does NOT match any allowed page, redirect to placeholder
         if (!realPages.some(page => href.endsWith(page))) {
           e.preventDefault();
           window.location.href = 'under-creation-!.html';
