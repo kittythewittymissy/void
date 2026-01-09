@@ -283,8 +283,8 @@ body {
   text-shadow: 0 0 4px var(--gold-core),
                0 0 10px var(--gold-bloom),
                0 0 20px rgba(255,214,98,0.5);
-}
 
+}
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .gold-hero {
@@ -317,4 +317,16 @@ body {
   .work-content-region {
     padding: 40px 24px;
   }
+}
+
+/* ===== AUTOMATIC GOLD NEON FOR COLUMN MAIN HEADINGS ===== */
+.column h3:first-of-type {
+  font-family: 'Codystar', sans-serif;
+  font-size: var(--font-work-title);
+  font-weight: 600;
+  color: var(--gold-core);
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 0.5em 0;
+  animation: goldPulse var(--anim-speed-work) infinite alternate;
 }
