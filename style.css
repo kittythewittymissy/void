@@ -105,7 +105,7 @@ body {
   font-weight: 500;
   color: var(--gold-core);
   text-transform: uppercase;
-  text-align: center;
+  text-align: dead-center;
   margin: 0;
   animation: neonBlaze var(--anim-speed-hero) forwards;
 }
