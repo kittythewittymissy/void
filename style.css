@@ -40,6 +40,54 @@ body {
   color: var(--white-accent);
 }
 
+/* ===== GLOBAL HEADING STYLES ===== */
+h1 {
+  font-family: 'Codystar', sans-serif;
+  font-size: var(--font-hero);
+  font-weight: 500;
+  color: var(--gold-core);
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+  text-shadow:
+    0 0 8px var(--gold-core),
+    0 0 20px rgba(255,214,98,0.7);
+  animation: neonBlaze var(--anim-speed-hero) forwards;
+}
+
+h2 {
+  font-family: 'Codystar', sans-serif;
+  font-size: var(--font-work-title);
+  font-weight: 600;
+  color: var(--gold-core);
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 0.6em 0;
+  animation: goldPulse var(--anim-speed-work) infinite alternate;
+}
+
+h2.column-subheading,
+h3 {
+  font-family: 'Raleway Dots', cursive;
+  font-size: 1.8em;
+  font-weight: normal;
+  color: var(--white-accent);
+  text-align: center;
+  margin: 0 0 0.4em 0;
+  text-shadow: 
+    0 0 4px var(--white-accent),
+    0 0 10px rgba(255,255,255,0.6),
+    0 0 16px rgba(255,255,255,0.4);
+}
+
+/* ===== RESPONSIVE HEADINGS ===== */
+@media (max-width: 768px) {
+  h1 { font-size: 2.5em; letter-spacing: 0.05em; }
+  h2 { font-size: 2.5em; }
+  h2.column-subheading,
+  h3 { font-size: 1.4em; }
+}
+
 /* ===== HERO SECTION ===== */
 .hero {
   height: 100vh;
@@ -100,26 +148,12 @@ body {
 
 /* ===== HERO TITLE ===== */
 .gold-hero {
-  font-family: 'Codystar', sans-serif;
-  font-size: var(--font-hero);
-  font-weight: 500;
-  color: var(--gold-core);
-  text-transform: uppercase;
-  text-align: center;
-  margin: 0;
-  animation: neonBlaze var(--anim-speed-hero) forwards;
+  /* Retain same as global h1 */
 }
 
 /* ===== WORK TITLE ===== */
 .gold-title {
-  font-family: 'Codystar', sans-serif;
-  font-size: var(--font-work-title);
-  font-weight: 600;
-  color: var(--gold-core);
-  text-transform: uppercase;
-  animation: goldPulse var(--anim-speed-work) infinite alternate;
-  text-align: center;
-  margin: 0;
+  /* Retain same as global h2 */
 }
 
 /* ===== SUBHEADINGS / ACCENTS ===== */
@@ -285,15 +319,8 @@ body {
                0 0 20px rgba(255,214,98,0.5);
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== SECTION COLUMNS RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .gold-hero {
-    font-size: 2.5em;
-    letter-spacing: 0.05em;
-  }
-  .gold-title {
-    font-size: 2.5em;
-  }
   .section-columns {
     flex-direction: column;
     align-items: center;
@@ -316,38 +343,5 @@ body {
   }
   .work-content-region {
     padding: 40px 24px;
-  }
-}
-
-/* ===== COLUMN MAIN HEADINGS (Tier 1) ===== */
-.column h2.main-column-heading {
-  font-family: 'Codystar', sans-serif;
-  font-size: 3.2em; /* bigger, more heroic but smaller than hero */
-  font-weight: 600;
-  color: var(--gold-core);
-  text-transform: uppercase;
-  text-align: center;
-  margin: 0 0 0.6em 0;
-  animation: goldPulse var(--anim-speed-work) infinite alternate;
-}
-
-/* ===== COLUMN SUBHEADINGS (Tier 2) ===== */
-.column-subheading {
-  font-family: 'Raleway Dots', cursive;
-  font-size: 1.8em; /* smaller, proportional to main-column-heading */
-  font-weight: normal;
-  color: var(--white-accent);
-  text-align: center;
-  margin: 0 0 0.4em 0;
-  text-shadow: 
-    0 0 4px var(--white-accent),
-    0 0 10px rgba(255,255,255,0.6),
-    0 0 16px rgba(255,255,255,0.4);
-}
-
-/* ===== COLUMN SUBHEADINGS RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .column-subheading {
-    font-size: 1.4em;
   }
 }
