@@ -8,7 +8,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Codystar:wght@300;400;500;600&family=Raleway:wght@100&family=Raleway+Dots&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
+  <!-- Global CSS -->
   <link rel="stylesheet" href="style.css">
 
   <style>
@@ -23,14 +23,14 @@
       position: relative;
     }
 
-    /* Banner-style hero container */
+    /* Banner-style hero container, tighter */
     .gold-hero-container {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 80%;            /* wider banner feel */
-      max-width: 1200px;     /* cap width on large screens */
-      padding: 40px 0;       /* shorter top/bottom for banner look */
+      width: 80%;
+      max-width: 1200px;
+      padding: 16px 60px; /* tighter vertical padding */
       border: 2px solid rgba(255,255,255,0.85);
       box-shadow:
         0 0 8px rgba(255,255,255,0.35),
@@ -38,22 +38,19 @@
       animation: neonBlaze var(--anim-speed-hero) forwards;
     }
 
-    /* Hero text slightly bigger than global font */
     .gold-hero {
-      font-size: 5em;
+      font-size: 5em; /* slightly bigger than global hero font */
     }
 
-    /* Scroll arrow */
+    /* Scroll arrow: fade in after hero animation */
     .scroll-arrow {
       font-family: 'Codystar', sans-serif;
       font-size: 4em;
       color: var(--white-accent);
       margin-top: 40px;
       cursor: pointer;
-      opacity: 1;
-      animation: arrowFloat 2.5s infinite ease-in-out;
-      animation-delay: var(--arrow-delay);
-      transition: filter 0.25s, text-shadow 0.25s;
+      opacity: 0; /* start invisible */
+      animation: arrowFadeIn 2.5s ease-in-out forwards var(--anim-speed-hero);
     }
 
     .scroll-arrow:hover {
@@ -61,19 +58,25 @@
       text-shadow: 0 0 18px var(--white-accent), 0 0 36px rgba(255,255,255,1);
     }
 
-    /* ===== COLUMN LAYOUT ===== */
+    @keyframes arrowFadeIn {
+      0% { opacity: 0; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 1; transform: translateY(7px); }
+    }
+
+    /* ===== COLUMNS ===== */
     .section-columns {
       display: flex;
       justify-content: center;
-      gap: 200px;           /* increased gap for floating/void feeling */
+      gap: 200px; /* floating/void feel */
       margin: 60px 20px 120px;
-      opacity: 0;           /* start hidden for fade-in */
+      opacity: 0;
       animation: fadeInColumns 2s forwards ease-in-out 1s;
     }
 
     @keyframes fadeInColumns {
       from { opacity: 0; }
-      to   { opacity: 1; }
+      to { opacity: 1; }
     }
 
     .column {
@@ -84,30 +87,17 @@
       text-align: center;
     }
 
+    /* Ensure subheadings line up visually across columns */
     .column ul {
       list-style: none;
       padding: 0;
       margin: 0;
-      min-height: 120px;    /* ensures subheadings line up across columns */
+      min-height: 120px;
     }
 
-    /* Column main headings: margin preserved for spacing */
-    .column h2.main-column-heading {
-      text-align: center;
-      margin: 0 0 0.6em 0;
-    }
-
-    /* Subheadings: level across columns */
-    .column-subheading {
-      text-align: center;
-      margin: 0 0 0.4em 0;
-    }
-
-    /* ===== LINKS ===== */
+    /* Links hover glow */
     .column ul li a {
       transition: all 0.3s ease;
-      color: var(--white-accent);
-      text-decoration: none;
     }
 
     .column ul li a:hover {
@@ -119,7 +109,7 @@
     @media (max-width: 768px) {
       .gold-hero-container {
         width: 90%;
-        padding: 30px 0;
+        padding: 12px 40px;
       }
       .gold-hero { font-size: 3.5em; }
       .section-columns {
