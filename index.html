@@ -4,33 +4,20 @@
   <meta charset="UTF-8">
   <title>Kitty, the witty missy.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Codystar:wght@300;400;500&family=Raleway+Dots&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Raleway+Dots&family=Codystar:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
+  <!-- Global CSS -->
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    /* Glow hover effect for Thinking links */
-    .column ul li a {
-      transition: all 0.3s ease;
-    }
-
-    .column ul li a:hover {
-      text-shadow: 0 0 8px #fff, 0 0 16px #fff;
-    }
-  </style>
 </head>
 <body>
 
   <!-- HERO SECTION -->
   <div class="hero">
-    <div class="title-box">
-      <h1>Kitty, the witty missy.</h1>
-    </div>
+    <h1 class="gold-hero">Kitty, the witty missy.</h1>
 
-    <!-- SIMPLE THIN GLOWING V ARROW -->
+    <!-- Scroll arrow -->
     <div class="scroll-arrow" onclick="document.getElementById('columns').scrollIntoView({ behavior: 'smooth' });">⌄</div>
   </div>
 
@@ -41,14 +28,14 @@
     <div class="column">
       <h2 class="main-column-heading">Languages</h2>
 
-      <h3>Thinking</h3>
+      <h3 class="gold-accent">Thinking</h3>
       <ul>
         <li><a href="thinking/cainguoi.html">Cai Người</a></li>
         <li><a href="thinking/hen/hen-khai-man.html">Hèn</a></li>
         <li><a href="under-creation-!.html">Writing</a></li>
       </ul>
 
-      <h3>Teaching</h3>
+      <h3 class="gold-accent">Teaching</h3>
       <ul>
         <li><a href="under-creation-!.html">Lesson</a></li>
       </ul>
@@ -58,12 +45,12 @@
     <div class="column">
       <h2 class="main-column-heading">Images</h2>
 
-      <h3>Stills</h3>
+      <h3 class="gold-accent">Stills</h3>
       <ul>
         <li><a href="stills/still.jpg">Still</a></li>
       </ul>
 
-      <h3>Movies</h3>
+      <h3 class="gold-accent">Movies</h3>
       <ul>
         <li><a href="videos/video.html">Video</a></li>
       </ul>
@@ -71,20 +58,16 @@
 
   </div>
 
-  <!-- Automatic placeholder redirection -->
+  <!-- Placeholder redirect script -->
   <script>
-    // List of real pages
     const realPages = [
       'thinking/cainguoi.html',
       'thinking/hen/hen-khai-man.html'
     ];
 
-    // Intercept all link clicks
     document.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', function(e) {
         const href = link.getAttribute('href');
-
-        // If href does NOT match any allowed page, redirect to placeholder
         if (!realPages.some(page => href.endsWith(page))) {
           e.preventDefault();
           window.location.href = 'under-creation-!.html';
