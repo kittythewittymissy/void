@@ -12,13 +12,94 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* Glow hover effect for Thinking links */
+    /* ===== HERO SECTION ===== */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .gold-hero-container {
+      display: inline-block;
+      padding: 28px 42px;
+      border: 2px solid rgba(255,255,255,0.85);
+      box-shadow:
+        0 0 8px rgba(255,255,255,0.35),
+        0 0 18px rgba(255,214,98,0.25);
+      animation: neonBlaze var(--anim-speed-hero) forwards;
+    }
+
+    .scroll-arrow {
+      font-family: 'Codystar', sans-serif;
+      font-size: 4em;
+      color: var(--white-accent);
+      margin-top: 30px;
+      cursor: pointer;
+      opacity: 0;
+      animation: arrowFloat 2.5s infinite ease-in-out;
+      animation-delay: var(--arrow-delay);
+      transition: filter 0.25s, text-shadow 0.25s;
+    }
+
+    .scroll-arrow:hover {
+      filter: brightness(1.8);
+      text-shadow: 0 0 18px var(--white-accent), 0 0 36px rgba(255,255,255,1);
+    }
+
+    /* ===== COLUMN LAYOUT ===== */
+    .section-columns {
+      display: flex;
+      justify-content: center;
+      gap: 100px;
+      margin: 60px 20px 120px;
+    }
+
+    .column {
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    /* ===== COLUMN MAIN HEADINGS (Tier 1) ===== */
+    .column h2.main-column-heading {
+      text-align: center;
+      margin: 0 0 0.6em 0;
+    }
+
+    /* ===== COLUMN SUBHEADINGS (Tier 2) ===== */
+    .column-subheading {
+      text-align: center;
+      margin: 0 0 0.4em 0;
+    }
+
+    /* ===== LINKS ===== */
     .column ul li a {
       transition: all 0.3s ease;
+      color: var(--white-accent);
+      text-decoration: none;
     }
 
     .column ul li a:hover {
       text-shadow: 0 0 8px #fff, 0 0 16px #fff;
+      color: var(--gold-core);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .section-columns {
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+      }
     }
   </style>
 </head>
