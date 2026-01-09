@@ -211,3 +211,64 @@ h3 {
   transform-origin: center -22px;
   animation: orbit 4s linear infinite;
 }
+
+/* ===== WORK TITLES — CREATIVE WORKS ONLY ===== */
+.work-title h1 {
+  font-family: 'Raleway Dots', sans-serif;
+  font-size: var(--font-hero);
+  letter-spacing: 0.16em;
+  font-weight: 400;
+  text-transform: none;
+
+  /* Thickened neon effect */
+  text-shadow:
+    0 0 2px var(--gold-core),
+    0 0 4px var(--gold-core),
+    0 0 6px var(--gold-core),
+    0 0 8px rgba(255,214,98,0.8),
+    0 0 12px rgba(255,214,98,0.6),
+    0 0 16px rgba(255,214,98,0.4);
+  -webkit-text-stroke: 0.3px var(--gold-core);
+  
+  /* Dramatic flicker animation */
+  animation: dramaticNeon 2s forwards;
+  animation-delay: 0.5s; /* suspense before flash */
+}
+
+/* Neon dramatic flash keyframes */
+@keyframes dramaticNeon {
+  0% { opacity: 0; text-shadow: none; }
+  5% { opacity: 0.1; text-shadow: 0 0 1px var(--gold-core); }
+  15% {
+    opacity: 1;
+    text-shadow:
+      0 0 4px var(--gold-core),
+      0 0 12px var(--gold-core),
+      0 0 24px var(--gold-core),
+      0 0 48px var(--gold-bloom);
+  }
+  20% {
+    opacity: 0.9;
+    text-shadow:
+      0 0 2px var(--gold-core),
+      0 0 8px var(--gold-core),
+      0 0 16px var(--gold-core),
+      0 0 32px var(--gold-bloom);
+  }
+  25% {
+    opacity: 1;
+    text-shadow:
+      0 0 6px var(--gold-core),
+      0 0 18px var(--gold-core),
+      0 0 36px var(--gold-core),
+      0 0 64px var(--gold-bloom);
+  }
+  30%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 2px var(--gold-core),
+      0 0 6px var(--gold-core),
+      0 0 12px var(--gold-core),
+      0 0 24px var(--gold-bloom);
+  }
+}
