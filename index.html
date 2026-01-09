@@ -42,12 +42,13 @@
       font-size: 5em; /* slightly bigger than global hero font */
     }
 
-    /* Scroll arrow: fade in after hero animation */
+    /* Scroll arrow: positioned below hero without affecting centering */
     .scroll-arrow {
       font-family: 'Codystar', sans-serif;
       font-size: 4em;
       color: var(--white-accent);
-      margin-top: 40px;
+      position: absolute;    /* absolute so it doesn’t push content */
+      bottom: 40px;
       cursor: pointer;
       opacity: 0; /* start invisible */
       animation: arrowFadeIn 2.5s ease-in-out forwards var(--anim-speed-hero);
@@ -87,12 +88,20 @@
       text-align: center;
     }
 
-    /* Ensure subheadings line up visually across columns */
+    /* Reduce space between gold heading and subheadings + lists */
+    .column h2.main-column-heading {
+      margin-bottom: 0.3em; /* slightly tighter */
+    }
+
+    .column-subheading {
+      margin-bottom: 0.2em; /* tighter to its list */
+    }
+
     .column ul {
       list-style: none;
       padding: 0;
       margin: 0;
-      min-height: 120px;
+      min-height: 120px; /* ensures subheadings line up across columns */
     }
 
     /* Links hover glow */
