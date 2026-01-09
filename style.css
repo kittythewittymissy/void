@@ -24,6 +24,9 @@
   --anim-speed-hero: 5.2s;
   --anim-speed-work: 1s;
   --anim-speed-accent: 2s;
+
+  /* Scroll arrow delay */
+  --arrow-delay: 1.2s;
 }
 
 /* ===== BASE ===== */
@@ -46,6 +49,17 @@ body {
   align-items: center;
   text-align: center;
   position: relative;
+}
+
+/* ===== HERO WHITE BOX — ONLY FOR INDEX PAGE ===== */
+.gold-hero-container {
+  display: inline-block;
+  padding: 28px 42px;
+  border: 2px solid rgba(255,255,255,0.85);
+  box-shadow:
+    0 0 8px rgba(255,255,255,0.35),
+    0 0 18px rgba(255,214,98,0.25);
+  animation: neonBlaze var(--anim-speed-hero) forwards;
 }
 
 /* ===== GOLD TIER ANIMATIONS ===== */
@@ -91,9 +105,9 @@ body {
   font-weight: 500;
   color: var(--gold-core);
   text-transform: uppercase;
-  animation: neonBlaze var(--anim-speed-hero) forwards;
   text-align: center;
   margin: 0;
+  animation: neonBlaze var(--anim-speed-hero) forwards;
 }
 
 /* ===== WORK TITLE ===== */
@@ -172,14 +186,16 @@ body {
   max-width: 720px;
 }
 
-/* ===== ARROWS ===== */
+/* ===== SCROLL ARROWS ===== */
 .scroll-arrow {
   font-family: 'Codystar', sans-serif;
   font-size: 4em;
   color: var(--white-accent);
   margin-top: 30px;
   cursor: pointer;
+  opacity: 0;
   animation: arrowFloat 2.5s infinite ease-in-out;
+  animation-delay: var(--arrow-delay);
   transition: filter 0.25s, text-shadow 0.25s;
 }
 
