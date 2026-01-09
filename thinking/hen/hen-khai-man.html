@@ -4,79 +4,29 @@
   <meta charset="UTF-8">
   <title>Hèn: Khai màn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Neonderthaw&family=Codystar:wght@300;400;500&family=Raleway+Dots&family=Raleway&display=swap" rel="stylesheet">
+  
+  <!-- Global CSS -->
   <link rel="stylesheet" href="../../style.css">
 
+  <!-- Page-specific overrides -->
   <style>
-    /* ================== OVERRIDES ================== */
-
-    /* Title neon (snap → peak → settle) */
-    @keyframes neonSignSnap {
-      0% { opacity:0.1; filter:brightness(0.3); text-shadow:none; }
-      25% { opacity:1; filter:brightness(3); text-shadow:0 0 12px #FFD662,0 0 30px #FFD662; }
-      45% { opacity:1; filter:brightness(1.6); text-shadow:0 0 8px #FFD662,0 0 18px rgba(255,214,98,0.9); }
-      100% { opacity:1; filter:brightness(1.2); text-shadow:0 0 6px #FFD662,0 0 14px rgba(255,214,98,0.7); }
+    /* Sticky work title container */
+    .work-title {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 2rem 1.5rem;
+      z-index: 2;
     }
 
-    /* Body fade */
-    @keyframes fadeInFromVoid {
-      0% { opacity:0; transform:translateY(8px) scale(0.96); }
-      60% { opacity:0.7; transform:translateY(0) scale(1.02); }
-      100% { opacity:1; transform:translateY(0) scale(1); }
-    }
-
-    .floating-paragraph {
-      font-family:'Raleway', sans-serif;
-      font-weight:300;
-      font-size:0.9rem;
-      line-height:1.6;
-      opacity:0;
-      animation:fadeInFromVoid 1s forwards;
-      animation-delay:var(--fade-delay,0s);
-      margin-bottom:1.3rem;
-    }
-
-    /* Ghost flicker */
-    @keyframes ghostFlicker {
-      0%,100% {opacity:0.07;}
-      50% {opacity:0.11;}
-    }
-    .series-background {
-      position:fixed;
-      top:50%; left:50%;
-      transform:translate(-50%,-50%);
-      font-family:'Raleway Dots';
-      font-size:25rem;
-      opacity:0.09;
-      pointer-events:none;
-      color:#FFD662;
-      z-index:0;
-      animation:ghostFlicker 3s infinite ease-in-out;
-      white-space:nowrap;
-    }
-
-    /* Center column correction — higher up */
-    .work-content{
-      flex:1;
-      max-width:700px;
-      margin:0 auto;
-      padding-top:23vh;
-      padding-bottom:40vh;
-    }
-
-    /* Sticky spine + sentence case */
-    .work-title{
-      position:sticky;
-      top:0;
-      height:100vh;
-      display:flex;
-      align-items:flex-start;
-      justify-content:flex-start;
-      padding:2rem 1.5rem;
-      z-index:2;
-    }
-
-    .work-title h1{
+    /* Work title <h1> overrides */
+    .work-title h1 {
       font-family: 'Raleway Dots', sans-serif;
       font-size: 4rem;
       letter-spacing: 0.16em;   
@@ -84,79 +34,54 @@
       filter: contrast(1.12) brightness(0.96); 
       animation: neonSignSnap 1s forwards;
       text-transform: none;
-    }  
-
-    /* Neon arrow B+1 */
-    .next-part{
-      display:block;
-      font-family:'Codystar';
-      font-size:4rem;
-      text-align:center;
-      color:#FFD662;
-      cursor:pointer;
-      margin-top:2rem;
-      text-shadow:0 0 10px #FFD662,0 0 24px rgba(255,214,98,0.8);
-      animation:arrowFloat 2.5s infinite ease-in-out;
-      transition:filter 0.25s,text-shadow 0.25s;
-    }
-    .next-part:hover{
-      filter:brightness(1.8);
-      text-shadow:0 0 18px #FFD662,0 0 36px rgba(255,214,98,1);
-    }
-    @keyframes arrowFloat{
-      0%,100%{transform:translateY(0);}
-      50%{transform:translateY(7px);}
     }
 
-    /* AUDIO BUTTON — clean, bottom right */
-    .audio-button-container{
-      position:fixed;
-      bottom:2rem;
-      right:2rem;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:0.4rem;
-      z-index:5;
-    }
-    .audio-button{
-      background:transparent;
-      border:none;
-      cursor:pointer;
-      width:42px; height:42px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      color:white;
-      filter:drop-shadow(0 0 4px white);
-      transition:filter 0.2s;
-    }
-    .audio-button:hover{
-      filter:drop-shadow(0 0 8px white);
+    /* Floating paragraphs */
+    .floating-paragraph {
+      opacity: 0;
+      animation: fadeInFromVoid 1s forwards;
+      animation-delay: var(--fade-delay, 0s);
+      margin-bottom: 1.3rem;
     }
 
-    /* Orbit "Audio" */
-    .orbiting-text{
-      position:absolute;
-      font-family:'Raleway Dots';
-      font-size:0.65rem;
-      color:white;
-      pointer-events:none;
-      transform-origin:center center;
-      top:-24px;
-      left:50%;
-      transform:translateX(-50%);
-    }
-    .orbiting-text span{
-      position:absolute;
-      transform-origin:center -22px;
-      animation:orbit 4s linear infinite;
-    }
-    @keyframes orbit{
-      from{ transform:rotate(0deg);}
-      to{ transform:rotate(360deg);}
+    /* Series background ghost text */
+    .series-background {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Raleway Dots', cursive;
+      font-size: 25rem;
+      opacity: 0.09;
+      pointer-events: none;
+      color: var(--gold-core);
+      z-index: 0;
+      animation: ghostFlicker 3s infinite ease-in-out;
+      white-space: nowrap;
     }
 
+    /* Next-part arrow */
+    .next-part {
+      display: block;
+      font-family: 'Codystar', sans-serif;
+      font-size: 4rem;
+      text-align: center;
+      color: var(--gold-core);
+      cursor: pointer;
+      margin-top: 2rem;
+      text-shadow: 0 0 10px var(--gold-core), 0 0 24px var(--gold-bloom);
+      animation: arrowFloat 2.5s infinite ease-in-out;
+      transition: filter 0.25s, text-shadow 0.25s;
+    }
+
+    .next-part:hover {
+      filter: brightness(1.8);
+      text-shadow: 0 0 18px var(--gold-core), 0 0 36px var(--gold-bloom);
+    }
+
+    /* Audio button container / orbiting text handled globally */
+
+    /* Media query overrides */
     @media(max-width:768px){
       .series-background{opacity:0;}
       .work-content{padding-top:16vh;}
@@ -193,23 +118,24 @@
   </div>
 
   <script>
-    /* Orbit Audio */
-    const orbitText=document.getElementById('orbitText');
-    const label="Audio";
-    for(let i=0;i<label.length;i++){
-      const s=document.createElement('span');
-      s.textContent=label[i];
-      s.style.transform=`rotate(${i*(360/label.length)}deg)`;
+    /* Orbit Audio Text */
+    const orbitText = document.getElementById('orbitText');
+    const label = "Audio";
+    for (let i = 0; i < label.length; i++) {
+      const s = document.createElement('span');
+      s.textContent = label[i];
+      s.style.transform = `rotate(${i*(360/label.length)}deg)`;
       orbitText.appendChild(s);
     }
 
-    /* Title Vietnamese fallback */
+    /* Vietnamese font fallback */
     function applyFontFallback(){
       document.querySelectorAll('.check-vietnamese').forEach(el=>{
         if(/[ăâđêôơư]/i.test(el.textContent)) el.style.fontFamily="'Raleway',sans-serif";
       });
     }
-    window.addEventListener('load',applyFontFallback);
+    window.addEventListener('load', applyFontFallback);
   </script>
+
 </body>
 </html>
