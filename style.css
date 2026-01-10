@@ -75,14 +75,14 @@ h3 {
   font-size: var(--font-subhead);
   font-weight: normal;
   color: var(--white-accent);
-  text-transform: none;    /* preserve original casing */
+  text-transform: none;
   text-shadow:
     0 0 8px #fff,
     0 0 16px rgba(255,255,255,0.7),
     0 0 28px rgba(255,255,255,0.5),
     0 0 40px rgba(255,255,255,0.3);
-  margin-top: 0.2em;       /* brings subheading closer to main heading */
-  margin-bottom: 0.5em;    /* small gap before list */
+  margin-top: 0.2em;
+  margin-bottom: 0.5em;
 }
 
 /* ===== RESPONSIVE HEADINGS ===== */
@@ -142,8 +142,8 @@ h3 {
 
 /* ===== LINKS ===== */
 .section-columns ul {
-  margin-top: 0;       /* tighten gap under subheading */
-  padding-left: 1.2em; /* keep bullets indented */
+  margin-top: 0;
+  padding-left: 1.2em;
 }
 
 .section-columns ul li a {
@@ -219,8 +219,6 @@ h3 {
   letter-spacing: 0.16em;
   font-weight: 400;
   text-transform: none;
-
-  /* Thickened neon effect */
   text-shadow:
     0 0 2px var(--gold-core),
     0 0 4px var(--gold-core),
@@ -229,46 +227,50 @@ h3 {
     0 0 12px rgba(255,214,98,0.6),
     0 0 16px rgba(255,214,98,0.4);
   -webkit-text-stroke: 0.3px var(--gold-core);
-  
-  /* Dramatic flicker animation */
   animation: dramaticNeon 2s forwards;
-  animation-delay: 0.5s; /* suspense before flash */
+  animation-delay: 0.5s;
 }
 
-/* Neon dramatic flash keyframes */
+/* ===== DRAMATIC FLASH (Hard version) ===== */
 @keyframes dramaticNeon {
-  0% { opacity: 0; text-shadow: none; }
-  5% { opacity: 0.1; text-shadow: 0 0 1px var(--gold-core); }
+  0% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  5% {
+    opacity: 0.15;
+    text-shadow: 0 0 2px var(--gold-core);
+  }
   15% {
-    opacity: 1;
-    text-shadow:
-      0 0 4px var(--gold-core),
-      0 0 12px var(--gold-core),
-      0 0 24px var(--gold-core),
-      0 0 48px var(--gold-bloom);
-  }
-  20% {
-    opacity: 0.9;
-    text-shadow:
-      0 0 2px var(--gold-core),
-      0 0 8px var(--gold-core),
-      0 0 16px var(--gold-core),
-      0 0 32px var(--gold-bloom);
-  }
-  25% {
     opacity: 1;
     text-shadow:
       0 0 6px var(--gold-core),
       0 0 18px var(--gold-core),
-      0 0 36px var(--gold-core),
-      0 0 64px var(--gold-bloom);
+      0 0 38px var(--gold-core),
+      0 0 72px var(--gold-bloom);
+  }
+  22% {
+    opacity: 0.9;
+    text-shadow:
+      0 0 3px var(--gold-core),
+      0 0 10px var(--gold-core),
+      0 0 24px var(--gold-core),
+      0 0 48px var(--gold-bloom);
+  }
+  28% {
+    opacity: 1;
+    text-shadow:
+      0 0 7px var(--gold-core),
+      0 0 20px var(--gold-core),
+      0 0 40px var(--gold-core),
+      0 0 74px var(--gold-bloom);
   }
   30%, 100% {
     opacity: 1;
     text-shadow:
-      0 0 2px var(--gold-core),
-      0 0 6px var(--gold-core),
-      0 0 12px var(--gold-core),
-      0 0 24px var(--gold-bloom);
+      0 0 3px var(--gold-core),
+      0 0 9px var(--gold-core),
+      0 0 18px var(--gold-core),
+      0 0 34px var(--gold-bloom);
   }
 }
