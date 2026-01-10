@@ -23,14 +23,14 @@
       position: relative;
     }
 
-    /* Banner-style hero container, tighter */
+    /* Banner-style hero container, tighter vertical hug */
     .gold-hero-container {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 80%;
       max-width: 1200px;
-      padding: 16px 60px; /* tighter vertical padding */
+      padding: 6px 60px; /* much tighter vertical padding */
       border: 2px solid rgba(255,255,255,0.85);
       box-shadow:
         0 0 8px rgba(255,255,255,0.35),
@@ -39,7 +39,8 @@
     }
 
     .gold-hero {
-      font-size: 5em; /* slightly bigger than global hero font */
+      font-size: 5em;        /* slightly bigger than global hero font */
+      line-height: 1;         /* collapse extra vertical spacing */
     }
 
     /* Scroll arrow: positioned below hero without affecting centering */
@@ -118,7 +119,7 @@
     @media (max-width: 768px) {
       .gold-hero-container {
         width: 90%;
-        padding: 12px 40px;
+        padding: 6px 40px; /* maintain tight vertical padding on mobile */
       }
       .gold-hero { font-size: 3.5em; }
       .section-columns {
