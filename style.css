@@ -219,6 +219,7 @@ h3 {
   letter-spacing: 0.16em;
   font-weight: 400;
   text-transform: none;
+
   text-shadow:
     0 0 2px var(--gold-core),
     0 0 4px var(--gold-core),
@@ -227,50 +228,54 @@ h3 {
     0 0 12px rgba(255,214,98,0.6),
     0 0 16px rgba(255,214,98,0.4);
   -webkit-text-stroke: 0.3px var(--gold-core);
-  animation: dramaticNeon 2s forwards;
-  animation-delay: 0.5s;
+
+  animation: neonIgnite 2.4s forwards;
+  animation-delay: 0.3s;
 }
 
-/* ===== DRAMATIC FLASH (Hard version) ===== */
-@keyframes dramaticNeon {
+/* === Option A#2: Cold → Flash → Blackout → Flash → Recoil → Settle === */
+@keyframes neonIgnite {
   0% {
     opacity: 0;
     text-shadow: none;
   }
-  5% {
-    opacity: 0.15;
-    text-shadow: 0 0 2px var(--gold-core);
+  10% {
+    opacity: 0.4;
+    text-shadow: 0 0 4px var(--gold-core), 0 0 12px var(--gold-core);
   }
-  15% {
+  14% {
+    opacity: 0;
+    text-shadow: none; /* blackout */
+  }
+  20% {
+    opacity: 1;
+    text-shadow:
+      0 0 6px var(--gold-core),
+      0 0 20px var(--gold-core),
+      0 0 48px var(--gold-core),
+      0 0 86px var(--gold-bloom);
+  }
+  26% {
+    opacity: 0.9;
+    text-shadow:
+      0 0 4px var(--gold-core),
+      0 0 14px var(--gold-core),
+      0 0 32px var(--gold-bloom);
+  }
+  34% {
     opacity: 1;
     text-shadow:
       0 0 6px var(--gold-core),
       0 0 18px var(--gold-core),
-      0 0 38px var(--gold-core),
-      0 0 72px var(--gold-bloom);
+      0 0 36px var(--gold-core),
+      0 0 64px var(--gold-bloom);
   }
-  22% {
-    opacity: 0.9;
-    text-shadow:
-      0 0 3px var(--gold-core),
-      0 0 10px var(--gold-core),
-      0 0 24px var(--gold-core),
-      0 0 48px var(--gold-bloom);
-  }
-  28% {
+  100% {
     opacity: 1;
     text-shadow:
-      0 0 7px var(--gold-core),
-      0 0 20px var(--gold-core),
-      0 0 40px var(--gold-core),
-      0 0 74px var(--gold-bloom);
-  }
-  30%, 100% {
-    opacity: 1;
-    text-shadow:
-      0 0 3px var(--gold-core),
-      0 0 9px var(--gold-core),
-      0 0 18px var(--gold-core),
-      0 0 34px var(--gold-bloom);
+      0 0 2px var(--gold-core),
+      0 0 6px var(--gold-core),
+      0 0 12px var(--gold-core),
+      0 0 24px var(--gold-bloom);
   }
 }
