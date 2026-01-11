@@ -11,9 +11,12 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="../../style.css">
 
-  <!-- Page-specific styling only for layout/visual -->
   <style>
-    .work-title { position: sticky; top: 0; padding: 2rem 5rem; }
+    .work-title { 
+      position: sticky;
+      top: 0;
+      padding: 2rem 5rem;
+    }
 
     .work-title h1 {
       font-family: 'Raleway Dots', sans-serif;
@@ -28,11 +31,20 @@
         0 0 12px rgba(255,214,98,.6),
         0 0 16px rgba(255,214,98,.4);
       -webkit-text-stroke: .3px #FFD662;
+      /* title turns on first */
+      opacity: 0;
+      animation: titleTurnOn 1.6s ease forwards;
+      animation-delay: 0.4s;
     }
 
+    @keyframes titleTurnOn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* body text: slow simple fade */
     .floating-paragraph {
       opacity: 0;
-      animation: fadeInColumns 3s ease forwards;
       max-width: 40%;
       margin: 0 auto 1.5rem;
       font-size: 1.5rem;
@@ -40,12 +52,22 @@
       font-weight: 200;
       line-height: 1.6;
       text-align: left;
+
+      animation: bodyFade 2.8s ease forwards;
     }
 
-    @keyframes fadeInColumns {
-      0% { opacity: 0; transform: scale(.95); }
-      100% { opacity: 1; transform: scale(1); }
+    @keyframes bodyFade {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
+
+    /* stagger AFTER title */
+    .floating-paragraph:nth-child(1) { animation-delay: 3.0s; }
+    .floating-paragraph:nth-child(2) { animation-delay: 3.8s; }
+    .floating-paragraph:nth-child(3) { animation-delay: 4.6s; }
+    .floating-paragraph:nth-child(4) { animation-delay: 5.4s; }
+    .floating-paragraph:nth-child(5) { animation-delay: 6.2s; }
+    .floating-paragraph:nth-child(6) { animation-delay: 7.0s; }
 
     .series-background {
       position: fixed;
@@ -68,9 +90,15 @@
       margin-top: 2rem;
     }
 
+    /* nudged audio button */
+    .audio-button {
+      right: 4.25rem !important;
+    }
+
     @media(max-width:768px) {
       .floating-paragraph { max-width: 80%; font-size: 1rem; }
       .series-background { opacity: 0; }
+      .audio-button { right: 2rem !important; }
     }
   </style>
 </head>
@@ -98,7 +126,6 @@
     </div>
   </div>
 
-  <!-- Only show if audio actually exists -->
   <div class="audio-button">
     <svg viewBox="0 0 24 24">
       <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.95 7-4.49 7-8.77s-2.99-7.82-7-8.77z"/>
