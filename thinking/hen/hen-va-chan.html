@@ -103,17 +103,19 @@
     }
 
     .next-part.up {
-      position: absolute;
-      top: 0;
+      position: fixed;
+      top: 1rem;       /* near top of viewport */
       left: 50%;
       transform: translateX(-50%);
+      z-index: 1000;
     }
 
     .next-part.down {
-      position: absolute;
-      bottom: 0;
+      position: fixed;
+      bottom: 1rem;    /* near bottom of viewport */
       left: 50%;
       transform: translateX(-50%);
+      z-index: 1000;
     }
 
     /* AUDIO BUTTON */
@@ -160,13 +162,6 @@
       .spotify-popup iframe { height: 200px; }
     }
 
-    /* Container to position arrows */
-    .work-content {
-      position: relative;
-      padding-top: 5rem;
-      min-height: 80vh; /* Ensure enough height for arrows */
-    }
-
   </style>
 </head>
 
@@ -179,7 +174,7 @@
       <h1>Hèn, và Chán.</h1>
     </div>
 
-    <div class="work-content">
+    <div class="work-content" style="padding-top:5rem;">
       <div class="text-section">
         <p class="floating-paragraph">Tôi hèn. Tôi đã nói với bạn điều đó chưa?</p>
         <p class="floating-paragraph">Tôi đã đến cái giai đoạn đấy trong cuộc sống, cái thời điểm mà tôi bắt đầu học cách chấp nhận rằng có những thứ sâu-trong-tôi là tôi đến mức độ để thay đổi chúng không đáng bằng việc tìm cách sống chung và chế ngự chúng. Tôi chỉ cần hiểu chính mình đủ rõ để khi tôi đưa ra lựa chọn, tôi sẽ không còn than phiền và rồi hối hận về nó vì nó xung khắc với những thứ sâu-trong-tôi-là-tôi mà chính tôi còn không hay biết tồn tại. Tôi đã lựa chọn một cuộc sống hoàn toàn khác với những gì tôi từng hay nghe và được dạy, chỉ vì tôi biết cuộc sống khuôn mẫu chắc chắn không phải điều tôi muốn. Chỉ có một trở ngại hơi lớn cho lựa chọn “phóng khoáng” này: Tôi hoàn toàn không biết phải đi đâu tiếp. “Kì thực trên mặt đất vốn làm gì có đường. Người ta đi mãi thì thành đường thôi.” Lỗ Tấn, Cố Hương, Ngữ Văn 9. Tôi đồng ý, tôi cũng thấy một con đường, sao lại khúc khuỷu và thô sơ, trước mắt mình. Tôi đã nghĩ nếu người ta đi nó đủ nhiều đến vậy rồi, sao tôi lại vẫn phải cheo leo trên con đường này vậy?
