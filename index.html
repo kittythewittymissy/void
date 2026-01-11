@@ -30,7 +30,7 @@
       align-items: center;
       width: 80%;
       max-width: 1200px;
-      padding: 6px 40px; /* much tighter vertical padding */
+      padding: 6px 40px; /* tight vertical padding */
       border: 2px solid rgba(255,255,255,0.85);
       box-shadow:
         0 0 8px rgba(255,255,255,0.35),
@@ -41,29 +41,6 @@
     .gold-hero {
       font-size: 5em;        /* slightly bigger than global hero font */
       line-height: 1;         /* collapse extra vertical spacing */
-    }
-
-    /* Scroll arrow: positioned below hero without affecting centering */
-    .scroll-arrow {
-      font-family: 'Codystar', sans-serif;
-      font-size: 4em;
-      color: var(--white-accent);
-      position: absolute;    /* absolute so it doesn’t push content */
-      bottom: 40px;
-      cursor: pointer;
-      opacity: 0; /* start invisible */
-      animation: arrowFadeIn 2.5s ease-in-out forwards var(--anim-speed-hero);
-    }
-
-    .scroll-arrow:hover {
-      filter: brightness(1.8);
-      text-shadow: 0 0 18px var(--white-accent), 0 0 36px rgba(255,255,255,1);
-    }
-
-    @keyframes arrowFadeIn {
-      0% { opacity: 0; transform: translateY(0); }
-      50% { opacity: 1; transform: translateY(0); }
-      100% { opacity: 1; transform: translateY(7px); }
     }
 
     /* ===== COLUMNS ===== */
@@ -91,18 +68,18 @@
 
     /* Reduce space between gold heading and subheadings + lists */
     .column h2.main-column-heading {
-      margin-bottom: 0.3em; /* slightly tighter */
+      margin-bottom: 0.3em;
     }
 
     .column-subheading {
-      margin-bottom: 0.2em; /* tighter to its list */
+      margin-bottom: 0.2em;
     }
 
     .column ul {
       list-style: none;
       padding: 0;
       margin: 0;
-      min-height: 120px; /* ensures subheadings line up across columns */
+      min-height: 120px;
     }
 
     /* Links hover glow */
@@ -119,7 +96,7 @@
     @media (max-width: 768px) {
       .gold-hero-container {
         width: 90%;
-        padding: 6px 40px; /* maintain tight vertical padding on mobile */
+        padding: 6px 40px;
       }
       .gold-hero { font-size: 3.5em; }
       .section-columns {
@@ -139,8 +116,8 @@
       <h1 class="gold-hero">Kitty, the witty missy.</h1>
     </div>
 
-    <!-- SIMPLE THIN GLOWING V ARROW -->
-    <div class="scroll-arrow" onclick="document.getElementById('columns').scrollIntoView({ behavior: 'smooth' });">⌄</div>
+    <!-- GLOBALLY STYLED SCROLL ARROW -->
+    <div class="next-part" onclick="document.getElementById('columns').scrollIntoView({ behavior: 'smooth' });">⌄</div>
   </div>
 
   <!-- COLUMNS SECTION -->
