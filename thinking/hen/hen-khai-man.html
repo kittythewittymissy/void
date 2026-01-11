@@ -13,8 +13,7 @@
 
   <!-- Page-specific overrides -->
   <style>
-    /* ===== LAYER DEPTH HIERARCHY ===== */
-    /* Foreground signage: left column, sticky */
+    /* Sticky work title container */
     .work-title {
       position: sticky;
       top: 0;
@@ -23,17 +22,19 @@
       align-items: flex-start;
       justify-content: flex-start;
       padding: 2rem 1.5rem;
-      z-index: 3; /* foreground */
-      flex: 0 0 auto;
+      z-index: 2;
     }
 
+    /* Work title <h1> — thicker, neon glow */
     .work-title h1 {
       font-family: 'Raleway Dots', sans-serif;
-      font-size: clamp(3rem, 4vw, 6rem);
-      letter-spacing: 0.1em;
+      font-size: 4rem;
+      letter-spacing: 0.16em;
       font-weight: 400;      
       filter: contrast(1.12) brightness(0.96);
       text-transform: none;
+
+      /* Thickening via layered shadows */
       text-shadow:
         0 0 2px #FFD662,
         0 0 4px #FFD662,
@@ -41,51 +42,34 @@
         0 0 8px rgba(255,214,98,0.8),
         0 0 12px rgba(255,214,98,0.6),
         0 0 16px rgba(255,214,98,0.4);
+
+      /* Optional subtle stroke to reinforce thickness */
       -webkit-text-stroke: 0.3px #FFD662;
       text-stroke: 0.3px #FFD662;
-      max-width: 30vw;
-      word-wrap: break-word;
     }
 
-    /* Mid-plane body content: centered in room */
-    .work-content {
-      position: relative;
-      z-index: 2; /* mid-plane */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 12vh 2rem 4rem 2rem;
-    }
-
-    /* Floating paragraphs remain unchanged */
+    /* Floating paragraphs */
     .floating-paragraph {
       opacity: 0;
       animation: fadeInFromVoid 1s forwards;
       animation-delay: var(--fade-delay, 0s);
       margin-bottom: 1.3rem;
-      max-width: 700px;
     }
 
-    /* Background ghost signage: full viewport, subtle opacity */
+    /* Series background ghost text */
     .series-background {
       position: fixed;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) scale(1);
+      transform: translate(-50%, -50%);
       font-family: 'Raleway Dots', cursive;
-      font-size: clamp(12rem, 18vw, 28rem);
-      opacity: 0.08;
+      font-size: 25rem;
+      opacity: 0.09;
       pointer-events: none;
       color: var(--gold-core);
-      z-index: 1; /* background */
+      z-index: 0;
       animation: ghostFlicker 3s infinite ease-in-out;
       white-space: nowrap;
-    }
-
-    /* Spatial parallax effect: subtle translate on scroll */
-    .parallax {
-      transform: translateZ(0);
-      will-change: transform;
     }
 
     /* Next-part arrow */
@@ -107,39 +91,23 @@
       text-shadow: 0 0 18px var(--gold-core), 0 0 36px var(--gold-bloom);
     }
 
-    /* Mobile override */
+    /* Media query overrides */
     @media(max-width:768px){
       .series-background{opacity:0;}
       .work-content{padding-top:16vh;}
-      .work-title h1 {
-        font-size: clamp(2rem, 6vw, 4rem);
-        max-width: 80vw;
-      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Ghost signage: manual per-page -->
-  <div class="series-background parallax">Hèn</div>
+  <div class="series-background check-vietnamese">Hèn</div>
 
   <div class="main-row">
-    <!-- Foreground signage -->
-    <div class="work-title parallax">
+    <div class="work-title">
       <h1 class="check-vietnamese">Hèn: Khai màn</h1>
     </div>
 
-    <!-- Mid-plane content -->
     <div class="work-content">
       <div class="text-section">
-        <p class="floating-paragraph" style="--fade-delay:0s;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac mauris ut ligula facilisis porttitor.</p>
-        <p class="floating-paragraph" style="--fade-delay:0.4s;">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-        <p class="floating-paragraph" style="--fade-delay:0.8s;">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </div>
-
-      <span class="next-part">&#8595;</span>
-    </div>
-  </div>
-
-</body>
-</html>
+        <p class="floating-paragraph" style="--fade-delay:0s;">Lorem ipsum…</p>
+        <p class="floating-paragraph" style="--fade-dela
