@@ -178,10 +178,10 @@ h3 {
   top: 36%;
   right: 3.5rem;
 
-  width: 64px;      /* bigger */
-  height: 64px;
+  width: 50px;      /* bigger */
+  height: 50px;
 
-  padding: 8px;     /* icon-outline spacing */
+  padding: 7px;     /* icon-outline spacing */
 
   cursor: pointer;
   background: transparent;
