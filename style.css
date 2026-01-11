@@ -1,36 +1,343 @@
-/* ===== GLOBAL SCROLL ARROW ===== */
-.arrow {
-  display: block;
-  width: 0;
-  height: 0;
-  margin: 2rem auto;
+/* ================== GLOBAL STYLE.CSS ================== */
+
+/* ===== VARIABLES / TOKENS ===== */
+:root {
+  /* Colors */
+  --gold-core: #FFD662;
+  --gold-bloom: rgba(255,214,98,0.8);
+  --white-accent: #FFFFFF;
+  --black-bg: #000000;
+
+  /* Font Sizes */
+  --font-body: 16px;
+  --font-hero: 4.5em;                         
+  --font-h2-main: calc(var(--font-hero) * 0.65);
+  --font-subhead: 2.2em;
+  --font-audio: 0.65rem;
+
+  /* Glow / Bloom */
+  --bloom-hero: 70px;
+  --bloom-work: 36px;
+  --bloom-accent: 16px;
+
+  /* Animation Timing */
+  --anim-speed-hero: 5.2s;
+  --anim-speed-work: 1s;
+  --anim-speed-accent: 2s;
+
+  --arrow-delay: 1.2s;
+}
+
+/* ===== BASE ===== */
+body {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  font-size: var(--font-body);
+  line-height: 1.7;
+  background: var(--black-bg);
+  color: var(--white-accent);
+}
+
+/* ===== GLOBAL HEADING STYLES ===== */
+h1,
+h2.main-column-heading {
+  font-family: 'Codystar', sans-serif;
+  font-weight: 600;
+  color: var(--gold-core);
+  text-transform: uppercase;
+  text-shadow:
+    0 0 6px var(--gold-core),
+    0 0 18px var(--gold-bloom),
+    0 0 32px rgba(255,214,98,0.4);
+  animation: goldPulse var(--anim-speed-work) infinite alternate;
+}
+
+h1 {
+  font-size: var(--font-hero);
+  font-weight: 500;
+  animation: neonBlaze var(--anim-speed-hero) forwards;
+}
+
+h2.main-column-heading {
+  font-size: var(--font-h2-main);
+}
+
+h2.column-subheading,
+h3 {
+  font-family: 'Raleway Dots', cursive;
+  font-size: var(--font-subhead);
+  font-weight: normal;
+  color: var(--white-accent);
+  text-shadow:
+    0 0 8px #fff,
+    0 0 16px rgba(255,255,255,0.7),
+    0 0 28px rgba(255,255,255,0.5),
+    0 0 40px rgba(255,255,255,0.3);
+  margin-top: 0.2em;
+  margin-bottom: 0.5em;
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 2.5em; letter-spacing: 0.05em; }
+  h2.main-column-heading { font-size: 1.6em; }
+  h2.column-subheading,
+  h3 { font-size: 1.8em; }
+}
+
+/* ===== GOLD TIER ANIMATIONS ===== */
+@keyframes neonBlaze {
+  0% { text-shadow: 0 0 1px var(--gold-core); opacity: 0; }
+  25% { text-shadow: 0 0 4px var(--gold-core), 0 0 10px var(--gold-core); opacity: 0.6; }
+  45% {
+    text-shadow:
+      0 0 6px var(--gold-core),
+      0 0 18px var(--gold-core),
+      0 0 40px var(--gold-core),
+      0 0 var(--bloom-hero) var(--gold-bloom);
+    opacity: 1;
+  }
+  100% {
+    text-shadow:
+      0 0 4px var(--gold-core),
+      0 0 12px var(--gold-core),
+      0 0 26px var(--gold-bloom);
+    opacity: 0.9;
+  }
+}
+
+@keyframes goldPulse {
+  0%, 100% { text-shadow: 0 0 4px var(--gold-core), 0 0 12px var(--gold-bloom); }
+  50% { text-shadow: 0 0 6px var(--gold-core), 0 0 18px var(--gold-bloom); }
+}
+
+@keyframes arrowFloat {
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(7px);}
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===== BODY TEXT ===== */
+.body-text {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  font-size: var(--font-body);
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto 1.5rem auto;
+  opacity: 1;
+}
+
+/* ===== LINKS ===== */
+.section-columns ul {
+  margin-top: 0;
+  padding-left: 1.2em;
+}
+
+.section-columns ul li a {
+  color: var(--white-accent);
+  text-decoration: none;
+  transition: text-shadow 0.3s, color 0.3s;
+}
+
+.section-columns ul li a:hover {
+  color: var(--gold-core);
+  text-shadow:
+    0 0 4px var(--gold-core),
+    0 0 10px var(--gold-bloom),
+    0 0 20px rgba(255,214,98,0.5);
+}
+
+@media (max-width: 768px) {
+  .section-columns ul li a { font-size: 1em; }
+}
+
+/* ===== AUDIO BUTTON (GLOBAL COMPONENT) ===== */
+
+/*
+ * Behavior:
+ * - fixed to viewport
+ * - floats vertically like a buoy
+ * - anchored on the right column / reading gutter
+ * - doesn't overlap scroll arrow
+ * - no container required
+ */
+
+@keyframes floatVertical {
+  0% { transform: translateY(-6px); }
+  50% { transform: translateY(6px); }
+  100% { transform: translateY(-6px); }
+}
+
+.audio-button {
+  position: fixed;
+  top: 36%;
+  right: 3.5rem;
+
+  width: 50px;      /* bigger */
+  height: 50px;
+
+  padding: 7px;     /* icon-outline spacing */
+
   cursor: pointer;
+  background: transparent;
+  border-radius: 50%;
+  border: 2px dotted var(--gold-core); /* slightly thicker for scale */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--white-accent);
+  font-size: 1.35rem; /* proportionally scaled icon size */
+  line-height: 0;
+
+  z-index: 999;
+
+  filter: drop-shadow(0 0 8px var(--gold-core));
+  animation: floatVertical 6s ease-in-out infinite alternate;
+  transition: filter 0.25s, transform 0.25s;
+}
+
+.audio-button:hover {
+  filter: drop-shadow(0 0 12px var(--gold-core));
+  transform: scale(1.08);
+}
+
+/* Optional orbiting mini text (if used) */
+.orbiting-text {
+  position: absolute;
+  font-family: 'Raleway Dots', cursive;
+  font-size: var(--font-audio);
+  color: var(--white-accent);
+  pointer-events: none;
+  transform-origin: center center;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.orbiting-text span {
+  position: absolute;
+  transform-origin: center -22px;
+  animation: orbit 4s linear infinite;
+}
+
+/* ===== RESPONSIVE AUDIO BEHAVIOR ===== */
+@media(max-width:900px){
+  .audio-button {
+    right: 1.6rem;
+    top: 42%;
+  }
+}
+
+@media(max-width:700px){
+  .audio-button {
+    right: 1.2rem;
+    top: auto;
+    bottom: 6rem;
+    animation-duration: 7.5s;
+  }
+}
+
+@media(max-width:420px){
+  .audio-button {
+    bottom: 5rem;
+    right: 1rem;
+    transform: scale(0.92);
+  }
+}
+
+/* ===== WORK TITLES — CREATIVE WORKS ONLY ===== */
+.work-title h1 {
+  font-family: 'Raleway Dots', sans-serif;
+  font-size: var(--font-hero);
+  letter-spacing: 0.16em;
+  font-weight: 400;
+  text-transform: none;
+  text-shadow:
+    0 0 3px var(--gold-core),
+    0 0 6px var(--gold-core),
+    0 0 9px var(--gold-core),
+    0 0 12px rgba(255,214,98,0.8),
+    0 0 18px rgba(255,214,98,0.6),
+    0 0 22px rgba(255,214,98,0.4);
+  -webkit-text-stroke: 0.3px var(--gold-core);
+  animation: neonIgnite 2.4s forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes neonIgnite {
+  0% { opacity: 0; text-shadow: none; }
+  10% { opacity: 0.4; text-shadow: 0 0 4px var(--gold-core), 0 0 12px var(--gold-core); }
+  14% { opacity: 0; text-shadow: none; }
+  20% {
+    opacity: 1;
+    text-shadow:
+      0 0 6px var(--gold-core),
+      0 0 20px var(--gold-core),
+      0 0 48px var(--gold-core),
+      0 0 86px var(--gold-bloom);
+  }
+  26% {
+    opacity: 0.9;
+    text-shadow:
+      0 0 4px var(--gold-core),
+      0 0 14px var(--gold-core),
+      0 0 32px var(--gold-bloom);
+  }
+  34% {
+    opacity: 1;
+    text-shadow:
+      0 0 6px var(--gold-core),
+      0 0 18px var(--gold-core),
+      0 0 36px var(--gold-core),
+      0 0 64px var(--gold-bloom);
+  }
+  100% {
+    opacity: 1;
+    text-shadow:
+      0 0 2px var(--gold-core),
+      0 0 6px var(--gold-core),
+      0 0 12px var(--gold-core),
+      0 0 24px var(--gold-bloom);
+  }
+}
+
+/* ===== GLOBAL SCROLL ARROW ===== */
+.next-part {
+  display: block;
+  font-family: inherit;
+  font-size: 4rem;
+  text-align: center;
+  color: var(--white-accent);
+  cursor: pointer;
+  margin-top: 2rem;
+
+  text-shadow:
+    0 0 8px #fff,
+    0 0 16px rgba(255,255,255,0.6),
+    0 0 24px rgba(255,255,255,0.4);
+
   animation: arrowFloat 2.5s infinite ease-in-out;
+  animation-delay: var(--arrow-delay);
   transition: filter 0.25s, text-shadow 0.25s;
 }
 
-/* UP ARROW - fixed top center */
-.arrow.up {
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 14px solid var(--white-accent); /* keep white */
-  position: fixed;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  animation-delay: calc(var(--arrow-delay) * 0.5);
+.next-part:hover {
+  filter: brightness(2);
+  text-shadow:
+    0 0 16px #fff,
+    0 0 32px rgba(255,255,255,0.8),
+    0 0 48px rgba(255,255,255,0.6);
 }
 
-/* DOWN ARROW - mirrored tip */
-.arrow.down {
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 14px solid var(--white-accent); /* keep white */
-  text-align: center;
-  margin-top: 2rem;
-  animation-delay: var(--arrow-delay);
-}
-
-.arrow:hover {
-  filter: brightness(1.8);
+/* ===== MOBILE OVERRIDES ===== */
+@media(max-width:768px){
+  .series-background{opacity:0;}
+  .work-content{padding-top:16vh;}
 }
