@@ -279,3 +279,30 @@ h3 {
       0 0 24px var(--gold-bloom);
   }
 }
+
+/* ===== GLOBAL SCROLL ARROW (STANDARDIZED) ===== */
+.next-part {
+  display: block;
+  font-family: 'Codystar', sans-serif;
+  font-size: 4rem;
+  text-align: center;
+  color: var(--white-accent); /* white arrow by default */
+  cursor: pointer;
+  margin-top: 2rem;
+
+  text-shadow:
+    0 0 8px #fff,
+    0 0 16px rgba(255,255,255,0.6),
+    0 0 24px rgba(255,255,255,0.4); /* subtle glow on its own */
+
+  animation: arrowFloat 2.5s infinite ease-in-out;
+  transition: filter 0.25s, text-shadow 0.25s;
+}
+
+.next-part:hover {
+  filter: brightness(2);
+  text-shadow:
+    0 0 16px #fff,
+    0 0 32px rgba(255,255,255,0.8),
+    0 0 48px rgba(255,255,255,0.6); /* hotter glow on hover */
+}
