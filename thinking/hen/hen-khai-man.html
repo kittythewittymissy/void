@@ -4,179 +4,86 @@
   <meta charset="UTF-8">
   <title>Hèn: Khai màn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Fonts with Raleway ExtraLight 200 explicitly loaded -->
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Raleway+Dots&family=Codystar:wght@300;400;500&family=Neonderthaw&display=swap" rel="stylesheet">
-  
+
   <!-- Global CSS -->
   <link rel="stylesheet" href="../../style.css">
 
-  <!-- Page-specific overrides -->
+  <!-- Page-specific styling only for layout/visual -->
   <style>
-    /* ===== LAYER DEPTH HIERARCHY ===== */
-    .work-title { z-index: 3; }
-    .work-content { z-index: 2; }
-    .series-background { z-index: 1; }
+    .work-title { position: sticky; top: 0; padding: 2rem 5rem; }
 
-    /* Sticky work title container (slightly right) */
-    .work-title {
-      position: sticky;
-      top: 0;
-      height: auto;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      padding: 2rem 5rem;
-    }
-
-    /* Work title <h1> — thicker, neon glow */
     .work-title h1 {
       font-family: 'Raleway Dots', sans-serif;
       font-size: 4rem;
       letter-spacing: 0.16em;
       font-weight: 400;
-      filter: contrast(1.12) brightness(0.96);
-      text-transform: none;
       text-shadow:
         0 0 2px #FFD662,
         0 0 4px #FFD662,
         0 0 6px #FFD662,
-        0 0 8px rgba(255,214,98,0.8),
-        0 0 12px rgba(255,214,98,0.6),
-        0 0 16px rgba(255,214,98,0.4);
-      -webkit-text-stroke: 0.3px #FFD662;
-      text-stroke: 0.3px #FFD662;
+        0 0 8px rgba(255,214,98,.8),
+        0 0 12px rgba(255,214,98,.6),
+        0 0 16px rgba(255,214,98,.4);
+      -webkit-text-stroke: .3px #FFD662;
     }
 
-    /* Floating paragraphs (intro sentences) */
     .floating-paragraph {
       opacity: 0;
-      animation: fadeInColumns 3s ease-in-out forwards;
-      margin-bottom: 1.5rem;
+      animation: fadeInColumns 3s ease forwards;
       max-width: 40%;
+      margin: 0 auto 1.5rem;
       font-size: 1.5rem;
-      line-height: 1.6;
-      text-align: left;
-      margin-left: auto;
-      margin-right: auto;
       font-family: 'Raleway', sans-serif;
       font-weight: 200;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+      text-align: left;
     }
 
-    /* Staggered fade-in for each sentence */
-    .floating-paragraph:nth-child(1) { animation-delay: 0s; }
-    .floating-paragraph:nth-child(2) { animation-delay: 0.35s; }
-    .floating-paragraph:nth-child(3) { animation-delay: 0.7s; }
-    .floating-paragraph:nth-child(4) { animation-delay: 1.05s; }
-    .floating-paragraph:nth-child(5) { animation-delay: 1.4s; }
-    .floating-paragraph:nth-child(6) { animation-delay: 1.75s; }
-
-    /* Fade-in with subtle scale for alive effect */
     @keyframes fadeInColumns {
-      0% { opacity: 0; transform: scale(0.95); }
-      50% { opacity: 0.4; transform: scale(0.975); }
+      0% { opacity: 0; transform: scale(.95); }
       100% { opacity: 1; transform: scale(1); }
     }
 
-    /* Series background ghost text */
     .series-background {
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) !important;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
       font-family: 'Raleway Dots', cursive;
       font-size: 25rem;
-      opacity: 0.09;
-      pointer-events: none;
       color: var(--gold-core);
-      animation: ghostFlicker 3s infinite ease-in-out;
-      white-space: nowrap;
-      text-align: center;
+      opacity: .09;
+      pointer-events: none;
     }
 
-    /* Parallax hooks */
-    .parallax {
-      transform: translateZ(0);
-      will-change: transform;
-    }
-
-    /* Next-part arrow */
     .next-part {
       display: block;
       font-family: 'Codystar', sans-serif;
       font-size: 4rem;
-      text-align: center;
       color: var(--gold-core);
+      text-align: center;
       cursor: pointer;
       margin-top: 2rem;
-      text-shadow: 0 0 10px var(--gold-core), 0 0 24px var(--gold-bloom);
-      animation: arrowFloat 2.5s infinite ease-in-out;
-      transition: filter 0.25s, text-shadow 0.25s;
     }
 
-    .next-part:hover {
-      filter: brightness(1.8);
-      text-shadow: 0 0 18px var(--gold-core), 0 0 36px var(--gold-bloom);
-    }
-
-    /* Audio button */
-    .audio-button {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      width: 3.5rem;
-      height: 3.5rem;
-      border: 2px dotted #FFD662;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      animation: floatAround 20s infinite alternate ease-in-out;
-      z-index: 5;
-    }
-
-    .audio-button svg {
-      width: 1.8rem;
-      height: 1.8rem;
-      fill: #FFF8D6; /* off-white speaker */
-      filter: 
-        drop-shadow(0 0 4px #FFD662)
-        drop-shadow(0 0 12px rgba(255,214,98,0.25));
-    }
-
-    @keyframes floatAround {
-      0%   { transform: translate(-50%, -50%) translate(0,0); }
-      25%  { transform: translate(-50%, -50%) translate(15px, -10px); }
-      50%  { transform: translate(-50%, -50%) translate(-10px, 15px); }
-      75%  { transform: translate(-50%, -50%) translate(20px, 5px); }
-      100% { transform: translate(-50%, -50%) translate(-15px, -20px); }
-    }
-
-    /* Mobile overrides */
-    @media(max-width:768px){
-      .series-background{opacity:0;}
-      .work-content{padding-top:16vh;}
+    @media(max-width:768px) {
       .floating-paragraph { max-width: 80%; font-size: 1rem; }
-      .audio-button { width:3rem; height:3rem; }
-      .audio-button svg { width:1.4rem; height:1.4rem; }
+      .series-background { opacity: 0; }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Background ghost signage -->
-  <div class="series-background parallax check-vietnamese">Hèn</div>
+  <div class="series-background">Hèn</div>
 
   <div class="main-row">
-    <!-- Foreground sticky title -->
-    <div class="work-title parallax">
-      <h1 class="check-vietnamese">Hèn: Khai màn</h1>
+    <div class="work-title">
+      <h1>Hèn: Khai màn</h1>
     </div>
 
-    <!-- Mid-plane content (intro sentences, narrow left-aligned column) -->
     <div class="work-content" style="padding-top:5rem;">
       <div class="text-section">
         <p class="floating-paragraph">— mẹ, tôi có thể cảm nhận não mình đang bồn chồn, giãy nảy.</p>
@@ -187,12 +94,11 @@
         <p class="floating-paragraph">Nó cần thêm… THỬ THÁCH.</p>
       </div>
 
-      <!-- Next arrow inherits global style -->
       <span class="next-part">⌄</span>
     </div>
   </div>
 
-  <!-- Floating neon audio button -->
+  <!-- Only show if audio actually exists -->
   <div class="audio-button">
     <svg viewBox="0 0 24 24">
       <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.95 7-4.49 7-8.77s-2.99-7.82-7-8.77z"/>
