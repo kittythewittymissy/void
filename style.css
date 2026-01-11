@@ -297,6 +297,7 @@ h3 {
     0 0 24px rgba(255,255,255,0.4);
 
   animation: arrowFloat 2.5s infinite ease-in-out;
+  animation-delay: 1.2s;
   transition: filter 0.25s, text-shadow 0.25s;
 }
 
