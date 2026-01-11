@@ -5,8 +5,8 @@
   <title>Hèn: Khai màn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Neonderthaw&family=Codystar:wght@300;400;500&family=Raleway+Dots&family=Raleway&display=swap" rel="stylesheet">
+  <!-- Fonts with Raleway ExtraLight 100 explicitly loaded -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;400&family=Raleway+Dots&family=Codystar:wght@300;400;500&family=Neonderthaw&display=swap" rel="stylesheet">
   
   <!-- Global CSS -->
   <link rel="stylesheet" href="../../style.css">
@@ -26,7 +26,7 @@
       display: flex;
       align-items: flex-start;
       justify-content: flex-start;
-      padding: 2rem 5rem;
+      padding: 2rem 5rem; /* slightly more right padding */
     }
 
     /* Work title <h1> — thicker, neon glow */
@@ -51,14 +51,18 @@
     /* Floating paragraphs (intro sentences) */
     .floating-paragraph {
       opacity: 0;
-      animation: fadeInColumns 3s forwards;
+      animation: fadeInColumns 3s ease-in-out forwards; /* slower, deliberate fade */
       margin-bottom: 1.5rem;
-      max-width: 40%;   /* narrow column */
+      max-width: 40%;   /* narrow column for floating-in-void feel */
       font-size: 1.25rem;
       line-height: 1.6;
       text-align: left;  /* left-aligned */
       margin-left: auto;
       margin-right: auto;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 100; /* ExtraLight */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* Staggered fade-in for each sentence */
@@ -118,7 +122,7 @@
     </div>
 
     <!-- Mid-plane content (intro sentences, narrow left-aligned column) -->
-    <div class="work-content">
+    <div class="work-content" style="padding-top:5rem;"> <!-- start lower for floating-in-void effect -->
       <div class="text-section">
         <p class="floating-paragraph">— mẹ, tôi có thể cảm nhận não mình đang bồn chồn, giãy nảy.</p>
         <p class="floating-paragraph">Đã đến giờ tôi tìm cái gì đó cho nó suy nghĩ rồi, có vẻ nó đang cảm thấy tù túng.</p>
