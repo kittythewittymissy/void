@@ -177,25 +177,28 @@ h3 {
   position: fixed;
   top: 36%;
   right: 3.5rem;
-  width: 44px;
-  height: 44px;
-  cursor: pointer;
 
+  width: 64px;      /* bigger */
+  height: 64px;
+
+  padding: 8px;     /* icon-outline spacing */
+
+  cursor: pointer;
   background: transparent;
   border-radius: 50%;
-  border: 1.8px dotted var(--gold-core);
+  border: 2px dotted var(--gold-core); /* slightly thicker for scale */
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   color: var(--white-accent);
-  font-size: 1.2rem;
+  font-size: 1.35rem; /* proportionally scaled icon size */
   line-height: 0;
 
   z-index: 999;
 
-  filter: drop-shadow(0 0 6px var(--gold-core));
+  filter: drop-shadow(0 0 8px var(--gold-core));
   animation: floatVertical 6s ease-in-out infinite alternate;
   transition: filter 0.25s, transform 0.25s;
 }
