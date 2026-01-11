@@ -26,7 +26,7 @@
       z-index: 1; /* background ghost signage */
     }
 
-    /* Sticky work title container (nudged right) */
+    /* Sticky work title container (nudged slightly right) */
     .work-title {
       position: sticky;
       top: 0;
@@ -34,10 +34,10 @@
       display: flex;
       align-items: flex-start;
       justify-content: flex-start;
-      padding: 2rem 5.5rem; /* increased right padding */
+      padding: 2rem 5rem; /* slightly more right padding */
     }
 
-    /* Work title <h1> — thicker, neon glow (unchanged) */
+    /* Work title <h1> — thicker, neon glow */
     .work-title h1 {
       font-family: 'Raleway Dots', sans-serif;
       font-size: 4rem;
@@ -58,20 +58,30 @@
       text-stroke: 0.3px #FFD662;
     }
 
-    /* Floating paragraphs (unchanged) */
+    /* Floating paragraphs (ethereal body text) */
     .floating-paragraph {
       opacity: 0;
-      animation: fadeInFromVoid 1s forwards;
-      animation-delay: var(--fade-delay, 0s);
-      margin-bottom: 1.3rem;
+      animation: fadeInRipple 2s forwards;
+      margin-bottom: 1.5rem;
+      max-width: 55%; /* narrow column for floating-in-void feel */
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.25rem;
+      line-height: 1.6;
     }
 
-    /* Series background ghost text (restored to dead-center) */
+    /* Staggered fade-in with custom --fade-delay */
+    .floating-paragraph:nth-child(1) { animation-delay: 0s; }
+    .floating-paragraph:nth-child(2) { animation-delay: 0.35s; }
+    .floating-paragraph:nth-child(3) { animation-delay: 0.7s; }
+    .floating-paragraph:nth-child(4) { animation-delay: 1.05s; }
+
+    /* Series background ghost text */
     .series-background {
       position: fixed;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) !important; /* ensure true center */
+      transform: translate(-50%, -50%) !important; /* true dead-center */
       font-family: 'Raleway Dots', cursive;
       font-size: 25rem;
       opacity: 0.09;
@@ -82,13 +92,13 @@
       text-align: center;
     }
 
-    /* Parallax hooks (optional for later subtle scroll effects) */
+    /* Parallax hooks (optional for subtle scroll effects) */
     .parallax {
       transform: translateZ(0);
       will-change: transform;
     }
 
-    /* Next-part arrow (unchanged) */
+    /* Next-part arrow */
     .next-part {
       display: block;
       font-family: 'Codystar', sans-serif;
@@ -107,16 +117,24 @@
       text-shadow: 0 0 18px var(--gold-core), 0 0 36px var(--gold-bloom);
     }
 
-    /* Mobile overrides (unchanged) */
+    /* Fade-in ripple animation */
+    @keyframes fadeInRipple {
+      0% { opacity: 0; transform: translateY(10px) translateX(0); }
+      50% { transform: translateY(0) translateX(1px); }
+      100% { opacity: 1; transform: translateY(0) translateX(0); }
+    }
+
+    /* Mobile overrides */
     @media(max-width:768px){
       .series-background{opacity:0;}
       .work-content{padding-top:16vh;}
+      .floating-paragraph { max-width: 80%; font-size: 1rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Background ghost signage: per-page -->
+  <!-- Background ghost signage -->
   <div class="series-background parallax check-vietnamese">Hèn</div>
 
   <div class="main-row">
@@ -125,12 +143,13 @@
       <h1 class="check-vietnamese">Hèn: Khai màn</h1>
     </div>
 
-    <!-- Mid-plane content (centered column) -->
-    <div class="work-content">
+    <!-- Mid-plane content (centered column, ethereal body text) -->
+    <div class="work-content" style="padding-top:45vh;"> <!-- start lower, floating-in-void effect -->
       <div class="text-section">
-        <p class="floating-paragraph" style="--fade-delay:0s;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <p class="floating-paragraph" style="--fade-delay:0.4s;">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p class="floating-paragraph" style="--fade-delay:0.8s;">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+        <p class="floating-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p class="floating-paragraph">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="floating-paragraph">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+        <p class="floating-paragraph">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
       </div>
 
       <span class="next-part">&#8595;</span>
