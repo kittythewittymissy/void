@@ -13,7 +13,20 @@
 
   <!-- Page-specific overrides -->
   <style>
-    /* Sticky work title container */
+    /* ===== LAYER DEPTH HIERARCHY ===== */
+    .work-title {
+      z-index: 3; /* foreground signage */
+    }
+
+    .work-content {
+      z-index: 2; /* mid-plane body text */
+    }
+
+    .series-background {
+      z-index: 1; /* background ghost signage */
+    }
+
+    /* Sticky work title container (unchanged) */
     .work-title {
       position: sticky;
       top: 0;
@@ -22,10 +35,9 @@
       align-items: flex-start;
       justify-content: flex-start;
       padding: 2rem 1.5rem;
-      z-index: 2;
     }
 
-    /* Work title <h1> — thicker, neon glow */
+    /* Work title <h1> — thicker, neon glow (unchanged) */
     .work-title h1 {
       font-family: 'Raleway Dots', sans-serif;
       font-size: 4rem;
@@ -34,7 +46,6 @@
       filter: contrast(1.12) brightness(0.96);
       text-transform: none;
 
-      /* Thickening via layered shadows */
       text-shadow:
         0 0 2px #FFD662,
         0 0 4px #FFD662,
@@ -43,12 +54,11 @@
         0 0 12px rgba(255,214,98,0.6),
         0 0 16px rgba(255,214,98,0.4);
 
-      /* Optional subtle stroke to reinforce thickness */
       -webkit-text-stroke: 0.3px #FFD662;
       text-stroke: 0.3px #FFD662;
     }
 
-    /* Floating paragraphs */
+    /* Floating paragraphs (unchanged) */
     .floating-paragraph {
       opacity: 0;
       animation: fadeInFromVoid 1s forwards;
@@ -67,12 +77,17 @@
       opacity: 0.09;
       pointer-events: none;
       color: var(--gold-core);
-      z-index: 0;
       animation: ghostFlicker 3s infinite ease-in-out;
       white-space: nowrap;
     }
 
-    /* Next-part arrow */
+    /* Parallax hooks (optional for later subtle scroll effects) */
+    .parallax {
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    /* Next-part arrow (unchanged) */
     .next-part {
       display: block;
       font-family: 'Codystar', sans-serif;
@@ -91,7 +106,7 @@
       text-shadow: 0 0 18px var(--gold-core), 0 0 36px var(--gold-bloom);
     }
 
-    /* Media query overrides */
+    /* Mobile overrides (unchanged) */
     @media(max-width:768px){
       .series-background{opacity:0;}
       .work-content{padding-top:16vh;}
@@ -100,14 +115,26 @@
 </head>
 <body>
 
-  <div class="series-background check-vietnamese">Hèn</div>
+  <!-- Background ghost signage: per-page -->
+  <div class="series-background parallax check-vietnamese">Hèn</div>
 
   <div class="main-row">
-    <div class="work-title">
+    <!-- Foreground sticky signage -->
+    <div class="work-title parallax">
       <h1 class="check-vietnamese">Hèn: Khai màn</h1>
     </div>
 
+    <!-- Mid-plane content (centered column) -->
     <div class="work-content">
       <div class="text-section">
-        <p class="floating-paragraph" style="--fade-delay:0s;">Lorem ipsum…</p>
-        <p class="floating-paragraph" style="--fade-dela
+        <p class="floating-paragraph" style="--fade-delay:0s;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p class="floating-paragraph" style="--fade-delay:0.4s;">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="floating-paragraph" style="--fade-delay:0.8s;">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+      </div>
+
+      <span class="next-part">&#8595;</span>
+    </div>
+  </div>
+
+</body>
+</html>
