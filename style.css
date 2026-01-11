@@ -306,25 +306,28 @@ h3 {
   cursor: pointer;
   animation: arrowFloat 2.5s infinite ease-in-out;
   transition: filter 0.25s, text-shadow 0.25s;
+
+  /* fix dash artifact */
+  transform: translateZ(0);
 }
 
 /* UP ARROW - fixed top center */
 .arrow.up {
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 14px solid var(--white-accent);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 16px solid var(--white-accent);
   position: fixed;
   top: 1rem;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateZ(0);
   animation-delay: calc(var(--arrow-delay) * 0.5);
 }
 
 /* DOWN ARROW - mirrored tip */
 .arrow.down {
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 14px solid var(--white-accent);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 16px solid var(--white-accent);
   text-align: center;
   margin-top: 2rem;
   animation-delay: var(--arrow-delay);
