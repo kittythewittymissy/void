@@ -22,11 +22,11 @@
     .work-title {
       position: sticky;
       top: 0;
-      height: auto;
+      height: auto; /* shrink to fit title so content appears immediately */
       display: flex;
       align-items: flex-start;
       justify-content: flex-start;
-      padding: 2rem 5rem;
+      padding: 2rem 5rem; /* slightly more right padding */
     }
 
     /* Work title <h1> — thicker, neon glow */
@@ -51,16 +51,16 @@
     /* Floating paragraphs (intro sentences) */
     .floating-paragraph {
       opacity: 0;
-      animation: fadeInColumns 3s ease-in-out forwards;
+      animation: fadeInColumns 3s ease-in-out forwards; /* slower, deliberate fade */
       margin-bottom: 1.5rem;
-      max-width: 40%;
+      max-width: 40%;   /* narrow column for floating-in-void feel */
       font-size: 1.5rem;
       line-height: 1.6;
-      text-align: left;
+      text-align: left;  /* left-aligned */
       margin-left: auto;
       margin-right: auto;
       font-family: 'Raleway', sans-serif;
-      font-weight: 200;
+      font-weight: 200; /* Light */
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -102,7 +102,7 @@
       will-change: transform;
     }
 
-    /* Next-part arrow */
+    /* Next arrow inherits global style */
     .next-part {
       display: block;
       font-family: 'Codystar', sans-serif;
@@ -115,47 +115,44 @@
       animation: arrowFloat 2.5s infinite ease-in-out;
       transition: filter 0.25s, text-shadow 0.25s;
     }
+
     .next-part:hover {
       filter: brightness(1.8);
       text-shadow: 0 0 18px var(--gold-core), 0 0 36px var(--gold-bloom);
     }
 
-    /* AUDIO BUTTON - neon dotted circular */
-    .audio-button-circle {
+    /* AUDIO BUTTON — neon dotted circle with speaker icon */
+    .audio-button {
+      position: fixed;
+      top: 20%;
+      left: 80%;
+      width: 4rem;
+      height: 4rem;
+      border: 3px dotted #FFD662;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 4.5rem;
-      height: 4.5rem;
-      border: 2px dotted var(--gold-core);
-      border-radius: 50%;
-      background: transparent;
+      box-shadow: 0 0 15px #FFD662, 0 0 35px rgba(255,214,98,0.5);
       cursor: pointer;
-      color: var(--gold-core);
-      font-size: 1.8rem;
-      text-shadow:
-        0 0 4px var(--gold-core),
-        0 0 8px var(--gold-bloom),
-        0 0 12px var(--gold-core),
-        0 0 16px var(--gold-bloom);
-      transition: all 0.25s ease-in-out;
-      animation: audioFloat 8s ease-in-out infinite alternate;
-      margin: 3rem auto 0 auto; /* centered in column, some spacing */
+      z-index: 5;
+      animation: floatAround 12s infinite ease-in-out alternate;
     }
-    .audio-button-circle:hover {
-      color: #fff;
-      border-color: #FFD662;
-      text-shadow:
-        0 0 8px #FFD662,
-        0 0 16px #FFD662,
-        0 0 24px #FFD662,
-        0 0 36px #FFD662;
-      filter: brightness(1.4);
+
+    .audio-button svg {
+      width: 1.8rem;
+      height: 1.8rem;
+      fill: #FFF; /* neon white speaker */
+      filter: drop-shadow(0 0 4px #FFD662) drop-shadow(0 0 8px rgba(255,214,98,0.5));
     }
-    @keyframes audioFloat {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-3px); }
-      100% { transform: translateY(0px); }
+
+    /* Floating around slowly (X and Y) */
+    @keyframes floatAround {
+      0% { transform: translate(0px, 0px); }
+      25% { transform: translate(-10px, 5px); }
+      50% { transform: translate(10px, 10px); }
+      75% { transform: translate(-5px, -10px); }
+      100% { transform: translate(0px, 0px); }
     }
 
     /* Mobile overrides */
@@ -163,11 +160,10 @@
       .series-background{opacity:0;}
       .work-content{padding-top:16vh;}
       .floating-paragraph { max-width: 80%; font-size: 1rem; }
-      .audio-button-circle { width: 3.5rem; height: 3.5rem; font-size: 1.5rem; }
+      .audio-button { width: 3rem; height: 3rem; }
+      .audio-button svg { width: 1.2rem; height: 1.2rem; }
     }
   </style>
-  <!-- Font Awesome for speaker icon -->
-  <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -191,14 +187,16 @@
         <p class="floating-paragraph">Nó cần thêm… THỬ THÁCH.</p>
       </div>
 
-      <!-- Audio button -->
-      <a href="https://open.spotify.com/track/XXXX" target="_blank" class="audio-button-circle">
-        <i class="fas fa-volume-up"></i>
-      </a>
-
-      <!-- Next arrow inherits global style -->
+      <!-- Next arrow -->
       <span class="next-part">⌄</span>
     </div>
+  </div>
+
+  <!-- Floating neon audio button -->
+  <div class="audio-button">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+    </svg>
   </div>
 
 </body>
