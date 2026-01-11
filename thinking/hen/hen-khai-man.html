@@ -14,27 +14,19 @@
   <!-- Page-specific overrides -->
   <style>
     /* ===== LAYER DEPTH HIERARCHY ===== */
-    .work-title {
-      z-index: 3; /* foreground signage */
-    }
+    .work-title { z-index: 3; }
+    .work-content { z-index: 2; }
+    .series-background { z-index: 1; }
 
-    .work-content {
-      z-index: 2; /* mid-plane body text */
-    }
-
-    .series-background {
-      z-index: 1; /* background ghost signage */
-    }
-
-    /* Sticky work title container (nudged slightly right) */
+    /* Sticky work title container (slightly right) */
     .work-title {
       position: sticky;
       top: 0;
-      height: auto;
+      height: auto; /* shrink to fit title so content appears immediately */
       display: flex;
       align-items: flex-start;
       justify-content: flex-start;
-      padding: 2rem 5rem; /* slightly more right padding */
+      padding: 2rem 5rem;
     }
 
     /* Work title <h1> — thicker, neon glow */
@@ -42,10 +34,9 @@
       font-family: 'Raleway Dots', sans-serif;
       font-size: 4rem;
       letter-spacing: 0.16em;
-      font-weight: 400;      
+      font-weight: 400;
       filter: contrast(1.12) brightness(0.96);
       text-transform: none;
-
       text-shadow:
         0 0 2px #FFD662,
         0 0 4px #FFD662,
@@ -53,36 +44,43 @@
         0 0 8px rgba(255,214,98,0.8),
         0 0 12px rgba(255,214,98,0.6),
         0 0 16px rgba(255,214,98,0.4);
-
       -webkit-text-stroke: 0.3px #FFD662;
       text-stroke: 0.3px #FFD662;
     }
 
-    /* Floating paragraphs (ethereal body text) */
+    /* Floating paragraphs (intro sentences) */
     .floating-paragraph {
       opacity: 0;
-      animation: fadeInRipple 2s forwards;
+      animation: fadeInColumns 1.5s forwards;
       margin-bottom: 1.5rem;
-      max-width: 55%; /* narrow column for floating-in-void feel */
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 40%;   /* narrow column */
       font-size: 1.25rem;
       line-height: 1.6;
-      text-align: center; /* <-- added to truly center the text */
+      text-align: left;  /* left-aligned */
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    /* Staggered fade-in with custom --fade-delay */
+    /* Staggered fade-in for each sentence */
     .floating-paragraph:nth-child(1) { animation-delay: 0s; }
     .floating-paragraph:nth-child(2) { animation-delay: 0.35s; }
     .floating-paragraph:nth-child(3) { animation-delay: 0.7s; }
     .floating-paragraph:nth-child(4) { animation-delay: 1.05s; }
+    .floating-paragraph:nth-child(5) { animation-delay: 1.4s; }
+    .floating-paragraph:nth-child(6) { animation-delay: 1.75s; }
+
+    /* Fade-in with subtle scale for alive effect */
+    @keyframes fadeInColumns {
+      from { opacity: 0; transform: scale(0.95); }
+      to   { opacity: 1; transform: scale(1); }
+    }
 
     /* Series background ghost text */
     .series-background {
       position: fixed;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) !important; /* true dead-center */
+      transform: translate(-50%, -50%) !important;
       font-family: 'Raleway Dots', cursive;
       font-size: 25rem;
       opacity: 0.09;
@@ -93,36 +91,10 @@
       text-align: center;
     }
 
-    /* Parallax hooks (optional for subtle scroll effects) */
+    /* Parallax hooks */
     .parallax {
       transform: translateZ(0);
       will-change: transform;
-    }
-
-    /* Next-part arrow */
-    .next-part {
-      display: block;
-      font-family: 'Codystar', sans-serif;
-      font-size: 4rem;
-      text-align: center;
-      color: var(--gold-core);
-      cursor: pointer;
-      margin-top: 2rem;
-      text-shadow: 0 0 10px var(--gold-core), 0 0 24px var(--gold-bloom);
-      animation: arrowFloat 2.5s infinite ease-in-out;
-      transition: filter 0.25s, text-shadow 0.25s;
-    }
-
-    .next-part:hover {
-      filter: brightness(1.8);
-      text-shadow: 0 0 18px var(--gold-core), 0 0 36px var(--gold-bloom);
-    }
-
-    /* Fade-in ripple animation */
-    @keyframes fadeInRipple {
-      0% { opacity: 0; transform: translateY(10px) translateX(0); }
-      50% { transform: translateY(0) translateX(1px); }
-      100% { opacity: 1; transform: translateY(0) translateX(0); }
     }
 
     /* Mobile overrides */
@@ -139,15 +111,15 @@
   <div class="series-background parallax check-vietnamese">Hèn</div>
 
   <div class="main-row">
-    <!-- Foreground sticky signage -->
+    <!-- Foreground sticky title -->
     <div class="work-title parallax">
       <h1 class="check-vietnamese">Hèn: Khai màn</h1>
     </div>
 
-    <!-- Mid-plane content (centered column, ethereal body text) -->
-    <div class="work-content" style="padding-top:5rem;"> <!-- start lower, floating-in-void effect -->
+    <!-- Mid-plane content (intro sentences, narrow left-aligned column) -->
+    <div class="work-content">
       <div class="text-section">
-        <p class="floating-paragraph">— mẹ, tôi có thể cảm nhận não mình đang bồn chồn,  giãy nảy.</p>
+        <p class="floating-paragraph">— mẹ, tôi có thể cảm nhận não mình đang bồn chồn, giãy nảy.</p>
         <p class="floating-paragraph">Đã đến giờ tôi tìm cái gì đó cho nó suy nghĩ rồi, có vẻ nó đang cảm thấy tù túng.</p>
         <p class="floating-paragraph">Dường như có cố khuyên can và tuyên truyền sự vô nghĩa của việc suy nghĩ như nào, nó vẫn sẽ muốn chơi cái trò chơi vô bổ đến chết người đấy.</p>
         <p class="floating-paragraph">Hàng ngày, nó sẽ gào thét với tôi rằng tôi cần tìm ra thêm thứ để nó có thể ngồi chiết tách và suy diễn để giết thời gian.</p>
@@ -155,6 +127,7 @@
         <p class="floating-paragraph">Nó cần thêm… THỬ THÁCH.</p>
       </div>
 
+      <!-- Next arrow inherits global style -->
       <span class="next-part">&#8595;</span>
     </div>
   </div>
