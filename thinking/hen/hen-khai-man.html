@@ -27,11 +27,11 @@
     }
 
     .work-title h1 {
-      font-family: 'Raleway Dots', sans-serif; /* KEEP ORIGINAL FONT */
+      font-family: 'Raleway Dots', sans-serif;
       font-size: 4rem;
       letter-spacing: 0.16em;
       font-weight: 400;
-      color: #222; /* dark unlit wire */
+      color: #222;
       text-shadow:
         0 0 1px var(--gold-core),
         0 0 2px var(--gold-core),
@@ -138,16 +138,6 @@
       cursor: pointer;
     }
 
-    /* FADE OUT PAGE */
-    .fade-out {
-      animation: fadeOut 1s forwards;
-    }
-
-    @keyframes fadeOut {
-      0% { opacity: 1; }
-      100% { opacity: 0; }
-    }
-
     /* RESPONSIVE */
     @media(max-width:768px) {
       .floating-paragraph { max-width: 80%; font-size: 1rem; }
@@ -161,67 +151,70 @@
 </head>
 
 <body>
-  <div id="pageContent">
 
-    <div class="series-background">Hèn</div>
+  <div class="series-background">Hèn</div>
 
-    <div class="main-row">
-      <div class="work-title">
-        <h1>Hèn: Khai màn</h1>
+  <div class="main-row">
+    <div class="work-title">
+      <h1>Hèn: Khai màn</h1>
+    </div>
+
+    <div class="work-content" style="padding-top:5rem;">
+      <div class="text-section">
+        <p class="floating-paragraph">— mẹ, tôi có thể cảm nhận não mình đang bồn chồn, giãy nảy.</p>
+        <p class="floating-paragraph">Đã đến giờ tôi tìm cái gì đó cho nó suy nghĩ rồi, có vẻ nó đang cảm thấy tù túng.</p>
+        <p class="floating-paragraph">Dường như có cố khuyên can và tuyên truyền sự vô nghĩa của việc suy nghĩ như nào, nó vẫn sẽ muốn chơi cái trò chơi vô bổ đến chết người đấy.</p>
+        <p class="floating-paragraph">Hàng ngày, nó sẽ gào thét với tôi rằng tôi cần tìm ra thêm thứ để nó có thể ngồi chiết tách và suy diễn để giết thời gian.</p>
+        <p class="floating-paragraph">Nó đang chán và nó đang phát điên.</p>
+        <p class="floating-paragraph">Nó cần thêm… THỬ THÁCH.</p>
       </div>
 
-      <div class="work-content" style="padding-top:5rem;">
-        <div class="text-section">
-          <p class="floating-paragraph">— mẹ, tôi có thể cảm nhận não mình đang bồn chồn, giãy nảy.</p>
-          <p class="floating-paragraph">Đã đến giờ tôi tìm cái gì đó cho nó suy nghĩ rồi, có vẻ nó đang cảm thấy tù túng.</p>
-          <p class="floating-paragraph">Dường như có cố khuyên can và tuyên truyền sự vô nghĩa của việc suy nghĩ như nào, nó vẫn sẽ muốn chơi cái trò chơi vô bổ đến chết người đấy.</p>
-          <p class="floating-paragraph">Hàng ngày, nó sẽ gào thét với tôi rằng tôi cần tìm ra thêm thứ để nó có thể ngồi chiết tách và suy diễn để giết thời gian.</p>
-          <p class="floating-paragraph">Nó đang chán và nó đang phát điên.</p>
-          <p class="floating-paragraph">Nó cần thêm… THỬ THÁCH.</p>
-        </div>
-
-        <span class="next-part">⌄</span>
-      </div>
+      <span class="next-part">⌄</span>
     </div>
+  </div>
 
-    <div class="audio-button" id="audioBtn">
-      <svg viewBox="0 0 24 24">
-        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.95 7-4.49 7-8.77s-2.99-7.82-7-8.77z"/>
-      </svg>
-    </div>
+  <div class="audio-button" id="audioBtn">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.95 7-4.49 7-8.77s-2.99-7.82-7-8.77z"/>
+    </svg>
+  </div>
 
-    <!-- SPOTIFY POPUP -->
-    <div class="spotify-popup" id="spotifyPopup">
-      <span class="close-btn" id="closePopup">&times;</span>
-      <iframe 
-        src="https://open.spotify.com/embed/episode/7J46SKS6kYsUvUQx9sTgOk?utm_source=generator" 
-        frameborder="0" 
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-        loading="lazy">
-      </iframe>
-    </div>
-
-  </div> <!-- end pageContent -->
+  <!-- SPOTIFY POPUP -->
+  <div class="spotify-popup" id="spotifyPopup">
+    <span class="close-btn" id="closePopup">&times;</span>
+    <iframe 
+      src="https://open.spotify.com/embed/episode/7J46SKS6kYsUvUQx9sTgOk?utm_source=generator" 
+      frameborder="0" 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy">
+    </iframe>
+  </div>
 
   <script>
-    // Spotify popup
     const audioBtn = document.getElementById('audioBtn');
     const popup = document.getElementById('spotifyPopup');
     const closeBtn = document.getElementById('closePopup');
 
-    audioBtn.addEventListener('click', () => { popup.style.display = 'block'; });
-    closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
-    window.addEventListener('click', (e) => { if(e.target === popup) popup.style.display = 'none'; });
+    audioBtn.addEventListener('click', () => {
+      popup.style.display = 'block';
+    });
 
-    // Arrow fade + redirect
+    closeBtn.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === popup) popup.style.display = 'none';
+    });
+
+    // ARROW → NEXT PAGE
     const arrow = document.querySelector('.next-part');
-    const page = document.getElementById('pageContent');
-
     arrow.addEventListener('click', () => {
-      page.classList.add('fade-out');
+      document.body.style.transition = 'opacity 1s';
+      document.body.style.opacity = 0;
       setTimeout(() => {
-        window.location.href = 'hen/hen-va-chan.html';
-      }, 1000); // match fade duration
+        window.location.href = 'hen-va-chan.html';
+      }, 1000);
     });
   </script>
 
