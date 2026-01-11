@@ -38,23 +38,23 @@
         0 0 4px var(--gold-core);
       -webkit-text-stroke: .4px var(--gold-core);
       opacity: 0;
-      animation: neonSign var(--anim-speed-title) ease forwards;
-      animation-delay: 0.4s;
+      animation: neonSign 1.5s ease forwards;
+      animation-delay: 0.3s;
     }
 
     @keyframes neonSign {
       0%   { opacity: 0; color: #222; text-shadow: none; }
-      10%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 2px var(--gold-core); }
-      20%  { opacity: 0; color: #222; text-shadow: none; }
-      30%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 4px var(--gold-core), 0 0 8px rgba(255,214,98,0.7); }
-      40%  { opacity: 0.5; color: #222; text-shadow: none; }
-      50%  { opacity: 1; color: #fff; text-shadow: 0 0 8px #fff, 0 0 16px var(--gold-core); }
-      60%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8); }
-      70%  { opacity: 0.7; color: #222; text-shadow: none; }
-      80%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 4px var(--gold-core), 0 0 12px rgba(255,214,98,0.7); }
-      90%  { opacity: 1; color: #fff; text-shadow: 0 0 8px #fff, 0 0 16px var(--gold-core); }
+      8%   { opacity: 1; color: var(--gold-core); text-shadow: 0 0 3px var(--gold-core); }
+      16%  { opacity: 0; color: #222; text-shadow: none; }
+      25%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 6px var(--gold-core), 0 0 10px rgba(255,214,98,0.7); }
+      33%  { opacity: 0.4; color: #222; text-shadow: none; }
+      50%  { opacity: 1; color: #fff; text-shadow: 0 0 10px #fff, 0 0 18px var(--gold-core); }
+      66%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8); }
+      83%  { opacity: 0.6; color: #222; text-shadow: none; }
+      92%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 4px var(--gold-core), 0 0 12px rgba(255,214,98,0.7); }
       100% { opacity: 1; color: var(--gold-core); text-shadow: 0 0 2px var(--gold-core), 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
-    }
+     }
+
 
     /* BODY PARAGRAPHS */
     .floating-paragraph {
