@@ -22,11 +22,11 @@
     .work-title {
       position: sticky;
       top: 0;
-      height: auto; /* shrink to fit title so content appears immediately */
+      height: auto;
       display: flex;
       align-items: flex-start;
       justify-content: flex-start;
-      padding: 2rem 5rem; /* slightly more right padding */
+      padding: 2rem 5rem;
     }
 
     /* Work title <h1> — thicker, neon glow */
@@ -51,16 +51,16 @@
     /* Floating paragraphs (intro sentences) */
     .floating-paragraph {
       opacity: 0;
-      animation: fadeInColumns 3s ease-in-out forwards; /* slower, deliberate fade */
+      animation: fadeInColumns 3s ease-in-out forwards;
       margin-bottom: 1.5rem;
-      max-width: 40%;   /* narrow column for floating-in-void feel */
+      max-width: 40%;
       font-size: 1.5rem;
       line-height: 1.6;
-      text-align: left;  /* left-aligned */
+      text-align: left;
       margin-left: auto;
       margin-right: auto;
       font-family: 'Raleway', sans-serif;
-      font-weight: 200; /* Light */
+      font-weight: 200;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -102,7 +102,7 @@
       will-change: transform;
     }
 
-    /* Next arrow inherits global style */
+    /* Next-part arrow */
     .next-part {
       display: block;
       font-family: 'Codystar', sans-serif;
@@ -121,38 +121,38 @@
       text-shadow: 0 0 18px var(--gold-core), 0 0 36px var(--gold-bloom);
     }
 
-    /* AUDIO BUTTON — neon dotted circle with speaker icon */
+    /* Audio button */
     .audio-button {
       position: fixed;
-      top: 20%;
-      left: 80%;
-      width: 4rem;
-      height: 4rem;
-      border: 3px dotted #FFD662;
+      top: 50%;
+      left: 50%;
+      width: 3.5rem;
+      height: 3.5rem;
+      border: 2px dotted #FFD662;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 15px #FFD662, 0 0 35px rgba(255,214,98,0.5);
       cursor: pointer;
+      animation: floatAround 20s infinite alternate ease-in-out;
       z-index: 5;
-      animation: floatAround 12s infinite ease-in-out alternate;
     }
 
     .audio-button svg {
       width: 1.8rem;
       height: 1.8rem;
-      fill: #FFF; /* neon white speaker */
-      filter: drop-shadow(0 0 4px #FFD662) drop-shadow(0 0 8px rgba(255,214,98,0.5));
+      fill: #FFF8D6; /* off-white speaker */
+      filter: 
+        drop-shadow(0 0 4px #FFD662)
+        drop-shadow(0 0 12px rgba(255,214,98,0.25));
     }
 
-    /* Floating around slowly (X and Y) */
     @keyframes floatAround {
-      0% { transform: translate(0px, 0px); }
-      25% { transform: translate(-10px, 5px); }
-      50% { transform: translate(10px, 10px); }
-      75% { transform: translate(-5px, -10px); }
-      100% { transform: translate(0px, 0px); }
+      0%   { transform: translate(-50%, -50%) translate(0,0); }
+      25%  { transform: translate(-50%, -50%) translate(15px, -10px); }
+      50%  { transform: translate(-50%, -50%) translate(-10px, 15px); }
+      75%  { transform: translate(-50%, -50%) translate(20px, 5px); }
+      100% { transform: translate(-50%, -50%) translate(-15px, -20px); }
     }
 
     /* Mobile overrides */
@@ -160,8 +160,8 @@
       .series-background{opacity:0;}
       .work-content{padding-top:16vh;}
       .floating-paragraph { max-width: 80%; font-size: 1rem; }
-      .audio-button { width: 3rem; height: 3rem; }
-      .audio-button svg { width: 1.2rem; height: 1.2rem; }
+      .audio-button { width:3rem; height:3rem; }
+      .audio-button svg { width:1.4rem; height:1.4rem; }
     }
   </style>
 </head>
@@ -187,7 +187,7 @@
         <p class="floating-paragraph">Nó cần thêm… THỬ THÁCH.</p>
       </div>
 
-      <!-- Next arrow -->
+      <!-- Next arrow inherits global style -->
       <span class="next-part">⌄</span>
     </div>
   </div>
@@ -195,7 +195,7 @@
   <!-- Floating neon audio button -->
   <div class="audio-button">
     <svg viewBox="0 0 24 24">
-      <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.95 7-4.49 7-8.77s-2.99-7.82-7-8.77z"/>
     </svg>
   </div>
 
