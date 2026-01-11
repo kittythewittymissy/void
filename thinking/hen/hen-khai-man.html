@@ -5,7 +5,7 @@
   <title>Hèn: Khai màn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <!-- Fonts with Raleway 200 explicitly loaded -->
+  <!-- Fonts with Raleway ExtraLight 200 explicitly loaded -->
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Raleway+Dots&family=Codystar:wght@300;400;500&family=Neonderthaw&display=swap" rel="stylesheet">
   
   <!-- Global CSS -->
@@ -22,11 +22,11 @@
     .work-title {
       position: sticky;
       top: 0;
-      height: auto; /* shrink to fit title so content appears immediately */
+      height: auto;
       display: flex;
       align-items: flex-start;
       justify-content: flex-start;
-      padding: 2rem 5rem; /* slightly more right padding */
+      padding: 2rem 5rem;
     }
 
     /* Work title <h1> — thicker, neon glow */
@@ -51,16 +51,16 @@
     /* Floating paragraphs (intro sentences) */
     .floating-paragraph {
       opacity: 0;
-      animation: fadeInColumns 3s ease-in-out forwards; /* slower, deliberate fade */
+      animation: fadeInColumns 3s ease-in-out forwards;
       margin-bottom: 1.5rem;
-      max-width: 40%;   /* narrow column for floating-in-void feel */
+      max-width: 40%;
       font-size: 1.5rem;
       line-height: 1.6;
-      text-align: left;  /* left-aligned */
+      text-align: left;
       margin-left: auto;
       margin-right: auto;
       font-family: 'Raleway', sans-serif;
-      font-weight: 200; /* Light */
+      font-weight: 200;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -102,13 +102,72 @@
       will-change: transform;
     }
 
+    /* Next-part arrow */
+    .next-part {
+      display: block;
+      font-family: 'Codystar', sans-serif;
+      font-size: 4rem;
+      text-align: center;
+      color: var(--gold-core);
+      cursor: pointer;
+      margin-top: 2rem;
+      text-shadow: 0 0 10px var(--gold-core), 0 0 24px var(--gold-bloom);
+      animation: arrowFloat 2.5s infinite ease-in-out;
+      transition: filter 0.25s, text-shadow 0.25s;
+    }
+    .next-part:hover {
+      filter: brightness(1.8);
+      text-shadow: 0 0 18px var(--gold-core), 0 0 36px var(--gold-bloom);
+    }
+
+    /* AUDIO BUTTON - neon dotted circular */
+    .audio-button-circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 4.5rem;
+      height: 4.5rem;
+      border: 2px dotted var(--gold-core);
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      color: var(--gold-core);
+      font-size: 1.8rem;
+      text-shadow:
+        0 0 4px var(--gold-core),
+        0 0 8px var(--gold-bloom),
+        0 0 12px var(--gold-core),
+        0 0 16px var(--gold-bloom);
+      transition: all 0.25s ease-in-out;
+      animation: audioFloat 8s ease-in-out infinite alternate;
+      margin: 3rem auto 0 auto; /* centered in column, some spacing */
+    }
+    .audio-button-circle:hover {
+      color: #fff;
+      border-color: #FFD662;
+      text-shadow:
+        0 0 8px #FFD662,
+        0 0 16px #FFD662,
+        0 0 24px #FFD662,
+        0 0 36px #FFD662;
+      filter: brightness(1.4);
+    }
+    @keyframes audioFloat {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-3px); }
+      100% { transform: translateY(0px); }
+    }
+
     /* Mobile overrides */
     @media(max-width:768px){
       .series-background{opacity:0;}
       .work-content{padding-top:16vh;}
       .floating-paragraph { max-width: 80%; font-size: 1rem; }
+      .audio-button-circle { width: 3.5rem; height: 3.5rem; font-size: 1.5rem; }
     }
   </style>
+  <!-- Font Awesome for speaker icon -->
+  <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -122,7 +181,7 @@
     </div>
 
     <!-- Mid-plane content (intro sentences, narrow left-aligned column) -->
-    <div class="work-content" style="padding-top:5rem;"> <!-- start lower for floating-in-void effect -->
+    <div class="work-content" style="padding-top:5rem;">
       <div class="text-section">
         <p class="floating-paragraph">— mẹ, tôi có thể cảm nhận não mình đang bồn chồn, giãy nảy.</p>
         <p class="floating-paragraph">Đã đến giờ tôi tìm cái gì đó cho nó suy nghĩ rồi, có vẻ nó đang cảm thấy tù túng.</p>
@@ -131,6 +190,11 @@
         <p class="floating-paragraph">Nó đang chán và nó đang phát điên.</p>
         <p class="floating-paragraph">Nó cần thêm… THỬ THÁCH.</p>
       </div>
+
+      <!-- Audio button -->
+      <a href="https://open.spotify.com/track/XXXX" target="_blank" class="audio-button-circle">
+        <i class="fas fa-volume-up"></i>
+      </a>
 
       <!-- Next arrow inherits global style -->
       <span class="next-part">⌄</span>
