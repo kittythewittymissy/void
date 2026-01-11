@@ -53,8 +53,7 @@
       83%  { opacity: 0.6; color: #222; text-shadow: none; }
       92%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 4px var(--gold-core), 0 0 12px rgba(255,214,98,0.7); }
       100% { opacity: 1; color: var(--gold-core); text-shadow: 0 0 2px var(--gold-core), 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
-     }
-
+    }
 
     /* BODY PARAGRAPHS */
     .floating-paragraph {
@@ -107,6 +106,36 @@
     /* AUDIO BUTTON */
     .audio-button {
       right: 4.25rem;
+      cursor: pointer;
+    }
+
+    /* SPOTIFY POPUP */
+    .spotify-popup {
+      display: none;
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+      background: rgba(0,0,0,0.85);
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    }
+
+    .spotify-popup iframe {
+      border-radius: 12px;
+      width: 100%;
+      height: 352px;
+      display: block;
+    }
+
+    .spotify-popup .close-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      color: #FFD662;
+      cursor: pointer;
     }
 
     /* RESPONSIVE */
@@ -115,6 +144,7 @@
       .series-background { opacity: 0; }
       .audio-button { right: 2rem; }
       .work-title h1 { font-size: 2.5rem; }
+      .spotify-popup iframe { height: 200px; }
     }
 
   </style>
@@ -143,11 +173,40 @@
     </div>
   </div>
 
-  <div class="audio-button">
+  <div class="audio-button" id="audioBtn">
     <svg viewBox="0 0 24 24">
       <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.95 7-4.49 7-8.77s-2.99-7.82-7-8.77z"/>
     </svg>
   </div>
+
+  <!-- SPOTIFY POPUP -->
+  <div class="spotify-popup" id="spotifyPopup">
+    <span class="close-btn" id="closePopup">&times;</span>
+    <iframe 
+      src="https://open.spotify.com/embed/episode/7J46SKS6kYsUvUQx9sTgOk?utm_source=generator" 
+      frameborder="0" 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy">
+    </iframe>
+  </div>
+
+  <script>
+    const audioBtn = document.getElementById('audioBtn');
+    const popup = document.getElementById('spotifyPopup');
+    const closeBtn = document.getElementById('closePopup');
+
+    audioBtn.addEventListener('click', () => {
+      popup.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === popup) popup.style.display = 'none';
+    });
+  </script>
 
 </body>
 </html>
