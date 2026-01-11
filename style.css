@@ -260,12 +260,12 @@ h3 {
   font-weight: 400;
   text-transform: none;
   text-shadow:
-    0 0 2px var(--gold-core),
-    0 0 4px var(--gold-core),
+    0 0 3px var(--gold-core),
     0 0 6px var(--gold-core),
-    0 0 8px rgba(255,214,98,0.8),
-    0 0 12px rgba(255,214,98,0.6),
-    0 0 16px rgba(255,214,98,0.4);
+    0 0 9px var(--gold-core),
+    0 0 12px rgba(255,214,98,0.8),
+    0 0 18px rgba(255,214,98,0.6),
+    0 0 22px rgba(255,214,98,0.4);
   -webkit-text-stroke: 0.3px var(--gold-core);
   animation: neonIgnite 2.4s forwards;
   animation-delay: 0.3s;
