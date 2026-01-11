@@ -311,7 +311,7 @@ h3 {
 /* ===== GLOBAL SCROLL ARROW ===== */
 .next-part {
   display: block;
-  font-family: 'Codystar', sans-serif, monospace;
+  font-family: inherit;
   font-size: 4rem;
   text-align: center;
   color: var(--white-accent);
