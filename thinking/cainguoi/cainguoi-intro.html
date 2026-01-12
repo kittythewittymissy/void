@@ -6,18 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Raleway+Dots&family=Codystar:wght@300;400;500&family=Neonderthaw&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Raleway+Dots&family=Codystar:wght@300;400;500&family=Neonderthaw&display=swap" rel="stylesheet">
 
   <!-- Global CSS -->
   <link rel="stylesheet" href="../../style.css">
 
   <style>
     :root {
-      --anim-speed-body: 2s;
-      --anim-delay-stagger: 0.7s;
-      --neon-cold: #ffffff;
+      --anim-speed-title: 2s;
+      --anim-speed-body: 2.8s;
+      --anim-delay-stagger: 0.8s;
+      --gold-core: #FFD662;
     }
 
+    /* WORK TITLE */
     .work-title { 
       position: sticky;
       top: 0;
@@ -25,11 +27,36 @@
     }
 
     .work-title h1 {
-      font-family: 'Raleway Dots','Raleway',sans-serif;
+      font-family: 'Raleway Dots', sans-serif;
+      font-size: 4rem;
+      letter-spacing: 0.16em;
+      font-weight: 400;
+      color: #222;
+      text-shadow:
+        0 0 1px var(--gold-core),
+        0 0 2px var(--gold-core),
+        0 0 4px var(--gold-core);
+      -webkit-text-stroke: .4px var(--gold-core);
+      opacity: 0;
+      animation: neonSign 1s ease forwards;
+      animation-delay: 0.3s;
     }
 
-    .floating-paragraph,
-    .neon-div {
+    @keyframes neonSign {
+      0%   { opacity: 0; color: #222; text-shadow: none; }
+      8%   { opacity: 1; color: var(--gold-core); text-shadow: 0 0 3px var(--gold-core); }
+      16%  { opacity: 0; color: #222; text-shadow: none; }
+      25%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 6px var(--gold-core), 0 0 10px rgba(255,214,98,0.7); }
+      33%  { opacity: 0.4; color: #222; text-shadow: none; }
+      50%  { opacity: 1; color: #fff; text-shadow: 0 0 10px #fff, 0 0 18px var(--gold-core); }
+      66%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8); }
+      83%  { opacity: 0.6; color: #222; text-shadow: none; }
+      92%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 4px var(--gold-core), 0 0 12px rgba(255,214,98,0.7); }
+      100% { opacity: 1; color: var(--gold-core); text-shadow: 0 0 2px var(--gold-core), 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
+    }
+
+    /* BODY PARAGRAPHS */
+    .floating-paragraph {
       opacity: 0;
       max-width: 40%;
       margin: 0 auto 1.5rem;
@@ -38,6 +65,7 @@
       font-weight: 200;
       line-height: 1.6;
       text-align: left;
+      animation: bodyFade var(--anim-speed-body) ease forwards;
     }
 
     @keyframes bodyFade {
@@ -45,18 +73,14 @@
       100% { opacity: 1; }
     }
 
-    /* Neon divider */
-    .neon-div {
-      height: 1px;
-      background: var(--neon-cold);
-      box-shadow:
-        0 0 3px var(--neon-cold),
-        0 0 6px var(--neon-cold),
-        0 0 10px var(--neon-cold);
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-    }
+    .floating-paragraph:nth-child(1) { animation-delay: calc(var(--anim-speed-title) + 1s); }
+    .floating-paragraph:nth-child(2) { animation-delay: calc(var(--anim-speed-title) + 1s + var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(3) { animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(4) { animation-delay: calc(var(--anim-speed-title) + 1s + 3*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(5) { animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(6) { animation-delay: calc(var(--anim-speed-title) + 1s + 5*var(--anim-delay-stagger)); }
 
+    /* SERIES BACKGROUND */
     .series-background {
       position: fixed;
       top: 50%; left: 50%;
@@ -68,6 +92,7 @@
       pointer-events: none;
     }
 
+    /* NEXT PART ICON */
     .next-part {
       display: block;
       font-family: 'Codystar', sans-serif;
@@ -78,8 +103,13 @@
       margin-top: 2rem;
     }
 
-    .audio-button { right: 4.25rem; cursor: pointer; }
+    /* AUDIO BUTTON */
+    .audio-button {
+      right: 4.25rem;
+      cursor: pointer;
+    }
 
+    /* SPOTIFY POPUP */
     .spotify-popup {
       display: none;
       position: fixed;
@@ -108,17 +138,15 @@
       cursor: pointer;
     }
 
+    /* RESPONSIVE */
     @media(max-width:768px) {
-      .floating-paragraph,
-      .neon-div {
-        max-width: 80%;
-        font-size: 1rem;
-      }
+      .floating-paragraph { max-width: 80%; font-size: 1rem; }
       .series-background { opacity: 0; }
       .audio-button { right: 2rem; }
       .work-title h1 { font-size: 2.5rem; }
       .spotify-popup iframe { height: 200px; }
     }
+
   </style>
 </head>
 
@@ -126,6 +154,7 @@
 
   <div class="series-background">Cai</div>
 
+  <!-- BACK TO KITTY BUTTON -->
   <a href="../../index.html" class="back-button">
     <span class="back-text">Back to</span>
     <span class="kitty-text">Kitty</span>
@@ -138,9 +167,8 @@
 
     <div class="work-content" style="padding-top:5rem;">
       <div class="text-section">
-
         <p class="floating-paragraph">Cậu nhạc công vẫn chưa thể vượt qua nổi cô gái ấy, từ khi cô ả tuyên bố lấp lửng một cách rõng rạc rằng tuy mình có tình cảm cho cậu chàng, nàng không cam tâm tiến xa hơn trong mối quan hệ này. Tôi biết chú biết rằng mình đang khá ngu người bây giờ, thậm chí biết cô gái ấy chẳng hề xứng đáng với tình cảm của mình, khi cô ấy còn chẳng có đủ cái can đảm để toàn tâm thành thật với chú ấy. Biết cái sự thật có đau lòng như nào.</p>
-        <p class="floating-paragraph">Cũng chẳng phải lần đầu cậu nói về chuyện này, và tôi biết còn xa mới tới lần cuối. Cũng vài tháng nay rồi. Những tin nhắn độ loanh quanh 3 rưỡi sáng từ chú ấy đã dần trở thành một sự kiện thường nhật với tôi. Luôn là những dòng suy nghĩ cũ, những lời hứa cũ, những nỗi sầu cũ, giờ chỉ thêm những cò sự kiện mới. Này thì cô ấy đến quán cà phê cậu ấy hay lui tới cùng một người đàn ông, một người bạn gấp gáp đưa tin đã bắt gặp cô ấy nắm tay ai đó bên hồ, vài hình ảnh cô ấy đang vui cười ở đâu đâu đó đó xuất hiện trên tường sự kiện của cậu. Thậm chí là cậu ấy còn TỰ nhắc mình nhớ về  “con khốn indie phản trắc” ấy (lời cậu ấy, không phải tôi) trong một cuộc trò chuyện đéo can hệ gì nổi đến nàng ta. Cũng hút nhiều lắm, nhưng giờ lấy cái cớ là vì tình yêu. “Đéo quan trọng.” Chú ấy tự an ủi dối lòng mình, mắt thì săm soi băn khoăn xem liệu ông sơ mi quần âu ngồi kia có phải méng mới của cô ấy không. Không, đéo phải, đéo liên quan, chú ấy ảo thôi.</p>
+        <p class="floating-paragraph">Cũng chẳng phải lần đầu cậu nói về chuyện này, và tôi biết còn xa mới tới lần cuối. Cũng vài tháng nay rồi. Những tin nhắn độ loanh quanh 3 rưỡi sáng từ chú ấy đã dần trở thành một sự kiện thường nhật với tôi. Luôn là những dòng suy nghĩ cũ, những lời hứa cũ, những nỗi sầu cũ, giờ chỉ thêm những cò sự kiện mới. Này thì cô ấy đến quán cà phê cậu ấy hay lui tới cùng một người đàn ông, một người bạn gấp gáp đưa tin đã bắt gặp cô ấy nắm tay ai đó bên hồ, vài hình ảnh cô ấy đang vui cười ở đâu đâu đó đó xuất hiện trên tường sự kiện của cậu. Thậm chí là cậu ấy còn TỰ nhắc mình nhớ về “con khốn indie phản trắc” ấy (lời cậu ấy, không phải tôi) trong một cuộc trò chuyện đéo can hệ gì nổi đến nàng ta. Cũng hút nhiều lắm, nhưng giờ lấy cái cớ là vì tình yêu. “Đéo quan trọng.” Chú ấy tự an ủi dối lòng mình, mắt thì săm soi băn khoăn xem liệu ông sơ mi quần âu ngồi kia có phải méng mới của cô ấy không. Không, đéo phải, đéo liên quan, chú ấy ảo thôi.</p>
         <p class="floating-paragraph">Và bố trẻ ấy thực sự đã xem lại Mắt Biếc. Thực sự. Giữa hàng trăm nghìn bộ phim đã và đang tồn tại. Giữa tất cả những lổn nhổn ngổn ngang chất đầy tâm can, chú ấy mắm môi mắm lợi bới lại cảm giác ngao ngán từ việc cười nhạt “thằng Ngạn dại gái”, như cười nhạt vào một tấm gương.</p>
         <p class="floating-paragraph">Đơn giản là cậu ta chưa sẵn lòng buông.</p>
 
@@ -154,7 +182,6 @@
         <p class="floating-paragraph">Ừ. Làm sao mà đéo biết được. Cả nhà tôi đều biết. Mẹ tôi lắc đầu ngao ngán cho tuổi trẻ. Bố tôi thì thương nhớ chú ấy mà hỏi han mãi. Nhưng em gái tôi có người mới rồi. Và chỉ biết vậy là dĩ vãng.</p>
         <p class="floating-paragraph">Hờ hờ ve trên đầu ngón điếu thuốc tàn dài ngất ngưởng (làm tôi sốt sắng vãi lồn), chú ấy ôn đi ôn lại, nói tái nói hồi về những lời hứa, những kỉ niệm của hai đứa mà mắt cứ rưng rưng lệ, giọt chảy giọt đừng. Những lần nghỉ mát gia đình tôi có mặt của anh bạn. Những lần ăn uống nhỏ to nhà tôi cũng mời chú ấy qua. Chú ấy vẫn không thể tin nổi lỗi có do mình. Tôi biết dẫu có nói gì, cũng đã quá muộn. Đoạn, chú ấy ôm mặt khóc oà.</p>
         <p class="floating-paragraph">“Ôi cái địt con mẹ ông luôn. Địt mẹ thôi. THÔI, ĐỪNG PHỦI NỮA, két mẹ vào ghế rồi. Đây đây, gạt tàn này.”</p>
-
       </div>
 
       <span class="next-part">﹀</span>
@@ -167,9 +194,10 @@
     </svg>
   </div>
 
+  <!-- SPOTIFY POPUP -->
   <div class="spotify-popup" id="spotifyPopup">
     <span class="close-btn" id="closePopup">&times;</span>
-    <iframe src="https://open.spotify.com/embed/episode/7J46SKS6kYsUvUQx9sTgOk?utm_source=generator" loading="lazy"></iframe>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0vcdNvf4JqpLuJ8kvTSq01?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </div>
 
   <script>
@@ -177,21 +205,15 @@
     const popup = document.getElementById('spotifyPopup');
     const closeBtn = document.getElementById('closePopup');
 
-    audioBtn.onclick = () => popup.style.display = 'block';
-    closeBtn.onclick = () => popup.style.display = 'none';
-    window.onclick = (e) => { if (e.target === popup) popup.style.display = 'none'; };
+    audioBtn.addEventListener('click', () => { popup.style.display = 'block'; });
+    closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
+    window.addEventListener('click', (e) => { if (e.target === popup) popup.style.display = 'none'; });
 
-    document.querySelector('.next-part').onclick = () => {
+    const arrow = document.querySelector('.next-part');
+    arrow.addEventListener('click', () => {
       document.body.style.transition = 'opacity 1s';
       document.body.style.opacity = 0;
-      setTimeout(() => window.location.href = 'hen-va-chan.html', 1000);
-    };
-
-    // Sequential Anim
-    const items = document.querySelectorAll('.floating-paragraph, .neon-div');
-    items.forEach((el, i) => {
-      el.style.animation = `bodyFade var(--anim-speed-body) ease forwards`;
-      el.style.animationDelay = `${i * parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--anim-delay-stagger'))}s`;
+      setTimeout(() => { window.location.href = 'hen-va-chan.html'; }, 1000);
     });
   </script>
 
