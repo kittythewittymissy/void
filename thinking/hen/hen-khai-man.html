@@ -27,7 +27,7 @@
     }
 
     .work-title h1 {
-      font-family: 'Raleway Dots', cursive;
+      font-family: 'Raleway Dots', sans-serif;
       font-size: 4rem;
       letter-spacing: 0.16em;
       font-weight: 400;
@@ -109,12 +109,63 @@
       cursor: pointer;
     }
 
+    /* BACK TO KITTY BUTTON */
+    .back-button {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      text-decoration: none;
+      z-index: 999;
+      font-size: 1.8rem;
+    }
+
+    .back-button .back-text {
+      font-family: 'Raleway Dots', cursive;
+      font-size: 1.5rem;
+    }
+
+    /* SPOTIFY POPUP */
+    .spotify-popup {
+      display: none;
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+      background: rgba(0,0,0,0.85);
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    }
+
+    .spotify-popup iframe {
+      border-radius: 12px;
+      width: 100%;
+      height: 352px;
+      display: block;
+    }
+
+    .spotify-popup .close-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      color: #FFD662;
+      cursor: pointer;
+    }
+
     /* RESPONSIVE */
     @media(max-width:768px) {
       .floating-paragraph { max-width: 80%; font-size: 1rem; }
       .series-background { opacity: 0; }
       .audio-button { right: 2rem; }
       .work-title h1 { font-size: 2.5rem; }
+      .spotify-popup iframe { height: 200px; }
+      .back-button { top: 1rem; right: 1rem; font-size: 1.4rem; }
+      .back-button .back-text { font-size: 1.2rem; }
     }
 
   </style>
@@ -126,8 +177,7 @@
 
   <!-- BACK TO KITTY BUTTON -->
   <a href="../../index.html" class="back-button">
-    <span class="back-text">Back to</span>
-    <span class="kitty-text">Kitty</span>
+    <span class="back-text">Back to Kitty</span>
   </a>
 
   <div class="main-row">
@@ -155,8 +205,33 @@
     </svg>
   </div>
 
+  <!-- SPOTIFY POPUP -->
+  <div class="spotify-popup" id="spotifyPopup">
+    <span class="close-btn" id="closePopup">&times;</span>
+    <iframe 
+      src="https://open.spotify.com/embed/episode/7J46SKS6kYsUvUQx9sTgOk?utm_source=generator" 
+      frameborder="0" 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy">
+    </iframe>
+  </div>
+
   <script>
     const audioBtn = document.getElementById('audioBtn');
+    const popup = document.getElementById('spotifyPopup');
+    const closeBtn = document.getElementById('closePopup');
+
+    audioBtn.addEventListener('click', () => {
+      popup.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === popup) popup.style.display = 'none';
+    });
 
     // ARROW → NEXT PAGE
     const arrow = document.querySelector('.next-part');
