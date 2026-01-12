@@ -369,7 +369,7 @@ h3 {
 .back-button {
   display: inline-flex;
   align-items: baseline;
-  gap: 0.25rem;
+  gap: 0.4rem; /* spacing between "back to" and "Kitty" */
   cursor: pointer;
   text-decoration: none;
   z-index: 999;
@@ -377,22 +377,27 @@ h3 {
 
 .back-button .back-text {
   font-family: 'Raleway Dots', cursive;
-  font-size: 1.25rem; /* smaller, subtle part */
-  color: var(--white-accent); /* white instead of gold */
-  text-shadow: var(--glow-white); /* subtle white glow */
+  font-size: 1.2rem; /* slightly bigger than body text, smaller than h2 */
+  font-weight: normal;
+  color: var(--white-accent);
+  text-shadow:
+    0 0 3px #fff,
+    0 0 8px rgba(255,255,255,0.6),
+    0 0 16px rgba(255,255,255,0.4); /* like h2 neon glow */
   animation: subtlePulse 2s infinite alternate; /* subtle pulsing */
 }
 
 .back-button .kitty-text {
-  font-family: 'Codystar', cursive; /* reuse your existing Codystar H1 styling */
-  font-size: 1.75rem; /* larger, bold glowing part */
+  font-family: 'Codystar', cursive;
+  font-size: 2.5rem; /* considerably big, smaller than work title */
   font-weight: 600;
-  color: var(--gold-core); /* gold */
+  color: var(--gold-core);
   text-shadow:
-    0 0 6px var(--gold-core),
-    0 0 18px var(--gold-bloom),
-    0 0 32px rgba(255,214,98,0.4);
-  animation: goldPulse 1.8s infinite alternate; /* blinking gold */
+    0 0 8px var(--gold-core),
+    0 0 20px var(--gold-core),
+    0 0 36px var(--gold-core),
+    0 0 64px var(--gold-bloom); /* thick glowing h1 style */
+  animation: neonBlaze 2s infinite alternate; /* blinking gold */
 }
 
 /* subtle pulse for "back to" */
