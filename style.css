@@ -385,13 +385,15 @@ h3 {
     0 0 3px #fff,
     0 0 8px rgba(255,255,255,0.6),
     0 0 16px rgba(255,255,255,0.4); /* subtle white neon glow */
+  opacity: 0.85;                  /* ensures pulse is visible */
   animation: subtlePulse 2s infinite alternate; /* slow pulsing */
+  animation-fill-mode: both;       /* animation starts correctly */
 }
 
 /* Big "Kitty" — Codystar, thick H1-style gold glow, slow ominous blink */
 .back-button .kitty-text {
   font-family: 'Codystar', cursive;
-  font-size: 3rem; /* big, but slightly smaller than work title */
+  font-size: 2.8rem;              /* slightly smaller for balance */
   font-weight: 600;
   color: var(--gold-core);
   text-shadow:
@@ -399,7 +401,9 @@ h3 {
     0 0 20px var(--gold-core),
     0 0 36px var(--gold-core),
     0 0 64px var(--gold-bloom); /* thick H1-style gold glow */
+  opacity: 0.9;                   /* start dim for blink */
   animation: goldBlink 3.5s infinite alternate; /* slow, ominous blinking */
+  animation-fill-mode: both;       /* animation starts correctly */
 }
 
 /* subtle pulse for "Back to" */
