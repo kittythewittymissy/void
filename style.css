@@ -375,6 +375,16 @@ h3 {
   z-index: 999;
 }
 
+.back-button .back-text {
+  opacity: 0.85;              /* ensures pulsing is visible */
+  animation-fill-mode: both;  /* ensures start frame is rendered */
+}
+
+.back-button .kitty-text {
+  opacity: 0.8;               /* ensures blink starts visible */
+  animation-fill-mode: both;  /* ensures start frame is rendered */
+}
+
 /* Small "Back to" — Raleway Dots, subtle white pulsing like h2 */
 .back-button .back-text {
   font-family: 'Raleway Dots', cursive;
