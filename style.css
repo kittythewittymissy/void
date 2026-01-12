@@ -171,27 +171,20 @@ h3 {
   position: fixed;
   top: 36%;
   right: 3.5rem;
-
   width: 50px;
   height: 50px;
-
   padding: 7px;
-
   cursor: pointer;
   background: transparent;
   border-radius: 50%;
   border: 2px dotted var(--gold-core);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   color: var(--white-accent);
   font-size: 1.35rem;
   line-height: 0;
-
   z-index: 999;
-
   filter: drop-shadow(0 0 8px var(--gold-core));
   animation: floatVertical 6s ease-in-out infinite alternate;
   transition: filter 0.25s, transform 0.25s;
@@ -221,27 +214,15 @@ h3 {
 }
 
 @media(max-width:900px){
-  .audio-button {
-    right: 1.6rem;
-    top: 42%;
-  }
+  .audio-button { right: 1.6rem; top: 42%; }
 }
 
 @media(max-width:700px){
-  .audio-button {
-    right: 1.2rem;
-    top: auto;
-    bottom: 6rem;
-    animation-duration: 7.5s;
-  }
+  .audio-button { right: 1.2rem; top: auto; bottom: 6rem; animation-duration: 7.5s; }
 }
 
 @media(max-width:420px){
-  .audio-button {
-    bottom: 5rem;
-    right: 1rem;
-    transform: scale(0.92);
-  }
+  .audio-button { bottom: 5rem; right: 1rem; transform: scale(0.92); }
 }
 
 /* ===== WORK TITLES — CREATIVE WORKS ONLY ===== */
@@ -267,37 +248,71 @@ h3 {
   0% { opacity: 0; text-shadow: none; }
   10% { opacity: 0.4; text-shadow: 0 0 4px var(--gold-core), 0 0 12px var(--gold-core); }
   14% { opacity: 0; text-shadow: none; }
-  20% {
-    opacity: 1;
-    text-shadow:
-      0 0 6px var(--gold-core),
-      0 0 20px var(--gold-core),
-      0 0 48px var(--gold-core),
-      0 0 86px var(--gold-bloom);
-  }
-  26% {
-    opacity: 0.9;
-    text-shadow:
-      0 0 4px var(--gold-core),
-      0 0 14px var(--gold-core),
-      0 0 32px var(--gold-bloom);
-  }
-  34% {
-    opacity: 1;
-    text-shadow:
-      0 0 6px var(--gold-core),
-      0 0 18px var(--gold-core),
-      0 0 36px var(--gold-core),
-      0 0 64px var(--gold-bloom);
-  }
-  100% {
-    opacity: 1;
-    text-shadow:
-      0 0 2px var(--gold-core),
-      0 0 6px var(--gold-core),
-      0 0 12px var(--gold-core),
-      0 0 24px var(--bloom-bloom);
-  }
+  20% { opacity: 1; text-shadow: 0 0 6px var(--gold-core), 0 0 20px var(--gold-core), 0 0 48px var(--gold-core), 0 0 86px var(--gold-bloom); }
+  26% { opacity: 0.9; text-shadow: 0 0 4px var(--gold-core), 0 0 14px var(--gold-core), 0 0 32px var(--gold-bloom); }
+  34% { opacity: 1; text-shadow: 0 0 6px var(--gold-core), 0 0 18px var(--gold-core), 0 0 36px var(--gold-core), 0 0 64px var(--gold-bloom); }
+  100% { opacity: 1; text-shadow: 0 0 2px var(--gold-core),0 0 6px var(--gold-core),0 0 12px var(--gold-core),0 0 24px var(--bloom-bloom); }
+}
+
+/* ===== GLOBAL BACK-TO-KITTY BUTTON AESTHETIC ===== */
+.back-button {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  z-index: 999;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+}
+@media(max-width:768px){
+  .back-button { top: 1rem; right: 1rem; }
+}
+
+/* small "Back to" — Raleway Dots, subtle white pulsing */
+.back-button .back-text {
+  font-family: 'Raleway Dots', cursive;
+  font-size: 1.3rem;
+  font-weight: normal;
+  color: var(--white-accent);
+  text-shadow:
+    0 0 3px #fff,
+    0 0 8px rgba(255,255,255,0.6),
+    0 0 16px rgba(255,255,255,0.4);
+  opacity: 0.85;
+  animation: subtlePulse 2s infinite alternate;
+  animation-fill-mode: both;
+  animation-delay: 0.05s;
+}
+
+/* big "Kitty" — Codystar, thick H1 gold blink */
+.back-button .kitty-text {
+  font-family: 'Codystar', cursive;
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: var(--gold-core);
+  text-shadow:
+    0 0 8px var(--gold-core),
+    0 0 20px var(--gold-core),
+    0 0 36px var(--gold-core),
+    0 0 64px var(--gold-bloom);
+  opacity: 0.9;
+  animation: goldBlink 3.5s infinite alternate;
+  animation-fill-mode: both;
+  animation-delay: 0.05s;
+}
+
+/* Animations for Back-to-Kitty */
+@keyframes subtlePulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+@keyframes goldBlink {
+  0% { text-shadow: 0 0 6px var(--gold-core),0 0 18px var(--gold-core),0 0 36px var(--gold-core),0 0 64px var(--gold-bloom); opacity: 0.8; }
+  50% { text-shadow: 0 0 12px var(--gold-core),0 0 28px var(--gold-core),0 0 48px var(--gold-core),0 0 80px var(--gold-bloom); opacity: 1; }
+  100% { text-shadow: 0 0 6px var(--gold-core),0 0 18px var(--gold-core),0 0 36px var(--gold-core),0 0 64px var(--gold-bloom); opacity: 0.8; }
 }
 
 /* ===== GLOBAL SCROLL ARROW ===== */
@@ -309,12 +324,9 @@ h3 {
   cursor: pointer;
   animation: arrowFloat 2.5s infinite ease-in-out;
   transition: filter 0.25s, text-shadow 0.25s;
-
-  /* fix dash artifact */
   transform: translateZ(0);
 }
 
-/* UP ARROW - fixed top center */
 .arrow.up {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
@@ -326,7 +338,6 @@ h3 {
   animation-delay: calc(var(--arrow-delay) * 0.5);
 }
 
-/* DOWN ARROW - mirrored tip */
 .arrow.down {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
@@ -336,9 +347,7 @@ h3 {
   animation-delay: var(--arrow-delay);
 }
 
-.arrow:hover {
-  filter: brightness(1.8);
-}
+.arrow:hover { filter: brightness(1.8); }
 
 /* ===== MOBILE OVERRIDES ===== */
 @media(max-width:768px){
@@ -361,85 +370,4 @@ h3 {
 }
 
 /* ===== REUSABLE GLOW CLASS ===== */
-.glow-white {
-  text-shadow: var(--glow-white);
-}
-
-/* ===== GLOBAL BACK-TO-KITTY BUTTON AESTHETIC ===== */
-.back-button {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.5rem; /* perfect spacing between small "Back to" and big "Kitty" */
-  cursor: pointer;
-  text-decoration: none;
-  z-index: 999;
-}
-
-.back-button .back-text {
-  opacity: 0.85;              /* ensures pulsing is visible */
-  animation-fill-mode: both;  /* ensures start frame is rendered */
-}
-
-.back-button .kitty-text {
-  opacity: 0.8;               /* ensures blink starts visible */
-  animation-fill-mode: both;  /* ensures start frame is rendered */
-}
-
-/* Small "Back to" — Raleway Dots, subtle white pulsing like h2 */
-.back-button .back-text {
-  font-family: 'Raleway Dots', cursive;
-  font-size: 1.3rem; /* slightly bigger than body text, smaller than h2 */
-  font-weight: normal;
-  color: var(--white-accent);
-  text-shadow:
-    0 0 3px #fff,
-    0 0 8px rgba(255,255,255,0.6),
-    0 0 16px rgba(255,255,255,0.4); /* subtle white neon glow */
-  opacity: 0.85;                  /* ensures pulse is visible */
-  animation: subtlePulse 2s infinite alternate; /* slow pulsing */
-  animation-fill-mode: both;       /* animation starts correctly */
-}
-
-/* Big "Kitty" — Codystar, thick H1-style gold glow, slow ominous blink */
-.back-button .kitty-text {
-  font-family: 'Codystar', cursive;
-  font-size: 2.8rem;              /* slightly smaller for balance */
-  font-weight: 600;
-  color: var(--gold-core);
-  text-shadow:
-    0 0 8px var(--gold-core),
-    0 0 20px var(--gold-core),
-    0 0 36px var(--gold-core),
-    0 0 64px var(--gold-bloom); /* thick H1-style gold glow */
-  opacity: 0.9;                   /* start dim for blink */
-  animation: goldBlink 3.5s infinite alternate; /* slow, ominous blinking */
-  animation-fill-mode: both;       /* animation starts correctly */
-}
-
-/* subtle pulse for "Back to" */
-@keyframes subtlePulse {
-  0%, 100% { opacity: 0.85; }
-  50% { opacity: 1; }
-}
-
-/* slow ominous gold blink for "Kitty" */
-@keyframes goldBlink {
-  0% { text-shadow:
-      0 0 6px var(--gold-core),
-      0 0 18px var(--gold-core),
-      0 0 36px var(--gold-core),
-      0 0 64px var(--gold-bloom);
-      opacity: 0.8; }
-  50% { text-shadow:
-      0 0 12px var(--gold-core),
-      0 0 28px var(--gold-core),
-      0 0 48px var(--gold-core),
-      0 0 80px var(--gold-bloom);
-      opacity: 1; }
-  100% { text-shadow:
-      0 0 6px var(--gold-core),
-      0 0 18px var(--gold-core),
-      0 0 36px var(--gold-core),
-      0 0 64px var(--gold-bloom);
-      opacity: 0.8; }
-}
+.glow-white { text-shadow: var(--glow-white); }
