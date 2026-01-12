@@ -369,39 +369,63 @@ h3 {
 .back-button {
   display: inline-flex;
   align-items: baseline;
-  gap: 0.4rem; /* spacing between "back to" and "Kitty" */
+  gap: 0.5rem; /* perfect spacing between small "Back to" and big "Kitty" */
   cursor: pointer;
   text-decoration: none;
   z-index: 999;
 }
 
+/* Small "Back to" — Raleway Dots, subtle white pulsing like h2 */
 .back-button .back-text {
   font-family: 'Raleway Dots', cursive;
-  font-size: 1.2rem; /* slightly bigger than body text, smaller than h2 */
+  font-size: 1.3rem; /* slightly bigger than body text, smaller than h2 */
   font-weight: normal;
   color: var(--white-accent);
   text-shadow:
     0 0 3px #fff,
     0 0 8px rgba(255,255,255,0.6),
-    0 0 16px rgba(255,255,255,0.4); /* like h2 neon glow */
-  animation: subtlePulse 2s infinite alternate; /* subtle pulsing */
+    0 0 16px rgba(255,255,255,0.4); /* subtle white neon glow */
+  animation: subtlePulse 2s infinite alternate; /* slow pulsing */
 }
 
+/* Big "Kitty" — Codystar, thick H1-style gold glow, slow ominous blink */
 .back-button .kitty-text {
   font-family: 'Codystar', cursive;
-  font-size: 2.5rem; /* considerably big, smaller than work title */
+  font-size: 3rem; /* big, but slightly smaller than work title */
   font-weight: 600;
   color: var(--gold-core);
   text-shadow:
     0 0 8px var(--gold-core),
     0 0 20px var(--gold-core),
     0 0 36px var(--gold-core),
-    0 0 64px var(--gold-bloom); /* thick glowing h1 style */
-  animation: neonBlaze 2s infinite alternate; /* blinking gold */
+    0 0 64px var(--gold-bloom); /* thick H1-style gold glow */
+  animation: goldBlink 3.5s infinite alternate; /* slow, ominous blinking */
 }
 
-/* subtle pulse for "back to" */
+/* subtle pulse for "Back to" */
 @keyframes subtlePulse {
   0%, 100% { opacity: 0.85; }
   50% { opacity: 1; }
+}
+
+/* slow ominous gold blink for "Kitty" */
+@keyframes goldBlink {
+  0% { text-shadow:
+      0 0 6px var(--gold-core),
+      0 0 18px var(--gold-core),
+      0 0 36px var(--gold-core),
+      0 0 64px var(--gold-bloom);
+      opacity: 0.8; }
+  50% { text-shadow:
+      0 0 12px var(--gold-core),
+      0 0 28px var(--gold-core),
+      0 0 48px var(--gold-core),
+      0 0 80px var(--gold-bloom);
+      opacity: 1; }
+  100% { text-shadow:
+      0 0 6px var(--gold-core),
+      0 0 18px var(--gold-core),
+      0 0 36px var(--gold-core),
+      0 0 64px var(--gold-bloom);
+      opacity: 0.8; }
 }
