@@ -227,7 +227,7 @@ h3 {
 
 /* ===== WORK TITLES — CREATIVE WORKS ONLY ===== */
 .work-title h1 {
-  font-family: 'Raleway Dots', cursive;
+  font-family: 'Raleway Dots', Raleway, sans-serif;
   font-size: var(--font-hero);
   letter-spacing: 0.16em;
   font-weight: 400;
