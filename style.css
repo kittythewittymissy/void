@@ -299,7 +299,7 @@ h3 {
     0 0 20px var(--gold-core),
     0 0 36px var(--gold-core),
     0 0 64px var(--gold-bloom);
-  animation: goldBlink 3.5s infinite;
+  animation: kittyBlink 3.5s forwards;
 }
 
 /* Animations for Back-to-Kitty */
@@ -308,8 +308,9 @@ h3 {
   50% { opacity: 1; }
 }
 
-@keyframes goldBlink {
-  0%, 45% {
+/* Kitty blinks a few times, then settles to soft glow */
+@keyframes kittyBlink {
+  0%, 15%, 30%, 45% { 
     opacity: 1;
     text-shadow:
       0 0 8px var(--gold-core),
@@ -317,11 +318,11 @@ h3 {
       0 0 36px var(--gold-core),
       0 0 64px var(--gold-bloom);
   }
-  50%, 95% {
+  10%, 25%, 40% { 
     opacity: 0;
     text-shadow: none;
   }
-  100% {
+  60%, 100% {
     opacity: 1;
     text-shadow:
       0 0 8px var(--gold-core),
