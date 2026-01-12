@@ -109,12 +109,15 @@
       cursor: pointer;
     }
 
-    /* BACK TO KITTY BUTTON */
+    /* BACK TO KITTY BUTTON POSITION OVERRIDE */
     .back-button {
       position: fixed;
       top: 2rem;
       right: 2rem;
       z-index: 999;
+    }
+    @media(max-width:768px){
+      .back-button { top: 1rem; right: 1rem; }
     }
 
     /* SPOTIFY POPUP */
@@ -153,7 +156,6 @@
       .audio-button { right: 2rem; }
       .work-title h1 { font-size: 2.5rem; }
       .spotify-popup iframe { height: 200px; }
-      .back-button { top: 1rem; right: 1rem; }
     }
 
   </style>
@@ -165,7 +167,8 @@
 
   <!-- BACK TO KITTY BUTTON -->
   <a href="../../index.html" class="back-button">
-    <span class="back-text">Back to Kitty</span>
+    <span class="back-text">Back to</span>
+    <span class="kitty-text">Kitty</span>
   </a>
 
   <div class="main-row">
