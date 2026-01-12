@@ -267,7 +267,10 @@ h3 {
   right: 2rem;
 }
 @media(max-width:768px){
-  .back-button { top: 1rem; right: 1rem; }
+  .back-button {
+    top: 1rem;
+    right: 1rem;
+  }
 }
 
 /* small "Back to" — Raleway Dots, subtle white pulsing */
@@ -282,8 +285,6 @@ h3 {
     0 0 16px rgba(255,255,255,0.4);
   opacity: 0.85;
   animation: subtlePulse 2s infinite alternate;
-  animation-fill-mode: both;
-  animation-delay: 0.05s;
 }
 
 /* big "Kitty" — Codystar, thick H1 gold blink */
@@ -292,15 +293,13 @@ h3 {
   font-size: 2.8rem;
   font-weight: 600;
   color: var(--gold-core);
+  opacity: 1;
   text-shadow:
     0 0 8px var(--gold-core),
     0 0 20px var(--gold-core),
     0 0 36px var(--gold-core),
     0 0 64px var(--gold-bloom);
-  opacity: 0.9;
-  animation: goldBlink 3.5s infinite alternate;
-  animation-fill-mode: both;
-  animation-delay: 0.05s;
+  animation: goldBlink 3.5s infinite;
 }
 
 /* Animations for Back-to-Kitty */
@@ -310,9 +309,26 @@ h3 {
 }
 
 @keyframes goldBlink {
-  0% { text-shadow: 0 0 6px var(--gold-core),0 0 18px var(--gold-core),0 0 36px var(--gold-core),0 0 64px var(--gold-bloom); opacity: 0.8; }
-  50% { text-shadow: 0 0 12px var(--gold-core),0 0 28px var(--gold-core),0 0 48px var(--gold-core),0 0 80px var(--gold-bloom); opacity: 1; }
-  100% { text-shadow: 0 0 6px var(--gold-core),0 0 18px var(--gold-core),0 0 36px var(--gold-core),0 0 64px var(--gold-bloom); opacity: 0.8; }
+  0%, 45% {
+    opacity: 1;
+    text-shadow:
+      0 0 8px var(--gold-core),
+      0 0 20px var(--gold-core),
+      0 0 36px var(--gold-core),
+      0 0 64px var(--gold-bloom);
+  }
+  50%, 95% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  100% {
+    opacity: 1;
+    text-shadow:
+      0 0 8px var(--gold-core),
+      0 0 20px var(--gold-core),
+      0 0 36px var(--gold-core),
+      0 0 64px var(--gold-bloom);
+  }
 }
 
 /* ===== GLOBAL SCROLL ARROW ===== */
