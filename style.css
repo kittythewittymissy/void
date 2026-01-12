@@ -377,23 +377,26 @@ h3 {
 
 .back-button .back-text {
   font-family: 'Raleway Dots', cursive;
-  font-size: 1.25rem; /* smaller glowing part */
-  color: var(--gold-core);
-  text-shadow:
-    0 0 3px var(--gold-core),
-    0 0 6px var(--gold-core),
-    0 0 12px rgba(255,214,98,0.7);
-  animation: neonBlaze 2s infinite alternate;
+  font-size: 1.25rem; /* smaller, subtle part */
+  color: var(--white-accent); /* white instead of gold */
+  text-shadow: var(--glow-white); /* subtle white glow */
+  animation: subtlePulse 2s infinite alternate; /* subtle pulsing */
 }
 
 .back-button .kitty-text {
-  font-family: 'Codystar', cursive;
+  font-family: 'Codystar', cursive; /* reuse your existing Codystar H1 styling */
   font-size: 1.75rem; /* larger, bold glowing part */
   font-weight: 600;
-  color: var(--gold-core);
+  color: var(--gold-core); /* gold */
   text-shadow:
     0 0 6px var(--gold-core),
     0 0 18px var(--gold-bloom),
     0 0 32px rgba(255,214,98,0.4);
-  animation: goldPulse 1.8s infinite alternate;
+  animation: goldPulse 1.8s infinite alternate; /* blinking gold */
+}
+
+/* subtle pulse for "back to" */
+@keyframes subtlePulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
 }
