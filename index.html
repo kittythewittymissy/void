@@ -64,14 +64,17 @@
       align-items: center;
       max-width: 500px;
       text-align: center;
+      font-size: 1.2em; /* restored body text size for column content */
     }
 
     /* Reduce space between gold heading and subheadings + lists */
     .column h2.main-column-heading {
+      font-size: 2em; /* bigger heading */
       margin-bottom: 0.3em;
     }
 
-    .column-subheading {
+    .column h2.column-subheading {
+      font-size: 1.5em; /* subheading size */
       margin-bottom: 0.2em;
     }
 
@@ -80,6 +83,10 @@
       padding: 0;
       margin: 0;
       min-height: 120px;
+    }
+
+    .column ul li {
+      font-size: 1.1em; /* restore list item text */
     }
 
     /* Links hover glow */
