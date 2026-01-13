@@ -249,7 +249,7 @@ h3 {
   .main-row {
     overflow: visible;
     text-align: center;
-    padding: 1.5rem 0rem; /* vertical 1.5rem, horizontal 1rem */
+    padding: 2.5rem 2.5rem; 
   }
 }
 
