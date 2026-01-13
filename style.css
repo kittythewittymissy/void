@@ -1,4 +1,4 @@
-/* ================== GLOBAL STYLE.CSS (CLEANED & MOBILE-OPTIMIZED) ================== */
+/* ================== GLOBAL STYLE.CSS ================== */
 
 /* ===== VARIABLES / TOKENS ===== */
 :root {
@@ -245,24 +245,32 @@ h3 {
 
 /* ===== MOBILE OVERRIDES ===== */
 @media(max-width: 768px){
+  .work-title,
+  .main-row {
+    overflow: visible;
+    text-align: center;
+    padding: 1.5rem 1rem; /* vertical 1.5rem, horizontal 1rem */
+  }
+}
+
   /* Font / Glow Scaling */
   h1 { 
     font-size: 2.5rem;
     letter-spacing: 0.05em;
     text-shadow:
-      0 0 2px var(--gold-core),
-      0 0 4px var(--gold-core),
+      0 0 3px var(--gold-core),
       0 0 6px var(--gold-core),
-      0 0 10px rgba(255,214,98,0.8),
-      0 0 14px rgba(255,214,98,0.6),
+      0 0 9px var(--gold-core),
+      0 0 12px rgba(255,214,98,0.8),
+      0 0 16px rgba(255,214,98,0.6),
       0 0 18px rgba(255,214,98,0.4);
     -webkit-text-stroke: 0.15px var(--gold-core);
   }
+
   h2.main-column-heading { font-size: 1.5em; }
   h2.column-subheading, h3 { font-size: 1.6em; }
 
   /* Spacing adjustments */
-  .work-title { padding: 1.5rem 1rem; overflow: visible; }
   .work-content { padding-top: 12vh; }
   .floating-paragraph { max-width: 90%; font-size: 1rem; margin: 0.8rem auto; }
   .series-background { display: none; }
