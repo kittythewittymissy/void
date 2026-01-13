@@ -245,8 +245,9 @@ h3 {
 
 /* ===== MOBILE OVERRIDES ===== */
 @media(max-width: 768px){
-  .work-title,
-  .main-row {
+  .work-title {
+    position: relative;
+    top: auto;
     overflow: visible;
     text-align: center;
     padding: 2.5rem 2.5rem; 
