@@ -132,7 +132,17 @@
       0 0 4px #fff,
       0 0 8px #FFD662;           /* glow matches scaled font */
   }
-    
+  
+  /* ONE COLUMN MODE */
+  .section-columns {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin: 40px 0 80px;
+    padding: 0 18px;  /* breathing without weird calc */
+    box-sizing: border-box;
+  }
+  
     /* ===== ARROW FADE-IN AFTER HERO ===== */
     .next-part {
       opacity: 0; /* start invisible */
