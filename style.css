@@ -66,9 +66,7 @@ h1 {
   animation: neonBlaze var(--anim-speed-hero) forwards;
 }
 
-h2.main-column-heading {
-  font-size: var(--font-h2-main);
-}
+h2.main-column-heading { font-size: var(--font-h2-main); }
 
 h2.column-subheading,
 h3 {
@@ -111,10 +109,7 @@ h3 {
   50%{transform:translateY(7px);}
 }
 
-@keyframes orbit {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+@keyframes orbit { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
 /* ===== BODY TEXT ===== */
 .body-text {
@@ -128,17 +123,12 @@ h3 {
 }
 
 /* ===== LINKS ===== */
-.section-columns ul {
-  margin-top: 0;
-  padding-left: 1.2em;
-}
-
+.section-columns ul { margin-top: 0; padding-left: 1.2em; }
 .section-columns ul li a {
   color: var(--white-accent);
   text-decoration: none;
   transition: text-shadow 0.3s, color 0.3s;
 }
-
 .section-columns ul li a:hover {
   color: var(--gold-core);
   text-shadow:
@@ -160,7 +150,6 @@ h3 {
   right: 3.5rem;
   width: 50px;
   height: 50px;
-  padding: 7px;
   cursor: pointer;
   background: transparent;
   border-radius: 50%;
@@ -168,35 +157,22 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--white-accent);
-  font-size: 1.35rem;
   z-index: 999;
-  filter: drop-shadow(0 0 8px var(--gold-core));
   animation: floatVertical 6s ease-in-out infinite alternate;
-  transition: filter 0.25s, transform 0.25s;
+  transition: filter 0.25s, transform 0.25s, opacity 0.5s;
 }
 
-.audio-button:hover {
-  filter: drop-shadow(0 0 12px var(--gold-core));
+/* Speaker icon as white glowing outline inside golden dotted circle */
+.audio-button svg path {
+  fill: none;
+  stroke: var(--white-accent);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 12px var(--gold-core));
+  transition: stroke 0.25s, filter 0.25s;
+}
+.audio-button:hover svg path {
+  filter: drop-shadow(0 0 12px #fff) drop-shadow(0 0 18px var(--gold-core));
   transform: scale(1.08);
-}
-
-.orbiting-text {
-  position: absolute;
-  font-family: 'Raleway Dots', cursive;
-  font-size: var(--font-audio);
-  color: var(--white-accent);
-  pointer-events: none;
-  transform-origin: center center;
-  top: -24px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.orbiting-text span {
-  position: absolute;
-  transform-origin: center -22px;
-  animation: orbit 4s linear infinite;
 }
 
 /* ===== WORK TITLES — CREATIVE WORKS ONLY ===== */
@@ -218,16 +194,6 @@ h3 {
   animation-delay: 0.3s;
 }
 
-@keyframes neonIgnite {
-  0% { opacity: 0; text-shadow: none; }
-  10% { opacity: 0.4; text-shadow: 0 0 4px var(--gold-core), 0 0 12px var(--gold-core); }
-  14% { opacity: 0; text-shadow: none; }
-  20% { opacity: 1; text-shadow: 0 0 6px var(--gold-core), 0 0 20px var(--gold-core), 0 0 48px var(--gold-core), 0 0 86px var(--gold-bloom); }
-  26% { opacity: 0.9; text-shadow: 0 0 4px var(--gold-core), 0 0 14px var(--gold-core), 0 0 32px var(--gold-bloom); }
-  34% { opacity: 1; text-shadow: 0 0 6px var(--gold-core), 0 0 18px var(--gold-core), 0 0 36px var(--gold-core), 0 0 64px var(--gold-bloom); }
-  100% { opacity: 1; text-shadow: 0 0 2px var(--gold-core),0 0 6px var(--gold-core),0 0 12px var(--gold-core),0 0 24px var(--gold-bloom); }
-}
-
 /* ===== BACK-TO-KITTY BUTTON ===== */
 .back-button {
   display: inline-flex;
@@ -239,6 +205,7 @@ h3 {
   position: fixed;
   top: 2rem;
   right: 2rem;
+  transition: opacity 0.5s;
 }
 
 .back-button .back-text {
@@ -267,34 +234,6 @@ h3 {
   animation: kittyBlink 3.5s forwards;
 }
 
-@keyframes subtlePulse {
-  0%, 100% { opacity: 0.85; }
-  50% { opacity: 1; }
-}
-
-@keyframes kittyBlink {
-  0%, 15%, 30%, 45% { 
-    opacity: 1;
-    text-shadow:
-      0 0 8px var(--gold-core),
-      0 0 20px var(--gold-core),
-      0 0 36px var(--gold-core),
-      0 0 64px var(--gold-bloom);
-  }
-  10%, 25%, 40% { 
-    opacity: 0;
-    text-shadow: none;
-  }
-  60%, 100% {
-    opacity: 1;
-    text-shadow:
-      0 0 8px var(--gold-core),
-      0 0 20px var(--gold-core),
-      0 0 36px var(--gold-core),
-      0 0 64px var(--gold-bloom);
-  }
-}
-
 /* ===== NEXT-PART ARROW ===== */
 .next-part {
   font-size: 2.5rem;
@@ -303,27 +242,51 @@ h3 {
   animation: arrowFadeIn 2s ease forwards 5.7s, arrowFloat 2.5s infinite ease-in-out;
 }
 
-@keyframes arrowFadeIn {
-  0% { opacity: 0; transform: translateY(0); }
-  100% { opacity: 1; transform: translateY(7px); }
-}
-
-/* ===== REUSABLE GLOW CLASS ===== */
-.glow-white { text-shadow: var(--glow-white); }
-
 /* ===== MOBILE OVERRIDES ===== */
 @media(max-width: 768px){
-  h1 { font-size: 2rem; letter-spacing: 0.05em; }
+  /* Font / Glow Scaling */
+  h1 { 
+    font-size: 2.5rem;
+    letter-spacing: 0.05em;
+    text-shadow:
+      0 0 2px var(--gold-core),
+      0 0 4px var(--gold-core),
+      0 0 6px var(--gold-core),
+      0 0 10px rgba(255,214,98,0.8),
+      0 0 14px rgba(255,214,98,0.6),
+      0 0 18px rgba(255,214,98,0.4);
+    -webkit-text-stroke: 0.15px var(--gold-core);
+  }
   h2.main-column-heading { font-size: 1.5em; }
   h2.column-subheading, h3 { font-size: 1.6em; }
 
-  .work-title { padding: 1.5rem 1rem; }
+  /* Spacing adjustments */
+  .work-title { padding: 1.5rem 1rem; overflow: visible; }
   .work-content { padding-top: 12vh; }
   .floating-paragraph { max-width: 90%; font-size: 1rem; margin: 0.8rem auto; }
-  .series-background { opacity: 0; }
+  .series-background { display: none; }
 
-  .audio-button { top: auto; bottom: 5rem; right: 1rem; width: 44px; height: 44px; animation-duration: 7s; }
+  .audio-button { 
+    top: auto; bottom: 5rem; right: 1rem; width: 44px; height: 44px;
+    animation-duration: 7s;
+  }
   .back-button { top: 1rem; right: 1rem; }
   .back-button .kitty-text { font-size: 2rem; }
   .next-part { font-size: 2rem; }
+
+  /* Hide elements on scroll (mobile only) */
+  .hide-on-scroll { transition: opacity 0.4s, transform 0.4s; }
 }
+
+/* ===== SCROLL JS HANDLER (to add in your main JS) ===== */
+/*
+window.addEventListener('scroll', () => {
+  if(window.innerWidth <= 768){
+    const scrollTop = window.scrollY;
+    const fade = Math.max(0, 1 - scrollTop / 80); // fades out in first 80px
+    document.querySelector('.work-title').style.opacity = fade;
+    document.querySelector('.back-button').style.opacity = fade;
+    document.querySelector('.audio-button').style.opacity = fade;
+  }
+});
+*/
