@@ -99,20 +99,59 @@
       color: var(--gold-core);
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      .gold-hero-container {
-        width: 90%;
-        padding: 6px 40px;
-      }
-      .gold-hero { font-size: 3.5em; }
-      .section-columns {
-        flex-direction: column;
-        align-items: center;
-        gap: 60px;
-      }
-      .column ul { min-height: auto; }
-    }
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  /* Hero container */
+  .gold-hero-container {
+    width: 90%;
+    padding: 4px 20px;           /* tighter, proportional padding */
+    border: 1.5px solid rgba(255,255,255,0.85);
+    box-shadow:
+      0 0 4px rgba(255,255,255,0.35),
+      0 0 10px rgba(255,214,98,0.25); /* scaled-down neon glow */
+    animation: neonBlaze var(--anim-speed-hero) forwards;
+  }
+
+  /* Hero text */
+  .gold-hero {
+    font-size: 3em;              /* scales down nicely */
+    line-height: 1;
+    text-shadow:
+      0 0 4px #fff,
+      0 0 8px #FFD662;           /* glow matches scaled font */
+  }
+
+  /* Columns layout */
+  .section-columns {
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;                    /* space between columns */
+    margin: 40px 10px 80px;       /* adjusted vertical spacing */
+  }
+
+  /* Column lists */
+  .column ul {
+    min-height: auto;
+  }
+
+  /* Optional: scale column font slightly for mobile */
+  .column {
+    font-size: 1.1em;
+  }
+
+  .column h2.main-column-heading {
+    font-size: 1.6em;
+  }
+
+  .column h2.column-subheading {
+    font-size: 1.2em;
+  }
+
+  .column ul li {
+    font-size: 1em;
+  }
+}
+
 
     /* ===== ARROW FADE-IN AFTER HERO ===== */
     .next-part {
