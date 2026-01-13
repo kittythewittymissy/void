@@ -12,6 +12,12 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
+     /* ===== GLOBAL BOX-SIZING ===== */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
     /* ===== HERO SECTION ===== */
     .hero {
       height: 100vh;
@@ -126,18 +132,17 @@
   .section-columns {
     flex-direction: column;
     align-items: center;
-    gap: 60px;                    /* space between columns */
-    margin: 40px 10px 80px;       /* adjusted vertical spacing */
+    gap: 40px;
+    margin: 40px 10px 80px;  /* safe margins from edges */
+    width: 100%;             /* prevent overflow */
   }
 
-  /* Column lists */
-  .column ul {
-    min-height: auto;
-  }
-
-  /* Optional: scale column font slightly for mobile */
+ /* Columns */
   .column {
+    max-width: 95%;          /* prevents touching edges */
+    margin: 0 auto;          /* center columns */
     font-size: 1.1em;
+    padding: 0 10px;         /* inner spacing for safety */
   }
 
   .column h2.main-column-heading {
@@ -151,9 +156,13 @@
   .column ul li {
     font-size: 1em;
   }
+
+  .column ul {
+    min-height: auto;
+    padding: 0 10px;         /* prevent list items from touching edges */
+  }
 }
-
-
+    
     /* ===== ARROW FADE-IN AFTER HERO ===== */
     .next-part {
       opacity: 0; /* start invisible */
