@@ -245,12 +245,11 @@ h3 {
 
 /* ===== MOBILE OVERRIDES ===== */
 @media(max-width: 768px){
-  .work-title {
-    position: relative;
-    top: auto;
+  .work-title,
+  .main-row {
     overflow: visible;
     text-align: center;
-    padding: 2.5rem 2.5rem; 
+    padding: 1.5rem 1rem; 
   }
 }
 
