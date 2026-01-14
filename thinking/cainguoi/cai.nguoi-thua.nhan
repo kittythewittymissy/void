@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cai Người</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Raleway+Dots&family=Codystar:wght@300;400;500&display=swap&subset=vietnamese" rel="stylesheet">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="../../style.css">
+
+  <style>
+    :root {
+      --anim-speed-title: 2s;
+      --anim-speed-body: 2.8s;
+      --anim-delay-stagger: 0.8s;
+      --gold-core: #FFD662;
+    }
+
+    /* WORK TITLE */
+    .work-title { 
+      position: sticky;
+      top: 0;
+      padding: 2rem 5rem;
+    }
+
+    .work-title h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 4rem;
+      letter-spacing: 0.16em;
+      font-weight: 100;
+      color: #222;
+      text-shadow:
+        0 0 1px var(--gold-core),
+        0 0 2px var(--gold-core),
+        0 0 4px var(--gold-core);
+      -webkit-text-stroke: .4px var(--gold-core);
+      opacity: 0;
+      animation: neonSign 1s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes neonSign {
+      0%   { opacity: 0; color: #222; text-shadow: none; }
+      8%   { opacity: 1; color: var(--gold-core); text-shadow: 0 0 3px var(--gold-core); }
+      16%  { opacity: 0; color: #222; text-shadow: none; }
+      25%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 6px var(--gold-core), 0 0 10px rgba(255,214,98,0.7); }
+      33%  { opacity: 0.4; color: #222; text-shadow: none; }
+      50%  { opacity: 1; color: #fff; text-shadow: 0 0 10px #fff, 0 0 18px var(--gold-core); }
+      66%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8); }
+      83%  { opacity: 0.6; color: #222; text-shadow: none; }
+      92%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 4px var(--gold-core), 0 0 12px rgba(255,214,98,0.7); }
+      100% { opacity: 1; color: var(--gold-core); text-shadow: 0 0 2px var(--gold-core), 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
+    }
+
+    /* BODY PARAGRAPHS */
+    .floating-paragraph {
+      opacity: 0;
+      max-width: 40%;
+      margin: 0 auto 1.5rem;
+      font-size: 1.5rem;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 200;
+      line-height: 1.6;
+      text-align: left;
+      animation: bodyFade var(--anim-speed-body) ease forwards;
+    }
+
+    @keyframes bodyFade {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .floating-paragraph:nth-child(1) { animation-delay: calc(var(--anim-speed-title) + 1s); }
+    .floating-paragraph:nth-child(2) { animation-delay: calc(var(--anim-speed-title) + 1s + var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(3) { animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(4) { animation-delay: calc(var(--anim-speed-title) + 1s + 3*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(5) { animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(6) { animation-delay: calc(var(--anim-speed-title) + 1s + 5*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(7) { animation-delay: calc(var(--anim-speed-title) + 1s + 6*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(8) { animation-delay: calc(var(--anim-speed-title) + 1s + 7*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(9) { animation-delay: calc(var(--anim-speed-title) + 1s + 8*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(10) { animation-delay: calc(var(--anim-speed-title) + 1s + 9*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(11) { animation-delay: calc(var(--anim-speed-title) + 1s + 10*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(12) { animation-delay: calc(var(--anim-speed-title) + 1s + 11*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(13) { animation-delay: calc(var(--anim-speed-title) + 1s + 12*var(--anim-delay-stagger)); }
+
+    /* SERIES BACKGROUND */
+    .series-background {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Raleway Dots', cursive;
+      font-size: 25rem;
+      color: var(--gold-core);
+      opacity: .09;
+      pointer-events: none;
+    }
+
+    /* NEXT PART ICON */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .next-part {
+      display: block;
+      font-family: 'Codystar', sans-serif;
+      font-size: 4rem;
+      color: inherit;
+      text-align: center;
+      cursor: pointer;
+      margin-top: 2rem;
+      text-decoration: none;
+    }
+
+    .next-part:hover {
+      transform: translateY(2px); 
+    }
+
+    /* SPOTIFY POPUP */
+    .spotify-popup {
+      display: none;
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+      background: rgba(0,0,0,0.85);
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    }
+
+    .spotify-popup iframe {
+      border-radius: 12px;
+      width: 100%;
+      height: 352px;
+      display: block;
+    }
+
+    .spotify-popup .close-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      color: #FFD662;
+      cursor: pointer;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px) {
+      .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
+      .series-background { display: none; }
+      .audio-button { right: 1rem; }
+      .work-title { position: static; 
+                   padding: 4rem 1.5rem 2rem 1.5rem; 
+                   font-size: 2.8rem; 
+                   line-height: 1.2; 
+                  }
+      .spotify-popup iframe { height: 200px; }
+      .next-part { font-size: 2.5rem; margin-top: 1rem; }
+      .work-content { padding-top: 3rem !important; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="series-background">Cai</div>
+
+  <!-- BACK TO KITTY BUTTON -->
+  <a href="../../index.html" class="back-button">
+    <span class="back-text">Back to</span>
+    <span class="kitty-text">Kitty</span>
+  </a>
+
+  <div class="main-row">
+    <div class="work-title">
+      <h1>Cai Người</h1>
+    </div>
+
+    <div class="work-content" style="padding-top:5rem;">
+      <div class="text-section">
+        <p class="floating-paragraph">Mọi cơn nghiện đều bắt đầu từ một nhu cầu nho nhỏ lâu lâu xảy đến một lần. Một điếu thuốc, một ly rượu, một ván điện tử, một lời tán tỉnh. Tất cả từng là sự điều độ.</p>
+        <p class="floating-paragraph">Người ta nghiện nhiều lắm, bạn biết đấy. Chưa từng dừng lại, chưa từng chậm lại. Không không không không, nó đa dạng và tinh vi hơn là đằng khác. Phổ thông nhất, ta có các chất kích thích, các chất an thần. Nhưng nghiện, mà nói vĩ mô ra, thì ông nghiện cả cái sự đời này cũng được. Thất đại tội của loài người trong Kinh Thánh Cơ Đốc, tôi phàm gọi là 7 cái nghiện dại đầu tiên, trước khi thế giới càng ngày càng trở nên phức tạp đến mất kiểm soát. Cứ đính chính thế này đi: Tôi thật lòng đang không ngỏ ý tranh luận với bất cứ ai về tôn giáo đâu. Không, tôi muốn tuyên ngôn: Cái nghiện là cái ban sơ của động vật, cái nghiện là cái đa diện và, tin tôi, cái đéo gì thì cũng nghiện được. Có nghiện đơn giản thì có nghiện phức tạp, nghiện ít thì cũng có nghiện nhiều.</p>
+        <p class="floating-paragraph">Nhưng rốt cùng, mọi cơn nghiện đều chung quy tại sự đầu hàng, hoàn toàn bất đắc dĩ trao đi quyền hạn điều khiển bản thân cho một thứ.</p>
+        <p class="floating-paragraph">Một trong những ảo giác phức hợp nhất con người có thể tạo ra cho chính mình là cảm giác liêm chính khác người và hơn người, khi cả ông, tôi và chúng ta đều cảm nhận được dòng dopamine chảy xiết trong não khi một ngày nữa, bạn lại săn sale cho những món đồ bạn đéo cần, lướt mạng xem những video bạn đéo quan tâm, và tiếp tục chạy theo những mối quan hệ đéo có lợi. Tất cả chúng ta đều suýt rồi đấy, suýt rồi… Chẳng biết cái gì làm bạn sống đỡ sống tiếp, nhưng phải chăng cái gì hẩy nhẹ bạn lọt vực, thì không biết còn nói vậy được không.</p>
+        <p class="floating-paragraph">Cờ bạc có, tình dục có, sức mạnh có, và — cha bố nó chứ — người ta nghiện được cả tình yêu luôn. Một cái hố hình trái tim.</p>
+      
+      <a href="../../under-creation-!.html">
+      <span class="next-part">﹀</span>
+      </a>
+      
+    </div>
+  </div>
+
+  <div class="audio-button" id="audioBtn">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.95 7-4.49 7-8.77s-2.99-7.82-7-8.77z"/>
+    </svg>
+  </div>
+
+  <!-- SPOTIFY POPUP -->
+  <div class="spotify-popup" id="spotifyPopup">
+    <span class="close-btn" id="closePopup">&times;</span>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0vcdNvf4JqpLuJ8kvTSq01?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+
+  <script>
+    const audioBtn = document.getElementById('audioBtn');
+    const popup = document.getElementById('spotifyPopup');
+    const closeBtn = document.getElementById('closePopup');
+
+    audioBtn.addEventListener('click', () => { popup.style.display = 'block'; });
+    closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
+    window.addEventListener('click', (e) => { if (e.target === popup) popup.style.display = 'none'; });
+
+    const arrow = document.querySelector('.next-part');
+    arrow.addEventListener('click', () => {
+      document.body.style.transition = 'opacity 1s';
+      document.body.style.opacity = 0;
+      setTimeout(() => { window.location.href = '../../under-creation-!.html'; }, 1000);
+    });
+  </script>
+
+</body>
+</html>
