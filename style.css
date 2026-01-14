@@ -160,18 +160,23 @@ h3 {
   transition: transform 0.25s, opacity 0.5s;
 }
 
-/* Metallic white speaker with glow */
-.audio-button svg path {
-  fill: #f5f5f5; /* soft metallic white */
-  stroke: #fff;  /* subtle outline */
-  stroke-width: 1;
+/* Glow on the whole SVG, not just path */
+.audio-button svg {
+  width: 28px;
+  height: 28px;
   filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 8px #fff);
   transition: filter 0.25s, transform 0.25s;
 }
 
-.audio-button:hover svg path {
+.audio-button:hover svg {
   filter: drop-shadow(0 0 8px #fff) drop-shadow(0 0 12px #fff);
   transform: scale(1.08);
+}
+
+.audio-button svg path {
+  fill: #f5f5f5;
+  stroke: #fff;
+  stroke-width: 1;
 }
 
 /* ===== WORK TITLES — CREATIVE WORKS ONLY ===== */
