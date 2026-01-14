@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Raleway+Dots&family=Codystar:wght@300;400;500&family=Neonderthaw&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Raleway+Dots&family=Codystar:wght@300;400;500" rel="stylesheet">
 
   <!-- Global CSS -->
   <link rel="stylesheet" href="../../style.css">
@@ -90,6 +90,7 @@
       color: var(--gold-core);
       opacity: .09;
       pointer-events: none;
+      z-index: -1;
     }
 
     /* NEXT PART ICON */
@@ -102,6 +103,8 @@
       cursor: pointer;
       margin-top: 2rem;
     }
+
+    .work-content { padding-top: 5rem; }
 
     /* AUDIO BUTTON */
     .audio-button {
@@ -141,7 +144,7 @@
     /* RESPONSIVE */
     @media(max-width:768px) {
       .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
-      .series-background { display: none; }
+      .series-background { font-size: 12rem; display: block; }
       .audio-button { right: 1rem; }
       .work-title { position: static; 
                    padding: 4rem 1.5rem 2rem 1.5rem; 
@@ -171,7 +174,7 @@
       <h1>Hèn: Khai màn</h1>
     </div>
 
-    <div class="work-content" style="padding-top:5rem;">
+    <div class="work-content">
       <div class="text-section">
         <p class="floating-paragraph">— mẹ, tôi có thể cảm nhận não mình đang bồn chồn, giãy nảy.</p>
         <p class="floating-paragraph">Đã đến giờ tôi tìm cái gì đó cho nó suy nghĩ rồi, có vẻ nó đang cảm thấy tù túng.</p>
