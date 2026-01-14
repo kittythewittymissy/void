@@ -160,19 +160,26 @@ h3 {
   z-index: 999;
   animation: floatVertical 6s ease-in-out infinite alternate;
   transition: filter 0.25s, transform 0.25s, opacity 0.5s;
+  /* golden glow for dotted ring */
+  box-shadow: 0 0 6px var(--gold-core), 0 0 12px var(--gold-core);
 }
 
-/* Metallic white speaker SVG fill inside golden dotted circle */
+.audio-button:hover {
+  box-shadow: 0 0 12px var(--gold-core), 0 0 24px var(--gold-core);
+  transform: scale(1.05);
+}
+
+/* Metallic white speaker inside golden dotted circle */
 .audio-button svg path {
-  fill: #f5f5f5; /* soft metallic white */
-  stroke: #fff;  /* subtle white outline for shine */
-  stroke-width: 1.2;
-  filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 8px var(--gold-core));
+  fill: #f5f5f5; /* metallic soft white */
+  stroke: #fff;  /* subtle white outline */
+  stroke-width: 1;
+  filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 8px #fff);
   transition: filter 0.25s, transform 0.25s;
 }
 
 .audio-button:hover svg path {
-  filter: drop-shadow(0 0 8px #fff) drop-shadow(0 0 14px var(--gold-core));
+  filter: drop-shadow(0 0 8px #fff) drop-shadow(0 0 12px #fff);
   transform: scale(1.08);
 }
 
