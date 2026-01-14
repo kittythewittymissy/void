@@ -131,15 +131,20 @@
     }
 
     /* UP AND DOWN ARROWS */
-    .next-part {
-      display: block;
+     .next-part {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
       font-family: 'Codystar', sans-serif;
       font-size: 4rem;
       color: inherit;
       text-align: center;
       cursor: pointer;
-      margin: 2rem auto 0;
+      z-index: 10;
     }
+
+    .next-part.up { top: 1rem; }    
+    .next-part.down { bottom: 1rem; }
 
     .work-content { padding-top: 5rem; }
 
