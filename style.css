@@ -274,7 +274,6 @@ h3 {
   /* Spacing adjustments */
   .work-content { padding-top: 12vh; }
   .floating-paragraph { max-width: 90%; font-size: 1rem; margin: 0.8rem auto; }
-  .series-background { display: none; }
 
   .audio-button { 
     top: auto; bottom: 5rem; right: 1rem; width: 44px; height: 44px;
