@@ -55,6 +55,26 @@
       100% { opacity: 1; color: var(--gold-core); text-shadow: 0 0 2px var(--gold-core), 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
     }
 
+    /* NEON DIVIDEER */
+    .neon-div {
+      width: 80%;
+      margin: 3rem auto;
+      height: 1.5px;
+      background: var(--gold-core);
+      opacity: 0;
+      box-shadow: 0 0 0 var(--gold-core);
+      animation: neonFlash 0.6s ease forwards; /* very fast flash */
+      animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger));
+    }
+
+    @keyframes neonFlash {
+      0%   { opacity: 0; box-shadow: 0 0 0 var(--gold-core); }
+      20%  { opacity: 1; box-shadow: 0 0 20px var(--gold-core), 0 0 40px rgba(255,214,98,0.8); }
+      50%  { opacity: 1; box-shadow: 0 0 25px var(--gold-core), 0 0 50px rgba(255,214,98,0.9); }
+      80%  { opacity: 1; box-shadow: 0 0 20px var(--gold-core), 0 0 40px rgba(255,214,98,0.8); }
+      100% { opacity: 1; box-shadow: 0 0 8px var(--gold-core), 0 0 16px rgba(255,214,98,0.7); }
+    }
+
     /* BODY PARAGRAPHS */
     .floating-paragraph {
       opacity: 0;
