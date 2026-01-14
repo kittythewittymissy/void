@@ -157,7 +157,7 @@
     }
 
     .next-part.up {
-      position: static;
+      position: fixed;
       top: 1rem;               
       left: 50%;
       transform: translateX(-50%);
@@ -167,11 +167,12 @@
     }
 
     .next-part.down {
-      position: static;
+      position: fixed;
       display: block;
       text-align: center;
       font-size: 4rem; 
       cursor: pointer;
+       z-index: 10;
     }
 
     .work-content { padding-top: 5rem; }
