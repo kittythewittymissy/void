@@ -211,7 +211,7 @@ h3 {
 }
 
 .back-button .back-text {
-  font-family: 'Raleway Dots', cursive;
+  font-family: 'Raleway Dots', sans-serif;
   font-size: 1.3rem;
   font-weight: normal;
   color: var(--white-accent);
