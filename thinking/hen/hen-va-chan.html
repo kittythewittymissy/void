@@ -140,20 +140,20 @@
       color: inherit;
       z-index: 10;
       pointer-events: auto;
+      transform: translateX(-50%); 
     }
 
-    .next-part.up { top: 1rem; }
-    .next-part.down { bottom: 1rem; }
+    .next-part.up { top: 50%; transform: translate(-50%, -150%); }
+    .next-part.down { top: 50%; transform: translate(-50%, 50%); }
 
     .work-content { padding-top: 5rem; }
 
     /* RESPONSIVE */
     @media(max-width:768px) {
       .floating-paragraph { max-width: 80%; font-size: 1rem; }
-      .series-background { opacity: 0; }
       .next-part { font-size: 2.5rem; }
       .audio-button { right: 2rem; }
-      .work-title h1 { font-size: 2.5rem; }
+      .work-title h1 { font-size: 3rem; }
       .spotify-popup iframe { height: 200px; }
     }
 
