@@ -56,6 +56,7 @@
     }
 
     .work-title h2.column-subheading.animated-subtitle {
+      position: sticky;
       display: block;
       font-family: 'Raleway', sans-serif;
       font-size: var(--font-subhead);
@@ -143,6 +144,7 @@
       text-align: center;
       cursor: pointer;
       margin-top: 2rem;
+      margin-bottom: 2rem;
       text-decoration: none;
     }
 
@@ -171,7 +173,7 @@
     }
 
     .spotify-popup .close-btn {
-      position: absolute;
+      position: 0.5rem;
       top: 0.5rem;
       right: 1rem;
       font-size: 1.5rem;
@@ -189,9 +191,9 @@
                     font-size: 2.8rem; 
                     line-height: 1.2; 
                   }
-      .work-title h2.column-subheading.animated-subtitle { font-size: 1.6rem; max-width: 90%; }
+      .work-title h2.column-subheading.animated-subtitle { font-size: 1.6rem; max-width: 90%; position: static; }
       .spotify-popup iframe { height: 200px; }
-      .next-part { font-size: 2.5rem; margin-top: 1rem; }
+      .next-part { margin-top: 2rem; margin-bottom: 2rem; }
       .work-content { padding-top: 3rem !important; }
     }
 
@@ -222,10 +224,10 @@
         <p class="floating-paragraph">Nhưng rốt cùng, mọi cơn nghiện đều chung quy tại sự đầu hàng, hoàn toàn bất đắc dĩ trao đi quyền hạn điều khiển bản thân cho một thứ.</p>
         <p class="floating-paragraph">Một trong những ảo giác phức hợp nhất con người có thể tạo ra cho chính mình là cảm giác liêm chính khác người và hơn người, khi cả ông, tôi và chúng ta đều cảm nhận được dòng dopamine chảy xiết trong não khi một ngày nữa, bạn lại săn sale cho những món đồ bạn đéo cần, lướt mạng xem những video bạn đéo quan tâm, và tiếp tục chạy theo những mối quan hệ đéo có lợi. Tất cả chúng ta đều suýt rồi đấy, suýt rồi… Chẳng biết cái gì làm bạn sống đỡ sống tiếp, nhưng phải chăng cái gì hẩy nhẹ bạn lọt vực, thì không biết còn nói vậy được không.</p>
         <p class="floating-paragraph">Cờ bạc có, tình dục có, sức mạnh có, và — cha bố nó chứ — người ta nghiện được cả tình yêu luôn. Một cái hố hình trái tim.</p>
-      
-      <a href="../../under-creation-!.html">
-      <span class="next-part">﹀</span>
-      </a>
+
+        <a href="cai.nguoi-intro.html" class="next-part">︿</a>
+        <a href="../../under-creation-!.html" class="next-part">﹀</a>
+
       
     </div>
   </div>
@@ -251,12 +253,15 @@
     closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
     window.addEventListener('click', (e) => { if (e.target === popup) popup.style.display = 'none'; });
 
-    const arrow = document.querySelector('.next-part');
-    arrow.addEventListener('click', () => {
-      document.body.style.transition = 'opacity 1s';
-      document.body.style.opacity = 0;
-      setTimeout(() => { window.location.href = '../../under-creation-!.html'; }, 1000);
-    });
+    const arrows = document.querySelectorAll('.next-part'); // select all arrows
+
+    arrows.forEach(arrow => {
+    arrow.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.body.style.transition = 'opacity 1s';
+    document.body.style.opacity = 0;
+    setTimeout(() => { window.location.href = arrow.href; }, 1000); }); });
+
   </script>
 
 </body>
