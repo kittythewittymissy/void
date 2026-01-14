@@ -153,11 +153,21 @@
     }
 
     .next-part.up {
-      top: 1rem;        
+      position: fixed;
+      top: 1rem;               
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 4rem;
+      cursor: pointer;
+      z-index: 10;
     }
 
     .next-part.down {
-      bottom: 1rem;            
+      display: block;
+      text-align: center;
+      font-size: 4rem;
+      margin: 2rem auto 0;      /* space above */
+      cursor: pointer;
     }
 
     .work-content { padding-top: 5rem; }
@@ -245,8 +255,6 @@
         <span class="next-part up" data-target="cai.nguoi-intro.html">︿</span>
         <span class="next-part down" data-target="../../under-creation-!.html">﹀</span>
 
-
-      
     </div>
   </div>
 
