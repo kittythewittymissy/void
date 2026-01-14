@@ -206,9 +206,8 @@ h3 {
   cursor: pointer;
   text-decoration: none;
   z-index: 999;
-  position: fixed;
-  top: 2rem;
-  right: 2rem;
+  position: relative;
+  margin-top: 2rem;
   transition: opacity 0.5s;
 }
 
