@@ -65,31 +65,38 @@
       display: block;
       font-family: 'Raleway', sans-serif;
       font-size: var(--font-subhead);
-      font-weight: 200;
+      font-weight: 100;
       color: var(--white-accent);
       text-shadow:
         0 0 2px #fff,
         0 0 6px rgba(255,255,255,0.6),
         0 0 12px rgba(255,255,255,0.4);
       margin-top: 0.3em;
-      opacity: 1;
+      opacity: 0;
       animation: neonSubtitle 1s ease forwards;
-      animation-delay: 1s;
+      animation-delay: 1.2s;
 
       max-width: 400px;   
-      box-sizing: border-box;
       line-height: 1.4; 
       word-wrap: break-word;
       text-align: left;
-      margin-left: 0;
+      margin: 0.3em 0 0 0;
       z-index: 5;
     }  
 
     @keyframes neonSubtitle {
-      0% { text-shadow: 0 0 1px #fff; }
-      50% { text-shadow: 0 0 6px #fff, 0 0 12px rgba(255,255,255,0.6); }
-      100% { text-shadow: 0 0 4px #fff, 0 0 8px rgba(255,255,255,0.5); }
+      0%   { opacity: 0; color: #222; text-shadow: none; }
+      8%   { opacity: 1; color: #fff; text-shadow: 0 0 3px #fff; }
+      16%  { opacity: 0; color: #222; text-shadow: none; }
+      25%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 10px rgba(255,255,255,0.7); }
+      33%  { opacity: 0.4; color: #222; text-shadow: none; }
+      50%  { opacity: 1; color: #fff; text-shadow: 0 0 10px #fff, 0 0 18px rgba(255,255,255,0.8); }
+      66%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 12px rgba(255,255,255,0.8); }
+      83%  { opacity: 0.6; color: #222; text-shadow: none; }
+      92%  { opacity: 1; color: #fff; text-shadow: 0 0 4px #fff, 0 0 12px rgba(255,255,255,0.7); }
+      100% { opacity: 1; color: #fff; text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px rgba(255,255,255,0.8), 0 0 16px rgba(255,255,255,0.6); }
     }
+
 
     /* BODY PARAGRAPHS */
     .floating-paragraph {
