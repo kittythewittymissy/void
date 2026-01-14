@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Raleway+Dots&family=Codystar:wght@300;400;500&family=Neonderthaw&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200&family=Raleway+Dots&family=Codystar:wght@300;400;500&display=swap" rel="stylesheet">
 
   <!-- Global CSS -->
   <link rel="stylesheet" href="../../style.css">
@@ -73,6 +73,7 @@
       100% { opacity: 1; }
     }
 
+    /* stagger delays */
     .floating-paragraph:nth-child(1) { animation-delay: calc(var(--anim-speed-title) + 1s); }
     .floating-paragraph:nth-child(2) { animation-delay: calc(var(--anim-speed-title) + 1s + var(--anim-delay-stagger)); }
     .floating-paragraph:nth-child(3) { animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger)); }
@@ -90,6 +91,7 @@
       color: var(--gold-core);
       opacity: .09;
       pointer-events: none;
+      z-index: -1;
     }
 
     /* AUDIO BUTTON */
@@ -134,18 +136,15 @@
       transform: translateX(-50%);
       font-size: 4rem;
       text-decoration: none;
-      color: white;      /* FORCE WHITE */
+      color: inherit;
       z-index: 10;
       pointer-events: auto;
     }
 
-    .next-part.up {
-      top: 1rem;
-    }
+    .next-part.up { top: 1rem; }
+    .next-part.down { bottom: 1rem; }
 
-    .next-part.down {
-      bottom: 1rem;
-    }
+    .work-content { padding-top: 5rem; }
 
     /* RESPONSIVE */
     @media(max-width:768px) {
@@ -163,7 +162,7 @@
 
   <div class="series-background">Hèn</div>
 
-    <!-- BACK TO KITTY BUTTON -->
+  <!-- BACK TO KITTY BUTTON -->
   <a href="../../index.html" class="back-button">
     <span class="back-text">Back to</span>
     <span class="kitty-text">Kitty</span>
@@ -174,15 +173,13 @@
       <h1>Hèn, và Chán.</h1>
     </div>
 
-    <div class="work-content" style="padding-top:5rem;">
+    <div class="work-content">
       <div class="text-section">
         <p class="floating-paragraph">Tôi hèn. Tôi đã nói với bạn điều đó chưa?</p>
-        <p class="floating-paragraph">Tôi đã đến cái giai đoạn đấy trong cuộc sống, cái thời điểm mà tôi bắt đầu học cách chấp nhận rằng có những thứ sâu-trong-tôi là tôi đến mức độ để thay đổi chúng không đáng bằng việc tìm cách sống chung và chế ngự chúng. Tôi chỉ cần hiểu chính mình đủ rõ để khi tôi đưa ra lựa chọn, tôi sẽ không còn than phiền và rồi hối hận về nó vì nó xung khắc với những thứ sâu-trong-tôi-là-tôi mà chính tôi còn không hay biết tồn tại. Tôi đã lựa chọn một cuộc sống hoàn toàn khác với những gì tôi từng hay nghe và được dạy, chỉ vì tôi biết cuộc sống khuôn mẫu chắc chắn không phải điều tôi muốn. Chỉ có một trở ngại hơi lớn cho lựa chọn “phóng khoáng” này: Tôi hoàn toàn không biết phải đi đâu tiếp. “Kì thực trên mặt đất vốn làm gì có đường. Người ta đi mãi thì thành đường thôi.” Lỗ Tấn, Cố Hương, Ngữ Văn 9. Tôi đồng ý, tôi cũng thấy một con đường, sao lại khúc khuỷu và thô sơ, trước mắt mình. Tôi đã nghĩ nếu người ta đi nó đủ nhiều đến vậy rồi, sao tôi lại vẫn phải cheo leo trên con đường này vậy?
-</p>
-        <p class="floating-paragraph">Tôi hèn, tôi đã nói với bạn điều đó rồi, và điều đó có nghĩa là tôi không thích rủi ro. Luôn luôn chơi rất an toàn. Tôi không nghĩ tôi đã làm quá nhiều thứ rủi ro ở trong cuộc sống này. Không, không có gì đủ để làm cho cuộc sống của tôi đảo nghịch đến độ… khiến tôi có nghị lực được. Tôi không phải một người có nghị lực. Tôi không có đủ nghị lực để vượt qua nhiều thử thách gian truân, hay cáng đáng hậu quả của một lần đánh cược lớn, nên tôi đã sớm tìm cách hạn chế những áp lực và thử thách tôi cần phải vượt qua trong đời. Tôi tìm cách để xây dựng cho mình một cuộc sống xoay quanh việc KHÔNG PHẢI LÀM GÌ CẢ. Tôi hoàn toàn có thể chọn nằm bất động cả ngày, một mình, trên sàn, trong căn phòng tối, bởi vì không ai cần tôi phải làm bất cứ điều gì bây giờ cả, và không có bất cứ giá trị nào của tôi bị thách thức cả. Tôi không nhận được thêm bất cứ kinh nghiệm, kiến thức, vật chất hay quan hệ gì cả, nhưng cũng đâu có ai lấy đi cái gì của tôi đang có nếu tôi chọn không làm gì cả. Họ bảo: 50% thành công, 50% thất bại nếu bạn làm và 100% thất bại nếu bạn không. Nhưng không ai nói về chuyện bạn sẽ mất 0% công sức và tài nguyên nếu bạn không làm gì cả. Bạn đéo được gì… thì bạn cũng đéo mất gì mà. Không rủi ro. Không nguy hiểm. Không áp lực. Không khổ đau. 0. Là một số 0, nhưng tròn trĩnh và toàn vẹn. 
-</p>
+        <p class="floating-paragraph">Tôi đã đến cái giai đoạn đấy trong cuộc sống, cái thời điểm mà tôi bắt đầu học cách chấp nhận rằng có những thứ sâu-trong-tôi là tôi đến mức độ để thay đổi chúng không đáng bằng việc tìm cách sống chung và chế ngự chúng. Tôi chỉ cần hiểu chính mình đủ rõ để khi tôi đưa ra lựa chọn, tôi sẽ không còn than phiền và rồi hối hận về nó vì nó xung khắc với những thứ sâu-trong-tôi-là-tôi mà chính tôi còn không hay biết tồn tại. Tôi đã lựa chọn một cuộc sống hoàn toàn khác với những gì tôi từng hay nghe và được dạy, chỉ vì tôi biết cuộc sống khuôn mẫu chắc chắn không phải điều tôi muốn. Chỉ có một trở ngại hơi lớn cho lựa chọn “phóng khoáng” này: Tôi hoàn toàn không biết phải đi đâu tiếp. “Kì thực trên mặt đất vốn làm gì có đường. Người ta đi mãi thì thành đường thôi.” Lỗ Tấn, Cố Hương, Ngữ Văn 9. Tôi đồng ý, tôi cũng thấy một con đường, sao lại khúc khuỷu và thô sơ, trước mắt mình. Tôi đã nghĩ nếu người ta đi nó đủ nhiều đến vậy rồi, sao tôi lại vẫn phải cheo leo trên con đường này vậy?</p>
+        <p class="floating-paragraph">Tôi hèn, tôi đã nói với bạn điều đó rồi, và điều đó có nghĩa là tôi không thích rủi ro. Luôn luôn chơi rất an toàn. Tôi không nghĩ tôi đã làm quá nhiều thứ rủi ro ở trong cuộc sống này. Không, không có gì đủ để làm cho cuộc sống của tôi đảo nghịch đến độ… khiến tôi có nghị lực được. Tôi không phải một người có nghị lực. Tôi không có đủ nghị lực để vượt qua nhiều thử thách gian truân, hay cáng đáng hậu quả của một lần đánh cược lớn, nên tôi đã sớm tìm cách hạn chế những áp lực và thử thách tôi cần phải vượt qua trong đời. Tôi tìm cách để xây dựng cho mình một cuộc sống xoay quanh việc KHÔNG PHẢI LÀM GÌ CẢ. Tôi hoàn toàn có thể chọn nằm bất động cả ngày, một mình, trên sàn, trong căn phòng tối, bởi vì không ai cần tôi phải làm bất cứ điều gì bây giờ cả, và không có bất cứ giá trị nào của tôi bị thách thức cả. Tôi không nhận được thêm bất cứ kinh nghiệm, kiến thức, vật chất hay quan hệ gì cả, nhưng cũng đâu có ai lấy đi cái gì của tôi đang có nếu tôi chọn không làm gì cả. Họ bảo: 50% thành công, 50% thất bại nếu bạn làm và 100% thất bại nếu bạn không. Nhưng không ai nói về chuyện bạn sẽ mất 0% công sức và tài nguyên nếu bạn không làm gì cả. Bạn đéo được gì… thì bạn cũng đéo mất gì mà. Không rủi ro. Không nguy hiểm. Không áp lực. Không khổ đau. 0. Là một số 0, nhưng tròn trĩnh và toàn vẹn. </p>
         <p class="floating-paragraph">Tất nhiên, sống như thế thì nó chán vãi lồn rồi. Thế bạn nghĩ tôi đang định nói cái gì?</p>
-        <p class="floating-paragraph">NÃO TÔI CẦN THỬ THÁCH. </p>
+        <p class="floating-paragraph">NÃO TÔI CẦN THỬ THÁCH.</p>
       </div>
 
       <!-- UP AND DOWN ARROWS -->
@@ -202,12 +199,8 @@
   <div class="spotify-popup" id="spotifyPopup">
     <span class="close-btn" id="closePopup">&times;</span>
     <iframe 
-      data-testid="embed-iframe"
-      style="border-radius:12px"
       src="https://open.spotify.com/embed/episode/36HJg6k5QltchAtPnPR6mr?utm_source=generator"
-      width="100%" height="352"
-      frameBorder="0"
-      allowfullscreen
+      frameborder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy">
     </iframe>
@@ -218,17 +211,9 @@
     const popup = document.getElementById('spotifyPopup');
     const closeBtn = document.getElementById('closePopup');
 
-    audioBtn.addEventListener('click', () => {
-      popup.style.display = 'block';
-    });
-
-    closeBtn.addEventListener('click', () => {
-      popup.style.display = 'none';
-    });
-
-    window.addEventListener('click', (e) => {
-      if (e.target === popup) popup.style.display = 'none';
-    });
+    audioBtn.addEventListener('click', () => popup.style.display = 'block');
+    closeBtn.addEventListener('click', () => popup.style.display = 'none');
+    window.addEventListener('click', (e) => { if(e.target === popup) popup.style.display = 'none'; });
   </script>
 
 </body>
