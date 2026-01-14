@@ -143,31 +143,19 @@
     
     /* UP AND DOWN ARROWS */
      .next-part {
-        transform: translateX(-50%);
-        display: block;
-        font-family: 'Codystar', sans-serif;
-        font-size: 4rem;
-        color: inherit;
-        text-align: center;
-        cursor: pointer;
-        margin: 0;
-        z-index: 10;
-      }
-
-    .next-part.up {
-      position: sticky;
-      top: 1rem;               
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 4rem;
+      display: inline-block;     
+      font-family: 'Codystar', sans-serif;
+      font-size: 2.5rem;           
+      color: inherit;
       cursor: pointer;
-      z-index: 10;
+      margin: 0 1rem;              
+      text-align: center;
     }
 
+    .next-part.up,
     .next-part.down {
-      position: static;
-      margin: 2rem auto 4rem auto;
-    }
+      position: static; 
+      margin: 0;   
 
     .work-content { padding-top: 5rem; }
     
