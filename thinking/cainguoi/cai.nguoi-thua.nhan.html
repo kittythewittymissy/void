@@ -141,20 +141,25 @@
       color: inherit;
     }
     
-    /* UP AND DOWN ARROWS */
-     .next-part {
-      display: block;
+    /* UP AND DOWN ARROWS - fixed like Hèn, và Chán */
+    .next-part {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
       font-family: 'Codystar', sans-serif;
-      font-size: 2.5rem;
+      font-size: 4rem;
       color: inherit;
-      cursor: pointer;
-      margin: 2rem auto;
       text-align: center;
+      cursor: pointer;
+      z-index: 10;
     }
+    
+    .next-part.up { top: 1rem; }    
+    .next-part.down { bottom: 1rem; }
 
-
-    .next-part.up,
-    .next-part.down { position: static; display: inline-block; margin: 2rem auto;  }
+    .next-part:hover {
+      transform: translateX(-50%) translateY(2px);
+    }
 
     .work-content { padding-top: 5rem; }
     
