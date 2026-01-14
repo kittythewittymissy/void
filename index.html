@@ -18,7 +18,7 @@
   *::after {
     box-sizing: border-box;
   }
-    /* ===== HERO SECTION ===== */
+    /* HERO SECTION */
     .hero {
       height: 100vh;
       display: flex;
@@ -29,7 +29,7 @@
       position: relative;
     }
 
-    /* Banner-style hero container, tighter vertical hug */
+    /* HERO CONTAINER */
     .gold-hero-container {
       display: flex;
       justify-content: center;
@@ -53,7 +53,21 @@
       overflow: visible;
     }
 
-    /* ===== COLUMNS ===== */
+    .next-part {
+      opacity: 0;
+      animation-name: arrowFadeIn;
+      animation-duration: 2s;
+      animation-timing-function: ease;
+      animation-delay: 5.7s;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes arrowFadeIn {
+      0% { opacity: 0; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(7px); }
+    }
+
+    /* COLUMNS */
     .section-columns {
       display: flex;
       justify-content: center;
@@ -74,17 +88,16 @@
       align-items: center;
       max-width: 500px;
       text-align: center;
-      font-size: 1.2em; /* restored body text size for column content */
+      font-size: 1.2em; 
     }
 
-    /* Reduce space between gold heading and subheadings + lists */
     .column h2.main-column-heading {
-      font-size: 2.5em; /* bigger heading */
+      font-size: 2.5em; 
       margin-bottom: 0.3em;
     }
 
     .column h2.column-subheading {
-      font-size: 2em; /* subheading size */
+      font-size: 2em;
       margin-bottom: 0.2em;
     }
 
@@ -96,7 +109,7 @@
     }
 
     .column ul li {
-      font-size: 1.1em; /* restore list item text */
+      font-size: 1.1em;
     }
 
     /* Links hover glow */
@@ -119,17 +132,17 @@
     border: 1.5px solid rgba(255,255,255,0.85);
     box-shadow:
       0 0 4px rgba(255,255,255,0.35),
-      0 0 10px rgba(255,214,98,0.25); /* scaled-down neon glow */
+      0 0 10px rgba(255,214,98,0.25);
 
   }
 
   /* Hero text */
   .gold-hero {
-    font-size: 4.3em;              /* scales down nicely */
+    font-size: 4.3em;         
     line-height: 1;
     text-shadow:
       0 0 4px #fff,
-      0 0 8px #FFD662;           /* glow matches scaled font */
+      0 0 8px #FFD662;         
   }
   
   /* ONE COLUMN MODE */
@@ -138,7 +151,7 @@
     align-items: center;
     gap: 50px;
     margin: 40px 0 80px;
-    padding: 0 18px;  /* breathing without weird calc */
+    padding: 0 18px;  
     box-sizing: border-box;
   }
   
