@@ -145,13 +145,13 @@
     /* ===== ARROW FADE-IN AFTER HERO ===== */
     .next-part {
       opacity: 0; /* start invisible */
-      animation: arrowFadeIn 2s ease forwards 5.7s; /* 5.2s hero + 1.5s delay */
+      animation-name: arrowFadeIn;
+      animation-duration: 2s;
+      animation-timing-function: ease;
+      animation-delay: 5.7s; /* fade-in starts after 5.7s */
+      animation-fill-mode: forwards; /* stay visible after animation */
     }
 
-    @keyframes arrowFadeIn {
-      0% { opacity: 0; transform: translateY(0); }
-      100% { opacity: 1; transform: translateY(7px); }
-    }
   </style>
 </head>
 <body>
