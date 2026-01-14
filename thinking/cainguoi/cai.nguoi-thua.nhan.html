@@ -54,6 +54,11 @@
       100% { opacity: 1; color: var(--gold-core); text-shadow: 0 0 2px var(--gold-core), 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
     }
 
+    .subtitle-container {
+      position: relative;
+      height: 200px; /* or more if you want the subtitle to stick longer */
+    }
+    
     .work-title h2.column-subheading.animated-subtitle {
       position: sticky;
       top: 1.5rem;
@@ -162,7 +167,7 @@
     }
 
     .next-part.down {
-      position: static
+      position: static;
       display: block;
       text-align: center;
       font-size: 4rem; 
@@ -239,6 +244,7 @@
   <div class="main-row">
     <div class="work-title">
       <h1>Cai Người</h1>
+    <div class="subtitle-container">
       <h2 class="column-subheading animated-subtitle">Thừa nhận bản thân mình không thể điều khiển được những thế lực cưỡng ép.</h2>
 </div>
     </div>
