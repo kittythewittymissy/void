@@ -73,7 +73,7 @@
       100% { opacity: 1; }
     }
 
-    /* stagger delays */
+    /* PARAGRAPH FADE-IN DELAY */
     .floating-paragraph:nth-child(1) { animation-delay: calc(var(--anim-speed-title) + 1s); }
     .floating-paragraph:nth-child(2) { animation-delay: calc(var(--anim-speed-title) + 1s + var(--anim-delay-stagger)); }
     .floating-paragraph:nth-child(3) { animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger)); }
@@ -83,6 +83,7 @@
 
     /* SERIES BACKGROUND */
     .series-background {
+      display: block;
       position: fixed;
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
@@ -91,7 +92,7 @@
       color: var(--gold-core);
       opacity: .09;
       pointer-events: none;
-      z-index: -1;
+      z-index: 1;
     }
 
     /* AUDIO BUTTON */
