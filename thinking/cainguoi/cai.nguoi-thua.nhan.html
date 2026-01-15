@@ -22,10 +22,10 @@
     /* WORK TITLE */
     .work-title { 
       position: relative;
+      min-height: 100vh;
       top: 0;
       padding: 2rem 5rem;
-      display: flex;
-      flex-direction: column;
+      display: block;
     }
 
     .work-title h1 {
@@ -57,10 +57,12 @@
       100% { opacity: 1; color: var(--gold-core); text-shadow: 0 0 2px var(--gold-core), 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
     }
 
-    .subtitle-container {
-      height: auto;
+    /* STICKY SUBTITLE CONTAINER */
+    .sticky-subtitle-wrapper {
+      position: relative;
+      min-height: 5rem; /* ensures sticky has space */
     }
-    
+
     .work-title h2.column-subheading.animated-subtitle {
       position: sticky;
       top: 5rem;
@@ -78,14 +80,12 @@
       opacity: 0;
       animation: neonSubtitle 1s ease forwards;
       animation-delay: 1.2s;
-
       max-width: 400px;   
       line-height: 1.4; 
       word-wrap: break-word;
       text-align: left;
       margin: 0.3em 0 0 0;
-      z-index: 5;
-    }  
+    }
 
     @keyframes neonSubtitle {
       0%   { opacity: 0; color: #222; text-shadow: none; }
@@ -100,7 +100,6 @@
       100% { opacity: 1; color: #fff; text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px rgba(255,255,255,0.8), 0 0 16px rgba(255,255,255,0.6); }
     }
 
-
     /* BODY PARAGRAPHS */
     .floating-paragraph {
       opacity: 0;
@@ -114,10 +113,7 @@
       animation: bodyFade var(--anim-speed-body) ease forwards;
     }
 
-    @keyframes bodyFade {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
+    @keyframes bodyFade { 0% { opacity: 0; } 100% { opacity: 1; } }
 
     .floating-paragraph:nth-child(1) { animation-delay: calc(var(--anim-speed-title) + 1s); }
     .floating-paragraph:nth-child(2) { animation-delay: calc(var(--anim-speed-title) + 1s + var(--anim-delay-stagger)); }
@@ -146,70 +142,29 @@
     }
 
     /* NEXT PART ICON */
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    
-    /* UP AND DOWN ARROWS - fixed like Hèn, và Chán */
+    a { text-decoration: none; color: inherit; }
     .next-part { 
-                position: fixed;
-                left: 50%;
-                transform: translateX(-50%);
-                font-family: 'Codystar', sans-serif;
-                font-size: 4rem;
-                color: inherit;
-                text-align: center;
-                cursor: pointer;
-                z-index: 999;
-                }
-    
+      position: fixed; left: 50%; transform: translateX(-50%);
+      font-family: 'Codystar', sans-serif; font-size: 4rem;
+      color: inherit; text-align: center; cursor: pointer; z-index: 999;
+    }
     .next-part.up { top: 1rem; }    
     .next-part.down { bottom: 1rem; }
-
     .work-content { padding-top: 5rem; }
-    
     .next-part:hover { transform: translateX(-50%) translateY(2px); }
 
     /* SPOTIFY POPUP */
-    .spotify-popup {
-      display: none;
-      position: fixed;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 999;
-      background: rgba(0,0,0,0.85);
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.8);
-    }
-
-    .spotify-popup iframe {
-      border-radius: 12px;
-      width: 100%;
-      height: 352px;
-      display: block;
-    }
-
-    .spotify-popup .close-btn {
-      position: 0.5rem;
-      top: 0.5rem;
-      right: 1rem;
-      font-size: 1.5rem;
-      color: #FFD662;
-      cursor: pointer;
-    }
+    .spotify-popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 999; background: rgba(0,0,0,0.85); padding: 1rem; border-radius: 12px; box-shadow: 0 0 20px rgba(0,0,0,0.8); }
+    .spotify-popup iframe { border-radius: 12px; width: 100%; height: 352px; display: block; }
+    .spotify-popup .close-btn { position: 0.5rem; top: 0.5rem; right: 1rem; font-size: 1.5rem; color: #FFD662; cursor: pointer; }
 
     /* RESPONSIVE */
     @media(max-width:768px) {
       .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
       .series-background { font-size: 12.5rem; }
       .audio-button { right: 1rem; }
-      .work-title { position: static; 
-                    padding: 4rem 1.5rem 2rem 1.5rem; 
-                    font-size: 2.8rem; 
-                    line-height: 1.2; 
-                  }
+      .work-title { position: static; padding: 4rem 1.5rem 2rem 1.5rem; font-size: 2.8rem; line-height: 1.2; }
+      .sticky-subtitle-wrapper { position: static; }
       .work-title h2.column-subheading.animated-subtitle { font-size: 1.6rem; max-width: 90%; position: static; }
       .spotify-popup iframe { height: 200px; }
       .next-part { position: relative; display: block; left: auto; top: auto; bottom: auto; margin: 2rem auto 0; transform: none; font-size: 2.5rem; z-index: 10; }
@@ -218,7 +173,6 @@
       .next-part:hover { transform: translateY(2px); }
       .work-content { padding-top: 3rem; }
     }
-
   </style>
 </head>
 
@@ -232,29 +186,25 @@
     <span class="kitty-text">Kitty</span>
   </a>
 
-   <div class="main-row">
-     <div class="work-title">
-       <h1>Cai Người</h1>
-       <div class="subtitle-container">
-         <h2 class="column-subheading animated-subtitle">
-           Thừa nhận bản thân mình không thể điều khiển được những thế lực cưỡng ép.
-         </h2>
-       </div>
-     </div>
-   </div>
+  <div class="work-title">
+      <h1>Cai Người</h1>
+      <div class="sticky-subtitle-wrapper">
+        <h2 class="column-subheading animated-subtitle">
+          Thừa nhận bản thân mình không thể điều khiển được những thế lực cưỡng ép.
+        </h2>
+      </div>
+  </div>
 
+  <div class="work-content">
+    <div class="text-section">
+      <p class="floating-paragraph">Mọi cơn nghiện đều bắt đầu từ một nhu cầu nho nhỏ lâu lâu xảy đến một lần...</p>
+      <p class="floating-paragraph">Người ta nghiện nhiều lắm, bạn biết đấy. Chưa từng dừng lại, chưa từng chậm lại...</p>
+      <p class="floating-paragraph">Nhưng rốt cùng, mọi cơn nghiện đều chung quy tại sự đầu hàng...</p>
+      <p class="floating-paragraph">Một trong những ảo giác phức hợp nhất con người có thể tạo ra cho chính mình là cảm giác liêm chính khác người...</p>
+      <p class="floating-paragraph">Cờ bạc có, tình dục có, sức mạnh có, và — cha bố nó chứ — người ta nghiện được cả tình yêu luôn...</p>
 
-    <div class="work-content" style="padding-top:5rem;">
-      <div class="text-section">
-        <p class="floating-paragraph">Mọi cơn nghiện đều bắt đầu từ một nhu cầu nho nhỏ lâu lâu xảy đến một lần. Một điếu thuốc, một ly rượu, một ván điện tử, một lời tán tỉnh. Tất cả từng là sự điều độ.</p>
-        <p class="floating-paragraph">Người ta nghiện nhiều lắm, bạn biết đấy. Chưa từng dừng lại, chưa từng chậm lại. Không không không không, nó đa dạng và tinh vi hơn là đằng khác. Phổ thông nhất, ta có các chất kích thích, các chất an thần. Nhưng nghiện, mà nói vĩ mô ra, thì ông nghiện cả cái sự đời này cũng được. Thất đại tội của loài người trong Kinh Thánh Cơ Đốc, tôi phàm gọi là 7 cái nghiện dại đầu tiên, trước khi thế giới càng ngày càng trở nên phức tạp đến mất kiểm soát. Cứ đính chính thế này đi: Tôi thật lòng đang không ngỏ ý tranh luận với bất cứ ai về tôn giáo đâu. Không, tôi muốn tuyên ngôn: Cái nghiện là cái ban sơ của động vật, cái nghiện là cái đa diện và, tin tôi, cái đéo gì thì cũng nghiện được. Có nghiện đơn giản thì có nghiện phức tạp, nghiện ít thì cũng có nghiện nhiều.</p>
-        <p class="floating-paragraph">Nhưng rốt cùng, mọi cơn nghiện đều chung quy tại sự đầu hàng, hoàn toàn bất đắc dĩ trao đi quyền hạn điều khiển bản thân cho một thứ.</p>
-        <p class="floating-paragraph">Một trong những ảo giác phức hợp nhất con người có thể tạo ra cho chính mình là cảm giác liêm chính khác người và hơn người, khi cả ông, tôi và chúng ta đều cảm nhận được dòng dopamine chảy xiết trong não khi một ngày nữa, bạn lại săn sale cho những món đồ bạn đéo cần, lướt mạng xem những video bạn đéo quan tâm, và tiếp tục chạy theo những mối quan hệ đéo có lợi. Tất cả chúng ta đều suýt rồi đấy, suýt rồi… Chẳng biết cái gì làm bạn sống đỡ sống tiếp, nhưng phải chăng cái gì hẩy nhẹ bạn lọt vực, thì không biết còn nói vậy được không.</p>
-        <p class="floating-paragraph">Cờ bạc có, tình dục có, sức mạnh có, và — cha bố nó chứ — người ta nghiện được cả tình yêu luôn. Một cái hố hình trái tim.</p>
-
-       <span class="next-part up" data-target="cai.nguoi-intro.html">︿</span>
-        <span class="next-part down" data-target="../../under-creation-!.html">﹀</span>
-
+      <span class="next-part up" data-target="cai.nguoi-intro.html">︿</span>
+      <span class="next-part down" data-target="../../under-creation-!.html">﹀</span>
     </div>
   </div>
 
@@ -274,21 +224,20 @@
     const audioBtn = document.getElementById('audioBtn');
     const popup = document.getElementById('spotifyPopup');
     const closeBtn = document.getElementById('closePopup');
-
-      audioBtn.addEventListener('click', () => { popup.style.display = 'block'; });
-      closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
-      window.addEventListener('click', (e) => { if (e.target === popup) popup.style.display = 'none'; });
+    audioBtn.addEventListener('click', () => { popup.style.display = 'block'; });
+    closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
+    window.addEventListener('click', (e) => { if (e.target === popup) popup.style.display = 'none'; });
 
     const arrows = document.querySelectorAll('.next-part');
-      arrows.forEach(arrow => {
+    arrows.forEach(arrow => {
       arrow.addEventListener('click', () => {
-      document.body.style.transition = 'opacity 1s';
-      document.body.style.opacity = 0;
-      setTimeout(() => {
-        window.location.href = arrow.dataset.target;
-      }, 1000);
+        document.body.style.transition = 'opacity 1s';
+        document.body.style.opacity = 0;
+        setTimeout(() => {
+          window.location.href = arrow.dataset.target;
+        }, 1000);
+      });
     });
-  });
   </script>
 
 </body>
