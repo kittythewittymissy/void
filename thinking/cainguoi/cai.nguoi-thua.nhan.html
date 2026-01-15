@@ -30,6 +30,7 @@
 
     .work-title h1 {
       font-family: 'Raleway', sans-serif;
+      z-index: 1;
       font-size: 4rem;
       letter-spacing: 0.16em;
       font-weight: 100;
@@ -59,7 +60,10 @@
 
     /* STICKY SUBHEADING */
     .subtitle-container {
-      height: auto;
+      position: sticky;
+      top: 4.5rem;         
+      z-index: 10;    
+      pointer-events: none;
     }
     
     .work-title h2.column-subheading.animated-subtitle {
@@ -105,6 +109,7 @@
     /* BODY PARAGRAPHS */
     .floating-paragraph {
       opacity: 0;
+      z-index: 1;
       max-width: 40%;
       margin: 0 auto 1.5rem;
       font-size: 1.5rem;
@@ -233,16 +238,15 @@
     <span class="kitty-text">Kitty</span>
   </a>
 
-   <div class="main-row">
-     <div class="work-title">
-       <h1>Cai Người</h1>
-       <div class="subtitle-container">
-         <h2 class="column-subheading animated-subtitle">
-           Thừa nhận bản thân mình không thể điều khiển được những thế lực cưỡng ép.
-         </h2>
-       </div>
-     </div>
-   </div>
+   <div class="work-title">
+      <h1>Cai Người</h1>
+  </div>
+
+  <div class="subtitle-container">
+      <h2 class="column-subheading animated-subtitle">
+        Thừa nhận bản thân mình không thể điều khiển được những thế lực cưỡng ép.
+      </h2>
+  </div>
 
 
     <div class="work-content" style="padding-top:5rem;">
