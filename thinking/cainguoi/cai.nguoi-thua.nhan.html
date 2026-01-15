@@ -20,13 +20,11 @@
     }
 
     /* WORK TITLE */
-    .work-title { 
+    .work-title {
       position: relative;
-      min-height: 100vh;
-      top: 0;
       padding: 2rem 5rem;
-      display: block;
-      overflow: visible;
+      min-height: auto; /* important */
+      overflow: visible; /* allows sticky */
     }
 
     .work-title h1 {
@@ -58,15 +56,9 @@
       100% { opacity: 1; color: var(--gold-core); text-shadow: 0 0 2px var(--gold-core), 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
     }
 
-    /* STICKY SUBTITLE CONTAINER */
-    .sticky-subtitle-wrapper {
-      position: relative;
-      min-height: 5rem; /* ensures sticky has space */
-    }
-
     .work-title h2.column-subheading.animated-subtitle {
       position: sticky;
-      top: 5rem;
+      top: 3.8rem;
       z-index: 5;
       display: block;
       font-family: 'Raleway', sans-serif;
@@ -78,7 +70,7 @@
         0 0 6px rgba(255,255,255,0.6),
         0 0 12px rgba(255,255,255,0.4);
       margin-top: 0.3em;
-      opacity: 1;
+      opacity: 0;
       animation: neonSubtitle 1s ease forwards;
       animation-delay: 1.2s;
       max-width: 400px;   
@@ -89,7 +81,7 @@
     }
 
     @keyframes neonSubtitle {
-      0%   { opacity: 0; color: #222; text-shadow: none; }
+      0%   { opacity: 0; }
       8%   { opacity: 1; color: #fff; text-shadow: 0 0 3px #fff; }
       16%  { opacity: 0; color: #222; text-shadow: none; }
       25%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 10px rgba(255,255,255,0.7); }
@@ -187,14 +179,11 @@
     <span class="kitty-text">Kitty</span>
   </a>
 
- <div class="work-title">
-  <h1>Cai Người</h1>
-</div>
-
-  <div class="sticky-subtitle-wrapper">
-<h2 class="column-subheading animated-subtitle">
-  Thừa nhận bản thân mình không thể điều khiển được những thế lực cưỡng ép.
-</h2>
+  <div class="work-title">
+    <h1>Cai Người</h1>
+      <h2 class="column-subheading animated-subtitle">
+        Thừa nhận bản thân mình không thể điều khiển được những thế lực cưỡng ép.
+      </h2>
   </div>
   
   <div class="work-content">
