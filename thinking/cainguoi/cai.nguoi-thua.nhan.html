@@ -6,9 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;700&family=Codystar:wght@300;400;500&display=swap&subset=vietnamese" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Raleway+Dots&family=Codystar:wght@300;400;500&display=swap&subset=vietnamese" rel="stylesheet">
+
   <!-- Global CSS -->
   <link rel="stylesheet" href="../../style.css">
 
@@ -21,11 +20,13 @@
     }
 
     /* WORK TITLE */
-    .work-title {
+    .work-title { 
       position: relative;
+      min-height: 100vh;
+      top: 0;
       padding: 2rem 5rem;
-      min-height: auto; /* important */
-      overflow: visible; /* allows sticky */
+      display: block;
+      overflow: visible;
     }
 
     .work-title h1 {
@@ -57,10 +58,19 @@
       100% { opacity: 1; color: var(--gold-core); text-shadow: 0 0 2px var(--gold-core), 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
     }
 
+    /* STICKY SUBTITLE CONTAINER */
+    .sticky-subtitle-wrapper {
+      position: relative;
+      min-height: 5rem; /* ensures sticky has space */
+    }
+
     .work-title h2.column-subheading.animated-subtitle {
+      position: sticky;
+      top: 5rem;
+      z-index: 5;
       display: block;
       font-family: 'Raleway', sans-serif;
-      font-size: 2.8rem;
+      font-size: var(--font-subhead);
       font-weight: 100;
       color: var(--white-accent);
       text-shadow:
@@ -79,7 +89,7 @@
     }
 
     @keyframes neonSubtitle {
-      0%   { opacity: 0; }
+      0%   { opacity: 0; color: #222; text-shadow: none; }
       8%   { opacity: 1; color: #fff; text-shadow: 0 0 3px #fff; }
       16%  { opacity: 0; color: #222; text-shadow: none; }
       25%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 10px rgba(255,255,255,0.7); }
@@ -125,7 +135,7 @@
       position: fixed;
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      font-family: 'Raleway Dots', sans-serif;
+      font-family: 'Raleway Dots', cursive;
       font-size: 25rem;
       color: var(--gold-core);
       opacity: .09;
@@ -178,22 +188,21 @@
   </a>
 
   <div class="work-title">
-    <h1>Cai Người</h1>
+      <h1>Cai Người</h1>
+      <div class="sticky-subtitle-wrapper">
+        <h2 class="column-subheading animated-subtitle">
+          Thừa nhận bản thân mình không thể điều khiển được những thế lực cưỡng ép.
+        </h2>
+      </div>
   </div>
 
-  <h2 class="column-subheading animated-subtitle">
-    Thừa nhận bản thân mình không thể điều khiển được những thế lực cưỡng ép.
-  </h2>
-
-  
   <div class="work-content">
     <div class="text-section">
-      <p class="floating-paragraph">Mọi cơn nghiện đều bắt đầu từ một nhu cầu nho nhỏ lâu lâu xảy đến một lần. Một điếu thuốc, một ly rượu, một ván điện tử, một lời tán tỉnh. Tất cả từng là sự điều độ.</p>
-      <p class="floating-paragraph">Người ta nghiện nhiều lắm, bạn biết đấy. Chưa từng dừng lại, chưa từng chậm lại. Không không không không, nó đa dạng và tinh vi hơn là đằng khác. Phổ thông nhất, ta có các chất kích thích, các chất an thần. Nhưng nghiện, mà nói vĩ mô ra, thì ông nghiện cả cái sự đời này cũng được. Thất đại tội của loài người trong Kinh Thánh Cơ Đốc, tôi phàm gọi là 7 cái nghiện dại đầu tiên, trước khi thế giới càng ngày càng trở nên phức tạp đến mất kiểm soát. Cứ đính chính thế này đi: Tôi thật lòng đang không ngỏ ý tranh luận với bất cứ ai về tôn giáo đâu. Không, tôi muốn tuyên ngôn: Cái nghiện là cái ban sơ của động vật, cái nghiện là cái đa diện và, tin tôi, cái đéo gì thì cũng nghiện được. Có nghiện đơn giản thì có nghiện phức tạp, nghiện ít thì cũng có nghiện nhiều.</p>
-      <p class="floating-paragraph">Nhưng rốt cùng, mọi cơn nghiện đều chung quy tại sự đầu hàng, hoàn toàn bất đắc dĩ trao đi quyền hạn điều khiển bản thân cho một thứ.</p>
-      <p class="floating-paragraph"> “Kém vãi lồn. Nghiện thì cai mẹ đi!”</p>
-      <p class="floating-paragraph">Một trong những ảo giác phức hợp nhất con người có thể tạo ra cho chính mình là cảm giác liêm chính khác người và hơn người, khi cả ông, tôi và chúng ta đều cảm nhận được dòng dopamine chảy xiết trong não khi một ngày nữa, bạn lại săn sale cho những món đồ bạn đéo cần, lướt mạng xem những video bạn đéo quan tâm, và tiếp tục chạy theo những mối quan hệ đéo có lợi. Tất cả chúng ta đều suýt rồi đấy, suýt rồi… Chẳng biết cái gì làm bạn sống đỡ sống tiếp, nhưng phải chăng cái gì hẩy nhẹ bạn lọt vực, thì không biết còn nói vậy được không.</p>
-      <p class="floating-paragraph">Cờ bạc có, tình dục có, sức mạnh có, và — cha bố nó chứ — người ta nghiện được cả tình yêu luôn. Một cái hố hình trái tim.</p>
+      <p class="floating-paragraph">Mọi cơn nghiện đều bắt đầu từ một nhu cầu nho nhỏ lâu lâu xảy đến một lần...</p>
+      <p class="floating-paragraph">Người ta nghiện nhiều lắm, bạn biết đấy. Chưa từng dừng lại, chưa từng chậm lại...</p>
+      <p class="floating-paragraph">Nhưng rốt cùng, mọi cơn nghiện đều chung quy tại sự đầu hàng...</p>
+      <p class="floating-paragraph">Một trong những ảo giác phức hợp nhất con người có thể tạo ra cho chính mình là cảm giác liêm chính khác người...</p>
+      <p class="floating-paragraph">Cờ bạc có, tình dục có, sức mạnh có, và — cha bố nó chứ — người ta nghiện được cả tình yêu luôn...</p>
 
       <span class="next-part up" data-target="cai.nguoi-intro.html">︿</span>
       <span class="next-part down" data-target="../../under-creation-!.html">﹀</span>
