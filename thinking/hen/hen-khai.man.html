@@ -38,11 +38,11 @@
         0 0 4px var(--gold-core);
       -webkit-text-stroke: .4px var(--gold-core);
       opacity: 0;
-      animation: neonSign 1s ease forwards;
+      animation: neonSign-Gold 1s ease forwards;
       animation-delay: 0.3s;
     }
 
-    @keyframes neonSign {
+    @keyframes neonSign-Gold {
       0%   { opacity: 0; color: #222; text-shadow: none; }
       8%   { opacity: 1; color: var(--gold-core); text-shadow: 0 0 3px var(--gold-core); }
       16%  { opacity: 0; color: #222; text-shadow: none; }
@@ -53,6 +53,55 @@
       83%  { opacity: 0.6; color: #222; text-shadow: none; }
       92%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 4px var(--gold-core), 0 0 12px rgba(255,214,98,0.7); }
       100% { opacity: 1; color: var(--gold-core); text-shadow: 0 0 2px var(--gold-core), 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
+    }
+    
+    /* SUBHEADING */
+    .subtitle-container {
+      display: inline-flex;
+      margin-left: 5rem;
+      padding: 0 2rem;
+      position: sticky;
+      top: 4.5rem;         
+      z-index: 10;    
+      pointer-events: none;
+    }
+    
+    .subtitle-container h2.column-subheading.animated-subtitle {
+      position: relative;
+      color: #fff;
+      -webkit-text-stroke: 0;
+      z-index: 10;
+      display: block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 4rem;
+      font-weight: 100;
+      text-shadow:
+        0 0 2px #fff,
+        0 0 6px rgba(255,255,255,0.6),
+        0 0 12px rgba(255,255,255,0.4);
+      margin-top: 0.3em;
+      opacity: 0;
+      animation: neonSign-White 0.7s ease forwards;
+      animation-delay: 1.2s;
+      max-width: 14ch;   
+      line-height: 1.4; 
+      word-wrap: break-word;
+      text-align: left;
+      margin: 0.3em 0 0 0;
+      pointer-events: none;
+    }  
+
+    @keyframes neonSign-White {
+      0%   { opacity: 0; color: #222; text-shadow: none; }
+      8%   { opacity: 1; color: #fff; text-shadow: 0 0 3px #fff; }
+      16%  { opacity: 0; color: #222; text-shadow: none; }
+      25%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 10px rgba(255,214,98,0.7); }
+      33%  { opacity: 0.4; color: #222; text-shadow: none; }
+      50%  { opacity: 1; color: #fff; text-shadow: 0 0 10px #fff, 0 0 18px #fff; }
+      66%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 12px rgba(255,214,98,0.8); }
+      83%  { opacity: 0.6; color: #222; text-shadow: none; }
+      92%  { opacity: 1; color: #fff; text-shadow: 0 0 4px #fff, 0 0 12px rgba(255,214,98,0.7); }
+      100% { opacity: 1; color: #fff; text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
     }
 
     /* BODY PARAGRAPHS */
@@ -96,53 +145,46 @@
 
     /* NEXT PART ICON */
     .next-part {
-      display: block;
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
       font-family: 'Codystar', sans-serif;
       font-size: 4rem;
       color: inherit;
       text-align: center;
       cursor: pointer;
-      margin-top: 2rem;
+      z-index: 10;
     }
 
     .work-content { padding-top: 5rem; }
 
-    /* AUDIO BUTTON */
-    .audio-button {
-      right: 4.25rem;
-      cursor: pointer;
-    }
-
     /* SPOTIFY POPUP */
-    .spotify-popup {
-      display: none;
+    .spotify-popup 
+    { display: none;
       position: fixed;
-      top: 50%; left: 50%;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
       z-index: 999;
-      background: rgba(0,0,0,0.85);
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.8);
-    }
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(10px);
+      padding: 1.2rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,214,98,0.22);
+      box-shadow: 0 0 18px rgba(255,214,98,0.18), inset 0 0 22px rgba(255,214,98,0.10); }
 
-    .spotify-popup iframe {
-      border-radius: 12px;
+    .spotify-popup iframe 
+    { border-radius: 10px;
       width: 100%;
       height: 352px;
-      display: block;
-    }
+      box-shadow: 0 0 12px rgba(255,214,98,0.12); }
 
-    .spotify-popup .close-btn {
-      position: absolute;
-      top: 0.5rem;
-      right: 1rem;
-      font-size: 1.5rem;
-      color: #FFD662;
-      cursor: pointer;
-    }
 
-    /* RESPONSIVE */
+
+    .spotify-popup .close-btn { position: 0.5rem; top: 0.5rem; right: 1rem; 
+                               font-size: 1.5rem; color: #FFD662; cursor: pointer; }
+
+    /* MOBILE RESPONSIVE */
     @media(max-width:768px) {
       .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
       .series-background { font-size: 12rem; display: block; }
@@ -152,9 +194,21 @@
                    font-size: 2.8rem; 
                    line-height: 1.2; 
                   }
-      .spotify-popup iframe { height: 200px; }
-      .next-part { font-size: 2.5rem; margin-top: 1rem; }
-      .work-content { padding-top: 3rem !important; }
+      .subtitle-container { position: static; margin: 0 auto; 
+                             padding: 0; width: 100%; 
+                             text-align: center; }
+      .work-title h2.column-subheading.animated-subtitle { font-size: 1.6rem; 
+                                                            max-width: 90%; 
+                                                            position: static; }
+      .spotify-popup { bottom: 0; left: 0; width: 100%; border-radius: 18px 18px 0 0;
+                        padding-bottom: calc(env(safe-area-inset-bottom) + 1rem); 
+                        border: 1px solid rgba(255,215,0,0.45); }
+      .spotify-popup iframe { width: 100%; height: 260px; border-radius: 12px; }
+      .next-part { position: relative; display: block; left: auto; 
+                    top: auto; bottom: auto; margin: 2rem auto 0; 
+                    transform: none; font-size: 2.5rem; z-index: 10; }
+      .next-part:hover { transform: translateY(2px); }
+      .work-content { padding-top: 3rem; }
     }
 
   </style>
@@ -172,8 +226,14 @@
 
   <div class="main-row">
     <div class="work-title">
-      <h1>Hèn: Khai màn</h1>
+      <h1>Hèn:</h1>
     </div>
+
+    <div class="subtitle-container">
+      <h2 class="column-subheading animated-subtitle">
+        Khai màn
+      </h2>
+  </div>
 
     <div class="work-content">
       <div class="text-section">
