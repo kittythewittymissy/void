@@ -148,8 +148,8 @@ h3 {
   position: fixed;
   top: 36%;
   right: 3.5rem;
-  width: 64px;
-  height: 64px;
+  width: 80px;
+  height: 80px;
   cursor: pointer;
   background: transparent;
   display: flex;
@@ -161,8 +161,8 @@ h3 {
 }
 
 .audio-button svg {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 8px #fff);
   transition: filter 0.25s, transform 0.25s;
 }
