@@ -62,7 +62,8 @@
     /* STICKY SUBHEADING */
     .subtitle-container {
       display: inline-flex;
-      padding-left: 5rem;
+      margin-left: 5rem;
+      padding: 0 1rem;
       position: sticky;
       top: 4.5rem;         
       z-index: 10;    
@@ -76,35 +77,21 @@
       font-family: 'Raleway', sans-serif;
       font-size: 2.5rem;
       font-weight: 100;
-      color: var(--white-accent);
       text-shadow:
         0 0 2px #fff,
         0 0 6px rgba(255,255,255,0.6),
         0 0 12px rgba(255,255,255,0.4);
       margin-top: 0.3em;
       opacity: 0;
-      animation: neonSubtitle 1s ease forwards;
+      animation: neonSign 1s ease forwards;
       animation-delay: 1.2s;
-      max-width: 100%;   
+      max-width: 12ch;   
       line-height: 1.4; 
       word-wrap: break-word;
       text-align: left;
       margin: 0.3em 0 0 0;
+      pointer-events: none;
     }  
-
-    @keyframes neonSubtitle {
-      0%   { opacity: 0; color: #222; text-shadow: none; }
-      8%   { opacity: 1; color: #fff; text-shadow: 0 0 3px #fff; }
-      16%  { opacity: 0; color: #222; text-shadow: none; }
-      25%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 10px rgba(255,255,255,0.7); }
-      33%  { opacity: 0.4; color: #222; text-shadow: none; }
-      50%  { opacity: 1; color: #fff; text-shadow: 0 0 10px #fff, 0 0 18px rgba(255,255,255,0.8); }
-      66%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 12px rgba(255,255,255,0.8); }
-      83%  { opacity: 0.6; color: #222; text-shadow: none; }
-      92%  { opacity: 1; color: #fff; text-shadow: 0 0 4px #fff, 0 0 12px rgba(255,255,255,0.7); }
-      100% { opacity: 1; color: #fff; text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px rgba(255,255,255,0.8), 0 0 16px rgba(255,255,255,0.6); }
-    }
-
 
     /* BODY PARAGRAPHS */
     .floating-paragraph {
@@ -197,14 +184,8 @@
       display: block;
     }
 
-    .spotify-popup .close-btn {
-      position: 0.5rem;
-      top: 0.5rem;
-      right: 1rem;
-      font-size: 1.5rem;
-      color: #FFD662;
-      cursor: pointer;
-    }
+    .spotify-popup .close-btn { position: 0.5rem; top: 0.5rem; right: 1rem; 
+                               font-size: 1.5rem; color: #FFD662; cursor: pointer; }
 
     /* RESPONSIVE */
     @media(max-width:768px) {
@@ -216,9 +197,16 @@
                     font-size: 2.8rem; 
                     line-height: 1.2; 
                   }
-      .work-title h2.column-subheading.animated-subtitle { font-size: 1.6rem; max-width: 90%; position: static; }
+      .subtitle-container { position: static; margin: 0 auto; 
+                             padding: 0; width: 100%; 
+                             text-align: center; }
+      .work-title h2.column-subheading.animated-subtitle { font-size: 1.6rem; 
+                                                            max-width: 90%; 
+                                                            position: static; }
       .spotify-popup iframe { height: 200px; }
-      .next-part { position: relative; display: block; left: auto; top: auto; bottom: auto; margin: 2rem auto 0; transform: none; font-size: 2.5rem; z-index: 10; }
+      .next-part { position: relative; display: block; left: auto; 
+                    top: auto; bottom: auto; margin: 2rem auto 0; 
+                    transform: none; font-size: 2.5rem; z-index: 10; }
       .next-part.up { margin-top: 2rem; }
       .next-part.down { margin-bottom: 2rem; }
       .next-part:hover { transform: translateY(2px); }
