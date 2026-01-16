@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cai Người: Suy xét...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&family=Raleway+Dots&family=Codystar:wght@300;400;500&display=swap&subset=vietnamese" rel="stylesheet">
+
+  <!-- LINK TO GLOBAL STYLE.CSS -->
+  <link rel="stylesheet" href="../../style.css">
+
+  <!-- PAGE STYLE -->
+  <style>
+    :root {
+      --anim-speed-title: 2s;
+      --anim-speed-body: 2.8s;
+      --anim-delay-stagger: 0.8s;
+      --gold-core: #FFD662;
+    }
+
+    /* BACK TO KITTY BUTTON */
+    .back-button { z-index: 15; }
+
+    /* WORK TITLE */
+    .work-title { 
+      display: inline-block;
+      position: relative;
+      top: 0;
+      padding: 2rem 5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .work-title h1 {
+      font-family: 'Raleway', sans-serif;
+      z-index: 1;
+      font-size: 4rem;
+      letter-spacing: 0.16em;
+      font-weight: 100;
+      color: #222;
+      text-shadow:
+        0 0 1px var(--gold-core),
+        0 0 2px var(--gold-core),
+        0 0 4px var(--gold-core);
+      -webkit-text-stroke: .4px var(--gold-core);
+      opacity: 0;
+      animation: neonSign-Gold 1s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes neonSign-Gold {
+      0%   { opacity: 0; color: #222; text-shadow: none; }
+      8%   { opacity: 1; color: var(--gold-core); text-shadow: 0 0 3px var(--gold-core); }
+      16%  { opacity: 0; color: #222; text-shadow: none; }
+      25%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 6px var(--gold-core), 0 0 10px rgba(255,214,98,0.7); }
+      33%  { opacity: 0.4; color: #222; text-shadow: none; }
+      50%  { opacity: 1; color: #fff; text-shadow: 0 0 10px #fff, 0 0 18px var(--gold-core); }
+      66%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8); }
+      83%  { opacity: 0.6; color: #222; text-shadow: none; }
+      92%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 4px var(--gold-core), 0 0 12px rgba(255,214,98,0.7); }
+      100% { opacity: 1; color: var(--gold-core); text-shadow: 0 0 2px var(--gold-core), 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
+    }
+
+    /* SUBHEADING */
+    .subtitle-container {
+      display: inline-flex;
+      margin-left: 5rem;
+      padding: 0 2rem;
+      position: sticky;
+      top: 4.5rem;         
+      z-index: 10;    
+      pointer-events: none;
+    }
+    
+    .subtitle-container h2.column-subheading.animated-subtitle {
+      position: relative;
+      color: #fff;
+      -webkit-text-stroke: 0;
+      z-index: 10;
+      display: block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 2rem;
+      font-weight: 100;
+      text-shadow:
+        0 0 2px #fff,
+        0 0 6px rgba(255,255,255,0.6),
+        0 0 12px rgba(255,255,255,0.4);
+      margin-top: 0.3em;
+      opacity: 0;
+      animation: neonSign-White 0.7s ease forwards;
+      animation-delay: 1.2s;
+      max-width: 14ch;   
+      line-height: 1.4; 
+      word-wrap: break-word;
+      text-align: left;
+      margin: 0.3em 0 0 0;
+      pointer-events: none;
+    }  
+
+    @keyframes neonSign-White {
+      0%   { opacity: 0; color: #222; text-shadow: none; }
+      8%   { opacity: 1; color: #fff; text-shadow: 0 0 3px #fff; }
+      16%  { opacity: 0; color: #222; text-shadow: none; }
+      25%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 10px rgba(255,214,98,0.7); }
+      33%  { opacity: 0.4; color: #222; text-shadow: none; }
+      50%  { opacity: 1; color: #fff; text-shadow: 0 0 10px #fff, 0 0 18px #fff; }
+      66%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 12px rgba(255,214,98,0.8); }
+      83%  { opacity: 0.6; color: #222; text-shadow: none; }
+      92%  { opacity: 1; color: #fff; text-shadow: 0 0 4px #fff, 0 0 12px rgba(255,214,98,0.7); }
+      100% { opacity: 1; color: #fff; text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
+    }
+
+    /* BODY PARAGRAPHS */
+    .floating-paragraph {
+      opacity: 0;
+      z-index: 1;
+      max-width: 40%;
+      margin: 0 auto 1.5rem;
+      font-size: 1.5rem;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 200;
+      line-height: 1.6;
+      text-align: left;
+      animation: bodyFade var(--anim-speed-body) ease forwards;
+    }
+
+    @keyframes bodyFade {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .floating-paragraph:nth-child(1) { animation-delay: calc(var(--anim-speed-title) + 1s); }
+    .floating-paragraph:nth-child(2) { animation-delay: calc(var(--anim-speed-title) + 1s + var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(3) { animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(4) { animation-delay: calc(var(--anim-speed-title) + 1s + 3*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(5) { animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(6) { animation-delay: calc(var(--anim-speed-title) + 1s + 5*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(7) { animation-delay: calc(var(--anim-speed-title) + 1s + 6*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(8) { animation-delay: calc(var(--anim-speed-title) + 1s + 7*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(9) { animation-delay: calc(var(--anim-speed-title) + 1s + 8*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(10) { animation-delay: calc(var(--anim-speed-title) + 1s + 9*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(11) { animation-delay: calc(var(--anim-speed-title) + 1s + 10*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(12) { animation-delay: calc(var(--anim-speed-title) + 1s + 11*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(13) { animation-delay: calc(var(--anim-speed-title) + 1s + 12*var(--anim-delay-stagger)); }
+
+    /* SERIES BACKGROUND */
+    .series-background {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Raleway Dots', cursive;
+      font-size: 25rem;
+      color: var(--gold-core);
+      opacity: .09;
+      pointer-events: none;
+    }
+
+    /* NEXT PART ICON */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    /* UP AND DOWN ARROWS */
+    .next-part { left: 50%;
+                 transform: translateX(-50%);
+                 font-family: 'Codystar', sans-serif;
+                 font-size: 4rem;
+                 color: inherit;
+                 text-align: center;
+                 cursor: pointer;
+                 z-index: 999;
+                } 
+    .next-part.up { top: 1rem; position: fixed; }    
+    .next-part.down { bottom: 1rem; position: relative; }
+    .next-part:hover { transform: translateX(-50%) translateY(2px); }
+  
+    .work-content { padding-top: 5rem; }
+
+    /* SPOTIFY POPUP */
+    .spotify-popup 
+    { display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(10px);
+      padding: 1.2rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,214,98,0.22);
+      box-shadow: 0 0 18px rgba(255,214,98,0.18), inset 0 0 22px rgba(255,214,98,0.10); }
+
+    .spotify-popup iframe 
+    { border-radius: 10px;
+      width: 100%;
+      height: 352px;
+      box-shadow: 0 0 12px rgba(255,214,98,0.12); }
+
+
+
+    .spotify-popup .close-btn { position: 0.5rem; top: 0.5rem; right: 1rem; 
+                               font-size: 1.5rem; color: #FFD662; cursor: pointer; }
+
+    /* MOBILE RESPONSIVE */
+    @media(max-width:768px) {
+      .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
+      .series-background { font-size: 12.5rem; }
+      .audio-button { right: 1rem; }
+      .work-title { position: static; 
+                    padding: 4rem 1.5rem 2rem 1.5rem; 
+                    font-size: 2.8rem; 
+                    line-height: 1.2; 
+                  }
+      .subtitle-container { position: static; margin: 0 auto; 
+                             padding: 0; width: 100%; 
+                             text-align: center; }
+      .work-title h2.column-subheading.animated-subtitle { font-size: 1.6rem; 
+                                                            max-width: 90%; 
+                                                            position: static; }
+      .spotify-popup { bottom: 0; left: 0; width: 100%; border-radius: 18px 18px 0 0;
+                        padding-bottom: calc(env(safe-area-inset-bottom) + 1rem); 
+                        border: 1px solid rgba(255,215,0,0.45); }
+      .spotify-popup iframe { width: 100%; height: 260px; border-radius: 12px; }
+      .next-part { position: relative; display: block; left: auto; 
+                    top: auto; bottom: auto; margin: 2rem auto 0; 
+                    transform: none; font-size: 2.5rem; z-index: 10; }
+      .next-part.up { margin-top: 2rem; }
+      .next-part.down { margin-bottom: 2rem; }
+      .next-part:hover { transform: translateY(2px); }
+      .work-content { padding-top: 3rem; }
+    }
+
+  </style>
+
+<!-- PAGE ELEMENTS -->
+</head>
+
+<body>
+
+  <div class="series-background">Cai</div>
+
+  <!-- BACK TO KITTY BUTTON -->
+  <a href="../../index.html" class="back-button">
+    <span class="back-text">Back to</span>
+    <span class="kitty-text">Kitty</span>
+  </a>
+
+   <div class="work-title">
+      <h1>Cai Người</h1>
+  </div>
+
+  <div class="subtitle-container">
+      <h2 class="column-subheading animated-subtitle">
+       Suy xét lại những sai lầm trong quá khứ…
+      </h2>
+  </div>
+
+
+    <div class="work-content" style="padding-top:5rem;">
+      <div class="text-section">
+        <p class="floating-paragraph">Hãy giơ tay nếu bạn đã từng bôi bác sau lưng một đối tượng tình cảm.</p>
+        <p class="floating-paragraph">Hãy giơ tay nếu bạn đã từng lười biếng việc trân trọng với một đối tượng tình cảm.</p>
+        <p class="floating-paragraph">Hãy giơ tay nếu bạn từng chết cũng đéo nhận sai trong một cuộc cãi vã.</p>
+        <p class="floating-paragraph">Hãy giơ tay nếu bạn đã từng có hành vi bạo lực với một đối tượng tình cảm.</p>
+        <p class="floating-paragraph">Hãy giơ tay nếu bạn đã từng ghen tuông vô cớ một đối tượng tình cảm.</p>
+        <p class="floating-paragraph">Hãy giơ tay nếu bạn đã từng lợi dụng tài chính hoặc tình cảm của một đối tượng tình cảm.</p>
+        <p class="floating-paragraph">Bạn đã bao giờ suy xét kĩ rằng liệu mình đã phải một người yêu tốt chưa?</p>        
+        <p class="floating-paragraph">Bạn đã bao giờ suy xét kĩ mọi chuyện từ góc nhìn của đối phương chưa?</p>
+
+       <span class="next-part up" data-target="cai.nguoi-thua.nhan.html">︿</span>
+        <span class="next-part down" data-target="../../under-creation-!.html">﹀</span>
+
+    </div>
+  </div>
+
+  <!-- AUDIO BUTTON -->
+  <div class="audio-button" id="audioBtn">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.95 7-4.49 7-8.77s-2.99-7.82-7-8.77z"/>
+    </svg>
+  </div>
+
+  <!-- SPOTIFY POP-UP -->
+  <div class="spotify-popup" id="spotifyPopup">
+    <span class="close-btn" id="closePopup">&times;</span>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0vcdNvf4JqpLuJ8kvTSq01?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+
+  <!-- UI INTERACTION (modal + transition) -->
+  <script>
+    const audioBtn = document.getElementById('audioBtn');
+    const popup = document.getElementById('spotifyPopup');
+    const closeBtn = document.getElementById('closePopup');
+
+      audioBtn.addEventListener('click', () => { popup.style.display = 'block'; });
+      closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
+      window.addEventListener('click', (e) => { if (e.target === popup) popup.style.display = 'none'; });
+
+    const arrows = document.querySelectorAll('.next-part');
+      arrows.forEach(arrow => {
+      arrow.addEventListener('click', () => {
+      document.body.style.transition = 'opacity 1s';
+      document.body.style.opacity = 0;
+      setTimeout(() => {
+        window.location.href = arrow.dataset.target;
+      }, 1000);
+    });
+  });
+  </script>
+
+</body>
+</html>
