@@ -146,7 +146,6 @@
 
     /* UP AND DOWN ARROWS */
      .next-part {
-      position: fixed;
       left: 50%;
       transform: translateX(-50%);
       font-family: 'Codystar', sans-serif;
@@ -157,8 +156,8 @@
       z-index: 10;
     }
 
-    .next-part.up { top: 1rem; }    
-    .next-part.down { bottom: 1rem; }
+    .next-part.up { top: 1rem; position: fixed; }    
+    .next-part.down { bottom: 1rem; position: relative; }
     .next-part:hover { transform: translateX(-50%) translateY(2px); }
 
     .work-content { padding-top: 5rem; }
