@@ -148,8 +148,8 @@ h3 {
   position: fixed;
   top: 36%;
   right: 3.5rem;
-  width: 44px;
-  height: 44px;
+  width: 64px;
+  height: 64px;
   cursor: pointer;
   background: transparent;
   display: flex;
@@ -160,10 +160,9 @@ h3 {
   transition: transform 0.25s, opacity 0.5s;
 }
 
-/* Glow on the whole SVG, not just path */
 .audio-button svg {
-  width: 26px;
-  height: 26px;
+  width: 40px;
+  height: 40px;
   filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 8px #fff);
   transition: filter 0.25s, transform 0.25s;
 }
