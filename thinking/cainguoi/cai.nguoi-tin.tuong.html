@@ -82,7 +82,7 @@
       100%{opacity:1;color:#fff;text-shadow:0 0 6px #fff,0 0 12px rgba(255,214,98,0.8);}
     }
 
-    /* BODY PARAGRAPHS */
+    /* BODY PARAGRAPHS WITH STAGGERED ANIMATION */
     .floating-paragraph {
       opacity:0;
       max-width:40%;
@@ -97,6 +97,12 @@
     }
 
     @keyframes bodyFade {0%{opacity:0;}100%{opacity:1;}}
+
+    .floating-paragraph:nth-child(1) { animation-delay: calc(var(--anim-speed-title) + 1s); }
+    .floating-paragraph:nth-child(2) { animation-delay: calc(var(--anim-speed-title) + 1s + 1*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(3) { animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(4) { animation-delay: calc(var(--anim-speed-title) + 1s + 3*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(5) { animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger)); }
 
     /* SERIES BACKGROUND */
     .series-background {
@@ -150,23 +156,19 @@
     <h1>Cai Người</h1>
   </div>
 
-  <!-- SUBTITLE -->
   <div class="subtitle-container">
     <h2>Tin tưởng vào một Quyền Lực Thượng Thừa để tiếp thêm sức mạnh.</h2>
   </div>
 
   <div class="text-section">
-    <!-- UPWARD ARROW -->
     <span class="next-part up" data-target="cai.nguoi-thua.nhan.html">︿</span>
 
-    <!-- CONTENT (UNCHANGED) -->
     <p class="floating-paragraph">Chúa?</p>
     <p class="floating-paragraph">Không, tôi không tin vào Chúa. Ấy mà… tôi lại toàn tin vào những uẩn khúc chỉ có thể được giải thích bằng một Quyền Lực Thượng Thừa siêu nhiên nào đó.</p>
     <p class="floating-paragraph">Tôi không hẳn là… thích cách Chương Trình 12 Bước diễn trình nguyên lý cho lắm. Hơi… tín ngưỡng chút so với niềm tin của tôi. Mà, đừng đã, nghe tôi: Tôi sẵn sàng thay đổi niềm tin của mình, luân lý của bạn chỉ cần đủ chặt chẽ và nhất quán là bạn bắt thóp tôi rồi. Nhưng còn lại, tôi hiểu: Khi bạn đã lỡ rơi xuống đáy cùng của tâm khảm, và nhiều khi là của xã hội, bên cạnh tất cả những hooligan và weeabo, còn gì nữa, ngoài niềm tin vào một Đấng Tối Cao bên trên? Một nguồn năng lượng bạn có thể vin vào mà vực dậy tinh thần mà tiến đến một tương lai tươi sáng với toàn phần chủ quyền bản thân.</p>
     <p class="floating-paragraph">Thế Đấng Tối Cao nào cơ? Chúa? Àaaa, hay là ở đây này. Thực mà nói, khái niệm Quyền Lực Thượng Thừa trong chương trình 12 Bước khởi nguyên là chỉ Đức Thiên Chúa chúng ta vẫn biết đến bấy giờ và bây giờ. Tuy nhiên, thế giới đổi thay nhiều rồi và khái niệm này dần được định nghĩa lại, rộng hơn nữa, và mơ hồ hơn nữa. Là một thánh nhân, là một thực thể, một quần thể thiêng liêng, một vầng hào quang vô hình toàn diện, chẳng quan trọng nữa. Chỉ cần một khái niệm to lớn hơn bạn, to lớn hơn tôi, to lớn hơn tất cả chúng ta, mà bạn tin có thể cứu rỗi tâm hồn bạn. “Bạn thấy  Chúa của bạn hợp lý? Chúng tôi thấy Chúa của bạn hợp lý.”</p>
     <p class="floating-paragraph">Tính ra, tôi… khá thích điều đó.</p>
 
-    <!-- DOWNWARD ARROW -->
     <span class="next-part down" data-target="cai.nguoi-thua.nhan.html">﹀</span>
   </div>
 
