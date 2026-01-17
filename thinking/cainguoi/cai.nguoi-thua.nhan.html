@@ -19,7 +19,7 @@
       --gold-core: #FFD662;
     }
 
-    /* TITLE ANIMATION */
+    /* TITLE + SUBTITLE GLOW ANIMATION */
     @keyframes neonSign-Gold {
       0%{opacity:0;color:#222;text-shadow:none;}
       8%{opacity:1;color:var(--gold-core);text-shadow:0 0 3px var(--gold-core);}
@@ -35,15 +35,14 @@
 
     /* WORK TITLE */
     .work-title { 
-      position: sticky;
-      top: 0;
+      position: static; /* title not sticky */
       padding: 2rem 5rem;
       z-index: 2;
     }
 
     .work-title h1 {
       font-family:'Raleway',sans-serif;
-      font-size:4rem;
+      font-size:5rem; /* bigger like thuo.dau mobile */
       letter-spacing:0.16em;
       font-weight:100;
       color:#222;
@@ -52,23 +51,27 @@
       opacity:0;
       animation:neonSign-Gold 1s ease forwards;
       animation-delay:0.3s;
+      max-width:6ch; /* forces line break: "Cai" above "Nguoi" */
+      margin:0 auto;
     }
 
     /* SUBTITLE */
     .subtitle-container {
+      position: sticky;
+      top:0; /* sticks at top */
       width: fit-content;
-      margin: 0 auto 2rem; /* sits right under title */
-      text-align: left; /* desktop left-aligned */
+      margin:0 auto 2rem;
       z-index: 2;
     }
 
     .subtitle-container h2 {
       font-family:'Raleway',sans-serif;
       font-weight:100;
-      font-size:2rem;
+      font-size:2.4rem; /* bigger */
       line-height:1.4;
+      color:#fff; /* white */
       opacity:0;
-      animation: neonSign-Gold 0.6s ease forwards; /* faster than title */
+      animation: neonSign-Gold 0.6s ease forwards; /* glow like title */
       animation-delay: calc(0.3s + 1s); /* after title */
     }
 
@@ -88,7 +91,7 @@
 
     @keyframes bodyFade {0%{opacity:0;}100%{opacity:1;}}
 
-    /* stagger body paragraphs after subtitle */
+    /* STAGGER BODY TEXT */
     .floating-paragraph:nth-child(1) { animation-delay: calc(0.3s + 1s + 0.6s); }
     .floating-paragraph:nth-child(2) { animation-delay: calc(0.3s + 1s + 0.6s + var(--anim-delay-stagger)); }
     .floating-paragraph:nth-child(3) { animation-delay: calc(0.3s + 1s + 0.6s + 2*var(--anim-delay-stagger)); }
@@ -124,27 +127,22 @@
     /* MOBILE */
     @media(max-width:768px) {
       /* Mobile title like thuo.dau */
-      .work-title { 
-        position: static;
-        padding:4rem 1.5rem 2rem 1.5rem;
-      }
       .work-title h1 { 
-        font-size:2.8rem;
+        font-size:5rem; 
         letter-spacing:0.12em;
-        line-height:1.2;
-        max-width:5ch;  /* "Cai" above "Nguoi" */
+        line-height:1.1;
+        max-width:6ch; 
         margin:0 auto;
       }
 
-      /* subtitle centered on mobile */
+      /* Subtitle centered on mobile */
       .subtitle-container { 
         text-align:center; 
-        margin:1rem auto 2rem; 
         max-width:90vw; 
         padding:0 1.5rem; 
       }
       .subtitle-container h2 { 
-        font-size:1.6rem; 
+        font-size:2rem; 
         text-align:center;
       }
 
