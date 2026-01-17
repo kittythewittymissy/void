@@ -59,31 +59,15 @@
     /* SUBTITLE */
     .subtitle-container {
       width:fit-content;
-      margin:1rem auto 2rem;
-      text-align:center;
+      margin: 0rem auto 2rem;
+      text-align:left;
       z-index:2;
-    }
-
-    .subtitle-container h2 {
-      font-family:'Raleway',sans-serif;
-      font-weight:100;
-      font-size:2rem;
-      line-height:1.4;
-      max-width:22ch;
-      margin:0 auto;
       opacity:0;
-      animation:neonSign-White 0.7s ease forwards;
-      animation-delay:1.2s;
+      animation:subtitleFade 0.7s ease forwards;
+      animation-delay:calc(var(--anim-speed-title) + 0.3s); 
     }
 
-    @keyframes neonSign-White {
-      0%{opacity:0;color:#222;text-shadow:none;}
-      8%{opacity:1;color:#fff;text-shadow:0 0 3px #fff;}
-      16%{opacity:0;color:#222;text-shadow:none;}
-      25%{opacity:1;color:#fff;text-shadow:0 0 6px #fff,0 0 10px rgba(255,214,98,0.7);}
-      50%{opacity:1;color:#fff;text-shadow:0 0 10px #fff,0 0 18px #fff;}
-      100%{opacity:1;color:#fff;text-shadow:0 0 6px #fff,0 0 12px rgba(255,214,98,0.8);}
-    }
+    @keyframes subtitleFade { 0%{opacity:0;} 100%{opacity:1;} }
 
     /* BODY PARAGRAPHS */
     .floating-paragraph {
@@ -101,6 +85,13 @@
 
     @keyframes bodyFade {0%{opacity:0;}100%{opacity:1;}}
 
+    /* stagger body paragraphs after subtitle */
+    .floating-paragraph:nth-child(1) { animation-delay: calc(var(--anim-speed-title) + 0.3s + 0.7s); }
+    .floating-paragraph:nth-child(2) { animation-delay: calc(var(--anim-speed-title) + 0.3s + 0.7s + var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(3) { animation-delay: calc(var(--anim-speed-title) + 0.3s + 0.7s + 2*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(4) { animation-delay: calc(var(--anim-speed-title) + 0.3s + 0.7s + 3*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(5) { animation-delay: calc(var(--anim-speed-title) + 0.3s + 0.7s + 4*var(--anim-delay-stagger)); }
+
     /* SERIES BACKGROUND */
     .series-background {
       position: fixed;
@@ -114,11 +105,11 @@
       z-index:0;
     }
 
-    .text-section { position: relative; z-index: 2; }
+    .text-section { position: relative; z-index:2; }
 
     /* NEXT PART ICONS */
     .next-part {
-      display: block;
+      display:block;
       font-family:'Codystar',sans-serif;
       font-size:4rem;
       color:inherit;
@@ -131,15 +122,13 @@
     @media(max-width:768px) {
       .work-title { 
         position: static;
-        padding: 5rem 0 2rem 0; }
-      .work-title h1 { font-size:3.5rem; letter-spacing:0.12em; max-width:92vw; margin:0 auto; }
-      .subtitle-container { max-width:92vw; padding:0 1.25rem; margin:1.5rem auto 0.5rem; }
-      .subtitle-container h2 { font-size:1.6rem; max-width:92vw; text-align:center; }
+        padding:4rem 1.5rem 2rem 1.5rem; }
+      .work-title h1 { font-size:2.8rem; letter-spacing:0.12em; line-height:1.2; max-width:100%; margin:0 auto; }
+      .subtitle-container { text-align:center; margin:1rem auto 2rem; max-width:90vw; padding:0 1.5rem; }
+      .subtitle-container h2 { font-size:rem; max-width:100%; text-align:center; }
       .floating-paragraph { max-width:90%; font-size:1.15rem; margin:0 auto 1.2rem; }
       .series-background { font-size:12.5rem; }
-      .next-part { font-size:2.5rem; margin-top:0.5rem; }
-      .next-part.up { margin-top:0.5rem; font-size:2.5rem; }
-      .next-part.down { font-size:2.5rem; margin-top:1rem; }
+      .next-part { font-size:2.5rem; margin-top:1rem; }
       .text-section { padding-top:3rem; }
     }
 
