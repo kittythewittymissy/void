@@ -56,6 +56,35 @@
       100%{opacity:1;color:var(--gold-core);text-shadow:0 0 2px var(--gold-core),0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8),0 0 16px rgba(255,214,98,0.6);}
     }
 
+    /* SUBTITLE */
+    .subtitle-container {
+      width:fit-content;
+      margin:1rem auto 2rem;
+      text-align:center;
+      z-index:2;
+    }
+
+    .subtitle-container h2 {
+      font-family:'Raleway',sans-serif;
+      font-weight:100;
+      font-size:2rem;
+      line-height:1.4;
+      max-width:22ch;
+      margin:0 auto;
+      opacity:0;
+      animation:neonSign-White 0.7s ease forwards;
+      animation-delay:1.2s;
+    }
+
+    @keyframes neonSign-White {
+      0%{opacity:0;color:#222;text-shadow:none;}
+      8%{opacity:1;color:#fff;text-shadow:0 0 3px #fff;}
+      16%{opacity:0;color:#222;text-shadow:none;}
+      25%{opacity:1;color:#fff;text-shadow:0 0 6px #fff,0 0 10px rgba(255,214,98,0.7);}
+      50%{opacity:1;color:#fff;text-shadow:0 0 10px #fff,0 0 18px #fff;}
+      100%{opacity:1;color:#fff;text-shadow:0 0 6px #fff,0 0 12px rgba(255,214,98,0.8);}
+    }
+
     /* BODY PARAGRAPHS */
     .floating-paragraph {
       opacity:0;
@@ -105,9 +134,13 @@
         padding: 4rem 1.5rem 2rem 1.5rem; 
       }
       .work-title h1 { font-size:2.8rem; letter-spacing:0.12em; max-width:92vw; margin:0 auto; }
+      .subtitle-container { max-width:92vw; padding:0 1.25rem; margin:1rem auto 0.5rem; }
+      .subtitle-container h2 { font-size:1.15rem; max-width:92vw; text-align:center; }
       .floating-paragraph { max-width:90%; font-size:1.15rem; margin:0 auto 1.2rem; }
       .series-background { font-size:12.5rem; }
       .next-part { font-size:2.5rem; margin-top:1rem; }
+      .next-part.up { margin-top:0.5rem; font-size:2.5rem; }
+      .next-part.down { font-size:2.5rem; margin-top:1rem; }
       .text-section { padding-top:3rem; }
     }
 
@@ -124,6 +157,11 @@
 
   <div class="work-title">
     <h1>Cai Người</h1>
+  </div>
+
+  <!-- SUBTITLE -->
+  <div class="subtitle-container">
+    <h2>Thừa nhận bản thân mình không thể điều khiển được những thế lực cưỡng ép.</h2>
   </div>
 
   <div class="text-section">
