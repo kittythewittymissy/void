@@ -152,47 +152,22 @@
     /* MOBILE RESPONSIVE */
     @media(max-width:768px) {
 
-      /* wrapper to center everything */
-      .mobile-center-wrapper {
-        width: auto;
-        max-width: 400px;
-        margin: 0 auto;
-        text-align: center;
-        position: relative;
-        padding: 0 1rem;
-      }
-
-      .work-title, .subtitle-container, .text-section {
-        width: 100%;
-        display: block;
-        text-align: center;
-        margin: 0 auto;
-        padding: 0;
-      }
-
-      .work-title h1, .subtitle-container h2.column-subheading.animated-subtitle {
-        display: block;
-        text-align: center;
-        margin: 0 auto;
-      }
-
-      .floating-paragraph {
-        max-width: 100%;
-        text-align: center;
-        margin: 0 auto 1.5rem auto;
-        font-size: 1.15rem;
-      }
-
-      .series-background { font-size: 12.5rem; }
-      .audio-button { right: 1rem; }
-      .spotify-popup { bottom: 0; left: 0; width: 100%; border-radius: 18px 18px 0 0; padding-bottom: calc(env(safe-area-inset-bottom) + 1rem); border: 1px solid rgba(255,215,0,0.45); }
-      .spotify-popup iframe { width: 100%; height: 260px; border-radius: 12px; }
-
-      .next-part.up { position: absolute; top: -2rem; left: 50%; transform: translateX(-50%); }
-      .next-part.down { display: block; margin: 2rem auto 2rem auto; }
-
-      .work-content { padding-top: 3rem; }
+    .work-title,
+    .subtitle-container,
+    .text-section { width: 100%; padding: 0 1rem; margin: 0 auto; position: relative; }
+    .work-title h1,
+    .subtitle-container h2.column-subheading.animated-subtitle { text-align: center; margin: 0 auto; }
+    .floating-paragraph { max-width: 100%; text-align: left; margin: 0 auto 1.5rem auto; font-size: 1.15rem; }
+    .next-part.up { position: absolute; top: -2rem; left: 50%; transform: translateX(-50%); text-align: center; }
+    .next-part.down { display: block; margin: 2rem auto; text-align: center; }
+    .series-background { font-size: 12.5rem; }
+    .audio-button { right: 1rem; }
+    .spotify-popup { bottom: 0; left: 0; width: 100%; border-radius: 18px 18px 0 0; padding-bottom: calc(env(safe-area-inset-bottom) + 1rem); border: 1px solid rgba(255,215,0,0.45); }
+    .spotify-popup iframe { width: 100%; height: 260px; border-radius: 12px; }
+    .work-content { padding-top: 3rem; }
+    
     }
+
   </style>
 </head>
 <body>
