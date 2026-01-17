@@ -11,7 +11,6 @@
   <!-- LINK TO GLOBAL STYLE.CSS -->
   <link rel="stylesheet" href="../../style.css">
 
-  <!-- PAGE STYLE -->
   <style>
     :root {
       --anim-speed-title: 2s;
@@ -25,12 +24,11 @@
 
     /* WORK TITLE */
     .work-title { 
-      display: inline-block;
+      display: flex;
+      flex-direction: column;
       position: relative;
       top: 0;
       padding: 2rem 5rem;
-      display: flex;
-      flex-direction: column;
     }
 
     .work-title h1 {
@@ -77,9 +75,6 @@
     .subtitle-container h2.column-subheading.animated-subtitle {
       position: relative;
       color: #fff;
-      -webkit-text-stroke: 0;
-      z-index: 10;
-      display: block;
       font-family: 'Raleway', sans-serif;
       font-size: 2rem;
       font-weight: 100;
@@ -87,7 +82,6 @@
         0 0 2px #fff,
         0 0 6px rgba(255,255,255,0.6),
         0 0 12px rgba(255,255,255,0.4);
-      margin-top: 0.3em;
       opacity: 0;
       animation: neonSign-White 0.7s ease forwards;
       animation-delay: 1.2s;
@@ -95,14 +89,14 @@
       line-height: 1.4; 
       word-wrap: break-word;
       text-align: left;
-      margin: 0.3em 0 0 0;
       pointer-events: none;
+      margin: 0.3em 0 0 0;
     }  
 
     @keyframes neonSign-White {
       0%   { opacity: 0; color: #222; text-shadow: none; }
       8%   { opacity: 1; color: #fff; text-shadow: 0 0 3px #fff; }
-      16%  { opacity: 0; color: #222; text-shadow: none; }
+      16%  { opacity: 0.0; color: #222; text-shadow: none; }
       25%  { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 10px rgba(255,214,98,0.7); }
       33%  { opacity: 0.4; color: #222; text-shadow: none; }
       50%  { opacity: 1; color: #fff; text-shadow: 0 0 10px #fff, 0 0 18px #fff; }
@@ -131,20 +125,6 @@
       100% { opacity: 1; }
     }
 
-    .floating-paragraph:nth-child(1) { animation-delay: calc(var(--anim-speed-title) + 1s); }
-    .floating-paragraph:nth-child(2) { animation-delay: calc(var(--anim-speed-title) + 1s + var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(3) { animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(4) { animation-delay: calc(var(--anim-speed-title) + 1s + 3*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(5) { animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(6) { animation-delay: calc(var(--anim-speed-title) + 1s + 5*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(7) { animation-delay: calc(var(--anim-speed-title) + 1s + 6*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(8) { animation-delay: calc(var(--anim-speed-title) + 1s + 7*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(9) { animation-delay: calc(var(--anim-speed-title) + 1s + 8*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(10) { animation-delay: calc(var(--anim-speed-title) + 1s + 9*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(11) { animation-delay: calc(var(--anim-speed-title) + 1s + 10*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(12) { animation-delay: calc(var(--anim-speed-title) + 1s + 11*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(13) { animation-delay: calc(var(--anim-speed-title) + 1s + 12*var(--anim-delay-stagger)); }
-
     /* SERIES BACKGROUND */
     .series-background {
       position: fixed;
@@ -158,88 +138,63 @@
     }
 
     /* NEXT PART ICON */
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    
-    /* UP AND DOWN ARROWS */
-    .next-part { left: 50%;
-                 transform: translateX(-50%);
-                 font-family: 'Codystar', sans-serif;
-                 font-size: 4rem;
-                 color: inherit;
-                 text-align: center;
-                 cursor: pointer;
-                 z-index: 999;
-                } 
-    .next-part.up { top: 1rem; position: fixed; transform: translateX(-50%); }    
-    .next-part.down { bottom: 1rem; position: relative; }
-    .next-part:hover { transform: translateX(-50%) translateY(2px); }
-  
+    a { text-decoration: none; color: inherit; }
+    .next-part { font-family: 'Codystar', sans-serif; font-size: 4rem; color: inherit; text-align: center; cursor: pointer; z-index: 999; }
+    .next-part:hover { transform: translateY(2px); }
+
     .work-content { padding-top: 5rem; }
 
     /* SPOTIFY POPUP */
-    .spotify-popup 
-    { display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 999;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(10px);
-      padding: 1.2rem;
-      border-radius: 14px;
-      border: 1px solid rgba(255,214,98,0.22);
-      box-shadow: 0 0 18px rgba(255,214,98,0.18), inset 0 0 22px rgba(255,214,98,0.10); }
-
-    .spotify-popup iframe 
-    { border-radius: 10px;
-      width: 100%;
-      height: 352px;
-      box-shadow: 0 0 12px rgba(255,214,98,0.12); }
-
-
-
-    .spotify-popup .close-btn { position: 0.5rem; top: 0.5rem; right: 1rem; 
-                               font-size: 1.5rem; color: #FFD662; cursor: pointer; }
+    .spotify-popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 999; background: rgba(0,0,0,0.55); backdrop-filter: blur(10px); padding: 1.2rem; border-radius: 14px; border: 1px solid rgba(255,214,98,0.22); box-shadow: 0 0 18px rgba(255,214,98,0.18), inset 0 0 22px rgba(255,214,98,0.10); }
+    .spotify-popup iframe { border-radius: 10px; width: 100%; height: 352px; box-shadow: 0 0 12px rgba(255,214,98,0.12); }
+    .spotify-popup .close-btn { position: absolute; top: 0.5rem; right: 1rem; font-size: 1.5rem; color: #FFD662; cursor: pointer; }
 
     /* MOBILE RESPONSIVE */
     @media(max-width:768px) {
-      .work-title, 
-      .subtitle-container, 
-      .text-section { width: 100%; text-align: center; margin: 0 auto; padding: 0 1.5rem; box-sizing: border-box; position: relative; } 
-      .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
+
+      /* wrapper to center everything */
+      .mobile-center-wrapper {
+        width: auto;
+        max-width: 400px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        padding: 0 1rem;
+      }
+
+      .work-title, .subtitle-container, .text-section {
+        width: 100%;
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0;
+      }
+
+      .work-title h1, .subtitle-container h2.column-subheading.animated-subtitle {
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      .floating-paragraph {
+        max-width: 100%;
+        text-align: center;
+        margin: 0 auto 1.5rem auto;
+        font-size: 1.15rem;
+      }
+
       .series-background { font-size: 12.5rem; }
       .audio-button { right: 1rem; }
-      .work-title { position: static; 
-                    padding: 4rem 1.5rem 2rem 1.5rem; 
-                    font-size: 2.8rem; 
-                    line-height: 1.2; 
-                  }
-      .subtitle-container { position: static; margin: 0 auto; 
-                             padding: 0; width: 100%; 
-                             text-align: center; }
-      .work-title h2.column-subheading.animated-subtitle { font-size: 1.6rem; 
-                                                            max-width: 90%; 
-                                                            position: static; }
-      .spotify-popup { bottom: 0; left: 0; width: 100%; border-radius: 18px 18px 0 0;
-                        padding-bottom: calc(env(safe-area-inset-bottom) + 1rem); 
-                        border: 1px solid rgba(255,215,0,0.45); }
+      .spotify-popup { bottom: 0; left: 0; width: 100%; border-radius: 18px 18px 0 0; padding-bottom: calc(env(safe-area-inset-bottom) + 1rem); border: 1px solid rgba(255,215,0,0.45); }
       .spotify-popup iframe { width: 100%; height: 260px; border-radius: 12px; }
-      .next-part { display: block; font-size: 2.5rem; z-index: 10; text-align: center; cursor: pointer; }
-      .next-part.up { top: -2rem; position: fixed; left: 50%; }
-      .next-part.down { position: relative; margin: 2rem auto 2rem auto; }
-      .next-part:hover { transform: translateY(2px); }
+
+      .next-part.up { position: absolute; top: -2rem; left: 50%; transform: translateX(-50%); }
+      .next-part.down { display: block; margin: 2rem auto 2rem auto; }
+
       .work-content { padding-top: 3rem; }
     }
-
   </style>
-
-<!-- PAGE ELEMENTS -->
 </head>
-
 <body>
 
   <div class="series-background">Cai</div>
@@ -250,18 +205,20 @@
     <span class="kitty-text">Kitty</span>
   </a>
 
-   <div class="work-title">
-      <h1>Cai Người</h1>
-  </div>
+  <!-- MOBILE WRAPPER -->
+  <div class="mobile-center-wrapper">
 
-  <div class="subtitle-container">
+    <div class="work-title">
+      <h1>Cai Người</h1>
+    </div>
+
+    <div class="subtitle-container">
       <h2 class="column-subheading animated-subtitle">
         Thừa nhận bản thân mình không thể điều khiển được những thế lực cưỡng ép.
       </h2>
-  </div>
+    </div>
 
-
-    <div class="work-content" style="padding-top:5rem;">
+    <div class="work-content">
       <div class="text-section">
         <p class="floating-paragraph">Mọi cơn nghiện đều bắt đầu từ một nhu cầu nho nhỏ lâu lâu xảy đến một lần. Một điếu thuốc, một ly rượu, một ván điện tử, một lời tán tỉnh. Tất cả từng là sự điều độ.</p>
         <p class="floating-paragraph">Người ta nghiện nhiều lắm, bạn biết đấy. Chưa từng dừng lại, chưa từng chậm lại. Không không không không, nó đa dạng và tinh vi hơn là đằng khác. Phổ thông nhất, ta có các chất kích thích, các chất an thần. Nhưng nghiện, mà nói vĩ mô ra, thì ông nghiện cả cái sự đời này cũng được. Thất đại tội của loài người trong Kinh Thánh Cơ Đốc, tôi phàm gọi là 7 cái nghiện dại đầu tiên, trước khi thế giới càng ngày càng trở nên phức tạp đến mất kiểm soát. Cứ đính chính thế này đi: Tôi thật lòng đang không ngỏ ý tranh luận với bất cứ ai về tôn giáo đâu. Không, tôi muốn tuyên ngôn: Cái nghiện là cái ban sơ của động vật, cái nghiện là cái đa diện và, tin tôi, cái đéo gì thì cũng nghiện được. Có nghiện đơn giản thì có nghiện phức tạp, nghiện ít thì cũng có nghiện nhiều.</p>
@@ -269,10 +226,11 @@
         <p class="floating-paragraph">Một trong những ảo giác phức hợp nhất con người có thể tạo ra cho chính mình là cảm giác liêm chính khác người và hơn người, khi cả ông, tôi và chúng ta đều cảm nhận được dòng dopamine chảy xiết trong não khi một ngày nữa, bạn lại săn sale cho những món đồ bạn đéo cần, lướt mạng xem những video bạn đéo quan tâm, và tiếp tục chạy theo những mối quan hệ đéo có lợi. Tất cả chúng ta đều suýt rồi đấy, suýt rồi… Chẳng biết cái gì làm bạn sống đỡ sống tiếp, nhưng phải chăng cái gì hẩy nhẹ bạn lọt vực, thì không biết còn nói vậy được không.</p>
         <p class="floating-paragraph">Cờ bạc có, tình dục có, sức mạnh có, và — cha bố nó chứ — người ta nghiện được cả tình yêu luôn. Một cái hố hình trái tim.</p>
 
-       <span class="next-part up" data-target="cai.nguoi-thuo.dau.html">︿</span>
+        <span class="next-part up" data-target="cai.nguoi-thuo.dau.html">︿</span>
         <span class="next-part down" data-target="cai.nguoi-tin.tuong.html">﹀</span>
-
+      </div>
     </div>
+
   </div>
 
   <!-- AUDIO BUTTON -->
@@ -285,29 +243,28 @@
   <!-- SPOTIFY POP-UP -->
   <div class="spotify-popup" id="spotifyPopup">
     <span class="close-btn" id="closePopup">&times;</span>
-    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0vcdNvf4JqpLuJ8kvTSq01?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0vcdNvf4JqpLuJ8kvTSq01?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </div>
 
-  <!-- UI INTERACTION (modal + transition) -->
   <script>
     const audioBtn = document.getElementById('audioBtn');
     const popup = document.getElementById('spotifyPopup');
     const closeBtn = document.getElementById('closePopup');
 
-      audioBtn.addEventListener('click', () => { popup.style.display = 'block'; });
-      closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
-      window.addEventListener('click', (e) => { if (e.target === popup) popup.style.display = 'none'; });
+    audioBtn.addEventListener('click', () => { popup.style.display = 'block'; });
+    closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
+    window.addEventListener('click', (e) => { if (e.target === popup) popup.style.display = 'none'; });
 
     const arrows = document.querySelectorAll('.next-part');
-      arrows.forEach(arrow => {
+    arrows.forEach(arrow => {
       arrow.addEventListener('click', () => {
-      document.body.style.transition = 'opacity 1s';
-      document.body.style.opacity = 0;
-      setTimeout(() => {
-        window.location.href = arrow.dataset.target;
-      }, 1000);
+        document.body.style.transition = 'opacity 1s';
+        document.body.style.opacity = 0;
+        setTimeout(() => {
+          window.location.href = arrow.dataset.target;
+        }, 1000);
+      });
     });
-  });
   </script>
 
 </body>
