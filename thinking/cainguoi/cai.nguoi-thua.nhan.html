@@ -20,18 +20,15 @@
     }
 
     /* WORK TITLE */
-    .work-title {
-      display:flex;
-      flex-direction:column;
-      position:relative;
-      top:0;
-      padding:2rem 5rem;
-      text-align:center;
+    .work-title { 
+      position: sticky;
+      top: 0;
+      padding: 2rem 5rem;
+      z-index: 2;
     }
 
     .work-title h1 {
       font-family:'Raleway',sans-serif;
-      z-index:1;
       font-size:4rem;
       letter-spacing:0.16em;
       font-weight:100;
@@ -59,38 +56,7 @@
       100%{opacity:1;color:var(--gold-core);text-shadow:0 0 2px var(--gold-core),0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8),0 0 16px rgba(255,214,98,0.6);}
     }
 
-    /* SUBTITLE */
-    .subtitle-container {
-      position:sticky;
-      top:5rem;
-      z-index:10;
-      margin:auto;
-      width:fit-content;
-      text-align:left;
-    }
-
-    .subtitle-container h2 {
-      font-family:'Raleway',sans-serif;
-      font-size:2rem;
-      font-weight:100;
-      max-width:22ch;
-      line-height:1.4;
-      text-align:left;
-      opacity:0;
-      animation:neonSign-White .7s ease forwards;
-      animation-delay:1.2s;
-    }
-
-    @keyframes neonSign-White {
-      0%{opacity:0;color:#222;text-shadow:none;}
-      8%{opacity:1;color:#fff;text-shadow:0 0 3px #fff;}
-      16%{opacity:0;color:#222;text-shadow:none;}
-      25%{opacity:1;color:#fff;text-shadow:0 0 6px #fff,0 0 10px rgba(255,214,98,0.7);}
-      50%{opacity:1;color:#fff;text-shadow:0 0 10px #fff,0 0 18px #fff;}
-      100%{opacity:1;color:#fff;text-shadow:0 0 6px #fff,0 0 12px rgba(255,214,98,0.8);}
-    }
-
-    /* BODY */
+    /* BODY PARAGRAPHS */
     .floating-paragraph {
       opacity:0;
       max-width:40%;
@@ -99,25 +65,16 @@
       font-family:'Raleway',sans-serif;
       font-weight:200;
       line-height:1.6;
+      text-align:left;
+      z-index:2;
       animation:bodyFade var(--anim-speed-body) ease forwards;
     }
 
     @keyframes bodyFade {0%{opacity:0;}100%{opacity:1;}}
 
-    /* NEXT ARROWS */
-    .next-part {
-      font-family:'Codystar',sans-serif;
-      font-size:4rem;
-      display:block;
-      text-align:center;
-      cursor:pointer;
-      margin:1.2rem auto;
-      line-height:1;
-    }
-
     /* SERIES BACKGROUND */
     .series-background {
-      position:fixed;
+      position: fixed;
       top:50%;left:50%;
       transform:translate(-50%,-50%);
       font-family:'Raleway Dots',cursive;
@@ -125,41 +82,35 @@
       color:var(--gold-core);
       opacity:.09;
       pointer-events:none;
+      z-index:0;
+    }
+
+    .text-section { position: relative; z-index: 2; }
+
+    /* NEXT PART ICONS */
+    .next-part {
+      display: block;
+      font-family:'Codystar',sans-serif;
+      font-size:4rem;
+      color:inherit;
+      text-align:center;
+      cursor:pointer;
+      margin:2rem auto;
     }
 
     /* MOBILE */
     @media(max-width:768px) {
-      .work-title {
-        padding:1.5rem 1.25rem 0.5rem;
-        margin:0 auto;
-        width:100%; }
-
-      .work-title h1 {
-        font-size:2.5rem; 
-        letter-spacing:0.12em;
-        max-width:92vw; margin:0 auto; }
-
-      .subtitle-container {
-        position:static;
-        width:fit-content;
-        max-width:92vw;
-        padding:0 1.25rem;
-        margin:0.5rem auto 1.5rem;
-        text-align:left;
+      .work-title { 
+        position: static;
+        padding: 4rem 1.5rem 2rem 1.5rem; 
       }
-
-      .subtitle-container h2 {
-        text-align:left;
-        margin:0 auto;
-        max-width:22ch;
-      }
-
-      .floating-paragraph {
-        max-width:92vw;
-        font-size:1.15rem;
-        margin:0 auto 1.2rem;
-      }
+      .work-title h1 { font-size:2.8rem; letter-spacing:0.12em; max-width:92vw; margin:0 auto; }
+      .floating-paragraph { max-width:90%; font-size:1.15rem; margin:0 auto 1.2rem; }
+      .series-background { font-size:12.5rem; }
+      .next-part { font-size:2.5rem; margin-top:1rem; }
+      .text-section { padding-top:3rem; }
     }
+
   </style>
 </head>
 <body>
@@ -175,11 +126,8 @@
     <h1>Cai Người</h1>
   </div>
 
-  <div class="subtitle-container">
-    <h2>Thừa nhận bản thân mình không thể điều khiển được những thế lực cưỡng ép.</h2>
-  </div>
-
   <div class="text-section">
+    <!-- UPWARD ARROW -->
     <span class="next-part up" data-target="cai.nguoi-thuo.dau.html">︿</span>
 
     <p class="floating-paragraph">Mọi cơn nghiện đều bắt đầu từ một nhu cầu nho nhỏ lâu lâu xảy đến một lần. Một điếu thuốc, một ly rượu, một ván điện tử, một lời tán tỉnh. Tất cả từng là sự điều độ.</p>
@@ -188,6 +136,7 @@
     <p class="floating-paragraph">Một trong những ảo giác phức hợp nhất con người có thể tạo ra cho chính mình là cảm giác liêm chính khác người và hơn người, khi cả ông, tôi và chúng ta đều cảm nhận được dòng dopamine chảy xiết trong não khi một ngày nữa, bạn lại săn sale cho những món đồ bạn đéo cần, lướt mạng xem những video bạn đéo quan tâm, và tiếp tục chạy theo những mối quan hệ đéo có lợi. Tất cả chúng ta đều suýt rồi đấy, suýt rồi… Chẳng biết cái gì làm bạn sống đỡ sống tiếp, nhưng phải chăng cái gì hẩy nhẹ bạn lọt vực, thì không biết còn nói vậy được không.</p>
     <p class="floating-paragraph">Cờ bạc có, tình dục có, sức mạnh có, và — cha bố nó chứ — người ta nghiện được cả tình yêu luôn. Một cái hố hình trái tim.</p>
 
+    <!-- DOWNWARD ARROW -->
     <span class="next-part down" data-target="cai.nguoi-tin.tuong.html">﹀</span>
   </div>
 
@@ -201,5 +150,6 @@
       });
     });
   </script>
+
 </body>
 </html>
