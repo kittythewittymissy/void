@@ -165,6 +165,7 @@
     
     /* UP AND DOWN ARROWS */
     .next-part { left: 50%;
+                 position: fixed;
                  transform: translateX(-50%);
                  font-family: 'Codystar', sans-serif;
                  font-size: 4rem;
@@ -216,17 +217,16 @@
                     line-height: 1.2; 
                   }
       .subtitle-container { position: static; margin: 0 auto; 
-                             padding: 0; width: 100%; 
+                             padding: 0 1.5rem; width: 100%; 
                              text-align: center; }
       .work-title h2.column-subheading.animated-subtitle { font-size: 1.6rem; 
-                                                            max-width: 90%; 
+                                                            max-width: 100%; 
                                                             position: static; }
       .spotify-popup { bottom: 0; left: 0; width: 100%; border-radius: 18px 18px 0 0;
                         padding-bottom: calc(env(safe-area-inset-bottom) + 1rem); 
                         border: 1px solid rgba(255,215,0,0.45); }
       .spotify-popup iframe { width: 100%; height: 260px; border-radius: 12px; }
-      .next-part { display: block; left: auto; top: auto; bottom: auto; margin: 2rem auto 0; 
-                    transform: translateX(-50%); font-size: 2.5rem; z-index: 10;}
+      .next-part { font-size: 2.5rem; z-index: 10;}
       .next-part.up { position: fixed: margin-top: 2rem; }
       .next-part.down { margin-bottom: 2rem; }
       .next-part:hover { transform: translateY(2px); }
