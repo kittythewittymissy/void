@@ -140,12 +140,13 @@ h3 {
 /* ==== FLOATING RIGHT COLUMN TABLE OF CONTENT ==== */
 .toc-floating {
   position: fixed;
-  top: 6rem;       /* distance from top */
-  right: 2rem;     /* spacing from right edge */
-  width: 260px;    /* fixed width, adjust if needed */
+  top: 6rem;   
+  transform: translateY(-50%)
+  right: 2rem;     
+  width: 260px;    
   max-height: 80vh;
   overflow-y: auto;
-  background: rgba(0,0,0,0.05); /* subtle backdrop */
+  background: rgba(0,0,0,0.05);
   padding: 1.5rem;
   border-left: 2px solid var(--gold-core);
   border-radius: 0.5rem;
@@ -162,13 +163,13 @@ h3 {
 
 /* TOC linear content inside floating container */
 .toc-floating .toc-linear {
-  max-width: 100%; /* fill container */
-  padding-left: 1rem; /* align line with dots */
+  max-width: 100%;
+  padding-left: 1rem;
   margin: 0;
 }
 
 .toc-floating .toc-linear::before {
-  left: 0.5rem; /* align with dots in container */
+  left: 0.5rem; 
 }
 
 /* Close button inside mobile TOC */
@@ -184,7 +185,7 @@ h3 {
   width: 28px;
   height: 28px;
   cursor: pointer;
-  display: none; /* hidden on desktop */
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 101;
@@ -197,49 +198,7 @@ h3 {
 
 /* ==== MOBILE TOGGLE BUTTON ==== */
 .toc-toggle-btn {
-  display: none;  /* hidden on desktop */
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-  .toc-floating {
-    display: none;          /* hidden by default */
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 80vw;
-    max-height: 100vh;
-    border-left: none;
-    border-radius: 0;
-    background: rgba(0,0,0,0.95);
-    padding: 2rem;
-  }
-
-  .toc-close-btn {
-    display: flex;  /* show close button on mobile */
-  }
-
-  .toc-toggle-btn {
-    display: flex;  /* show toggle button on mobile */
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: var(--gold-core);
-    color: #000;
-    font-size: 1.6rem;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 101;
-    box-shadow: 0 0 10px var(--gold-core), 0 0 20px rgba(255,214,98,0.5);
-  }
-
-  .toc-toggle-btn:hover {
-    background: rgba(255,214,98,0.9);
-  }
+  display: none; 
 }
 
 /* ===== AUDIO BUTTON ===== */
@@ -251,8 +210,8 @@ h3 {
 
 .audio-button {
   position: fixed;
-  top: 36%;
-  right: 3.5rem;
+  bottom: 3.25rem;
+  right: 3.25rem;
   width: 80px;
   height: 80px;
   cursor: pointer;
@@ -260,7 +219,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
+  z-index: 350;
   animation: floatVertical 6s ease-in-out infinite alternate;
   transition: transform 0.25s, opacity 0.5s;
 }
@@ -350,7 +309,7 @@ h3 {
 }
 
 /* ===== MOBILE OVERRIDES ===== */
-@media(max-width: 768px){
+@media(max-width: 768px) {
   .work-title,
   .main-row {
     overflow: visible;
@@ -395,3 +354,16 @@ h3 {
   .back-button { top: 1rem; right: 1rem; }
   .back-button .kitty-text { font-size: 2rem; }
   .next-part { font-size: 2rem; }
+
+  .toc-floating { display: none; position: fixed; top: 0; right: 0; width: 80vw; max-height: 100vh;
+                  border-left: none; border-radius: 0; background: rgba(0,0,0,0.95); padding: 2rem; }
+
+  .toc-close-btn { display: flex; }
+
+  .toc-toggle-btn { display: flex; position: fix; bottom: 2rem; right: 2rem; width: 56px;
+                    height: 56px; border-radius: 50%; background: var(--gold-core); color: #000;
+                    font-size: 1.6rem; align-items: center; justify-content: center; cursor: pointer;
+                    z-index: 101; box-shadow: 0 0 10px var(--gold-core), 0 0 20px rgba(255,214,98,0.5); }
+
+  .toc-toggle-btn:hover { background: rgba(255,214,98,0.9); }
+  }
