@@ -137,7 +137,112 @@ h3 {
     0 0 20px rgba(255,214,98,0.5);
 }
 
-/* ===== AUDIO BUTTON (SPEAKER ONLY) ===== */
+/* ==== FLOATING RIGHT COLUMN TABLE OF CONTENT ==== */
+.toc-floating {
+  position: fixed;
+  top: 6rem;       /* distance from top */
+  right: 2rem;     /* spacing from right edge */
+  width: 260px;    /* fixed width, adjust if needed */
+  max-height: 80vh;
+  overflow-y: auto;
+  background: rgba(0,0,0,0.05); /* subtle backdrop */
+  padding: 1.5rem;
+  border-left: 2px solid var(--gold-core);
+  border-radius: 0.5rem;
+  z-index: 100;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* TOC header inside floating container */
+.toc-floating h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--gold-core);
+}
+
+/* TOC linear content inside floating container */
+.toc-floating .toc-linear {
+  max-width: 100%; /* fill container */
+  padding-left: 1rem; /* align line with dots */
+  margin: 0;
+}
+
+.toc-floating .toc-linear::before {
+  left: 0.5rem; /* align with dots in container */
+}
+
+/* Close button inside mobile TOC */
+.toc-close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: var(--gold-core);
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  display: none; /* hidden on desktop */
+  align-items: center;
+  justify-content: center;
+  z-index: 101;
+  transition: background 0.2s;
+}
+
+.toc-close-btn:hover {
+  background: rgba(255,214,98,0.9);
+}
+
+/* ==== MOBILE TOGGLE BUTTON ==== */
+.toc-toggle-btn {
+  display: none;  /* hidden on desktop */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .toc-floating {
+    display: none;          /* hidden by default */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80vw;
+    max-height: 100vh;
+    border-left: none;
+    border-radius: 0;
+    background: rgba(0,0,0,0.95);
+    padding: 2rem;
+  }
+
+  .toc-close-btn {
+    display: flex;  /* show close button on mobile */
+  }
+
+  .toc-toggle-btn {
+    display: flex;  /* show toggle button on mobile */
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--gold-core);
+    color: #000;
+    font-size: 1.6rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 101;
+    box-shadow: 0 0 10px var(--gold-core), 0 0 20px rgba(255,214,98,0.5);
+  }
+
+  .toc-toggle-btn:hover {
+    background: rgba(255,214,98,0.9);
+  }
+}
+
+/* ===== AUDIO BUTTON ===== */
 @keyframes floatVertical {
   0% { transform: translateY(-6px); }
   50% { transform: translateY(6px); }
@@ -290,20 +395,3 @@ h3 {
   .back-button { top: 1rem; right: 1rem; }
   .back-button .kitty-text { font-size: 2rem; }
   .next-part { font-size: 2rem; }
-
-  /* Hide elements on scroll (mobile only) */
-  .hide-on-scroll { transition: opacity 0.4s, transform 0.4s; }
-}
-
-/* ===== SCROLL JS HANDLER (to add in your main JS) ===== */
-/*
-window.addEventListener('scroll', () => {
-  if(window.innerWidth <= 768){
-    const scrollTop = window.scrollY;
-    const fade = Math.max(0, 1 - scrollTop / 80); // fades out in first 80px
-    document.querySelector('.work-title').style.opacity = fade;
-    document.querySelector('.back-button').style.opacity = fade;
-    document.querySelector('.audio-button').style.opacity = fade;
-  }
-});
-*/
