@@ -40,8 +40,8 @@
       opacity: 0;
       animation: neonSign-Gold 1s ease forwards;
       animation-delay: 0.3s;
-      white-space: nowrap; /* force single line */
-      overflow: hidden;   /* prevents overflow scroll */
+      white-space: nowrap;
+      overflow: hidden;
       text-overflow: ellipsis;
     }
 
@@ -81,15 +81,21 @@
       100%{opacity:1;color:#fff;text-shadow:0 0 6px #fff,0 0 12px rgba(255,214,98,0.8);}
     }
 
+    @media(min-width:769px){
+      .subtitle-container { position: sticky; top: calc(2rem + 4rem); }
+    }
+
     /* --- BODY PARAGRAPHS --- */
     .floating-paragraph {
       opacity: 0;
+      max-width: 40%; /* matches first page width */
       margin: 0 auto 1.5rem;
       font-size: 1.5rem;
       font-family: 'Raleway', sans-serif;
       font-weight: 200;
       line-height: 1.6;
       text-align: left;
+      z-index: 2;
       animation: bodyFade var(--anim-speed-body) ease forwards;
     }
     @keyframes bodyFade { 0% { opacity: 0; } 100% { opacity: 1; } }
@@ -123,40 +129,22 @@
     }
 
     /* --- NEXT PART ICON --- */
-    .next-part { display:block; font-family:'Codystar',sans-serif; font-size:4rem; color:inherit; text-align:center; cursor:pointer; margin:2rem 0; text-decoration:none; }
+    .next-part { display:block; font-family:'Codystar',sans-serif; font-size:4rem; color:inherit; text-align:center; cursor:pointer; margin:2rem auto; text-decoration:none; }
     .next-part.up { margin-bottom:2rem; }
+    .next-part.down { margin-top:2rem; }
     .next-part:hover { transform:translateY(2px); }
 
-    /* --- FLEX THREE-COLUMN LAYOUT --- */
-    .layout-container {
-      display: flex;
-      gap: 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-    }
-    .left-column { flex: 1 0 280px; display:flex; flex-direction:column; padding-left:5rem; }
-    .center-column { flex: 2 1 auto; display:flex; flex-direction:column; }
-    .right-column { flex: 1 0 200px; display:flex; flex-direction:column; }
-
-    /* Sticky subtitle */
-    @media (min-width: 769px) {
-      .subtitle-container { position: sticky; top: 2rem; }
-    }
-
-    /* Mobile fallback */
+    /* RESPONSIVE */
     @media(max-width:768px) {
-      .layout-container { display:block; padding:1rem; }
-      .left-column, .center-column, .right-column { width:100%; }
-      .subtitle-container { position:static; margin:1rem auto 2rem; text-align:center; }
       .floating-paragraph { max-width:90%; font-size:1.15rem; }
       .series-background { font-size:12.5rem; }
       .work-title h1 { font-size:2.8rem; line-height:1.2; padding:4rem 1.5rem 2rem; }
+      .subtitle-container { position: static; margin:1rem auto 2rem; text-align:center; }
       .next-part { font-size:2.5rem; margin-top:1rem; }
     }
+
   </style>
 </head>
-
 <body>
 
   <div class="series-background">Cai</div>
@@ -166,37 +154,30 @@
     <span class="kitty-text">Kitty</span>
   </a>
 
-  <!-- FLEX LAYOUT -->
-  <div class="layout-container">
-    <!-- LEFT COLUMN -->
-    <div class="left-column">
-      <div class="work-title">
-        <h1>Cai Người</h1>
-      </div>
-      <div class="subtitle-container">
-        <h2>Thừa nhận bản thân mình không thể điều khiển được những thế lực cưỡng ép.</h2>
-      </div>
-    </div>
+  <!-- --- TITLE --- -->
+  <div class="work-title">
+    <h1>Cai Người</h1>
+  </div>
 
-    <!-- CENTER COLUMN -->
-    <div class="center-column">
-      <div class="text-section">
-        <span class="next-part up" data-target="cai.nguoi-thuo.dau.html">︿</span>
+  <!-- --- SUBTITLE --- -->
+  <div class="subtitle-container">
+    <h2>Thừa nhận bản thân mình không thể điều khiển được những thế lực cưỡng ép.</h2>
+  </div>
 
-        <p class="floating-paragraph">Mọi cơn nghiện đều bắt đầu từ một nhu cầu nho nhỏ lâu lâu xảy đến một lần. Một điếu thuốc, một ly rượu, một ván điện tử, một lời tán tỉnh. Tất cả từng là sự điều độ.</p>
-        <p class="floating-paragraph">Người ta nghiện nhiều lắm, bạn biết đấy. Chưa từng dừng lại, chưa từng chậm lại. Không không không không, nó đa dạng và tinh vi hơn là đằng khác. Phổ thông nhất, ta có các chất kích thích, các chất an thần. Nhưng nghiện, mà nói vĩ mô ra, thì ông nghiện cả cái sự đời này cũng được. Thất đại tội của loài người trong Kinh Thánh Cơ Đốc, tôi phàm gọi là 7 cái nghiện dại đầu tiên, trước khi thế giới càng ngày càng trở nên phức tạp đến mất kiểm soát. Cứ đính chính thế này đi: Tôi thật lòng đang không ngỏ ý tranh luận với bất cứ ai về tôn giáo đâu. Không, tôi muốn tuyên ngôn: Cái nghiện là cái ban sơ của động vật, cái nghiện là cái đa diện và, tin tôi, cái đéo gì thì cũng nghiện được. Có nghiện đơn giản thì có nghiện phức tạp, nghiện ít thì cũng có nghiện nhiều.</p>
-        <p class="floating-paragraph">Nhưng rốt cùng, mọi cơn nghiện đều chung quy tại sự đầu hàng, hoàn toàn bất đắc dĩ trao đi quyền hạn điều khiển bản thân cho một thứ.</p>
-        <p class="floating-paragraph">Một trong những ảo giác phức hợp nhất con người có thể tạo ra cho chính mình là cảm giác liêm chính khác người và hơn người, khi cả ông, tôi và chúng ta đều cảm nhận được dòng dopamine chảy xiết trong não khi một ngày nữa, bạn lại săn sale cho những món đồ bạn đéo cần, lướt mạng xem những video bạn đéo quan tâm, và tiếp tục chạy theo những mối quan hệ đéo có lợi. Tất cả chúng ta đều suýt rồi đấy, suýt rồi… Chẳng biết cái gì làm bạn sống đỡ sống tiếp, nhưng phải chăng cái gì hẩy nhẹ bạn lọt vực, thì không biết còn nói vậy được không.</p>
-        <p class="floating-paragraph">Cờ bạc có, tình dục có, sức mạnh có, và — cha bố nó chứ — người ta nghiện được cả tình yêu luôn. Một cái hố hình trái tim.</p>
+  <!-- --- BODY SECTION --- -->
+  <div class="text-section">
 
-        <span class="next-part down" data-target="cai.nguoi-tin.tuong.html">﹀</span>
-      </div>
-    </div>
+    <!-- UP ARROW -->
+    <span class="next-part up" data-target="cai.nguoi-thuo.dau.html">︿</span>
 
-    <!-- RIGHT COLUMN -->
-    <div class="right-column">
-      <!-- empty for now -->
-    </div>
+    <p class="floating-paragraph">Mọi cơn nghiện đều bắt đầu từ một nhu cầu nho nhỏ lâu lâu xảy đến một lần. Một điếu thuốc, một ly rượu, một ván điện tử, một lời tán tỉnh. Tất cả từng là sự điều độ.</p>
+    <p class="floating-paragraph">Người ta nghiện nhiều lắm, bạn biết đấy. Chưa từng dừng lại, chưa từng chậm lại. Không không không không, nó đa dạng và tinh vi hơn là đằng khác. Phổ thông nhất, ta có các chất kích thích, các chất an thần. Nhưng nghiện, mà nói vĩ mô ra, thì ông nghiện cả cái sự đời này cũng được. Thất đại tội của loài người trong Kinh Thánh Cơ Đốc, tôi phàm gọi là 7 cái nghiện dại đầu tiên, trước khi thế giới càng ngày càng trở nên phức tạp đến mất kiểm soát. Cứ đính chính thế này đi: Tôi thật lòng đang không ngỏ ý tranh luận với bất cứ ai về tôn giáo đâu. Không, tôi muốn tuyên ngôn: Cái nghiện là cái ban sơ của động vật, cái nghiện là cái đa diện và, tin tôi, cái đéo gì thì cũng nghiện được. Có nghiện đơn giản thì có nghiện phức tạp, nghiện ít thì cũng có nghiện nhiều.</p>
+    <p class="floating-paragraph">Nhưng rốt cùng, mọi cơn nghiện đều chung quy tại sự đầu hàng, hoàn toàn bất đắc dĩ trao đi quyền hạn điều khiển bản thân cho một thứ.</p>
+    <p class="floating-paragraph">Một trong những ảo giác phức hợp nhất con người có thể tạo ra cho chính mình là cảm giác liêm chính khác người và hơn người, khi cả ông, tôi và chúng ta đều cảm nhận được dòng dopamine chảy xiết trong não khi một ngày nữa, bạn lại săn sale cho những món đồ bạn đéo cần, lướt mạng xem những video bạn đéo quan tâm, và tiếp tục chạy theo những mối quan hệ đéo có lợi. Tất cả chúng ta đều suýt rồi đấy, suýt rồi… Chẳng biết cái gì làm bạn sống đỡ sống tiếp, nhưng phải chăng cái gì hẩy nhẹ bạn lọt vực, thì không biết còn nói vậy được không.</p>
+    <p class="floating-paragraph">Cờ bạc có, tình dục có, sức mạnh có, và — cha bố nó chứ — người ta nghiện được cả tình yêu luôn. Một cái hố hình trái tim.</p>
+
+    <!-- DOWN ARROW -->
+    <span class="next-part down" data-target="cai.nguoi-tin.tuong.html">﹀</span>
   </div>
 
   <script>
@@ -209,6 +190,5 @@
       });
     });
   </script>
-
 </body>
 </html>
