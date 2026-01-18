@@ -39,11 +39,11 @@
         0 0 4px var(--gold-core);
       -webkit-text-stroke: .4px var(--gold-core);
       opacity: 0;
-      animation: neonSign 1s ease forwards;
+      animation: neonSign-Gold 1s ease forwards;
       animation-delay: 0.3s;
     }
 
-    @keyframes neonSign {
+    @keyframes neonSign-Gold {
       0%   { opacity: 0; color: #222; text-shadow: none; }
       8%   { opacity: 1; color: var(--gold-core); text-shadow: 0 0 3px var(--gold-core); }
       16%  { opacity: 0; color: #222; text-shadow: none; }
@@ -66,6 +66,35 @@
       box-shadow: 0 0 0 var(--gold-core);
       animation: neonSign 1s ease forwards; /* very fast flash */
       animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger));
+    }
+
+    /* SUBTITLE */
+    .subtitle-container {
+      width: fit-content;
+      margin: 1rem auto 2rem;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .subtitle-container h2 {
+      font-family:'Raleway',sans-serif;
+      font-weight:100;
+      font-size:2rem;
+      line-height:1.4;
+      max-width:22ch;
+      margin:0 auto;
+      opacity:0;
+      animation:neonSign-White 0.7s ease forwards;
+      animation-delay:1.2s;
+    }
+
+    @keyframes neonSign-White {
+      0%{opacity:0;color:#222;text-shadow:none;}
+      8%{opacity:1;color:#fff;text-shadow:0 0 3px #fff;}
+      16%{opacity:0;color:#222;text-shadow:none;}
+      25%{opacity:1;color:#fff;text-shadow:0 0 6px #fff,0 0 10px rgba(255,214,98,0.7);}
+      50%{opacity:1;color:#fff;text-shadow:0 0 10px #fff,0 0 18px #fff;}
+      100%{opacity:1;color:#fff;text-shadow:0 0 6px #fff,0 0 12px rgba(255,214,98,0.8);}
     }
 
     /* BODY PARAGRAPHS */
