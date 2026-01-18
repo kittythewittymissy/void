@@ -19,10 +19,9 @@
       --gold-core: #FFD662;
     }
 
-    /* WORK TITLE */
+    /* --- WORK TITLE --- */
     .work-title { 
       position: relative;
-      top: 0;
       padding: 2rem 5rem;
       z-index: 2;
     }
@@ -44,55 +43,32 @@
     }
 
     @keyframes neonSign-Gold {
-      0%   { opacity: 0; color: #222; text-shadow: none; }
-      8%   { opacity: 1; color: var(--gold-core); text-shadow: 0 0 3px var(--gold-core); }
-      16%  { opacity: 0; color: #222; text-shadow: none; }
-      25%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 6px var(--gold-core), 0 0 10px rgba(255,214,98,0.7); }
-      33%  { opacity: 0.4; color: #222; text-shadow: none; }
-      50%  { opacity: 1; color: #fff; text-shadow: 0 0 10px #fff, 0 0 18px var(--gold-core); }
-      66%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8); }
-      83%  { opacity: 0.6; color: #222; text-shadow: none; }
-      92%  { opacity: 1; color: var(--gold-core); text-shadow: 0 0 4px var(--gold-core), 0 0 12px rgba(255,214,98,0.7); }
-      100% { opacity: 1; color: var(--gold-core); text-shadow: 0 0 2px var(--gold-core), 0 0 6px var(--gold-core), 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
+      0% { opacity:0; color:#222; text-shadow:none; }
+      8% { opacity:1; color:var(--gold-core); text-shadow:0 0 3px var(--gold-core); }
+      16% { opacity:0; color:#222; text-shadow:none; }
+      25% { opacity:1; color:var(--gold-core); text-shadow:0 0 6px var(--gold-core),0 0 10px rgba(255,214,98,0.7); }
+      50% { opacity:1; color:#fff; text-shadow:0 0 10px #fff,0 0 18px var(--gold-core); }
+      66% { opacity:1; color:var(--gold-core); text-shadow:0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8); }
+      83% { opacity:0.6; color:#222; text-shadow:none; }
+      92% { opacity:1; color:var(--gold-core); text-shadow:0 0 4px var(--gold-core),0 0 12px rgba(255,214,98,0.7); }
+      100% { opacity:1; color:var(--gold-core); text-shadow:0 0 2px var(--gold-core),0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8),0 0 16px rgba(255,214,98,0.6); }
     }
 
-    /* NEON DIVIDEER */
-    .neon-div {
-      width: 40%;
-      margin: 3rem auto;
-      height: 1.5px;
-      background: var(--gold-core);
-      opacity: 0;
-      box-shadow: 0 0 0 var(--gold-core);
-      animation: neonSign 1s ease forwards; /* very fast flash */
-      animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger));
-    }
-    
-      /* SUBTITLE */
+    /* --- SUBTITLE --- */
     .subtitle-container {
-      position: sticky;
-      top: 2rem;
-      width: auto;
-      top: calc(2rem + 4rem);
-      margin: 1rem 0 2rem 5rem;
-      padding-left: 5rem;
-      text-align: left;
+      margin: 1rem 0 2rem;
       z-index: 75;
     }
-
     .subtitle-container h2 {
       font-family:'Raleway',sans-serif;
       font-weight:100;
       font-size:2rem;
       line-height:1.4;
       max-width:22ch;
-      margin:0 auto;
       opacity:0;
       animation:neonSign-White 1.2s ease forwards;
       animation-delay:1.2s;
-      z-index: 75;
     }
-
     @keyframes neonSign-White {
       0%{opacity:0;color:#222;text-shadow:none;}
       8%{opacity:1;color:#fff;text-shadow:0 0 3px #fff;}
@@ -102,41 +78,25 @@
       100%{opacity:1;color:#fff;text-shadow:0 0 6px #fff,0 0 12px rgba(255,214,98,0.8);}
     }
 
-    /* BODY PARAGRAPHS */
+    /* --- BODY PARAGRAPHS --- */
     .floating-paragraph {
       opacity: 0;
-      max-width: 40%;
       margin: 0 auto 1.5rem;
       font-size: 1.5rem;
       font-family: 'Raleway', sans-serif;
       font-weight: 200;
       line-height: 1.6;
       text-align: left;
-      z-index: 2;
       animation: bodyFade var(--anim-speed-body) ease forwards;
     }
-
-    @keyframes bodyFade {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
+    @keyframes bodyFade { 0% { opacity: 0; } 100% { opacity: 1; } }
     .floating-paragraph:nth-child(1) { animation-delay: calc(var(--anim-speed-title) + 1s); }
     .floating-paragraph:nth-child(2) { animation-delay: calc(var(--anim-speed-title) + 1s + var(--anim-delay-stagger)); }
     .floating-paragraph:nth-child(3) { animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger)); }
     .floating-paragraph:nth-child(4) { animation-delay: calc(var(--anim-speed-title) + 1s + 3*var(--anim-delay-stagger)); }
     .floating-paragraph:nth-child(5) { animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(6) { animation-delay: calc(var(--anim-speed-title) + 1s + 5*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(7) { animation-delay: calc(var(--anim-speed-title) + 1s + 6*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(8) { animation-delay: calc(var(--anim-speed-title) + 1s + 7*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(9) { animation-delay: calc(var(--anim-speed-title) + 1s + 8*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(10) { animation-delay: calc(var(--anim-speed-title) + 1s + 9*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(11) { animation-delay: calc(var(--anim-speed-title) + 1s + 10*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(12) { animation-delay: calc(var(--anim-speed-title) + 1s + 11*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(13) { animation-delay: calc(var(--anim-speed-title) + 1s + 12*var(--anim-delay-stagger)); }
 
-
-    /* SERIES BACKGROUND */
+    /* --- SERIES BACKGROUND --- */
     .series-background {
       position: fixed;
       top: 50%; left: 50%;
@@ -149,72 +109,38 @@
       z-index: 0;
     }
 
-    .work-content { position: relative; z-index: 2; }
+    /* --- NEXT PART ICON --- */
+    .next-part { display:block; font-family:'Codystar',sans-serif; font-size:4rem; color:inherit; text-align:center; cursor:pointer; margin:2rem 0; text-decoration:none; }
+    .next-part.up { margin-bottom:2rem; }
+    .next-part:hover { transform:translateY(2px); }
 
-    /* NEXT PART ICON */
-    a {
-      text-decoration: none;
-      color: inherit;
+    /* --- FLEX THREE-COLUMN LAYOUT --- */
+    .layout-container {
+      display: flex;
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
     }
-    
-    .next-part {
-      display: block;
-      font-family: 'Codystar', sans-serif;
-      font-size: 4rem;
-      color: inherit;
-      text-align: center;
-      cursor: pointer;
-      margin-top: 2rem;
-      text-decoration: none;
+    .left-column { flex:1; display:flex; flex-direction:column; }
+    .center-column { flex:2; display:flex; flex-direction:column; }
+    .right-column { flex:1; display:flex; flex-direction:column; }
+
+    /* Sticky subtitle only on desktop */
+    @media (min-width: 769px) {
+      .subtitle-container { position: sticky; top: 2rem; }
     }
-    
-    /* UP ARROW */
-    .next-part.up { margin-bottom: 2rem; }
 
-    .next-part:hover { transform: translateY(2px); }
-
-    /* SPOTIFY POPUP */
-    .spotify-popup {
-      display: none;
-      position: fixed;
-      top: 50%; 
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 999;
-      background: #000; 
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 0 20px 4px gold; 
-      width: 90vw;
-      max-width: 400px; 
-      aspect-ratio: 4 / 5;
-      overflow: hidden;
-      }
-
-    .spotify-popup iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      border-radius: 12px;
-      display: block;
-      }
-
-    /* RESPONSIVE */
+    /* Mobile fallback: stack columns */
     @media(max-width:768px) {
-      .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
-      .series-background { font-size: 12.5rem; }
-      .audio-button { right: 1rem; }
-      .work-title { position: static; 
-                   padding: 4rem 1.5rem 2rem 1.5rem; 
-                   font-size: 2.8rem; 
-                   line-height: 1.2; 
-                  }
-      .subtitle-container { width: fit-content; max-width: 21ch; margin: 1rem auto 2rem; text-align: center; padding-left: 0; position: static; }
-      .spotify-popup iframe { height: 200px; }
-      .next-part { font-size: 2.5rem; margin-top: 1rem; }
-      .work-content { padding-top: 3rem; }
+      .layout-container { display:block; padding:1rem; }
+      .left-column, .center-column, .right-column { width:100%; }
+      .subtitle-container { position:static; margin:1rem auto 2rem; text-align:center; }
+      .floating-paragraph { max-width:90%; font-size:1.15rem; }
+      .series-background { font-size:12.5rem; }
+      .work-title h1 { font-size:2.8rem; line-height:1.2; padding:4rem 1.5rem 2rem; }
+      .next-part { font-size:2.5rem; margin-top:1rem; }
     }
-
   </style>
 </head>
 
@@ -227,37 +153,46 @@
     <span class="kitty-text">Kitty</span>
   </a>
 
-    <!--- TITLE ---> 
+  <!-- FLEX LAYOUT -->
+  <div class="layout-container">
+    <!-- LEFT COLUMN -->
+    <div class="left-column">
       <div class="work-title">
         <h1>Cai Người</h1>
       </div>
-
-    <!-- SUBTITLE -->
-    <div class="subtitle-container">
-      <h2>Thừa nhận bản thân mình không thể điều khiển được những thế lực cưỡng ép.</h2>
+      <div class="subtitle-container">
+        <h2>Thừa nhận bản thân mình không thể điều khiển được những thế lực cưỡng ép.</h2>
+      </div>
     </div>
-  
-  <div class="text-section">
-    <!-- UPWARD ARROW -->
-    <span class="next-part up" data-target="cai.nguoi-thuo.dau.html">︿</span>
 
-    <p class="floating-paragraph">Mọi cơn nghiện đều bắt đầu từ một nhu cầu nho nhỏ lâu lâu xảy đến một lần. Một điếu thuốc, một ly rượu, một ván điện tử, một lời tán tỉnh. Tất cả từng là sự điều độ.</p>
-    <p class="floating-paragraph">Người ta nghiện nhiều lắm, bạn biết đấy. Chưa từng dừng lại, chưa từng chậm lại. Không không không không, nó đa dạng và tinh vi hơn là đằng khác. Phổ thông nhất, ta có các chất kích thích, các chất an thần. Nhưng nghiện, mà nói vĩ mô ra, thì ông nghiện cả cái sự đời này cũng được. Thất đại tội của loài người trong Kinh Thánh Cơ Đốc, tôi phàm gọi là 7 cái nghiện dại đầu tiên, trước khi thế giới càng ngày càng trở nên phức tạp đến mất kiểm soát. Cứ đính chính thế này đi: Tôi thật lòng đang không ngỏ ý tranh luận với bất cứ ai về tôn giáo đâu. Không, tôi muốn tuyên ngôn: Cái nghiện là cái ban sơ của động vật, cái nghiện là cái đa diện và, tin tôi, cái đéo gì thì cũng nghiện được. Có nghiện đơn giản thì có nghiện phức tạp, nghiện ít thì cũng có nghiện nhiều.</p>
-    <p class="floating-paragraph">Nhưng rốt cùng, mọi cơn nghiện đều chung quy tại sự đầu hàng, hoàn toàn bất đắc dĩ trao đi quyền hạn điều khiển bản thân cho một thứ.</p>
-    <p class="floating-paragraph">Một trong những ảo giác phức hợp nhất con người có thể tạo ra cho chính mình là cảm giác liêm chính khác người và hơn người, khi cả ông, tôi và chúng ta đều cảm nhận được dòng dopamine chảy xiết trong não khi một ngày nữa, bạn lại săn sale cho những món đồ bạn đéo cần, lướt mạng xem những video bạn đéo quan tâm, và tiếp tục chạy theo những mối quan hệ đéo có lợi. Tất cả chúng ta đều suýt rồi đấy, suýt rồi… Chẳng biết cái gì làm bạn sống đỡ sống tiếp, nhưng phải chăng cái gì hẩy nhẹ bạn lọt vực, thì không biết còn nói vậy được không.</p>
-    <p class="floating-paragraph">Cờ bạc có, tình dục có, sức mạnh có, và — cha bố nó chứ — người ta nghiện được cả tình yêu luôn. Một cái hố hình trái tim.</p>
+    <!-- CENTER COLUMN -->
+    <div class="center-column">
+      <div class="text-section">
+        <span class="next-part up" data-target="cai.nguoi-thuo.dau.html">︿</span>
 
-    <!-- DOWNWARD ARROW -->
-    <span class="next-part down" data-target="cai.nguoi-tin.tuong.html">﹀</span>
+        <p class="floating-paragraph">Mọi cơn nghiện đều bắt đầu từ một nhu cầu nho nhỏ lâu lâu xảy đến một lần. Một điếu thuốc, một ly rượu, một ván điện tử, một lời tán tỉnh. Tất cả từng là sự điều độ.</p>
+        <p class="floating-paragraph">Người ta nghiện nhiều lắm, bạn biết đấy. Chưa từng dừng lại, chưa từng chậm lại. Không không không không, nó đa dạng và tinh vi hơn là đằng khác...</p>
+        <p class="floating-paragraph">Nhưng rốt cùng, mọi cơn nghiện đều chung quy tại sự đầu hàng, hoàn toàn bất đắc dĩ trao đi quyền hạn điều khiển bản thân cho một thứ.</p>
+        <p class="floating-paragraph">Một trong những ảo giác phức hợp nhất con người có thể tạo ra cho chính mình là cảm giác liêm chính khác người và hơn người...</p>
+        <p class="floating-paragraph">Cờ bạc có, tình dục có, sức mạnh có, và — cha bố nó chứ — người ta nghiện được cả tình yêu luôn. Một cái hố hình trái tim.</p>
+
+        <span class="next-part down" data-target="cai.nguoi-tin.tuong.html">﹀</span>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="right-column">
+      <!-- empty for now -->
+    </div>
   </div>
 
   <script>
-    const arrows=document.querySelectorAll('.next-part');
-    arrows.forEach(a=>{
-      a.addEventListener('click',()=>{
-        document.body.style.transition='opacity 1s';
-        document.body.style.opacity=0;
-        setTimeout(()=>{window.location.href=a.dataset.target;},1000);
+    const arrows = document.querySelectorAll('.next-part');
+    arrows.forEach(a => {
+      a.addEventListener('click', () => {
+        document.body.style.transition = 'opacity 1s';
+        document.body.style.opacity = 0;
+        setTimeout(() => { window.location.href = a.dataset.target; }, 1000);
       });
     });
   </script>
