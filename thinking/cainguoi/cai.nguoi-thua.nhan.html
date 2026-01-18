@@ -21,6 +21,7 @@
 
     /* WORK TITLE */
     .work-title { 
+      position: relative;
       top: 0;
       padding: 2rem 5rem;
       z-index: 2;
@@ -66,10 +67,10 @@
       animation: neonSign 1s ease forwards; /* very fast flash */
       animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger));
     }
-
-    /* SUBTITLE */
+    
+      /* SUBTITLE */
     .subtitle-container {
-      position: sticky;
+      position: static;
       top: 2rem;
       width: auto;
       margin: 1rem 0 2rem 5rem;
@@ -225,15 +226,16 @@
     <span class="kitty-text">Kitty</span>
   </a>
 
-  <div class="work-title">
-    <h1>Cai Người</h1>
-  </div>
+    <!--- TITLE ---> 
+      <div class="work-title">
+        <h1>Cai Người</h1>
+      </div>
 
-  <!-- SUBTITLE -->
-  <div class="subtitle-container">
-    <h2>Thừa nhận bản thân mình không thể điều khiển được những thế lực cưỡng ép.</h2>
-  </div>
-
+    <!-- SUBTITLE -->
+    <div class="subtitle-container">
+      <h2>Thừa nhận bản thân mình không thể điều khiển được những thế lực cưỡng ép.</h2>
+    </div>
+  
   <div class="text-section">
     <!-- UPWARD ARROW -->
     <span class="next-part up" data-target="cai.nguoi-thuo.dau.html">︿</span>
