@@ -19,33 +19,35 @@
       --gold-core: #FFD662;
     }
 
-    /* WORK TITLE */
+    /* --- WORK TITLE --- */
     .work-title { 
-      position: sticky;
-      top: 0;
+      position: relative;
       padding: 2rem 5rem;
       z-index: 2;
     }
-
     .work-title h1 {
-      font-family:'Raleway',sans-serif;
-      font-size:4rem;
-      letter-spacing:0.16em;
-      font-weight:100;
-      color:#222;
-      text-shadow:0 0 1px var(--gold-core),0 0 2px var(--gold-core),0 0 4px var(--gold-core);
-      -webkit-text-stroke:.4px var(--gold-core);
-      opacity:0;
-      animation:neonSign-Gold 1s ease forwards;
-      animation-delay:0.3s;
+      font-family: 'Raleway', sans-serif;
+      font-size: 4rem;
+      letter-spacing: 0.16em;
+      font-weight: 100;
+      color: #222;
+      text-shadow:
+        0 0 1px var(--gold-core),
+        0 0 2px var(--gold-core),
+        0 0 4px var(--gold-core);
+      -webkit-text-stroke: .4px var(--gold-core);
+      opacity: 0;
+      animation: neonSign-Gold 1s ease forwards;
+      animation-delay: 0.3s;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-
     @keyframes neonSign-Gold {
       0%{opacity:0;color:#222;text-shadow:none;}
       8%{opacity:1;color:var(--gold-core);text-shadow:0 0 3px var(--gold-core);}
       16%{opacity:0;color:#222;text-shadow:none;}
       25%{opacity:1;color:var(--gold-core);text-shadow:0 0 6px var(--gold-core),0 0 10px rgba(255,214,98,0.7);}
-      33%{opacity:0.4;color:#222;text-shadow:none;}
       50%{opacity:1;color:#fff;text-shadow:0 0 10px #fff,0 0 18px var(--gold-core);}
       66%{opacity:1;color:var(--gold-core);text-shadow:0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8);}
       83%{opacity:0.6;color:#222;text-shadow:none;}
@@ -53,14 +55,11 @@
       100%{opacity:1;color:var(--gold-core);text-shadow:0 0 2px var(--gold-core),0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8),0 0 16px rgba(255,214,98,0.6);}
     }
 
-    /* SUBTITLE */
+    /* --- SUBTITLE --- */
     .subtitle-container {
-      width: fit-content;
-      margin: 1rem auto 2rem;
-      text-align: center;
-      z-index: 2;
+      margin: 1rem 0 2rem;
+      z-index: 75;
     }
-
     .subtitle-container h2 {
       font-family:'Raleway',sans-serif;
       font-weight:100;
@@ -72,7 +71,6 @@
       animation:neonSign-White 0.7s ease forwards;
       animation-delay:1.2s;
     }
-
     @keyframes neonSign-White {
       0%{opacity:0;color:#222;text-shadow:none;}
       8%{opacity:1;color:#fff;text-shadow:0 0 3px #fff;}
@@ -81,45 +79,50 @@
       50%{opacity:1;color:#fff;text-shadow:0 0 10px #fff,0 0 18px #fff;}
       100%{opacity:1;color:#fff;text-shadow:0 0 6px #fff,0 0 12px rgba(255,214,98,0.8);}
     }
-
-    /* BODY PARAGRAPHS WITH STAGGERED ANIMATION */
-    .floating-paragraph {
-      opacity:0;
-      max-width:40%;
-      margin:0 auto 1.5rem;
-      font-size:1.5rem;
-      font-family:'Raleway',sans-serif;
-      font-weight:200;
-      line-height:1.6;
-      text-align:left;
-      z-index:2;
-      animation:bodyFade var(--anim-speed-body) ease forwards;
+    @media(min-width:769px){
+      .subtitle-container { 
+        position: sticky; 
+        top: calc(2rem + 4rem); 
+        padding-left: 5rem; /* align with title */
+      }
     }
 
-    @keyframes bodyFade {0%{opacity:0;}100%{opacity:1;}}
+    /* --- BODY PARAGRAPHS --- */
+    .floating-paragraph {
+      opacity: 0;
+      max-width: 40%;
+      margin: 0 auto 1.5rem;
+      font-size: 1.5rem;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 200;
+      line-height: 1.6;
+      text-align: left;
+      z-index: 2;
+      animation: bodyFade var(--anim-speed-body) ease forwards;
+    }
+    @keyframes bodyFade { 0% { opacity:0;} 100% {opacity:1;} }
+    .floating-paragraph:nth-child(1)  { animation-delay: calc(var(--anim-speed-title) + 1s); }
+    .floating-paragraph:nth-child(2)  { animation-delay: calc(var(--anim-speed-title) + 1s + var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(3)  { animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(4)  { animation-delay: calc(var(--anim-speed-title) + 1s + 3*var(--anim-delay-stagger)); }
+    .floating-paragraph:nth-child(5)  { animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger)); }
 
-    .floating-paragraph:nth-child(1) { animation-delay: calc(var(--anim-speed-title) + 1s); }
-    .floating-paragraph:nth-child(2) { animation-delay: calc(var(--anim-speed-title) + 1s + 1*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(3) { animation-delay: calc(var(--anim-speed-title) + 1s + 2*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(4) { animation-delay: calc(var(--anim-speed-title) + 1s + 3*var(--anim-delay-stagger)); }
-    .floating-paragraph:nth-child(5) { animation-delay: calc(var(--anim-speed-title) + 1s + 4*var(--anim-delay-stagger)); }
-
-    /* SERIES BACKGROUND */
+    /* --- SERIES BACKGROUND --- */
     .series-background {
       position: fixed;
-      top:50%; left:50%;
-      transform:translate(-50%,-50%);
-      font-family:'Raleway Dots',cursive;
-      font-size:25rem;
-      color:var(--gold-core);
-      opacity:.09;
-      pointer-events:none;
-      z-index:0;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      font-family: 'Raleway Dots', cursive;
+      font-size: 25rem;
+      color: var(--gold-core);
+      opacity: .09;
+      pointer-events: none;
+      z-index: 0;
     }
 
     .text-section { position: relative; z-index: 2; }
 
-    /* NEXT PART ICONS */
+    /* --- NEXT PART ICONS --- */
     .next-part {
       display: block;
       font-family:'Codystar',sans-serif;
@@ -130,17 +133,18 @@
       margin:2rem auto;
     }
 
-    /* MOBILE */
-    @media(max-width:768px) {
-      .work-title { position: static; padding: 5rem 0 2rem 0; }
-      .work-title h1 { font-size:3.5rem; letter-spacing:0.12em; max-width:92vw; margin:0 auto; }
-      .subtitle-container { max-width:92vw; padding:0 1.25rem; margin:1.5rem auto 0.5rem; }
-      .subtitle-container h2 { font-size:1.6rem; max-width:92vw; text-align:center; }
+    /* --- MOBILE --- */
+    @media(max-width:768px){
+      .work-title { position: static; padding: 4rem 1.5rem 2rem; }
+      .work-title h1 { font-size:2.8rem; line-height:1.2; max-width:90vw; margin:0 auto; }
+      .subtitle-container { position: static; margin:1rem auto 2rem; max-width:90vw; text-align:center; padding-left:0; }
+      .subtitle-container h2 { font-size:1.6rem; text-align:center; }
       .floating-paragraph { max-width:90%; font-size:1.15rem; margin:0 auto 1.2rem; }
       .series-background { font-size:12.5rem; }
       .next-part { font-size:2.5rem; margin-top:0.5rem; }
       .text-section { padding-top:3rem; }
     }
+
   </style>
 </head>
 <body>
@@ -152,15 +156,19 @@
     <span class="kitty-text">Kitty</span>
   </a>
 
+  <!-- --- TITLE --- -->
   <div class="work-title">
     <h1>Cai Người</h1>
   </div>
 
+  <!-- --- SUBTITLE --- -->
   <div class="subtitle-container">
     <h2>Tin tưởng vào một Quyền Lực Thượng Thừa để tiếp thêm sức mạnh.</h2>
   </div>
 
+  <!-- --- BODY --- -->
   <div class="text-section">
+    <!-- UP ARROW -->
     <span class="next-part up" data-target="cai.nguoi-thua.nhan.html">︿</span>
 
     <p class="floating-paragraph">Chúa?</p>
@@ -169,7 +177,8 @@
     <p class="floating-paragraph">Thế Đấng Tối Cao nào cơ? Chúa? Àaaa, hay là ở đây này. Thực mà nói, khái niệm Quyền Lực Thượng Thừa trong chương trình 12 Bước khởi nguyên là chỉ Đức Thiên Chúa chúng ta vẫn biết đến bấy giờ và bây giờ. Tuy nhiên, thế giới đổi thay nhiều rồi và khái niệm này dần được định nghĩa lại, rộng hơn nữa, và mơ hồ hơn nữa. Là một thánh nhân, là một thực thể, một quần thể thiêng liêng, một vầng hào quang vô hình toàn diện, chẳng quan trọng nữa. Chỉ cần một khái niệm to lớn hơn bạn, to lớn hơn tôi, to lớn hơn tất cả chúng ta, mà bạn tin có thể cứu rỗi tâm hồn bạn. “Bạn thấy  Chúa của bạn hợp lý? Chúng tôi thấy Chúa của bạn hợp lý.”</p>
     <p class="floating-paragraph">Tính ra, tôi… khá thích điều đó.</p>
 
-    <span class="next-part down" data-target="cai.nguoi-thua.nhan.html">﹀</span>
+    <!-- DOWN ARROW -->
+    <span class="next-part down" data-target="cai.nguoi-thuo.dau.html">﹀</span>
   </div>
 
   <script>
