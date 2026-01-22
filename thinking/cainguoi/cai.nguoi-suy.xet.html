@@ -70,33 +70,25 @@
       padding: 0 2rem;
       position: sticky;
       top: 4.5rem;         
-      z-index: 10;    
-      pointer-events: none;
+      z-index: 10;   
     }
     
     .subtitle-container h2.column-subheading.animated-subtitle {
-      position: relative;
-      color: #fff;
-      -webkit-text-stroke: 0;
-      z-index: 10;
-      display: block;
       font-family: 'Raleway', sans-serif;
       font-size: 2rem;
       font-weight: 100;
       text-shadow:
         0 0 2px #fff,
-        0 0 6px rgba(255,255,255,0.6),
-        0 0 12px rgba(255,255,255,0.4);
-      margin-top: 0.3em;
+        0 0 5px rgba(255,255,255,0.6),
+        0 0 9px rgba(255,255,255,0.4);
       opacity: 0;
       animation: neonSign-White 0.7s ease forwards;
-      animation-delay: 1.2s;
-      max-width: 14ch;   
+      animation-delay:1s;
+      max-width: 15.5ch;   
       line-height: 1.4; 
       word-wrap: break-word;
       text-align: left;
       margin: 0.3em 0 0 0;
-      pointer-events: none;
     }  
 
     @keyframes neonSign-White {
@@ -164,20 +156,10 @@
     }
     
     /* UP AND DOWN ARROWS */
-    .next-part { left: 50%;
-                 transform: translateX(-50%);
-                 font-family: 'Codystar', sans-serif;
-                 font-size: 4rem;
-                 color: inherit;
-                 text-align: center;
-                 cursor: pointer;
-                 z-index: 999;
-                } 
-    .next-part.up { top: 1rem; position: fixed; }    
-    .next-part.down { bottom: 1rem; position: relative; }
-    .next-part:hover { transform: translateX(-50%) translateY(2px); }
-  
-    .work-content { padding-top: 5rem; }
+    .next-part { display:block; font-family:'Codystar',sans-serif; font-size:4rem; color:inherit; text-align:center; cursor:pointer; margin:2rem auto; text-decoration:none; }
+    .next-part.up { margin-bottom:2rem; }
+    .next-part.down { margin-top:2rem; }
+    .next-part:hover { transform:translateY(2px); }
 
     /* SPOTIFY POPUP */
     .spotify-popup 
