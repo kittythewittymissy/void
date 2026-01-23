@@ -150,6 +150,30 @@
     .next-part.down { margin-top:2rem; }
     .next-part:hover { transform:translateY(2px); }
 
+    /* SPOTIFY POPUP */
+    .spotify-popup 
+    { display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(10px);
+      padding: 1.2rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,214,98,0.22);
+      box-shadow: 0 0 18px rgba(255,214,98,0.18), inset 0 0 22px rgba(255,214,98,0.10); }
+
+    .spotify-popup iframe 
+    { border-radius: 10px;
+      width: 100%;
+      height: 352px;
+      box-shadow: 0 0 12px rgba(255,214,98,0.12); }
+
+    .spotify-popup .close-btn { position: 0.5rem; top: 0.5rem; right: 1rem; 
+                               font-size: 1.5rem; color: #FFD662; cursor: pointer; }
+
     /* RESPONSIVE */
     @media(max-width:768px) {
       .floating-paragraph { max-width:90%; font-size:1.15rem; }
@@ -195,7 +219,21 @@
     <span class="next-part down" data-target="cai.nguoi-suy.xet.html">﹀</span>
   </div>
 
+  <!-- SPOTIFY POP-UP -->
+  <div class="spotify-popup" id="spotifyPopup">
+    <span class="close-btn" id="closePopup">&times;</span>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0vcdNvf4JqpLuJ8kvTSq01?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+  
   <script>
+    const audioBtn = document.getElementById('audioBtn');
+    const popup = document.getElementById('spotifyPopup');
+    const closeBtn = document.getElementById('closePopup');
+
+      audioBtn.addEventListener('click', () => { popup.style.display = 'block'; });
+      closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
+      window.addEventListener('click', (e) => { if (e.target === popup) popup.style.display = 'none'; });
+
     const arrows=document.querySelectorAll('.next-part');
     arrows.forEach(a=>{
       a.addEventListener('click',()=>{
