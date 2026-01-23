@@ -143,11 +143,31 @@
 
     /* RESPONSIVE */
     @media(max-width:768px) {
-      .floating-paragraph { max-width:90%; font-size:1.15rem; }
-      .series-background { font-size:12.5rem; }
-      .work-title h1 { font-size:2.8rem; line-height:1.2; padding:4rem 1.5rem 2rem; }
-      .subtitle-container { position: static; margin:1rem auto 2rem; text-align:center; }
-      .next-part { font-size:2.5rem; margin-top:1rem; }
+      .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
+      .series-background { font-size: 12.5rem; }
+      .audio-button { right: 1rem; }
+      .work-title { position: static; 
+                    padding: 4rem 1.5rem 2rem 1.5rem; 
+                    font-size: 2.8rem; 
+                    line-height: 1.2; 
+                  }
+      .subtitle-container { position: static; margin: 0 auto; 
+                             padding: 0 1rem; width: 100%; 
+                             text-align: center; }
+      .work-title h2.column-subheading.animated-subtitle { font-size: 1.6rem; 
+                                                            max-width: 90%; 
+                                                            position: static; }
+      .spotify-popup { bottom: 0; left: 0; width: 100%; border-radius: 18px 18px 0 0;
+                        padding-bottom: calc(env(safe-area-inset-bottom) + 1rem); 
+                        border: 1px solid rgba(255,215,0,0.45); }
+      .spotify-popup iframe { width: 100%; height: 260px; border-radius: 12px; }
+      .next-part { position: relative; display: block; left: auto; 
+                    top: auto; bottom: auto; margin: 2rem auto 0; 
+                    transform: none; font-size: 2.5rem; z-index: 10; }
+      .next-part.up { margin-top: 2rem; }
+      .next-part.down { margin-bottom: 2rem; }
+      .next-part:hover { transform: translateY(2px); }
+      .work-content { padding-top: 3rem; }
     }
 
   </style>
@@ -187,15 +207,39 @@
     <span class="next-part down" data-target="cai.nguoi-tin.tuong.html">﹀</span>
   </div>
 
+  <!-- AUDIO BUTTON -->
+  <div class="audio-button" id="audioBtn">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.95 7-4.49 7-8.77s-2.99-7.82-7-8.77z"/>
+    </svg>
+  </div>
+  
+  <!-- SPOTIFY POP-UP -->
+  <div class="spotify-popup" id="spotifyPopup">
+    <span class="close-btn" id="closePopup">&times;</span>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0vcdNvf4JqpLuJ8kvTSq01?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+
+  <!-- UI INTERACTION (modal + transition) -->
   <script>
+    const audioBtn = document.getElementById('audioBtn');
+    const popup = document.getElementById('spotifyPopup');
+    const closeBtn = document.getElementById('closePopup');
+
+      audioBtn.addEventListener('click', () => { popup.style.display = 'block'; });
+      closeBtn.addEventListener('click', () => { popup.style.display = 'none'; });
+      window.addEventListener('click', (e) => { if (e.target === popup) popup.style.display = 'none'; });
+
     const arrows = document.querySelectorAll('.next-part');
-    arrows.forEach(a => {
-      a.addEventListener('click', () => {
-        document.body.style.transition = 'opacity 1s';
-        document.body.style.opacity = 0;
-        setTimeout(() => { window.location.href = a.dataset.target; }, 1000);
-      });
+      arrows.forEach(arrow => {
+      arrow.addEventListener('click', () => {
+      document.body.style.transition = 'opacity 1s';
+      document.body.style.opacity = 0;
+      setTimeout(() => {
+        window.location.href = arrow.dataset.target;
+      }, 1000);
     });
+  });
   </script>
 </body>
 </html>
