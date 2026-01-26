@@ -21,13 +21,17 @@
 
     /* --- WORK TITLE --- */
     .work-title { 
+      display: inline-block;
       position: relative;
+      top: 0;
       padding: 2rem 5rem;
-      z-index: 2;
+      display: flex;
+      flex-direction: column;
     }
 
     .work-title h1 {
       font-family: 'Raleway', sans-serif;
+      z-index: 1;
       font-size: 4rem;
       letter-spacing: 0.16em;
       font-weight: 100;
@@ -38,11 +42,8 @@
         0 0 4px var(--gold-core);
       -webkit-text-stroke: .4px var(--gold-core);
       opacity: 0;
-      animation: neonSign-Gold 1.2s ease forwards;
+      animation: neonSign-Gold 1s ease forwards;
       animation-delay: 0.3s;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     @keyframes neonSign-Gold {
@@ -67,22 +68,23 @@
       z-index: 10;    
     }
     
-    .subtitle-container h2 {
-      font-family:'Raleway',sans-serif;
-      font-weight:100;
-      font-size:2rem;
-      line-height:1.4;
+    .subtitle-container h2.column-subheading.animated-subtitle {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2rem;
+      font-weight: 100;
       text-shadow:
         0 0 2px #fff,
         0 0 5px rgba(255,255,255,0.6),
         0 0 9px rgba(255,255,255,0.4);
-      max-width:15.5ch;
-      margin: 0.3em 0 0 0;
-      opacity:0;
-      animation:neonSign-White 1.2s ease forwards;
+      opacity: 0;
+      animation: neonSign-White 1.2s ease forwards;
       animation-delay:1.2s;
+      max-width: 15.5ch;   
+      line-height: 1.4; 
       word-wrap: break-word;
-    }
+      text-align: left;
+      margin: 0.3em 0 0 0;
+    }  
     
     @keyframes neonSign-White {
       0%   { opacity: 0; color: #222; text-shadow: none; }
@@ -105,7 +107,7 @@
     /* --- BODY PARAGRAPHS --- */
     .floating-paragraph {
       opacity: 0;
-      max-width: 40%; /* matches first page width */
+      max-width: 40%; 
       margin: 0 auto 1.5rem;
       font-size: 1.5rem;
       font-family: 'Raleway', sans-serif;
@@ -186,8 +188,10 @@
                   }
       .subtitle-container { position: static; margin: 0 auto; 
                              padding: 0 3rem; width: 100%; 
-                             text-align: center; }
-      .subtitle-container h2 { font-size: 1.6rem; max-width: 90%; position: static; }
+                             }
+      .work-title h2.column-subheading.animated-subtitle { font-size: 1.6rem; 
+                                                            max-width: 90%; 
+                                                            position: static; text-align: center; }
       .spotify-popup { bottom: 0; left: 0; width: 100%; border-radius: 18px 18px 0 0;
                         padding-bottom: calc(env(safe-area-inset-bottom) + 1rem); 
                         border: 1px solid rgba(255,215,0,0.45); }
