@@ -21,13 +21,17 @@
 
     /* --- WORK TITLE --- */
     .work-title { 
+      display: inline-block;
       position: relative;
+      top: 0;
       padding: 2rem 5rem;
-      z-index: 2;
+      display: flex;
+      flex-direction: column;
     }
-
-    .work-title h1 {
+    
+   .work-title h1 {
       font-family: 'Raleway', sans-serif;
+      z-index: 1;
       font-size: 4rem;
       letter-spacing: 0.16em;
       font-weight: 100;
@@ -40,11 +44,8 @@
       opacity: 0;
       animation: neonSign-Gold 1s ease forwards;
       animation-delay: 0.3s;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
-
+    
     @keyframes neonSign-Gold {
       0% { opacity:0; color:#222; text-shadow:none; }
       8% { opacity:1; color:var(--gold-core); text-shadow:0 0 3px var(--gold-core); }
@@ -59,21 +60,31 @@
 
     /* --- SUBTITLE --- */
     .subtitle-container {
-      margin: 1rem 0 2rem;
-      z-index: 75;
-      padding-left: 5rem;
+      display: inline-flex;
+      margin-left: 5rem;
+      padding: 0 2rem;
+      position: sticky;
+      top: 4.5rem;         
+      z-index: 10;   
     }
     
-    .subtitle-container h2 {
-      font-family:'Raleway',sans-serif;
-      font-weight:100;
-      font-size:2rem;
-      line-height:1.4;
-      max-width:15.5ch;
-      opacity:0;
-      animation:neonSign-White 1.2s ease forwards;
+    .subtitle-container h2.column-subheading.animated-subtitle {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2rem;
+      font-weight: 100;
+      text-shadow:
+        0 0 2px #fff,
+        0 0 5px rgba(255,255,255,0.6),
+        0 0 9px rgba(255,255,255,0.4);
+      opacity: 0;
+      animation: neonSign-White 1.2s ease forwards;
       animation-delay:1.2s;
-    }
+      max-width: 15.5ch;   
+      line-height: 1.4; 
+      word-wrap: break-word;
+      text-align: left;
+      margin: 0.3em 0 0 0;
+    }  
     
     @keyframes neonSign-White {
       0%   { opacity: 0; color: #222; text-shadow: none; }
