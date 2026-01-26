@@ -38,7 +38,7 @@
         0 0 4px var(--gold-core);
       -webkit-text-stroke: .4px var(--gold-core);
       opacity: 0;
-      animation: neonSign-Gold 1s ease forwards;
+      animation: neonSign-Gold 1.2s ease forwards;
       animation-delay: 0.3s;
       white-space: nowrap;
       overflow: hidden;
@@ -57,7 +57,7 @@
       100% { opacity:1; color:var(--gold-core); text-shadow:0 0 2px var(--gold-core),0 0 6px var(--gold-core),0 0 12px rgba(255,214,98,0.8),0 0 16px rgba(255,214,98,0.6); }
     }
 
-    /* --- SUBTITLE --- */
+    /* SUBTITLE */
     .subtitle-container {
       display: inline-flex;
       margin-left: 5rem;
@@ -174,13 +174,31 @@
     .spotify-popup .close-btn { position: 0.5rem; top: 0.5rem; right: 1rem; 
                                font-size: 1.5rem; color: #FFD662; cursor: pointer; }
 
-    /* RESPONSIVE */
+    /* MOBILE RESPONSIVE */
     @media(max-width:768px) {
-      .floating-paragraph { max-width:90%; font-size:1.15rem; }
-      .series-background { font-size:12.5rem; }
-      .work-title h1 { font-size:2.8rem; line-height:1.2; padding:4rem 1.5rem 2rem; }
-      .subtitle-container { position: static; margin:1rem auto 2rem; text-align:center; }
-      .next-part { font-size:2.5rem; margin-top:1rem; }
+      .floating-paragraph { max-width: 90%; font-size: 1.15rem; }
+      .series-background { font-size: 12.5rem; }
+      .audio-button { right: 1rem; }
+      .work-title { position: static; 
+                    padding: 4rem 1.5rem 2rem 1.5rem; 
+                    font-size: 2.8rem; 
+                    line-height: 1.2; 
+                  }
+      .subtitle-container { position: static; margin: 0 auto; 
+                             padding: 0 3rem; width: 100%; 
+                             text-align: center; }
+      .subtitle-container h2 { font-size: 1.6rem; max-width: 90%; position: static; }
+      .spotify-popup { bottom: 0; left: 0; width: 100%; border-radius: 18px 18px 0 0;
+                        padding-bottom: calc(env(safe-area-inset-bottom) + 1rem); 
+                        border: 1px solid rgba(255,215,0,0.45); }
+      .spotify-popup iframe { width: 100%; height: 260px; border-radius: 12px; }
+      .next-part { position: relative; display: block; left: auto; 
+                    top: auto; bottom: auto; margin: 2rem auto 0; 
+                    transform: none; font-size: 2.5rem; z-index: 10; }
+      .next-part.up { margin-top: 2rem; }
+      .next-part.down { margin-bottom: 2rem; }
+      .next-part:hover { transform: translateY(2px); }
+      .work-content { padding-top: 3rem; }
     }
 
   </style>
