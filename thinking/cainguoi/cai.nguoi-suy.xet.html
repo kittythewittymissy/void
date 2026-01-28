@@ -130,6 +130,28 @@
     .floating-paragraph:nth-child(12) { animation-delay: calc(var(--anim-speed-title) + 1s + 11*var(--anim-delay-stagger)); }
     .floating-paragraph:nth-child(13) { animation-delay: calc(var(--anim-speed-title) + 1s + 12*var(--anim-delay-stagger)); }
 
+    /* NEON STRIKE-THROUGH (TARGET LINE ONLY) */
+    .strike-neon { position: relative; }
+
+    /* THE STRIKE LINE */
+    .strike-neon::after { content: ""; position: absolute; left: 0; top: 52%; transform: translateY(-50%);
+                          height: 1.6px; width: 0; background: var(--gold-core); opacity: 0;
+
+                          box-shadow:
+                                      0 0 4px var(--gold-core),
+                                      0 0 10px rgba(255,214,98,0.7),
+                                      0 0 18px rgba(255,214,98,0.45);
+
+                animation:
+                          strikeFadeIn 0.25s ease forwards,
+                          strikeSweep 0.9s cubic-bezier(.4,0,.2,1) forwards;
+
+                animation-delay: calc(var(--anim-speed-title) + 1s), calc(var(--anim-speed-title) + 1.25s); }
+
+    /* KEYFRAMES */
+      @keyframes strikeFadeIn { to { opacity: 1; } }
+      @keyframes strikeSweep { to { width: 100%; } }
+    
     /* SERIES BACKGROUND */
     .series-background {
       display: block;
@@ -233,7 +255,7 @@
     <div class="work-content">
       <div class="text-section">
           <a class="next-part up" data-target="cai.nguoi-tin.tuong.html">︿</a>
-        
+          <p class="floating-paragraph strike-neon">Tôi đã sai, nhưng tôi đã sai những gì?</p>
           <p class="floating-paragraph">Hãy giơ tay nếu bạn đã từng bôi bác sau lưng một đối tượng tình cảm.</p>
           <p class="floating-paragraph">Hãy giơ tay nếu bạn đã từng lười biếng việc trân trọng với một đối tượng tình cảm.</p>
           <p class="floating-paragraph">Hãy giơ tay nếu bạn từng chết cũng đéo nhận sai trong một cuộc cãi vã.</p>
