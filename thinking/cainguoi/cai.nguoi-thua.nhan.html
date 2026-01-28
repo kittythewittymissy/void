@@ -21,12 +21,9 @@
 
     /* --- WORK TITLE --- */
     .work-title { 
-      display: inline-block;
       position: relative;
-      top: 0;
+      top: auto;
       padding: 2rem 5rem;
-      display: flex;
-      flex-direction: column;
     }
     
    .work-title h1 {
@@ -99,14 +96,10 @@
       100% { opacity: 1; color: #fff; text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
     }
 
-    @media(min-width:769px){
-      .subtitle-container { position: sticky; top: calc(2rem + 4rem); }
-    }
-
     /* --- BODY PARAGRAPHS --- */
     .floating-paragraph {
       opacity: 0;
-      max-width: 40%; /* matches first page width */
+      max-width: 40%; 
       margin: 0 auto 1.5rem;
       font-size: 1.5rem;
       font-family: 'Raleway', sans-serif;
@@ -152,6 +145,8 @@
     .next-part.down { margin-top:2rem; }
     .next-part:hover { transform:translateY(2px); }
 
+    .work-content { padding-top: 5rem; }
+    
      /* SPOTIFY POPUP */
     .spotify-popup 
     { display: none;
@@ -190,7 +185,7 @@
                   }
       .subtitle-container { position: static; margin: 0 auto; 
                              padding: 0 3rem; width: 100%; }
-      .work-title h2.column-subheading.animated-subtitle { font-size: 1.6rem; 
+      .work-title h2.column-subheading.animated-subtitle { font-size: 1.4rem; 
                                                             max-width: 90%; 
                                                             position: static; 
                                                             text-align: center; }
@@ -206,7 +201,7 @@
       .work-content { padding-top: 3rem; }
     }
 
-    html, body { overflow-x: hidden; touch-action: pan-y; }
+    html, body { touch-action: pan-y; }
 
   </style>
 </head>
