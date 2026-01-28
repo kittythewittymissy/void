@@ -26,10 +26,8 @@
     /* WORK TITLE */
     .work-title { 
       position: relative;
-      top: 0;
+      top: auto;
       padding: 2rem 5rem;
-      display: flex;
-      flex-direction: column;
     }
 
     .work-title h1 {
@@ -64,16 +62,15 @@
 
     /* SUBHEADING */
     .subtitle-container {
-      display: block;
+      display: inline-flex;
       margin-left: 5rem;
       padding: 0 2rem;
-      min-height: 2.5rem;
       position: sticky;
       top: 4.5rem;         
       z-index: 10;   
     }
     
-    .column-subheading.animated-subtitle {
+     .subtitle-container .column-subheading.animated-subtitle {
       font-family: 'Raleway', sans-serif;
       font-size: 2.6rem;
       font-weight: 100;
@@ -107,7 +104,6 @@
     /* BODY PARAGRAPHS */
     .floating-paragraph {
       opacity: 0;
-      z-index: 1;
       max-width: 40%;
       margin: 0 auto 1.5rem;
       font-size: 1.5rem;
@@ -238,7 +234,7 @@
   </div>
     
     <div class="subtitle-container">
-      <h2 class="column-subheading animated-subtitle">
+      <h2 class="column-subheading.animated-subtitle">
           Suy xét lại những sai lầm trong quá khứ…
       </h2>
     </div>
