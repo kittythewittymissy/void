@@ -21,12 +21,9 @@
 
     /* --- WORK TITLE --- */
     .work-title { 
-      display: inline-block;
       position: relative;
-      top: 0;
+      top: auto;
       padding: 2rem 5rem;
-      display: flex;
-      flex-direction: column;
     }
 
     .work-title h1 {
@@ -42,7 +39,7 @@
         0 0 4px var(--gold-core);
       -webkit-text-stroke: .4px var(--gold-core);
       opacity: 0;
-      animation: neonSign-Gold 1s ease forwards;
+      animation: neonSign-Gold 1.2s ease forwards;
       animation-delay: 0.3s;
     }
 
@@ -99,11 +96,6 @@
       100% { opacity: 1; color: #fff; text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px rgba(255,214,98,0.8), 0 0 16px rgba(255,214,98,0.6); }
     }
 
-
-    @media(min-width:769px){
-      .subtitle-container { position: sticky; top: calc(2rem + 4rem); }
-    }
-
     /* --- BODY PARAGRAPHS --- */
     .floating-paragraph {
       opacity: 0;
@@ -114,7 +106,6 @@
       font-weight: 200;
       line-height: 1.6;
       text-align: left;
-      z-index: 2;
       animation: bodyFade var(--anim-speed-body) ease forwards;
     }
     @keyframes bodyFade { 0% { opacity: 0; } 100% { opacity: 1; } }
@@ -204,7 +195,7 @@
       .work-content { padding-top: 3rem; }
     }
 
-    html, body { overflow-x: hidden; touch-action: pan-y; }
+    html, body { touch-action: pan-y; }
   </style>
 </head>
 <body>
