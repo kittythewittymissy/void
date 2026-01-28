@@ -181,7 +181,7 @@
 
 
 
-    .spotify-popup .close-btn { position: absolute; top: 0.5rem; right: 1rem; 
+    .spotify-popup .close-btn { position: 0.5rem; top: 0.5rem; right: 1rem; 
                                font-size: 1.5rem; color: #FFD662; cursor: pointer; }
 
     /* MOBILE RESPONSIVE */
@@ -210,7 +210,9 @@
       .next-part.down { margin-bottom: 2rem; }
       .next-part:hover { transform: translateY(2px); }
     }
-
+    
+    html, body { touch-action: pan-y; }
+    
   </style>
 </head>
 
