@@ -25,7 +25,6 @@
 
     /* WORK TITLE */
     .work-title { 
-      display: inline-block;
       position: relative;
       top: 0;
       padding: 2rem 5rem;
@@ -72,7 +71,6 @@
       position: sticky;
       top: 4.5rem;         
       z-index: 10;   
-      align-self: flex-start;
     }
     
     .column-subheading.animated-subtitle {
@@ -188,7 +186,7 @@
 
 
 
-    .spotify-popup .close-btn { position: 0.5rem; top: 0.5rem; right: 1rem; 
+    .spotify-popup .close-btn { position: absolute; top: 0.5rem; right: 1rem; 
                                font-size: 1.5rem; color: #FFD662; cursor: pointer; }
 
     /* MOBILE RESPONSIVE */
@@ -216,15 +214,15 @@
       .next-part.up { margin-top: 2rem; }
       .next-part.down { margin-bottom: 2rem; }
       .next-part:hover { transform: translateY(2px); }
-      .work-content { padding-top: 3rem; }
     }
 
     html, body { overflow-x: hidden; touch-action: pan-y; }
 
   </style>
 
-<!-- PAGE ELEMENTS -->
 </head>
+
+<!-- PAGE ELEMENTS -->
 <body>
 
   <div class="series-background">Cai</div>
@@ -239,15 +237,15 @@
       <h1>Cai Người</h1>
   </div>
 
-  <div class="subtitle-container">
+  <div class="work-content">
+    
+    <div class="subtitle-container">
       <h2 class="column-subheading animated-subtitle">
-       Suy xét lại những sai lầm trong quá khứ…
+          Suy xét lại những sai lầm trong quá khứ…
       </h2>
-  </div>
-  
-    <div class="work-content">
-      <div class="text-section">
-        
+    </div>
+
+    <div class="text-section">
         <span class="next-part up" data-target="cai.nguoi-tin.tuong.html">︿</span>
         
         <p class="floating-paragraph">Hãy giơ tay nếu bạn đã từng bôi bác sau lưng một đối tượng tình cảm.</p>
@@ -263,9 +261,9 @@
         <p class="floating-paragraph">Nghiện này, dở rồi. </p>
 
         <span class="next-part down" data-target="../../under-creation-!.html">﹀</span>
-
-      </div>
     </div>
+
+  </div>
 
   <!-- AUDIO BUTTON -->
   <div class="audio-button" id="audioBtn">
