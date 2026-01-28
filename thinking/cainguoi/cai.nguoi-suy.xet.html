@@ -130,8 +130,11 @@
     .floating-paragraph:nth-child(12) { animation-delay: calc(var(--anim-speed-title) + 1s + 11*var(--anim-delay-stagger)); }
     .floating-paragraph:nth-child(13) { animation-delay: calc(var(--anim-speed-title) + 1s + 12*var(--anim-delay-stagger)); }
 
+    /* cancel fade ONLY when paragraph is also strike-neon */
+    .floating-paragraph:first-of-type { opacity: 1; animation: none; }
+
     /* NEON STRIKE-THROUGH (TARGET LINE ONLY) */
-    .strike-neon { position: relative; display: inline-block; }
+    .strike-neon { position: relative; display: inline-block; opacity: 0; animation: bodyFade var(--anim-speed-body) ease forwards; }
 
     /* THE STRIKE LINE */
     .strike-neon::after { content: ""; position: absolute; left: 0; top: 52%; transform: translateY(-50%);
@@ -144,7 +147,7 @@
 
                           animation: strikeSweep 0.9s cubic-bezier(.4,0,.2,1) forwards;
 
-                          animation-delay: calc(var(--anim-speed-title) + 1s), calc(var(--anim-speed-body) + 0.25s); }
+                          animation-delay: calc(var(--anim-speed-title) + 1s + var(--anim-speed-body) + 0.25s); }
 
     /* KEYFRAMES */
       @keyframes strikeSweep { to { width: 100%; } }
