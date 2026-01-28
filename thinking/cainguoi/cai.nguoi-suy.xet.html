@@ -142,14 +142,11 @@
                                       0 0 10px rgba(255,214,98,0.7),
                                       0 0 18px rgba(255,214,98,0.45);
 
-                animation:
-                          strikeFadeIn 0.25s ease forwards,
-                          strikeSweep 0.9s cubic-bezier(.4,0,.2,1) forwards;
+                          animation: strikeSweep 0.9s cubic-bezier(.4,0,.2,1) forwards;
 
-                animation-delay: calc(var(--anim-speed-title) + 1s), calc(var(--anim-speed-title) + 1.25s); }
+                          animation-delay: calc(var(--anim-speed-title) + 1s), calc(var(--anim-speed-title) + 1.3s); }
 
     /* KEYFRAMES */
-      @keyframes strikeFadeIn { to { opacity: 1; } }
       @keyframes strikeSweep { to { width: 100%; } }
     
     /* SERIES BACKGROUND */
